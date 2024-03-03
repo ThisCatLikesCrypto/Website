@@ -1,0 +1,79 @@
+table, tr, td, th {
+ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ border:1px solid black;
+ border-collapse: collapse;
+}
+
+
+th {
+ text-align:left;
+ background-color:azure;
+ color:blue;
+ padding:10px;
+}
+
+td {
+ background-color:aliceblue;
+ color:blueviolet;
+ padding:15px;
+}
+
+
+p {
+  background-color:lightblue;
+  padding: 5px;
+  color:black;
+}
+
+.tab {
+ overflow: hidden;
+ border: 2px solid rgb(24, 55, 228);
+ background-color: lightblue;
+}
+
+.tab button {
+ background-color: inherit;
+ float: left;
+ border: none;
+ outline: none;
+ cursor: pointer;
+ padding: 14px 16px;
+ transition: 0.5s;
+}
+
+
+.tab button:hover {
+ background-color:coral;
+ font-weight: bold;
+}
+
+.tab button.active {
+ background-color:crimson;
+ color:whitesmoke;
+ font-weight: bold;
+}
+
+.tabcontent {
+ background-color: rgba(205, 214, 255, 0.651);
+ display: none;
+ padding: 6px 12px;
+ border: 1px solid black;
+ border-top: none;
+}
+
+h6 {
+  background-color: lightblue;
+}
+
+body {
+ background-color: lightblue;
+ font-family:Verdana, Geneva, Tahoma, sans-serif;
+ width: 99%;
+}
+
+h1 {
+ background-color:cornflowerblue;
+ color:white;
+ padding:20px; 
+ text-align: center;
+}

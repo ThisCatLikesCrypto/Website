@@ -1,0 +1,21 @@
+body {
+ background-color: bisque;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+label {
+ font-size: 12pt;
+ font-weight: bold;
+}
+
+
+.button {
+ background-color: white;
+ color: blue;
+ padding: 5px;
+ text-align: center;
+ font-weight: bold;
+ font-size: 12pt;
+ border-radius: 8px;
+}

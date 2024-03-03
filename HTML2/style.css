@@ -1,0 +1,31 @@
+html, body {
+  animation: funnyRainbow linear 12s infinite;
+  animation-direction: normal;
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+
+a, p, h1 {
+  color: darkslategrey;
+  animation: textRainbow linear 4s infinite;
+  padding: 4px;
+}
+
+@keyframes funnyRainbow {
+    0% {background-image:url("kieran/images/Boris/Bojo.jpeg");} 
+    25% {background-image:url("kieran/images/Boris/Bojo2.jpeg");}
+    50% {background-image:url("kieran/images/Boris/funnyJoe.jpeg");}
+    75% {background-image:url("kieran/images/Boris/Bojo3.jpeg");} 
+    100% {background-image:url("kieran/images/Boris/Bojo.jpeg");} 
+}
+
+@keyframes textRainbow {
+  0% {background-color: red;}
+  16% {background-color: orange;}
+  32% {background-color: yellow;}
+  48% {background-image:green;} 
+  64% {background-color: blue;}
+  80% {background-color: purple;}
+  100% {background-color: red;}
+}

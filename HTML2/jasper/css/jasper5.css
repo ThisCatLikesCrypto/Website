@@ -1,0 +1,22 @@
+table, tr, td, th {
+ font-family:Arial, Helvetica, sans-serif;
+ border:1px solid black;
+ border-collapse: collapse;
+}
+
+th {
+ text-align:left;
+ background-color:azure;
+ color:blue;
+ padding:10px;
+}
+
+td {
+ background-color:aliceblue;
+ color:blueviolet;
+ padding:15px;
+}
+
+ul {
+  list-style-type:circle;
+}
