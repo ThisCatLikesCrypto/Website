@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <body>
-  <link rel="stylesheet" href="Whatdis.css">
-  <script src=Whatdis.js></script>
-  <button onclick="alert(5 + 6)">Button</button> 
-  <p> </p>
-  <button onclick="alert('Flip')">Boooo</button>
-  <p> </p>
-  <button onmouseover="EpicFunction()">EEEE</button>
-  <p> </p>
-  <button onclick="EpicFunction2()">Pain_Button</button>
+  <body onload="document.getElementById('defaultTab').click();">
+    <link rel="stylesheet" href="Whatdis.css">
+    <script src=Whatdis.js></script>
+    <button onclick="alert(5 + 6)">Button</button> 
+    <p> </p>
+    <button onclick="alert('Flip')">Boooo</button>
+    <p> </p>
+    <button onmouseover="EpicFunction()">EEEE</button>
+    <p> </p>
+    <button onclick="EpicFunction2()">Pain_Button</button>
+        
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'Tab0')" id="defaultTab">main</button>
+            <button class="tablinks" onclick="openTab(event, 'Epic')">copyright</button>
+            <button class="tablinks" onclick="openTab(event, 'about')">about</button>
+            <button class="tablinks" onclick="openTab(event, 'subsites')">sub-sites</button>
+            <div id="Tab0" class="tabcontent">
+              YOOO
+            </div>
+            <div id="copyright" class="tabcontent">
+                 <link rel="stylesheet" href="Whatdis.css">
+                 <script src=Whatdis.js></script>
+                 <button onclick="alert(5 + 6)">Button</button> 
+                 <p> </p>
+                 <button onclick="alert('Flip')">Boooo</button>
+                 <p> </p>
+                 <button onmouseover="EpicFunction()">EEEE</button>
+                 <p> </p>
+                 <button onclick="EpicFunction2()">Pain_Button</button>
+            </div>
+            <div id="about" class="tabcontent">
+              basscha
+            </div>
+            <div id="subsites" class="tabcontent">
+                yesfe
+            </div>
+        </div>
 
   
   <p>WebWork? Yes</p>
