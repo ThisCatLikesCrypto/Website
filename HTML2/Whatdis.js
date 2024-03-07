@@ -5,7 +5,7 @@ function EpicFunction() {
 }
 function EpicFunction2() {
   var Pitta2 = "AAAGHG";
-  var Num = 74
+  var Num = 148
   for (let i = 0; i < Num; i++) {
     document.write(Pitta2);
     document.write("\n")
