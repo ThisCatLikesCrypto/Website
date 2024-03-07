@@ -8,5 +8,6 @@ function EpicFunction2() {
   var Num = 74
   for (let i = 0; i < Num; i++) {
     document.write(Pitta2);
+    document.write("\n")
   }
 }
