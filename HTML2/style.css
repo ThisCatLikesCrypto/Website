@@ -14,10 +14,11 @@ a, p, h1 {
 
 @keyframes funnyRainbow {
     0% {background-image:url("kieran/images/Boris/Bojo.jpeg");} 
-    20% {background-image:url("kieran/images/Boris/Bojo2.jpeg");}
-    40% {background-image:url("kieran/images/Boris/funnyJoe.jpeg");}
-    60% {background-image:url("kieran/images/Boris/Bojo3.jpeg");} 
-    80% {background-image:url("kieran/images/Boris/KimJongUn.jpeg");}
+    16% {background-image:url("kieran/images/Boris/Bojo2.jpeg");}
+    32% {background-image:url("kieran/images/Boris/funnyJoe.jpeg");}
+    50% {background-image:url("kieran/images/Boris/Bojo3.jpeg");} 
+    66% {background-image:url("kieran/images/Boris/KimJongUn.jpeg");}
+    84% {background-image:url("kieran/images/Boris/fart.jpeg");}
     100% {background-image:url("kieran/images/Boris/Bojo.jpeg");} 
   
 }
