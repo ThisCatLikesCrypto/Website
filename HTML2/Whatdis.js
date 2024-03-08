@@ -15,7 +15,13 @@ function EpicFunction2() {
 function displayInfo() {
   const userName = document.getElementById("name").value;
   const userEmail = document.getElementById("email").value;
+
+  warnidjf = `Name: ${userName}\nEmail: ${userEmail}`;
+
   alert(`Name: ${userName}\nEmail: ${userEmail}`);
+  document.getElementById('id243').innerHTML = warnidjf;
+
+  return false;
 }
 
 function openTab(evt, tabName) {
