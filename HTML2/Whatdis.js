@@ -11,6 +11,12 @@ function EpicFunction2() {
     document.write("\n")
   }
 }
+
+function getValue (id) {
+    text = document.getElementById(id).value; //value of the text input
+    alert(text);
+    return false;
+}
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
