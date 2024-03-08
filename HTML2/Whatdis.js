@@ -12,11 +12,12 @@ function EpicFunction2() {
   }
 }
 
-function getValue (id) {
-    text = document.getElementById(id).value; //value of the text input
-    alert(text);
-    return false;
+function displayInfo() {
+  const userName = document.getElementById("name").value;
+  const userEmail = document.getElementById("email").value;
+  alert(`Name: ${userName}\nEmail: ${userEmail}`);
 }
+
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
