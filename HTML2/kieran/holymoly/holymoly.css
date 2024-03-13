@@ -10,3 +10,9 @@ html, body {
   text-align: center;
   color: red;
 }
+
+#holymoly-holymoly {
+  background-color: black;
+  color: white;
+  font-type: helvetica;
+}
