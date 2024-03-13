@@ -9,6 +9,8 @@ html, body {
   background-color: white;
   text-align: center;
   color: red;
+  margin-left: 30%;
+  margin-right: 30%;
 }
 
 #holymoly-buttons {
@@ -16,4 +18,6 @@ html, body {
   color: white;
   font-family: helvetica;
   text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
 }
