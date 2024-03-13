@@ -9,12 +9,14 @@ html, body {
   background-color: white;
   text-align: center;
   color: red;
-  height:5%;
+  height:10%;
   width:20%;
+  text-align: center;
 }
 
 #holymoly-holymoly {
   background-color: black;
   color: white;
   font-type: helvetica;
+  text-align: center;
 }
