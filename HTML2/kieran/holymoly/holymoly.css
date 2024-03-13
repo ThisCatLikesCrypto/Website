@@ -5,7 +5,7 @@ html, body {
   width:100%;
 }
 
-#holyh1 {
+holyh1 {
   background-color: white;
   text-align: center;
   color: red;
@@ -14,7 +14,7 @@ html, body {
   text-align: center;
 }
 
-#holymoly-buttons {
+holymoly-buttons {
   background-color: black;
   color: white;
   font-type: helvetica;
