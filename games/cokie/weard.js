@@ -23,7 +23,7 @@ function alwaysOn100() {
   cokcl += 0.05 * cursorAmount;
   cokcl += 0.1 * procursorAmount;
   document.getElementById("counter").innerHTML = Math.round(cokcl);
-  document.title = Math.round(cokcl) + " cookies - Cookie Clicker";
+  document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
 }
 
 function cookieClicked() {
