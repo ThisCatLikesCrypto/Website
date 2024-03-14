@@ -15,7 +15,7 @@
      document.getElementById("sus").innerHTML = msg
    }
    else if (cokcl > 100){
-     msg="Local enterprise, you have many happ customers"
+     msg="Local enterprise, you have many happy customers"
      document.getElementById("sus").innerHTML = msg
     }
    else if (cokcl > 10){
