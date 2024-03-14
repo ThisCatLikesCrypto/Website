@@ -4,6 +4,8 @@
   let msg=0
   
   function red() {
+  document.title = cokcl + " cokies - Cokie cliker";
+    
     if (cokcl > 10){
       msg="Beginner business: Supplying stuff for the local female trooper group"
       document.getElementById("sus").innerHTML = msg
