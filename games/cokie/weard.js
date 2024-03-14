@@ -5,22 +5,22 @@
   
   function red() {
   document.title = cokcl + " cokies - Cokie cliker";
-    
-    if (cokcl > 10){
-      msg="Beginner business: Supplying stuff for the local female trooper group"
-      document.getElementById("sus").innerHTML = msg
-    }
-    else if (cokcl > 100){
-      msg="Local enterprise, you have many happ customers"
-      document.getElementById("sus").innerHTML = msg
-    }
+
+    if (cokcl > 10000){
+     msg="Huge monopoly, you bought out all the cookie businesses and are the only cookie company left"
+     document.getElementById("sus").innerHTML = msg
+   }
    else if (cokcl > 1000){
      msg="Massive corporation, the county enjoys your cokies"
      document.getElementById("sus").innerHTML = msg
    }
-   else if (cokcl > 10000){
-     msg="Huge monopoly, you bought out all the cookie businesses and are the only cookie company left"
+   else if (cokcl > 100){
+     msg="Local enterprise, you have many happ customers"
      document.getElementById("sus").innerHTML = msg
+    }
+   else if (cokcl > 10){
+      msg="Beginner business: Supplying stuff for the local female trooper group"
+      document.getElementById("sus").innerHTML = msg
    }
    else{
      msg="Your business just begun, have fun!"
