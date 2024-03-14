@@ -20,9 +20,9 @@ function alwaysOn100() {
   document.getElementById("messages").innerHTML = msg;
 
   // Update Counter
-  cokcl += Math.round(0.05 * cursorAmount);
-  cokcl += Math.round(0.1 * procursorAmount);
-  document.getElementById("counter").innerHTML = cokcl;
+  cokcl += 0.05 * cursorAmount;
+  cokcl += 0.1 * procursorAmount;
+  document.getElementById("counter").innerHTML = Math.round(cokcl);
   document.title = cokcl + " cookies - Cookie Clicker";
 }
 
