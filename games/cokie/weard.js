@@ -7,7 +7,7 @@
   document.title = cokcl + " cokies - Cokie cliker";
 
     if (cokcl > 10000){
-     msg="Huge monopoly, you bought out all the cookie businesses and are the only cookie company left"
+     msg="Huge monopoly, you bought out all the cokie businesses and are the only cokie company left"
      document.getElementById("sus").innerHTML = msg
    }
    else if (cokcl > 1000){
