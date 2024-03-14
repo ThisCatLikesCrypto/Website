@@ -28,7 +28,7 @@ function alwaysOn100() {
 
 function cookieClicked() {
   cokcl += cookiesGainedByClicking;
-  document.getElementById("counter").innerHTML = cokcl;
+  document.getElementById("counter").innerHTML = Math.round(cokcl);
 }
 
 function buyProCursor() {
