@@ -4,9 +4,27 @@ let cursorAmount = 0;
 let procursorAmount = 0;
 let msg = "";
 let cookiesGainedByClicking = 1;
+let priceocur = 5;
+let priceoprocur = 10;
+let priceofarm = 1000;
 
 function alwaysOn100() {
-  // Update Message Board
+  // Update everything
+  document.getElementById("curby").innerHTML = priceocur;
+  document.getElementById("procurby").innerHTML = priceoprocur;
+  document.getElementById("farmby").innerHTML = priceofarm;
+  if (farmamount > 0) {
+    priceofarm=1000*farmamount
+    document.getElementById("farmby").innerHTML = priceofarm;
+  }
+  if (cursorAmount > 0){
+    priceocur=5*cursorAmount
+    document.getElementById("curby").innerHTML = priceocur;
+  }
+  if (procursorAmount > 0){
+    priceoprocur=10*procursorAmount
+    document.getElementById("procurby").innerHTML = priceoprocur;
+  }
   if (cokcl > 10000) {
     msg = "Huge monopoly, you bought out all the cokie businesses and are the only cokie company left";
   } else if (cokcl > 1000) {
