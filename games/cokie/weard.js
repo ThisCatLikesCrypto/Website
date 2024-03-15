@@ -56,20 +56,20 @@ function cookieClicked() {
 }
 
 function buyProCursor() {
-  if (cokcl > 9.9) {
+  if (cokcl > priceoprocur) {
     cokcl -= priceoprocur;
     procursorAmount += 1;
   }
 }
 
 function buyCursor() {
-  if (cokcl > 4.9) {
+  if (cokcl > priceocur) {
     cursorAmount += 1;
     cokcl -= priceocur;
   }
 }
 function buyfarm() {
-  if (cokcl > 999.9) {
+  if (cokcl > priceofarm) {
     farmamount += 1;
     cokcl -= priceofarm;
   }
