@@ -1,4 +1,5 @@
 let cokcl = 0;
+let farmamount= 0;
 let cursorAmount = 0;
 let procursorAmount = 0;
 let msg = "";
@@ -25,6 +26,7 @@ function runner(){
   // Update Counter
   cokcl += 0.5 * cursorAmount;
   cokcl += 1 * procursorAmount;
+  cokcl += 10 * farmamount
   document.getElementById("counter").innerHTML = cokcl
   document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
 }
@@ -46,6 +48,12 @@ function buyCursor() {
   if (cokcl > 4.9) {
     cursorAmount += 1;
     cokcl -= 5;
+  }
+}
+function buyfarm() {
+  if (cokcl > 4.9) {
+    farmamount += 1;
+    cokcl -= 1000;
   }
 }
 
