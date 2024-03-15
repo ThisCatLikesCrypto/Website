@@ -19,12 +19,16 @@ function alwaysOn100() {
   }
   document.getElementById("messages").innerHTML = msg;
 
+}
+
+function runner(){
   // Update Counter
-  cokcl += 0.05 * cursorAmount;
-  cokcl += 0.1 * procursorAmount;
-  document.getElementById("counter").innerHTML = Math.round(cokcl);
+  cokcl += 0.5 * cursorAmount;
+  cokcl += 1 * procursorAmount;
+  document.getElementById("counter").innerHTML = cokcl
   document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
 }
+setInterval(runner, 1000)
 
 function cookieClicked() {
   cokcl += cookiesGainedByClicking;
