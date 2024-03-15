@@ -8,6 +8,40 @@ let priceocur = 5;
 let priceoprocur = 10;
 let priceofarm = 1000;
 
+// Encode the data into a cookie
+function encodeV001() {
+  const header = "cokclv001";
+  let saveString = header + ";" + "AA" + cokcl;
+  saveString += "AB" + cookiesGainedByClicking;
+  saveString += "BA" + cursorAmount;
+  saveString += "BB" + procursorAmount;
+
+  // Set the cookie
+  document.cookie = "cokclSave=" + saveString;
+
+  return saveString;
+}
+
+// Decode the data from the cookie
+function decodeV001() {
+  const cookieValue = document.cookie
+      .split("; ")
+      .find(row => row.startsWith("cokclSave="))
+      .split("=")[1];
+
+  if (cookieValue.startsWith("cokclv001")) {
+      const values = cookieValue.substring(9).split(";");
+      const cokcl = values[0].substring(2);
+      const cookiesGainedByClicking = values[1].substring(2);
+      const cursorAmount = values[2].substring(2);
+      const procursorAmount = values[3].substring(2);
+
+      console.log(`cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}`);
+  } else {
+      throw new Error("Save does not start with 'cokclv001', wrong format.");
+  }
+}
+
 function alwaysOn100() {
   // Update everything
   document.getElementById("curby").innerHTML = priceocur;
@@ -47,8 +81,8 @@ function runner(){
   cokcl += 10 * farmamount
   document.getElementById("counter").innerHTML = cokcl
   document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
+  encodeV001()
 }
-setInterval(runner, 1000)
 
 function cookieClicked() {
   cokcl += cookiesGainedByClicking;
@@ -75,4 +109,11 @@ function buyfarm() {
   }
 }
 
+try {
+  decodeV001()
+} catch {
+  console.log("No vaild save found.")
+}
+
 setInterval(alwaysOn100, 100);
+setInterval(runner, 1000)
