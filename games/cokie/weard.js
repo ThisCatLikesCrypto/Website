@@ -45,6 +45,7 @@ function alwaysOn100() {
   }  
   else{
     procurpric=10
+    document.getElementById("procurpric").innerHTML = procurpricpric;
   }
 }
 
