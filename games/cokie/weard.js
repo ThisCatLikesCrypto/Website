@@ -5,6 +5,9 @@ let cursorAmount = 0;
 let procursorAmount = 0;
 let msg = "";
 let cookiesGainedByClicking = 1;
+let curpric=0;
+let procurpric=0;
+let farmpric=0;
 
 function alwaysOn100() {
   // Update Message Board
