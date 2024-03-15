@@ -24,21 +24,32 @@ function encodeV001() {
 
 // Decode the data from the cookie
 function decodeV001() {
-  const cookieValue = document.cookie
-      .split("; ")
-      .find(row => row.startsWith("cokclSave="))
-      .split("=")[1];
+  try {
+      const cookieValue = document.cookie
+          .split("; ")
+          .find(row => row.startsWith("cokclSave="))
+          .split("=")[1];
 
-  if (cookieValue.startsWith("cokclv001")) {
+      if (!cookieValue.startsWith("cokclv001")) {
+          throw new Error("Save does not start with 'cokclv001', wrong format.");
+      }
+
       const values = cookieValue.substring(9).split(";");
-      const cokcl = values[0].substring(2);
-      const cookiesGainedByClicking = values[1].substring(2);
-      const cursorAmount = values[2].substring(2);
-      const procursorAmount = values[3].substring(2);
+      const idTable = {
+          cokcl: "AA",
+          cookiesGainedByClicking: "AB",
+          cursorAmount: "BA",
+          procursorAmount: "BB"
+      };
 
-      console.log(`cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}`);
-  } else {
-      throw new Error("Save does not start with 'cokclv001', wrong format.");
+      cokcl = values[0].substring(2);
+      cookiesGainedByClicking = values[1].substring(2);
+      cursorAmount = values[2].substring(2);
+      procursorAmount = values[3].substring(2);
+
+      console.log(`cokcl: ${cokclValue}, cookiesGainedByClicking: ${cookiesGainedValue}, cursorAmount: ${cursorAmountValue}, procursorAmount: ${procursorAmountValue}`);
+  } catch (error) {
+      console.error("Error decoding the cookie:", error.message);
   }
 }
 
