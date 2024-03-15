@@ -116,11 +116,9 @@ function buyfarm() {
   }
 }
 
-try {
-  decodeV001()
-} catch (error) {
-  console.log("Error while loading." + error.message)
-}
+
+decodeV001()
+
 
 setInterval(alwaysOn100, 100);
 setInterval(runner, 1000)
