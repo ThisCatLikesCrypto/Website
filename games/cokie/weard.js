@@ -36,14 +36,14 @@ function cookieClicked() {
 }
 
 function buyProCursor() {
-  if (cokcl > 9.9) {
+  if (cokcl > 9.5) {
     cokcl -= 10;
     procursorAmount += 1;
   }
 }
 
 function buyCursor() {
-  if (cokcl > 4.9) {
+  if (cokcl > 4.5) {
     cursorAmount += 1;
     cokcl -= 5;
   }
