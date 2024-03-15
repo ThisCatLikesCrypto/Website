@@ -111,8 +111,8 @@ function buyfarm() {
 
 try {
   decodeV001()
-} catch {
-  console.log("No vaild save found.")
+} catch (error) {
+  console.log("Error while loading." + error.message)
 }
 
 setInterval(alwaysOn100, 100);
