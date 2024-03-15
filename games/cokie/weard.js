@@ -5,9 +5,9 @@ let cursorAmount = 0;
 let procursorAmount = 0;
 let msg = "";
 let cookiesGainedByClicking = 1;
-let curpric=0;
-let procurpric=0;
-let farmpric=0;
+let pricocur=0;
+let pricoprocurc=0;
+let pricofarm=0;
 
 function alwaysOn100() {
   // Update Message Board
@@ -24,28 +24,28 @@ function alwaysOn100() {
   }
   document.getElementById("messages").innerHTML = msg;
   if (cursorAmount > 0){
-   curpric=5*cursorAmount
-   document.getElementById("curpric").innerHTML = curpric;
+   pricocur=5*cursorAmount
+   document.getElementById("curpric").innerHTML = pricocur;
   }
   else{
-    curpric=5
-    document.getElementById("curpric").innerHTML = curpric;
+    pricocurc=5
+    document.getElementById("curpric").innerHTML = pricocur;
   }
   if(farmamount > 0){
-    farmpric=1000*farmamount
-    document.getElementById("farmpric").innerHTML = farmpric;
+    pricofarm=1000*farmamount
+    document.getElementById("farmpric").innerHTML = pricofarm;
   }
   else{
-    farmpric=1000
-    document.getElementById("farmpric").innerHTML = farmpric;
+    pricofarm=1000
+    document.getElementById("farmpric").innerHTML = pricofarm;
   }
   if(procurpric > 0){
-   procurpric=10*procursorAmount
-   document.getElementById("procurpric").innerHTML = procurpricpric;
+   pricoprocurc=10*procursorAmount
+   document.getElementById("procurpric").innerHTML = pricoprocurc;
   }  
   else{
-    procurpric=10
-    document.getElementById("procurpric").innerHTML = procurpricpric;
+    pricoprocurc=10
+    document.getElementById("procurpric").innerHTML = pricoprocurc;
   }
 }
 
