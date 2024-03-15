@@ -8,7 +8,19 @@ let priceocur = 5;
 let priceoprocur = 10;
 let priceofarm = 1000;
 
-// Encode the data into a cookie
+function readCookie(cookieName) {
+  const cookies = document.cookie.split(';');
+  console.log(cookies)
+  for (const cookie of cookies) {
+    const [name, value] = cookie.trim().split('=');
+    if (name === cookieName) {
+      return decodeURIComponent(value);
+    }
+  }
+  return null; // Cookie not found
+}
+
+/*
 function encodeV001() {
   const header = "cokclv001";
   let saveString = header + ";" + "AA" + cokcl;
@@ -16,38 +28,44 @@ function encodeV001() {
   saveString += "BA" + cursorAmount;
   saveString += "BB" + procursorAmount;
 
-  // Set the cookie
-  document.cookie = "cokclSave=" + saveString;
+  // Set the cookie with a 10-year expiration
+  const expirationDate = new Date();
+  expirationDate.setFullYear(expirationDate.getFullYear() + 10);
+  expires = "expires=" + expirationDate.toUTCString()
+  document.cookie = 'cokclSave' + "=" + saveString + ";" + expires + ";path=/"
 
-  return saveString;
+  console.log(saveString);
 }
 
-// Decode the data from the cookie
+
 function decodeV001() {
-      const cookieValue = document.cookie
-          .split("; ")
-          .find(row => row.startsWith("cokclSave="))
-          .split("=")[1];
+  const saveFile = readCookie('cokclSave');
+  console.log(saveFile);
 
-      if (!cookieValue.startsWith("cokclv001")) {
-          throw new Error("Save does not start with 'cokclv001', wrong format.");
-      }
+  const decodedValues = {};
+  const valuePairs = saveFile.split(';');
 
-      const values = cookieValue.substring(9).split(";");
-      const idTable = {
-          cokcl: "AA",
-          cookiesGainedByClicking: "AB",
-          cursorAmount: "BA",
-          procursorAmount: "BB"
-      };
+  for (const valuePair of valuePairs) {
+    const [letters, value] = valuePair.split(/(?<=\D)(?=\d)/); // Split at the boundary between letters and digits
+    decodedValues[letters] = value;
+  }
 
-      cokcl = values[0].substring(2);
-      cookiesGainedByClicking = values[1].substring(2);
-      cursorAmount = values[2].substring(2);
-      procursorAmount = values[3].substring(2);
+  // Assign the decoded values to your existing variables
+  cokcl = decodedValues['AA'];
+  cookiesGainedByClicking = decodedValues['AB'];
+  cursorAmount = decodedValues['BA'];
+  procursorAmount = decodedValues['BB'];
 
-      console.log(`cokcl: ${cokclValue}, cookiesGainedByClicking: ${cookiesGainedValue}, cursorAmount: ${cursorAmountValue}, procursorAmount: ${procursorAmountValue}`);
+  // Use the decoded values as needed
+  console.log('Decoded values:');
+  console.log('cokcl:', cokcl);
+  console.log('cookiesGainedByClicking:', cookiesGainedByClicking);
+  console.log('cursorAmount:', cursorAmount);
+  console.log('procursorAmount:', procursorAmount);
 }
+
+*/
+
 
 function alwaysOn100() {
   // Update everything
@@ -91,6 +109,8 @@ function runner(){
   encodeV001()
 }
 
+setInterval(runner, 1000)
+
 function cookieClicked() {
   cokcl += cookiesGainedByClicking;
   document.getElementById("counter").innerHTML = Math.round(cokcl);
@@ -117,8 +137,5 @@ function buyfarm() {
 }
 
 
-decodeV001()
-
 
 setInterval(alwaysOn100, 100);
-setInterval(runner, 1000)
