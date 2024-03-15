@@ -1,13 +1,9 @@
-
 let cokcl = 0;
 let farmamount= 0;
 let cursorAmount = 0;
 let procursorAmount = 0;
 let msg = "";
 let cookiesGainedByClicking = 1;
-let pricocur=0;
-let pricoprocurc=0;
-let pricofarm=0;
 
 function alwaysOn100() {
   // Update Message Board
@@ -23,30 +19,7 @@ function alwaysOn100() {
     msg = "Your business just begun, have fun!";
   }
   document.getElementById("messages").innerHTML = msg;
-  if (cursorAmount > 0){
-   pricocur=5*cursorAmount
-   document.getElementById("curpric").innerHTML = pricocur;
-  }
-  else{
-    pricocurc=5
-    document.getElementById("curpric").innerHTML = pricocur;
-  }
-  if(farmamount > 0){
-    pricofarm=1000*farmamount
-    document.getElementById("farmpric").innerHTML = pricofarm;
-  }
-  else{
-    pricofarm=1000
-    document.getElementById("farmpric").innerHTML = pricofarm;
-  }
-  if(procurpric > 0){
-   pricoprocurc=10*procursorAmount
-   document.getElementById("procurpric").innerHTML = pricoprocurc;
-  }  
-  else{
-    pricoprocurc=10
-    document.getElementById("procurpric").innerHTML = pricoprocurc;
-  }
+
 }
 
 function runner(){
@@ -67,20 +40,20 @@ function cookieClicked() {
 function buyProCursor() {
   if (cokcl > 9.9) {
     cokcl -= 10;
-    procursorAmount += procurpric;
+    procursorAmount += 1;
   }
 }
 
 function buyCursor() {
   if (cokcl > 4.9) {
     cursorAmount += 1;
-    cokcl -= curpric;
+    cokcl -= 5;
   }
 }
 function buyfarm() {
   if (cokcl > 4.9) {
     farmamount += 1;
-    cokcl -= farmpric;
+    cokcl -= 1000;
   }
 }
 
