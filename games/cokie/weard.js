@@ -24,7 +24,6 @@ function encodeV001() {
 
 // Decode the data from the cookie
 function decodeV001() {
-  try {
       const cookieValue = document.cookie
           .split("; ")
           .find(row => row.startsWith("cokclSave="))
@@ -48,9 +47,6 @@ function decodeV001() {
       procursorAmount = values[3].substring(2);
 
       console.log(`cokcl: ${cokclValue}, cookiesGainedByClicking: ${cookiesGainedValue}, cursorAmount: ${cursorAmountValue}, procursorAmount: ${procursorAmountValue}`);
-  } catch (error) {
-      console.error("Error decoding the cookie:", error.message);
-  }
 }
 
 function alwaysOn100() {
