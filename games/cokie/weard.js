@@ -7,9 +7,9 @@ let cookiesGainedByClicking = 1;
 function alwaysOn100() {
   // Update Message Board
   if (cokcl > 10000) {
-    msg = "Huge monopoly, you bought out all the cookie businesses and are the only cookie company left";
+    msg = "Huge monopoly, you bought out all the cokie businesses and are the only cokie company left";
   } else if (cokcl > 1000) {
-    msg = "Massive corporation, the country enjoys your cookies";
+    msg = "Massive corporation, the county enjoys your cokies";
   } else if (cokcl > 100) {
     msg = "Local enterprise, you have many happy customers";
   } else if (cokcl > 10) {
