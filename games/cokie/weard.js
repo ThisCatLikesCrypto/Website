@@ -51,7 +51,7 @@ function buyCursor() {
   }
 }
 function buyfarm() {
-  if (cokcl > 4.9) {
+  if (cokcl > 999.9) {
     farmamount += 1;
     cokcl -= 1000;
   }
