@@ -136,4 +136,4 @@ function buyfarm() {
 
 setInterval(alwaysOn100, 100);
 
-decodeV001()
+// decodeV001() commented out to fix again later... (I got encodeV001() working fine!)
