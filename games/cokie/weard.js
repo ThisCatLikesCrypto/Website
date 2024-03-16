@@ -23,7 +23,7 @@ function readCookie(cookieName) {
 
 function encodeV001() {
   const header = "cokclv001";
-  let saveString = header + ";" + "AA" + cokcl + "AB" + cookiesGainedByClicking + "BA" + cursorAmount + "BB" + procursorAmount;
+  let saveString = header + "-" + "AA" + cokcl + "AB" + cookiesGainedByClicking + "BA" + cursorAmount + "BB" + procursorAmount;
 
   // Set the cookie with a 10-year expiration
   const expirationDate = new Date();
@@ -41,7 +41,7 @@ function decodeV001() {
   console.log(saveFile);
 
   const decodedValues = {};
-  const valuePairs = saveFile.split(';');
+  const valuePairs = saveFile.split('-');
 
   for (const valuePair of valuePairs) {
     const [letters, value] = valuePair.split(/(?<=\D)(?=\d)/); // Split at the boundary between letters and digits
