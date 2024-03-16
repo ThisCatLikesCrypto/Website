@@ -32,7 +32,8 @@ function encodeV001() {
   const expirationDate = new Date();
   expirationDate.setFullYear(expirationDate.getFullYear() + 10);
   expires = "expires=" + expirationDate.toUTCString();
-  document.cookie = 'cokclSave' + "=" + saveString + ";" + expires + ";path=/"
+  stringToCookie = 'cokclSave' + "=" + saveString + ";" + expires + ";path=/";
+  document.cookie = stringToCookie;
 
   console.log(saveString);
 }
