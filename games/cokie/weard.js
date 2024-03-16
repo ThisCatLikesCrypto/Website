@@ -20,7 +20,7 @@ function readCookie(cookieName) {
   return null; // Cookie not found
 }
 
-/*
+
 function encodeV001() {
   const header = "cokclv001";
   let saveString = header + ";" + "AA" + cokcl;
@@ -31,7 +31,7 @@ function encodeV001() {
   // Set the cookie with a 10-year expiration
   const expirationDate = new Date();
   expirationDate.setFullYear(expirationDate.getFullYear() + 10);
-  expires = "expires=" + expirationDate.toUTCString()
+  expires = "expires=" + expirationDate.toUTCString();
   document.cookie = 'cokclSave' + "=" + saveString + ";" + expires + ";path=/"
 
   console.log(saveString);
@@ -64,7 +64,7 @@ function decodeV001() {
   console.log('procursorAmount:', procursorAmount);
 }
 
-*/
+
 
 
 function alwaysOn100() {
