@@ -23,10 +23,7 @@ function readCookie(cookieName) {
 
 function encodeV001() {
   const header = "cokclv001";
-  let saveString = header + ";" + "AA" + cokcl;
-  saveString += "AB" + cookiesGainedByClicking;
-  saveString += "BA" + cursorAmount;
-  saveString += "BB" + procursorAmount;
+  let saveString = header + ";" + "AA" + cokcl + "AB" + cookiesGainedByClicking + "BA" + cursorAmount + "BB" + procursorAmount;
 
   // Set the cookie with a 10-year expiration
   const expirationDate = new Date();
