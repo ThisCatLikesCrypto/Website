@@ -136,6 +136,6 @@ function buyfarm() {
   }
 }
 
-
+decodeV001()
 
 setInterval(alwaysOn100, 100);
