@@ -1,12 +1,12 @@
-let cokcl = 0;
-let farmamount= 0;
-let cursorAmount = 0;
-let procursorAmount = 0;
-let msg = "";
-let cookiesGainedByClicking = 1;
-let priceocur = 5;
-let priceoprocur = 10;
-let priceofarm = 1000;
+var cokcl = 0;
+var farmamount= 0;
+var cursorAmount = 0;
+var procursorAmount = 0;
+var msg = "";
+var cookiesGainedByClicking = 1;
+var priceocur = 5;
+var priceoprocur = 10;
+var priceofarm = 1000;
 
 function readCookie(cookieName) {
   const cookies = document.cookie.split(';');
@@ -134,6 +134,6 @@ function buyfarm() {
   }
 }
 
-decodeV001()
-
 setInterval(alwaysOn100, 100);
+
+decodeV001()
