@@ -1,7 +1,7 @@
 var cokcl = 0;
-var farmamount= 0;
 var cursorAmount = 0;
 var procursorAmount = 0;
+var farmamount= 0;
 var msg = "";
 var cookiesGainedByClicking = 1;
 var priceocur = 5;
@@ -23,7 +23,7 @@ function readCookie(cookieName) {
 
 function encodeV001() {
   const header = "cokclv001";
-  let saveString = header + "-" + "AA" + cokcl + "AB" + cookiesGainedByClicking + "BA" + cursorAmount + "BB" + procursorAmount;
+  let saveString = header + "-" + "AA" + cokcl + "AB" + cookiesGainedByClicking + "BA" + cursorAmount + "BB" + procursorAmount + "BC" + farmamount;
 
   // Set the cookie with a 10-year expiration
   const expirationDate = new Date();
@@ -49,9 +49,10 @@ function decodeV001() {
   cokcl = parseInt(saveString.split("AA")[1].split("AB")[0]);
   cookiesGainedByClicking = parseInt(saveString.split("AB")[1].split("BA")[0]);
   cursorAmount = parseInt(saveString.split("BA")[1].split("BB")[0]);
-  procursorAmount = parseInt(saveString.split("BB")[1]);
+  procursorAmount = parseInt(saveString.split("BB")[1].split("BC")[0]);
+  farmamount = parseInt(saveString.split("BC")[1]);
 
-  console.log(`cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}.`);
+  console.log(`cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}, farmamount ${farmamount}.`);
 }
 
 function alwaysOn100() {
