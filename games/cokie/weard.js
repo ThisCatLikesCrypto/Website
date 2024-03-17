@@ -37,30 +37,25 @@ function encodeV001() {
 
 
 function decodeV001() {
-  const saveFile = readCookie('cokclSave');
-  console.log(saveFile);
+  let saveString = readCookie('cokclSave');
+  console.log(saveString);
 
-  const decodedValues = {};
-  const valuePairs = saveFile.split('-');
-
-  for (const valuePair of valuePairs) {
-    const [letters, value] = valuePair.split(/(?<=\D)(?=\d)/); // Split at the boundary between letters and digits
-    decodedValues[letters] = value;
+  if (saveString.split("-")[0] === "cokclv001") {
+      saveString = saveString.substring("cokclv001-".length);
+  } else {
+      throw new Error("Save does not start with 'cokclv001', wrong format.");
   }
 
-  // Assign the decoded values to your existing variables
-  cokcl = decodedValues['AA'];
-  cookiesGainedByClicking = decodedValues['AB'];
-  cursorAmount = decodedValues['BA'];
-  procursorAmount = decodedValues['BB'];
+  cokcl = parseInt(saveString.split("AA")[1].split("AB")[0]);
+  cookiesGainedByClicking = parseInt(saveString.split("AB")[1].split("BA")[0]);
+  cursorAmount = parseInt(saveString.split("BA")[1].split("BB")[0]);
+  procursorAmount = parseInt(saveString.split("BB")[1]);
 
-  // Use the decoded values as needed
-  console.log('Decoded values:');
-  console.log('cokcl:', cokcl);
-  console.log('cookiesGainedByClicking:', cookiesGainedByClicking);
-  console.log('cursorAmount:', cursorAmount);
-  console.log('procursorAmount:', procursorAmount);
+  console.log(`cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}.`);
 }
+
+decodeV001();
+
 
 
 
