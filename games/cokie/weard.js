@@ -1,7 +1,7 @@
 var cokcl = 0;
 var cursorAmount = 0;
 var procursorAmount = 0;
-var farmamount= 0;
+var farmamount = 0;
 var msg = "";
 var cookiesGainedByClicking = 1;
 var priceocur = 5;
