@@ -54,12 +54,6 @@ function decodeV001() {
   console.log(`cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}.`);
 }
 
-decodeV001();
-
-
-
-
-
 function alwaysOn100() {
   // Update everything
   document.getElementById("curby").innerHTML = priceocur;
@@ -131,4 +125,9 @@ function buyfarm() {
 
 setInterval(alwaysOn100, 100);
 
-decodeV001()
+try {
+  decodeV001();
+} catch {
+  console.log("Decode failed. If this is the first load, ignore this. Otherwise please create an issue on https://github.com/ThisCatLikesCrypto/Website")
+}
+
