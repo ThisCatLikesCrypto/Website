@@ -102,17 +102,7 @@ function saveload() {
   decodeV001(readCookie('cokclSave'));
 }
 
-
-function runner(){
-  // Update Counter
-  cokcl += 0.5 * cursorAmount;
-  cokcl += 1 * procursorAmount;
-  cokcl += 10 * farmamount
-  document.getElementById("counter").innerHTML = cokcl
-  document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
-  document.getElementById("curby").innerHTML = priceocur;
-  document.getElementById("procurby").innerHTML = priceoprocur;
-  document.getElementById("farmby").innerHTML = priceofarm;
+function quickRun() {
   if (farmamount > 0) {
     priceofarm=1000*farmamount
     document.getElementById("farmby").innerHTML = priceofarm;
@@ -125,6 +115,18 @@ function runner(){
     priceoprocur=10*procursorAmount
     document.getElementById("procurby").innerHTML = priceoprocur;
   }
+}
+
+function runner(){
+  // Update Counter
+  cokcl += 0.5 * cursorAmount;
+  cokcl += 1 * procursorAmount;
+  cokcl += 10 * farmamount
+  document.getElementById("counter").innerHTML = cokcl
+  document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
+  document.getElementById("curby").innerHTML = priceocur;
+  document.getElementById("procurby").innerHTML = priceoprocur;
+  document.getElementById("farmby").innerHTML = priceofarm;
   if (cokcl > 10000) {
     msg = "Huge monopoly, you bought out all the cokie businesses and are the only cokie company left";
   } else if (cokcl > 1000) {
@@ -138,6 +140,7 @@ function runner(){
   }
   document.getElementById("messages").innerHTML = msg;
   save()
+  quickRun()
 }
 
 setInterval(runner, 1000)
@@ -152,6 +155,7 @@ function buyProCursor() {
     cokcl -= priceoprocur;
     procursorAmount += 1;
   }
+  quickRun()
 }
 
 function buyCursor() {
@@ -159,12 +163,14 @@ function buyCursor() {
     cursorAmount += 1;
     cokcl -= priceocur;
   }
+  quickRun()
 }
 function buyfarm() {
   if (cokcl > priceofarm) {
     farmamount += 1;
     cokcl -= priceofarm;
   }
+  quickRun()
 }
 
 
