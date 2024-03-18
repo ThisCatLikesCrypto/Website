@@ -8,6 +8,15 @@ var priceocur = 5;
 var priceoprocur = 10;
 var priceofarm = 1000;
 
+function saveCookie(name, saveString) {
+  // Set the cookie with a 10-year expiration
+  const expirationDate = new Date();
+  expirationDate.setFullYear(expirationDate.getFullYear() + 10);
+  expires = "expires=" + expirationDate.toUTCString();
+  stringToCookie = name + "=" + saveString + ";" + expires + ";path=/";
+  document.cookie = stringToCookie;
+}
+
 function readCookie(cookieName) {
   const cookies = document.cookie.split(';');
   console.log(cookies)
@@ -20,24 +29,32 @@ function readCookie(cookieName) {
   return null; // Cookie not found
 }
 
+const writeToTextFile = (text, fileName) => {
+  let textFile = null;
+  const makeTextFile = (text) => {
+    const data = new Blob ([text], { type: 'text/plain', });
+    if (textFile !== null) {
+      window.URL.revokeObjectURL (textFile);
+    }
+    textFile = window.URL.createObjectURL (data);
+    return textFile;
+  };
+  const link = document.createElement ('a');
+  link.setAttribute ('download', fileName);
+  link.href = makeTextFile (text);
+  link.click ();
+};
+
 
 function encodeV001() {
   const header = "cokclv001";
   let saveString = header + "-" + "AA" + cokcl + "AB" + cookiesGainedByClicking + "BA" + cursorAmount + "BB" + procursorAmount + "BC" + farmamount;
-
-  // Set the cookie with a 10-year expiration
-  const expirationDate = new Date();
-  expirationDate.setFullYear(expirationDate.getFullYear() + 10);
-  expires = "expires=" + expirationDate.toUTCString();
-  stringToCookie = 'cokclSave' + "=" + saveString + ";" + expires + ";path=/";
-  document.cookie = stringToCookie;
-
   console.log(saveString);
+  return saveString;
 }
 
 
-function decodeV001() {
-  let saveString = readCookie('cokclSave');
+function decodeV001(saveString) {
   console.log(saveString);
 
   if (saveString.split("-")[0] === "cokclv001") {
@@ -53,6 +70,36 @@ function decodeV001() {
   farmamount = parseInt(saveString.split("BC")[1]);
 
   console.log(`cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}, farmamount ${farmamount}.`);
+}
+
+function downloadSave() {
+  let saveString = encodeV001();
+  writeToTextFile(saveString, "Cokie Cliker Save")
+}
+
+function uploadSave() {
+  var input = document.createElement('input');
+  input.type = 'file';
+  input.onchange = (e) => {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsText(file, 'UTF-8');
+    reader.onload = (readerEvent) => {
+        var content = readerEvent.target.result;
+        decodeV001(content);
+    };
+};
+input.click();
+
+}
+
+function save() {
+  let saveString = encodeV001();
+  saveCookie("cokclSave", saveString);
+}
+
+function saveload() {
+  decodeV001(readCookie('cokclSave'));
 }
 
 function alwaysOn100() {
@@ -94,7 +141,7 @@ function runner(){
   cokcl += 10 * farmamount
   document.getElementById("counter").innerHTML = cokcl
   document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
-  encodeV001()
+  save()
 }
 
 setInterval(runner, 1000)
@@ -127,7 +174,7 @@ function buyfarm() {
 setInterval(alwaysOn100, 100);
 
 try {
-  decodeV001();
+  saveload();
 } catch {
   console.log("Decode failed. If this is the first load, ignore this. Otherwise please create an issue on https://github.com/ThisCatLikesCrypto/Website")
 }
