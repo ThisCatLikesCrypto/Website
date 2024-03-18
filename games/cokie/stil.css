@@ -11,13 +11,25 @@ button {
   color:white;
 }
 
+#counter {
+  text-align: right;
+  float: right;
+  font-size: larger;
+}
+
+#downSave, #upSave {
+  float: center;
+}
+
 #cookieBtn {
   width: 50%;
+  float: left;
 }
 
 #buyBtn {
-  width:75%;
+  width:25%;
   height:100px;
+  float: center;
 }
 
 #pro {
@@ -28,4 +40,8 @@ button {
 
 #cookieImg {
   width: 50%;
+}
+
+#messages {
+  float: left;
 }

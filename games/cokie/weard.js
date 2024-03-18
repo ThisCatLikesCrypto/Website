@@ -117,12 +117,17 @@ function quickRun() {
   }
 }
 
+function updateCount() {
+  stats = "Du hast: " + cokcl + " cokie(s), " + cursorAmount + " cursor(s), " + procursorAmount + " pro cursor(s), " + farmamount + " farm(s).";
+  document.getElementById("counter").innerHTML = stats;
+}
+
 function runner(){
   // Update Counter
   cokcl += 0.5 * cursorAmount;
   cokcl += 1 * procursorAmount;
   cokcl += 10 * farmamount
-  document.getElementById("counter").innerHTML = cokcl
+  updateCount();
   document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
   document.getElementById("curby").innerHTML = priceocur;
   document.getElementById("procurby").innerHTML = priceoprocur;
@@ -139,15 +144,13 @@ function runner(){
     msg = "Your business just begun, have fun!";
   }
   document.getElementById("messages").innerHTML = msg;
-  save()
-  quickRun()
+  save();
+  quickRun();
 }
-
-setInterval(runner, 1000)
 
 function cookieClicked() {
   cokcl += cookiesGainedByClicking;
-  document.getElementById("counter").innerHTML = Math.round(cokcl);
+  updateCount();
 }
 
 function buyProCursor() {
@@ -180,3 +183,4 @@ try {
   console.log("Decode failed. If this is the first load, ignore this. Otherwise please create an issue on https://github.com/ThisCatLikesCrypto/Website")
 }
 
+setInterval(runner, 1000)
