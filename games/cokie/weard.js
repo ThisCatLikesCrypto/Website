@@ -102,8 +102,14 @@ function saveload() {
   decodeV001(readCookie('cokclSave'));
 }
 
-function alwaysOn100() {
-  // Update everything
+
+function runner(){
+  // Update Counter
+  cokcl += 0.5 * cursorAmount;
+  cokcl += 1 * procursorAmount;
+  cokcl += 10 * farmamount
+  document.getElementById("counter").innerHTML = cokcl
+  document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
   document.getElementById("curby").innerHTML = priceocur;
   document.getElementById("procurby").innerHTML = priceoprocur;
   document.getElementById("farmby").innerHTML = priceofarm;
@@ -131,16 +137,6 @@ function alwaysOn100() {
     msg = "Your business just begun, have fun!";
   }
   document.getElementById("messages").innerHTML = msg;
-
-}
-
-function runner(){
-  // Update Counter
-  cokcl += 0.5 * cursorAmount;
-  cokcl += 1 * procursorAmount;
-  cokcl += 10 * farmamount
-  document.getElementById("counter").innerHTML = cokcl
-  document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
   save()
 }
 
@@ -171,7 +167,6 @@ function buyfarm() {
   }
 }
 
-setInterval(alwaysOn100, 100);
 
 try {
   saveload();
