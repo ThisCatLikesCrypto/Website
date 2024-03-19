@@ -72,27 +72,6 @@ function decodeV001(saveString) {
   console.log(`cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}, farmamount ${farmamount}.`);
 }
 
-function downloadSave() {
-  let saveString = encodeV001();
-  writeToTextFile(saveString, "Cokie Cliker Save")
-}
-
-function uploadSave() {
-  var input = document.createElement('input');
-  input.type = 'file';
-  input.onchange = (e) => {
-    var file = e.target.files[0];
-    var reader = new FileReader();
-    reader.readAsText(file, 'UTF-8');
-    reader.onload = (readerEvent) => {
-        var content = readerEvent.target.result;
-        decodeV001(content);
-    };
-};
-input.click();
-
-}
-
 function save() {
   let saveString = encodeV001();
   saveCookie("cokclSave", saveString);
@@ -176,6 +155,28 @@ function buyfarm() {
   quickRun()
 }
 
+function downloadSave() {
+  let saveString = encodeV001();
+  writeToTextFile(saveString, "Cokie Cliker Save")
+}
+
+function uploadSave() {
+  var input = document.createElement('input');
+  input.type = 'file';
+  input.onchange = (e) => {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsText(file, 'UTF-8');
+    reader.onload = (readerEvent) => {
+        var content = readerEvent.target.result;
+        decodeV001(content);
+        runner();
+        location.reload();
+    };
+};
+input.click();
+
+}
 
 try {
   saveload();
