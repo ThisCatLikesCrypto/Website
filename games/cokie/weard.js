@@ -42,25 +42,25 @@ const writeToTextFile = (text, fileName) => {
   const link = document.createElement ('a');
   link.setAttribute ('download', fileName);
   link.href = makeTextFile (text);
-  link.click ();
+  link.click();
 };
 
 
+// Encodes Saves
 function encodeV001() {
   const header = "cokclv001";
   let saveString = header + "-" + "AA" + cokcl + "AB" + cookiesGainedByClicking + "BA" + cursorAmount + "BB" + procursorAmount + "BC" + farmamount;
-  console.log(saveString);
   return saveString;
 }
 
-
+// Decodes Saves
 function decodeV001(saveString) {
-  console.log(saveString);
+  console.log("Decoding with " + saveString);
 
   if (saveString.split("-")[0] === "cokclv001") {
       saveString = saveString.substring("cokclv001-".length);
   } else {
-      throw new Error("Save does not start with 'cokclv001', wrong format.");
+      console.log("Save does not start with 'cokclv001', wrong format.");
   }
 
   cokcl = parseInt(saveString.split("AA")[1].split("AB")[0]);
@@ -72,13 +72,28 @@ function decodeV001(saveString) {
   console.log(`cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}, farmamount ${farmamount}.`);
 }
 
+// Saves the Game (To a Browser Cookie)
 function save() {
+  try {
   let saveString = encodeV001();
   saveCookie("cokclSave", saveString);
+  console.log("Game Saved with " + saveString)
+  } catch(error) {
+    console.log("Game failed to save. Please raise an issue on https://github.com/ThisCatLikesCrypto/Website.")
+    console.log("Error: " + error.message + ", saveString: " + saveString);
+  }
 }
 
+// Loads the Game (From a Browser Cookie)
 function saveload() {
-  decodeV001(readCookie('cokclSave'));
+  try {
+  let saveFile = readCookie('cokclSave')
+  decodeV001(saveFile);
+  console.log("Game Loaded with " + saveFile);
+  } catch(error) {
+  console.log("Game failed to load. If this is the first load, ignore this. Otherwise please raise an issue on https://github.com/ThisCatLikesCrypto/Website.");
+  console.log("Error is " + error.message + ", saveFile is " + saveFile);
+  }
 }
 
 function quickRun() {
@@ -99,6 +114,7 @@ function quickRun() {
 function updateCount() {
   stats = "Du hast: " + cokcl + " cokie(s), " + cursorAmount + " cursor(s), " + procursorAmount + " pro cursor(s), " + farmamount + " farm(s).";
   document.getElementById("counter").innerHTML = stats;
+  document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
 }
 
 function runner(){
@@ -107,12 +123,12 @@ function runner(){
   cokcl += 1 * procursorAmount;
   cokcl += 10 * farmamount
   updateCount();
-  document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
-  document.getElementById("curby").innerHTML = priceocur;
-  document.getElementById("procurby").innerHTML = priceoprocur;
-  document.getElementById("farmby").innerHTML = priceofarm;
-  if (cokcl > 10000) {
-    msg = "Huge monopoly, you bought out all the cokie businesses and are the only cokie company left";
+
+  // Update Message
+  if (cokcl > 100000) {
+    msg = "International expansion, you have taken over all cokie production in the world."
+  } else if (cokcl > 10000) {
+    msg = "Huge monopoly, you bought out all the cokie businesses in your country and are the only cokie company left";
   } else if (cokcl > 1000) {
     msg = "Massive corporation, the county enjoys your cokies";
   } else if (cokcl > 100) {
@@ -123,7 +139,10 @@ function runner(){
     msg = "Your business just begun, have fun!";
   }
   document.getElementById("messages").innerHTML = msg;
+
+  // Save
   save();
+  // Update Prices of Items
   quickRun();
 }
 
@@ -155,11 +174,14 @@ function buyfarm() {
   quickRun()
 }
 
+
+// Downloads Save
 function downloadSave() {
   let saveString = encodeV001();
   writeToTextFile(saveString, "Cokie Cliker Save")
 }
 
+// Uploads Save
 function uploadSave() {
   var input = document.createElement('input');
   input.type = 'file';
@@ -171,17 +193,12 @@ function uploadSave() {
         var content = readerEvent.target.result;
         decodeV001(content);
         runner();
-        location.reload();
     };
 };
 input.click();
 
 }
 
-try {
-  saveload();
-} catch {
-  console.log("Decode failed. If this is the first load, ignore this. Otherwise please create an issue on https://github.com/ThisCatLikesCrypto/Website")
-}
+saveload();
 
 setInterval(runner, 1000)
