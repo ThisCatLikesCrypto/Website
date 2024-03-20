@@ -92,7 +92,7 @@ function saveload() {
   console.log("Game Loaded with " + saveFile);
   } catch(error) {
   console.log("Game failed to load. If this is the first load, ignore this. Otherwise please raise an issue on https://github.com/ThisCatLikesCrypto/Website.");
-  console.log("Error is " + error.message + ", saveFile is " + saveFile);
+  console.log("Error is " + error.message);
   }
 }
 
