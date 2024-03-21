@@ -81,3 +81,10 @@ pre {
  border: 1px solid #222;
  border-top: none;
 }
+
+.maindivdiv {
+    display: flex;
+    justify-content: space-between; /* Horizontally center the inner divs */
+    align-items: center; /* Vertically center the inner divs */
+    margin: 0 2em;
+}
