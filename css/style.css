@@ -1,5 +1,5 @@
 /* Reset some default styles */
-body, h1, h2, h3, p, ul, li, a {
+body, h1, h2, h3, h4, p, ul, li, a {
     margin: 0;
     padding: 0;
     text-align: center;
@@ -19,7 +19,7 @@ header {
     padding: 1rem;
 }
 
-h1, h2, h3, p {
+h1, h2, h3, h4, p {
     color: #fff;
 }
 
@@ -80,4 +80,11 @@ pre {
  padding: 6px 12px;
  border: 1px solid #222;
  border-top: none;
+}
+
+.maindivdiv {
+    display: flex;
+    justify-content: space-between; /* Horizontally center the inner divs */
+    align-items: center; /* Vertically center the inner divs */
+    margin: 0 10em;
 }

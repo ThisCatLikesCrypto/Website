@@ -1,5 +1,5 @@
-let Dan1 = "HeHe HeHe Ha"
+function Cons() {
+    const content = document.getElementById("content").innerHTML;
+    document.getElementById("output").innerHTML = content;
 
-function Html3FunctionWrite() {
-    document.getElementById("Dan").innerHTML = Dan1;
 }
