@@ -1,3 +1,7 @@
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -18,4 +22,22 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
   }
+  
+
+  async function easter(){
+    console.log("you found an easter egg. allow me to redirect...");
+    await sleep(2000);
+    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+  }
+
+  let keys = [];
+  const code = [];
+  const clocks = document.getElementById("clocks");
+  window.addEventListener("keyup", ({ code }) => {
+    keys.push(code);
+    keys = keys.slice(-11);
+    if (keys.join("") == "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightKeyBKeyAEnter") {
+      easter()
+    }
+});
   
