@@ -24,20 +24,18 @@ function openTab(evt, tabName) {
   }
   
 
-  async function easter(){
+async function easter(){
     console.log("you found an easter egg. allow me to redirect...");
     await sleep(2000);
     window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-  }
+}
 
-  let keys = [];
-  const code = [];
-  const clocks = document.getElementById("clocks");
-  window.addEventListener("keyup", ({ code }) => {
-    keys.push(code);
-    keys = keys.slice(-11);
-    if (keys.join("") == "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightKeyBKeyAEnter") {
+let keys = [];
+const code = [];
+window.addEventListener("keyup", ({ code }) => {
+  keys.push(code);
+  keys = keys.slice(-11);
+  if (keys.join("") == "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightKeyBKeyAEnter") {
       easter()
-    }
+  }
 });
-  
