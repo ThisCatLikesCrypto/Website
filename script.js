@@ -39,3 +39,9 @@ window.addEventListener("keyup", ({ code }) => {
       easter()
   }
 });
+
+function pxCheck() {
+  if (window.innerWidth < 1366 || window.innerHeight < 768) {
+      alert("Your screen resolution is below 1366x768 pixels. This site may look funky, don't blame me for it.");
+  }
+}
