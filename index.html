@@ -1,169 +1,69 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Wilburs' Website</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body onload="document.getElementById('defaultTab').click();">
-        <script src="script.js"></script>
-        <div class="tab">
-            <button class="tablinks active" onclick="openTab(event, 'Tab0')" id="defaultTab">main</button>
-            <button class="tablinks" onclick="openTab(event, 'directory')">directory</button>
-            <button class="tablinks" onclick="openTab(event, 'specs')">tech specs</button>
-            <button class="tablinks" onclick="openTab(event, 'copyright')">copyright</button>
-            <button class="tablinks" onclick="openTab(event, 'about')">about</button>
-            <button class="tablinks" onclick="openTab(event, 'subsites')">sub-sites</button>
-            <button class="tablinks" onclick="openTab(event, 'games')">games</button>
-            <button class="tablinks" onclick="openTab(event, 'downloads')">downloads (temp)</button>
-            <div id="Tab0" class="tabcontent">
-                <h6>‎</h6>
-                <h2>Wilbur's Website</h2>
-                <div class="maindivdiv">
-                <div>
-                <h3>Hyperfixations (interests)</h3>
-                <p>-Computer Hardware</p>
-                <p>-Electronics in General</p>
-                <p>-Software Engineering (duh)</p>
-                <p>-Cryptocurrency/technology</p>
-                <p>-Trains/Trams (especially LU)</p>
-                </div>
-                <div>
-                <h3>Social Links</h3>
-                <a href="https://reddit.com/user/thiscatlikescrypto">Reddit (Use this to contact me)</a>
-                <p></p>
-                <a href="https://discord.com">Discord (Handle @thiscatlikescrypto)</a>
-                <p></p>
-                <a href="https://github.com/ThisCatLikesCrypto">GitHub (Programming projects)</a>
-                <p></p>
-                <a href="https://steamcommunity.com/profiles/76561198983487697">Steam (This is really important yes)</a>
-                </div>
-                <div>
-                    <h3>Hobbies</h3>
-                    <p>-Programming</p>
-                    <p>-Researching</p>
-                    <p>-Gaming</p>
-                    <p>-Watching YouTube</p>
-                </div>
-                <div>
-                    <h3>Also Known As</h3>
-                    <p>-Wilbycat48</p>
-                    <p>-WilbyCat48</p>
-                    <p>-Cat48</p>
-                    <p>-CatLikesCrypto</p>
-                    <p>-ThisCatLikesCrypto</p>
-                </div>
-                <div>
-                    <h3>General Info</h3>
-                    <p>-Born 2010</p>
-                    <p>-Male</p>
-                    <p>-Autistic</p>
-                </div>
-                </div>
-            </div>
-            <div id="directory" class="tabcontent">
-                <h6>‎</h6>
-                <h3>This is basically just a page of referral links from when cryptocurrency was my main interest</h3>
-                <h4>This was originally hosted at thiscatlikescrypto.webador.com</h4>
-                <br>
-                <p>Trading, HODLing, interest section</p>
-                <p><a href="https://app.stormgain.com/friend/BNS26560902">StormGain &ndash; Trade with confidence and use the Cloud Miner to earn free Tether!</a></p>
-                <p><a href="https://guarda.com">Guarda &ndash; Multi-currency Crypto Wallet</a></p>
-                <p><a href="https://changenow.io">ChangeNOW &ndash; Crypto Exchange</a></p>
-                <p><a href="https://crypto.com">Crypto.com &ndash; Buy and sell crypto</a></p>
-                <p><a href="https://nexo.io/ref/3h4p9dkxip?src=web-link">Nexo - Earn up to 12% on your idle assets (well I think it's more now but :shrug:)</a></p>
-                <p>&nbsp;</p>
-                <p>Faucets</p>
-                <p><a data-jwlink-type="extern" data-jwlink-identifier="http://cointiply.com/r/GzOzd" data-jwlink-title="http://cointiply.com/r/GzOzd" target="_blank" href="http://cointiply.com/r/GzOzd" rel="noopener">Cointiply - Earn free LTC, DOGE, DASH and BTC paid directly to your wallet!&nbsp;</a></p>
-                <p>&nbsp;</p>
-                <p>Games</p>
-                <p><a href="https://rollercoin.com/?r=kll7q6te">Rollercoin &ndash; Play fun arcade games and earn crypto at the same time! Purchase miners for a earnings boost!</a></p>
-                <p><a href="https://cryptomininggame.com/?ref=058410adc802">CryptoMiningGame &ndash; Do Jobs, train skills, explore the map, earn crypto!</a></p>
-                <p>&nbsp;</p>
-                <p>Earn / Mine at home</p>
-                <p><a data-jwlink-type="extern" data-jwlink-identifier="https://www.cudominer.com/?a=u2bvToYvh" data-jwlink-title="https://www.cudominer.com/?a=u2bvToYvh" href="https://www.cudominer.com/?a=u2bvToYvh">Cudominer - Mine with ease</a></p>
-                <p><a href="https://miningpoolstats.stream/" data-jwlink-type="extern" data-jwlink-identifier="https://miningpoolstats.stream/" target="_blank" data-jwlink-readonly="false" rel="noopener">Mining pool stats - A website that helps you to pick a mining pool</a></p>
-                <p><a href="https://nbminer.com">NBMiner &ndash; Mine on your GPU</a></p>
-                <p><a href="https://xmrig.com">XMRig &ndash; Mine on your CPU</a></p>
-                <p><a href="https://cryptotabbrowser.com/20514872">CryptoTab Browser &ndash; Earn free Bitcoin for browsing the web!</a></p>
-                <p><span><a href="https://salad.com/download">Salad &ndash; Distributed cloud computing/mining software for gamers. Use my code TJMIEA for 2x earnings (up to $4 earned)</a></span>
-            </div>
-            <div id="specs" class="tabcontent">
-                <h6>‎</h6>
-                <h3>PC Specs</h3>
-                <p>CPU: Intel Core i3-12100F</p>
-                <p>RAM: 16GB (2x8) Corsair Vengeance PRO 3200mhz</p>
-                <p>Mobo: ASUS Prime B660-A D4</p>
-                <p>PSU: Corsair TX650m</p>
-                <p>Case: Corsair iCUE 4000X</p>
-                <p>Boot SSD: WD Blue SN570 500GB</p>
-                <p>Linux Mint SSD: WD Green SN350 500GB</p>
-                <p>Games SSD: WD Green SN350 2TB</p>
-                <p>Storage SSD: Seagate BarraCuda 120 SSD 1TB&nbsp;</p>
-                <p>CPU Cooler: Hyper 212</p>
-                <p>Fans: 5x Corsair 120mm RGB fans (mix)</p>
-                <p>Monitor: iiyama G Master 24" 1080p 165hz (running at 120hz)</p>
-                <p>Keyboard: RK Royal Kludge RK84 (originally brown switch)</p>
-                <p>Keyswitches: MAGIC-REFINER AS Coral Pink Switches (Ultralight Linear) and some other clicky switches for function and modifier keys</p>
-                <p>Mouse: Logitech G305</p>
-                <p>OS: Win11</p>
-                <br>
-                <h3>Laptop Specs</h3>
-                <p>Name: Lenovo Ideapad Chrome 14ITL6</p>
-                <p>CPU: Intel Core i5-1135G7</p>
-                <p>RAM: 8GB (idk)</p>
-                <p>Boot SSD: Some generic 256GB SSD</p>
-                <p>OS: ChromeOS (school forced me to, I do use Linux Dev Environment though)</p>
-                <br>
-                <h3>Other Things</h3>
-                <p>Phone: iPhone XR</p>
-                <p>Watch: Apple Watch Series SE (1st gen)</p>
-                <p>Earbuds: EarFun Air Pro 3</p>
-                <p>Tablet: iPad Mini (5th gen, I don't really use it)</p>
-                <p>3D Printer: Anycubic Kobra 2 Neo</p>
-                <p>Bo: redom</p>
-            </div>
-            <div id="copyright" class="tabcontent">
-                <h6>‎</h6>
-                <h2>Wilbur's Website - Copyright</h2>
-                <h3>Crediting</h3>
-                <p>Crediting should be done with a <code>link to this page</code>, as well as <code>copyright Wilbur Williams <variable>[year of publication]</variable></code>.</p>
-                <br>
-                <h3>When and how you are allowed to use my work:</h3>
-                <h4>Public videos (YouTube or otherwise)</h4>
-                <p>You are allowed to use these for any use after <code>30 years</code> from publication, with non-commercial uses being allowed after <code>5 years</code>.</p>
-                <h4>Code (inc. programming libraries)</h4>
-                <p>You are allowed to use my (published) code for anything you may want from <code>5 years</code> after publication commercially and with credit, however for non-commercial uses all of my code may be adapted, used or otherwise <code>immediately</code>, as long as sufficient credit is given. All of my programming libraries are available for any use (inc. commercially uses) <code>immediately</code>, as long as you give credit. You do not have to give credit on any work over <code>10 years</code> old.</p>
-                <p></p>
-            </div>
-            <div id="about" class="tabcontent">
-                <h6>‎</h6>
-                <h2>About this website</h2>
-                This website is hosted on <code><a href="https://pages.cloudflare.com/">Cloudflare Pages</a></code>, and is managed on <code><a href="https://github.com">GitHub</a></code>.
-                <p>This website was coded by me (some bits, mostly HTML2 bits, were coded by Jasper Cayley (An autistic + ADHD), Peter Rimmer, and Kieran Lynch. Of course SH1MMER is a rehost, that was coded by <code><a href="https://mercurywork.shop">Mercury Workshop</a></code>.)</p>
-            </div>
-            <div id="subsites" class="tabcontent">
-                <h6>‎</h6>
-                <h2>Sub-Sites</h2>
-                <p>This website contains sub-websites (maybe more in future) that may as well be their own things.</p>
-                <a href="HTML2/index.html">HTML2</a>
-                <br>
-                <a href="EyeScary/index.html">EyeScary Development</a>
-                <br>
-                <a href="HTML3/index.html">HTML3 (school stuff)</a>
-                <br>
-                <a href="sh1mmer.html">Rehosted sh1mmer (injectors are borked)</a>
-            </div>
-            <div id="games" class="tabcontent">
-                <h6>‎</h6>
-                <h2>Games</h2>
-                <a href="games/cokie/cokcl.html">Cokie Cliker</a>
-            </div>
-            <div id="downloads" class="tabcontent">
-                <h6>‎</h6>
-                <h2>Downloads</h2>
-                <h3>This will be moved later</h3>
-                <p><a href="/dl/code/EEEEEE.zip">EEEEEE - A bad game by Jasper</a></p>
-            </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilbur's Site</title>
+    <link href="css/main.css" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+<body onload="mobileCheck()">
+    <!-- Site navigation -->
+    <div class="sidenav">
+        <a href="index.html">Main</a>
+        <a href="about.html">About This</a>
+        <a href="HTML2/index.html">HTML2</a>
+        <a href="HTML3/index.html">HTML3</a>
+        <a href="sh1mmer.html">SH1mmer</a>
+        <a href="EyeScary/index.html">EyeScary</a>
+        <a href="games/cokie/cokcl.html">Games</a>
+        <a href="specs.html">Tech Specs</a>
+        <a href="downloads.html">dl Index</a>
+        <a href="directory.html">Crypto Links</a>
+    </div>
+    <div class="main">
+        <h1 style="text-align: center;">Wilbur's Website</h1>
+        <div class="maindivdiv">
+        <div>
+        <h3>Hyperfixations (interests)</h3>
+        <p>-Computer Hardware</p>
+        <p>-Electronics in General</p>
+        <p>-Software Engineering (duh)</p>
+        <p>-Cryptocurrency/technology</p>
+        <p>-Trains/Trams (especially LU)</p>
         </div>
-    </body>
+        <div>
+        <h3>Social Links</h3>
+        <a href="https://reddit.com/user/thiscatlikescrypto">Reddit (Use this to contact me)</a>
+        <p></p>
+        <a href="https://discord.com">Discord (Handle @thiscatlikescrypto)</a>
+        <p></p>
+        <a href="https://github.com/ThisCatLikesCrypto">GitHub (Programming projects)</a>
+        <p></p>
+        <a href="https://steamcommunity.com/profiles/76561198983487697">Steam (This is really important yes)</a>
+        </div>
+        <div>
+            <h3>Hobbies</h3>
+            <p>-Programming</p>
+            <p>-Researching</p>
+            <p>-Gaming</p>
+            <p>-Watching YouTube</p>
+        </div>
+        <div>
+            <h3>Also Known As</h3>
+            <p>-Wilbycat48</p>
+            <p>-WilbyCat48</p>
+            <p>-Cat48</p>
+            <p>-CatLikesCrypto</p>
+            <p>-ThisCatLikesCrypto</p>
+        </div>
+        <div>
+            <h3>General Info</h3>
+            <p>-Born 2010</p>
+            <p>-Male</p>
+            <p>-Autistic</p>
+        </div>
+        </div>
+    </div>
+</body>
 </html>
