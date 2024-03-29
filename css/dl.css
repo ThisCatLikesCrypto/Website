@@ -1,0 +1,23 @@
+h1 {
+    font-size: 5vw;
+    text-align: center;
+}
+
+h2 {
+    font-size: 3vw;
+    text-align: center;
+}
+
+a {
+    font-size: 2vw;
+    color: orange;
+}
+
+body {
+    background-image: url('../assets/background.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    font-family: Calibri, sans-serif;
+    color: whitesmoke;
+}
