@@ -8,6 +8,10 @@ function SetdlOptions(fileName){
         gDriveLink = "None";
         directLink = "code/EEEEEE.zip";
         GitHubLink = "None";
+    } else if (fileName == "infiwriteRust.zip"){
+        gDriveLink = "None";
+        directLink = "compiledprograms/infiwriteRust.zip";
+        GitHubLink = "None";
     } else {
         document.getElementById('h2FileDisp').innerHTML = "That file doesn't exist."
     }
