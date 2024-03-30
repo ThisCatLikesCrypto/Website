@@ -1,6 +1,13 @@
 var fileObject = "";
 var data = {};
 
+async function fetchJSON(url) {
+    const response = await fetch(url);
+    const json = await response.json();
+    console.log(json);
+    return json;
+}
+
 function SetdlOptions(inFileName){
     data = {
         "files":[
@@ -8,23 +15,15 @@ function SetdlOptions(inFileName){
            {"fileName": "infiwriteRust.zip", "gDriveLink": "None", "directLink": "compliedprograms/infiwriteRust.zip", "GitHubLink": "None"}
         ]   
        }
-    fetch('./listofdownloads.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
+       data = fetchJSON("./listofdownloads.json")
+        console.log(data);
+         // Find the file object based on the inFileName
+        try {
+            fileObject = data.files.find(file => file.fileName === inFileName);
+        } catch {
+            document.getElementById('h2FileDisp').innerHTML = "That File Doesn't Exist.";
             console.log(data);
-            data = JSON.parse(data)
-            // Find the file object based on the inFileName
-            try {
-                fileObject = data.files.find(file => file.fileName === inFileName);
-            } catch {
-                document.getElementById('h2FileDisp').innerHTML = "That File Doesn't Exist.";
-                console.log(data);
-            }
+        }
 
         })
         .catch(error => {
