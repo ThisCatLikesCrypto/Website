@@ -5,7 +5,7 @@ function SetdlOptions(inFileName){
     data = { //Keep this up to date with files
         "files":[
            {"fileName": "EEEEEE.zip", "gDriveLink": "None", "directLink": "code/EEEEEE.zip", "GitHubLink": "None"},
-           {"fileName": "infiwriteRust.zip", "gDriveLink": "None", "directLink": "compliedprograms/infiwriteRust.zip", "GitHubLink": "None"}
+           {"fileName": "infiwriteRust.zip", "gDriveLink": "None", "directLink": "compiledprograms/infiwriteRust.zip", "GitHubLink": "None"}
         ]   
     };
 
