@@ -16,6 +16,7 @@ function SetdlOptions(inFileName){
         })
         .then(data => {
             console.log(data);
+            data = data;
         })
         .catch(error => {
             console.log('Error fetching data:', error);
