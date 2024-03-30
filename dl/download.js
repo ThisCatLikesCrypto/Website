@@ -15,7 +15,7 @@ function SetdlOptions(inFileName){
            {"fileName": "infiwriteRust.zip", "gDriveLink": "None", "directLink": "compliedprograms/infiwriteRust.zip", "GitHubLink": "None"}
         ]   
        }
-       data = fetchJSON("./listofdownloads.json")
+       data = fetchJSON("./listofdownloads.json");
         console.log(data);
          // Find the file object based on the inFileName
         try {
@@ -24,13 +24,6 @@ function SetdlOptions(inFileName){
             document.getElementById('h2FileDisp').innerHTML = "That File Doesn't Exist.";
             console.log(data);
         }
-
-        })
-        .catch(error => {
-            console.log('Error fetching data:', error);
-            console.log("Assuming direct local access. If this is not the case, make an issue at https://github.com/ThisCatLikesCrypto/Website");
-
-        });
     
     // Extract the relevant information
     const fileName = fileObject.fileName;
