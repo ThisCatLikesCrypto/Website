@@ -8,7 +8,7 @@ function SetdlOptions(inFileName){
            {"fileName": "infiwriteRust.zip", "gDriveLink": "None", "directLink": "compliedprograms/infiwriteRust.zip", "GitHubLink": "None"}
         ]   
        }
-    fetch('listofdownloads.json')
+    fetch('./listofdownloads.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -17,6 +17,7 @@ function SetdlOptions(inFileName){
         })
         .then(data => {
             console.log(data);
+            data = JSON.parse(data)
             // Find the file object based on the inFileName
             try {
                 fileObject = data.files.find(file => file.fileName === inFileName);
@@ -24,6 +25,7 @@ function SetdlOptions(inFileName){
                 document.getElementById('h2FileDisp').innerHTML = "That File Doesn't Exist.";
                 console.log(data);
             }
+
         })
         .catch(error => {
             console.log('Error fetching data:', error);
