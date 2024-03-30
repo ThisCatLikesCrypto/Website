@@ -1,6 +1,7 @@
+var fileObject = "";
+var data = {};
+
 function SetdlOptions(inFileName){
-    let fileObject = "";
-    let data = {};
     data = {
         "files":[
            {"fileName": "EEEEEE.zip", "gDriveLink": "None", "directLink": "code/EEEEEE.zip", "GitHubLink": "None"},
@@ -23,12 +24,6 @@ function SetdlOptions(inFileName){
                 document.getElementById('h2FileDisp').innerHTML = "That File Doesn't Exist.";
                 console.log(data);
             }
-
-    // Extract the relevant information
-    const fileName = fileObject.fileName;
-    const gDriveLink = fileObject.gDriveLink;
-    const directLink = fileObject.directLink;
-    const GitHubLink = fileObject.GitHubLink;
         })
         .catch(error => {
             console.log('Error fetching data:', error);
@@ -36,6 +31,11 @@ function SetdlOptions(inFileName){
 
         });
     
+    // Extract the relevant information
+    const fileName = fileObject.fileName;
+    const gDriveLink = fileObject.gDriveLink;
+    const directLink = fileObject.directLink;
+    const GitHubLink = fileObject.GitHubLink;
 
     console.log("File Name:", fileName);
     console.log("Google Drive Link:", gDriveLink);
