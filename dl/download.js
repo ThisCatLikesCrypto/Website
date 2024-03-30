@@ -1,29 +1,20 @@
 var fileObject = "";
 var data = {};
 
-async function fetchJSON(url) {
-    const response = await fetch(url);
-    const json = await response.json();
-    console.log(json);
-    return json;
-}
-
 function SetdlOptions(inFileName){
-    data = {
+    data = { //Keep this up to date with files
         "files":[
            {"fileName": "EEEEEE.zip", "gDriveLink": "None", "directLink": "code/EEEEEE.zip", "GitHubLink": "None"},
            {"fileName": "infiwriteRust.zip", "gDriveLink": "None", "directLink": "compliedprograms/infiwriteRust.zip", "GitHubLink": "None"}
         ]   
-       }
-       data = fetchJSON("./listofdownloads.json");
+    };
+
+    try {
+        fileObject = data.files.find(file => file.fileName === inFileName);
+    } catch {
+        document.getElementById('h2FileDisp').innerHTML = "That File Doesn't Exist.";
         console.log(data);
-         // Find the file object based on the inFileName
-        try {
-            fileObject = data.files.find(file => file.fileName === inFileName);
-        } catch {
-            document.getElementById('h2FileDisp').innerHTML = "That File Doesn't Exist.";
-            console.log(data);
-        }
+    }
     
     // Extract the relevant information
     const fileName = fileObject.fileName;
