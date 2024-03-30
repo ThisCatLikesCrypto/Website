@@ -16,7 +16,19 @@ function SetdlOptions(inFileName){
         })
         .then(data => {
             console.log(data);
-            data = data;
+            // Find the file object based on the inFileName
+            try {
+                fileObject = data.files.find(file => file.fileName === inFileName);
+            } catch {
+                document.getElementById('h2FileDisp').innerHTML = "That File Doesn't Exist.";
+                console.log(data);
+            }
+
+    // Extract the relevant information
+    const fileName = fileObject.fileName;
+    const gDriveLink = fileObject.gDriveLink;
+    const directLink = fileObject.directLink;
+    const GitHubLink = fileObject.GitHubLink;
         })
         .catch(error => {
             console.log('Error fetching data:', error);
@@ -24,19 +36,6 @@ function SetdlOptions(inFileName){
 
         });
     
-    // Find the file object based on the inFileName
-    try {
-        fileObject = data.files.find(file => file.fileName === inFileName);
-    } catch {
-        document.getElementById('h2FileDisp').innerHTML = "That File Doesn't Exist.";
-        console.log(data);
-    }
-
-    // Extract the relevant information
-    const fileName = fileObject.fileName;
-    const gDriveLink = fileObject.gDriveLink;
-    const directLink = fileObject.directLink;
-    const GitHubLink = fileObject.GitHubLink;
 
     console.log("File Name:", fileName);
     console.log("Google Drive Link:", gDriveLink);
