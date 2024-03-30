@@ -1,20 +1,46 @@
-var gDriveLink;
-var directLink;
-var archiveLink;
-var GitHubLink;
+function SetdlOptions(inFileName){
+    let fileObject = "";
+    let data = {};
+    data = {
+        "files":[
+           {"fileName": "EEEEEE.zip", "gDriveLink": "None", "directLink": "code/EEEEEE.zip", "GitHubLink": "None"},
+           {"fileName": "infiwriteRust.zip", "gDriveLink": "None", "directLink": "compliedprograms/infiwriteRust.zip", "GitHubLink": "None"}
+        ]   
+       }
+    fetch('listofdownloads.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log('Error fetching data:', error);
+            console.log("Assuming direct local access. If this is not the case, make an issue at https://github.com/ThisCatLikesCrypto/Website");
 
-function SetdlOptions(fileName){
-    if (fileName == "EEEEEE.zip"){
-        gDriveLink = "None";
-        directLink = "code/EEEEEE.zip";
-        GitHubLink = "None";
-    } else if (fileName == "infiwriteRust.zip"){
-        gDriveLink = "None";
-        directLink = "compiledprograms/infiwriteRust.zip";
-        GitHubLink = "None";
-    } else {
-        document.getElementById('h2FileDisp').innerHTML = "That file doesn't exist."
+        });
+    
+    // Find the file object based on the inFileName
+    try {
+        fileObject = data.files.find(file => file.fileName === inFileName);
+    } catch {
+        document.getElementById('h2FileDisp').innerHTML = "That File Doesn't Exist.";
+        console.log(data);
     }
+
+    // Extract the relevant information
+    const fileName = fileObject.fileName;
+    const gDriveLink = fileObject.gDriveLink;
+    const directLink = fileObject.directLink;
+    const GitHubLink = fileObject.GitHubLink;
+
+    console.log("File Name:", fileName);
+    console.log("Google Drive Link:", gDriveLink);
+    console.log("Direct Link:", directLink);
+    console.log("GitHub Link:", GitHubLink);
 
     let gdLink = document.getElementById('gDriveLink')
     let dLink = document.getElementById('directLink')
@@ -41,9 +67,6 @@ function SetdlOptions(fileName){
     } else {
         ghLink.href = ghLink;
     }
-
-
-
 
 }
 
