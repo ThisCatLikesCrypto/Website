@@ -33,14 +33,16 @@
             <p>4. Type in Y then press enter, and it'll automatically reboot upon completion.</p>
             <p>5. Proceed through the setup partially till you get to the Add Account Screen.</p>
             <p>If you get an update screen, please reboot (press <kbd>Power (⏻) + Reload (↻) + ESC</kbd> and then turn it off and on again) and then press <kbd>CTRL + ALT + E</kbd> on the Wi-Fi screen, which allows skipping or makes the update not appear at all.</p>
-            <p><b>IF YOU ARE ON GRUNT BOARD, MOVE ON TO THE 'extra steps' SECTION.</b></p>
+            <p><b>IF YOU ARE ON GRUNT BOARD, MOVE ON TO THE <a href="#exsteps">"Extra Steps"</a> SECTION.</b></p>
             <p>6. Powerwash the Chromebook (disable and then re-enable OS verification) after getting to the "Add Account" screen. Once it boots back up, it'll be fully unenrolled.</p>
             <hr>
-            <h3>Those 'extra steps'...</h3>
+            <div id="exsteps">
+            <h3>Those "Extra Steps"...</h3>
             <p>1. Do CryptoSmite as normal until step 5. On this screen, press <kbd>Power (⏻) + Reload (↻) + ESC</kbd> and then enable dev mode with <kbd>Ctrl + D</kbd> and enter. Allow it to fully enter dev mode.</p>
             <p>2. Once your Chromebook has restarted and is on the "Welcome to your Chromebook" screen, press <kbd>CTRL + ALT + F2 (→)</kbd> to open the dev terminal and login as <kbd>root</kbd>.</p>
             <p>3. Enter the command <kbd>vpd -i RW_VPD -s check_enrollment=0</kbd>. This will stop your Chromebook from checking for enrollment at setup. If nothing comes up, it worked. Move on to the next step.</p>
             <p>4. Restart your Chromebook, but DISABLE OS verification. Let it reboot, and set up your Chromebook as normal. You are now unenrolled.</p>
+            </div>
         </div>
     </body>
 </html>
