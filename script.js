@@ -25,9 +25,10 @@ function openTab(evt, tabName) {
   
 
 async function easter(){
-    console.log("you found an easter egg. allow me to redirect...");
+    console.log("you found an easter egg. enjoy le sound");
     await sleep(2000);
-    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    var audio = new Audio('assets/idek-anymore.mp3');
+    audio.play();
 }
 
 let keys = [];
