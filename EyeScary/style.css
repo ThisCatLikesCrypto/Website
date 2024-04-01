@@ -1,0 +1,30 @@
+body {
+    background-color:darkblue;
+    color:whitesmoke;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+}
+.button {
+    font-size:24px;
+    padding: 12px;
+    background-color: rgb(0, 0, 169);
+    border-width:0px;
+    border-radius:14px;
+    color: white;
+    margin-right: 32px;
+}
+.esd{
+    text-align:left;
+    margin-left:700px;
+}
+.buttonlt{    
+    font-size:12px;
+    padding: 8px;
+    background-color: rgb(0, 0, 169);
+    border-width:0px;
+    border-radius:8px;
+    color: white;
+    text-align:center;
+}
