@@ -1,7 +1,7 @@
 body {
     background-color:darkblue;
     color:whitesmoke;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Calibri', Helvetica, sans-serif;
     text-align: center;
     font-size: larger;
     font-weight: bolder;
@@ -15,11 +15,22 @@ body {
     color: white;
     margin-right: 32px;
 }
-.esd{
-    text-align:left;
-    margin-left:700px;
+  
+.main {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
 }
-.buttonlt{    
+
+#esd {
+    text-align:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#buttonlt{    
     font-size:12px;
     padding: 8px;
     background-color: rgb(0, 0, 169);
@@ -27,4 +38,12 @@ body {
     border-radius:8px;
     color: white;
     text-align:center;
+}
+
+#buttonlt:hover{
+    background-color: orangered;
+}
+
+button:hover{
+    background-color: orangered;
 }

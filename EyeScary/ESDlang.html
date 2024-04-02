@@ -1,21 +1,56 @@
-<DOCTYPE! html>
+<!DOCTYPE html>
+<html>
+
 <head>
     <title>ESDlang - EyeScary Development</title>
     <link rel="STYLESHEET" href="style.css">
 </head>
-<body>
-    <a href="index.html"><button class="button">Home</button></a><a href="ESDlang.html"><button class="button">ESDlang</button></a><a href="stronge.html"><button class="button">Stronge code editor</button></a><a href="padms.html"><button class="button">Padms</button></a>
-    <h1>ESDlang (formerly weardlang, references still visible)</h1>
-    <p>a simple programming language with a minimal syntax, currently in v2.0 closed testing</p>
-    <h2>What would coding with it look like?</h2>
-    <p>ESDlang is a programming language like very few, no brackets, quotes or tags are needed here! the first word you type is always a reserved word, anything after that is just requirements for a function which can be <i>anything</i>. <br> <br> Here's how some basic code might look:</p>
-    <p class="esd"><br>write hello<br>var<br>er<br>str<br>input what is your name?: <br>write hello, er , have a good day!<br><br>This code produces: <br>hello<br>what is your name?: (name) <br>hello, (name) , have a good day!</p>
-    <p><br>Features currently not working: <br><br>Variable names can only be 2 letters<br>Punctuation has to be separate from a variable for a variable to register<br>Random numbers can only go up to 9</b></p>
-    <h2>Can I download a preview?</h2>
-    <p>Sure, download it here:</p>
-    <a href="../dl/download.html?fileName=ESDlang.zip"><button class="buttonlt">Download v2.0 preview</button></a>
-    <p>when you extract the zip, edit the file named trun.txt, this is where you write your code</p>
-    <p>to create a variable make a line with var on, then give the variable a name on the next line, pick between num or str for your variable type and then give it a value (example values: radnom 2 3 , input input value here: , this is a string ,  6)</p>
-    <p>to write a line of text, type write, then space and then write what you want to write, variable names are automatically converted to their values upon printing</p>
 
+<body>
+    <div class="topbar">
+        <a href="index.html"><button class="button">Home</button></a>
+        <a href="ESDlang.html"><button class="button">ESDlang</button></a>
+        <a href="stronge.html"><button class="button">Stronge code editor</button></a>
+        <a href="padms.html"><button class="button">Padms</button></a>
+    </div>
+    <div class="header">
+        <h1>ESDlang (formerly weardlang, references still visible)</h1>
+        <p>a simple programming language with a minimal syntax, currently in v2.0 closed testing</p>
+    </div>
+    <div class="main">
+        <h2>What would coding with it look like?</h2>
+        <p>ESDlang is a programming language like very few, no brackets, quotes or tags are needed here! the first word
+            you type is always a reserved word, anything after that is just requirements for a function which can be
+            <i>anything</i>. <br> <br> Here's how some basic code might look:</p>
+        <p id="esd">
+            <br>
+            write hello<br>
+            var<br>
+            er<br>
+            str<br>
+            input what is your name?: <br>
+            write hello, er , have a good day!<br><br>
+            This code produces: <br>
+            hello<br>
+            what is your name?: (name) <br>
+            hello, (name) , have a good day!
+        </p>
+        <p>
+            <br>
+            Features currently not working: <br><br>
+            Variable names can only be 2 letters<br>
+            Punctuation has to be separate from a variable for a variable to register<br>
+            Random numbers can only go up to 9
+        </p>
+        <h2>Can I download a preview?</h2>
+        <p>Sure, download it here:</p>
+        <a href="../dl/download.html?fileName=ESDlang.zip"><button id="buttonlt">Download v2.0 preview</button></a>
+        <p>when you extract the zip, edit the file named trun.txt, this is where you write your code</p>
+        <p>to create a variable make a line with var on, then give the variable a name on the next line, pick between
+            num or str for your variable type and then give it a value (example values: radnom 2 3 , input input value
+            here: , this is a string , 6)</p>
+        <p>to write a line of text, type write, then space and then write what you want to write, variable names are
+            automatically converted to their values upon printing</p>
 </body>
+
+</html>
