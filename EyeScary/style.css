@@ -1,20 +1,47 @@
 body {
-    background-color:darkblue;
-    color:whitesmoke;
+    color: #d1d4dc; /* Light grey text color for better contrast on dark backgrounds */
+    background-color: #1a1a1a; /* Dark background */
     font-family:'Calibri', Helvetica, sans-serif;
     text-align: center;
     font-size: larger;
     font-weight: bolder;
+    line-height: 1.6;
 }
+
+header {
+    background: #1a1a1a; /* Dark background for header */
+    color: #0078d4; /* Bing's blue color for text */
+    padding: 1rem 0;
+    text-align: center;
+}
+  
+header h1 {
+    margin: 0;
+}
+  
+.topbar {
+    display: flex;
+    justify-content: center;
+    background: #252526;
+    padding: 0.5rem;
+}
+  
+.topbar button {
+    color: #0078d4;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: #1a1a1a;
+}
+  
 
 .button {
     font-size:24px;
     padding: 12px;
-    background-color: rgb(0, 0, 169);
     border-width:0px;
     border-radius:14px;
     color: white;
     margin-right: 32px;
+    float: center;
 }
   
 .main {
@@ -23,11 +50,14 @@ body {
     overflow: hidden;
 }
 
-#esd {
+
+esd { /* ESDlang code */
     text-align:left;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #0f0e13;
+    font-family: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 }
 
 
@@ -43,8 +73,10 @@ body {
 
 #buttonlt:hover{
     background-color: orangered;
+    color:aqua;
 }
 
 button:hover{
     background-color: orangered;
+    color:aqua;
 }

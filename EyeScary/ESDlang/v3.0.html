@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESDlang - EyeScary Development</title>
+    <link rel="STYLESHEET" href="../style.css">
+</head>
+
+<body>
+    <div class="topbar">
+        <a href="../ESDlang.html"><button class="button">Back to ESDlang homepage</button></a>
+    </div>
+    <div class="header">
+        <h1>ESDlang Docs - v3.0</h1>
+    </div>
+    <div class="main">
+        <h2>Variables</h2>
+        <p>Variables are created in a very simple way. You write 'var' (newline), [variableName] (newline) and then the type. Currently num and str are supported.</p>
+        <esd>var<br>ex<br>str</esd>
+        <h2>Writing and Input</h2>
+        <p>Writing is done by typing 'write' and then any other text on that line is treated as what to output.
+            You include variables in this by leaving two spaces, writing the variable name, and then putting another two spaces. For example:
+        </p>
+        <esd>write The value of 'ex' is&nbsp;&nbsp;ex&nbsp;&nbsp;.</esd>
+        <p>Input is done a similar way. You write 'input ' and then everything afterwards is treated as what to write. The data will be saved to a var initalised previously.</p>
+        <esd>var<br>ex<br>str<br>input Hello, enter your name: </esd>
+        <h2>If/Else statements</h2>
+        <p>If/else statements are defined by writing if and then a value, then a condition (=,>=,<=,>,<,x(not equal to)) and then another value, with spaces in between of course. You write your if-statement affected code below the if statement. Then when you're ready, write else on a new line and write your code for if those conditions aren't true, close up the statement with endstat. if you just want an if statement, just leave the else line empty (you still need endstat).</p>
+        <esd>if ex = test<br>write Variable ex is equal to test!<br>else<br>write Variable ex is not equal to test!<br>endstat</esd>
+    </div>
+</body>
+</html>
