@@ -1,0 +1,42 @@
+body {
+    background-image:url("../assets/background.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Open Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  }
+
+.ql-toolbar .ql-stroke {
+    fill: none;
+    stroke: aqua;
+}
+  
+.ql-toolbar .ql-fill {
+    fill: aqua;
+    stroke: none;
+}
+  
+.ql-toolbar .ql-picker {
+    color: aqua;
+}
+
+#editor {
+    width: 52%;
+    max-height: 80%;
+    float: left;
+}
+
+#toolbar {
+    width: 52%;
+    float: left;
+}
+
+#infobar {
+    float:left;
+}
+
+#charcount {
+    font-size: 15px;
+    text-align: right;
+}

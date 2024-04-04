@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Text Editor</title>
+    <link href="quill/quill.snow.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  <body>
+    <script src="quill/quill.js"></script>
+    <script src="script.js"></script>
+    <div id="toolbar">
+      <button class="ql-bold">Bold</button>
+      <button class="ql-italic">Italic</button>
+      <button class="ql-underline">Underline</button>
+    </div>
+    <div id="editor">
+      <p>Write text here...</p>
+    </div>
+    <div id="infobar">
+      <h3 id="charcount">&nbsp;&nbsp;Characters: loading...</h3>
+      <br>
+    </div>
+    <br><br><br><br><br>
+    <div id="info">
+      <h1>What is this?</h1>
+      <p>This is a simple webapp that allows you to write text.</p>
+      <p>Very much in alpha, not exactly great yet.</p>
+      <p>If I ever do something with it I may add the ability to convert text to HTML tags.</p>
+    </div>
+    <script>
+        var quill = new Quill('#editor', {
+        modules: {
+          toolbar: '#toolbar'
+        },
+        theme: 'snow'
+      });
+    </script>
+  </body>
+</html>
