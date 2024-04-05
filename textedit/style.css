@@ -40,3 +40,12 @@ body {
     font-size: 15px;
     text-align: right;
 }
+
+.normalbutton {
+    color: aqua !important;
+    float: right;
+}
+
+#info {
+    text-align: center;
+}
