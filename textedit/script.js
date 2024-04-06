@@ -24,9 +24,18 @@ function saveLocal(quill){
 
 function dlSave(){
     //NO WORKY FIGURE OUT LATER
+    let textFile = null;
+    const makeTextFile = (text) => {
+      const data = new Blob ([text], { type: 'text/plain', });
+      if (textFile !== null) {
+        window.URL.revokeObjectURL (textFile);
+      }
+      textFile = window.URL.createObjectURL (data);
+      return textFile;
+    };
     const link = document.createElement ('a');
     link.setAttribute ('download', "texteditSaveFile");
-    link.href = window.URL.createObjectURL(save(quill));
+    link.href = makeTextFile(save(quill));
     link.click();
 }
 
