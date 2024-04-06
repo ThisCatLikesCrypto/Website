@@ -50,3 +50,7 @@ body {
 #info {
     text-align: center;
 }
+
+#mainheader {
+    font-family: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+}
