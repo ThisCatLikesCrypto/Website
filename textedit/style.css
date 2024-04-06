@@ -44,6 +44,7 @@ body {
 .normalbutton {
     color: aqua !important;
     float: right;
+    width: fit-content !important;
 }
 
 #info {

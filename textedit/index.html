@@ -13,7 +13,9 @@
       <button class="ql-bold">Bold</button>
       <button class="ql-italic">Italic</button>
       <button class="ql-underline">Underline</button>
+      <button class="normalbutton" onclick="saveLocal()">Save</button>
       <button class="normalbutton" onclick="dlSave()">dlSave</button>
+      <button class="normalbutton" onclick="upSave()">upSave</button>
     </div>
     <div id="editor">
       <p>Write text here...</p>
@@ -24,8 +26,8 @@
     </div>
     <br><br><br><br><br>
     <div id="info">
-      <h1>What is this?</h1>
-      <p>This is a simple webapp that allows you to write text, and saves to local storage.</p>
+      <h1 id="infoh1">What is this?</h1>
+      <p id="infop1">This is a simple webapp that allows you to write text, and saves to local storage every ten seconds (trigger a manual save by pressing 'Save' in the toolbar.).</p>
       <p>Very much in alpha, not exactly great yet.</p>
       <p>If I ever do something with it I may add the ability to convert text to HTML tags.</p>
     </div>
