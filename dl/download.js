@@ -8,7 +8,7 @@ function SetdlOptions(inFileName){
            {"fileName": "infiwriteRust.zip", "gDriveLink": "None", "directLink": "compiledprograms/infiwriteRust.zip", "GitHubLink": "None"},
            {"fileName": "ESDlang.zip", "gDriveLink": "None", "directLink": "es/ESDlang.zip", "GitHubLink": "None"},
            {"fileName": "Stronge_v0.2.zip", "gDriveLink": "None", "directLink": "es/Stronge_v0.2.zip", "GitHubLink": "None"}
-            {"fileName": "Stronge_v0.3.zip", "gDriveLink": "None", "directLink": "es/Stronge_v0.3.zip", "GitHubLink": "None"}
+           {"fileName": "Stronge_v0.3.zip", "gDriveLink": "None", "directLink": "es/Stronge_v0.3.zip", "GitHubLink": "None"}
         ]   
     };
 
