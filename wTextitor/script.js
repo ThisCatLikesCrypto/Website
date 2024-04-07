@@ -78,13 +78,15 @@ function killQuill(){
 }
 
 function videoHandler() {
+    console.log("Video embed button triggered");
     let url = prompt("Enter Video URL:"); // Prompt the user for the video URL
     
     if (url) {
         url = getVideoUrl(url); // Convert the URL to an embeddable format
-        if (url === "invaid") {
-            alert("invalid url provided (needs youtube or vimeo)");
+        if (url == "invalid") {
+            alert("invalid url provided (needs youtube or vimeo, defaulting to.. well...)");
             url = "https://www.youtube.com/embed/dQw4w9WgXcQ?showinfo=0"
+            console.log("invalid url, defaulting to rickroll");
 ;       }
 
         let range = quill.getSelection();
