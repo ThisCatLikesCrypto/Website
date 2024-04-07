@@ -66,6 +66,7 @@ esd { /* ESDlang code */
     padding: 8px;
     border-width:0px;
     border-radius:8px;
+    background-color: #252526;
     color: white;
     text-align:center;
 }
