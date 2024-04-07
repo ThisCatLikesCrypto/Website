@@ -1,20 +1,41 @@
-var quill = "justfuckingworkplsplspls";
+var quill = "justfuckingworkplsplspls"; //Just makes it global, please ignore then content of it
 
+//Sleep
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+//Count characters, runs at 10times/sec
 function countChars() {
     var divContent = document.getElementById('editor').textContent;
     var characterCount = divContent.length;
     document.getElementById('charcount').innerHTML = "&nbsp;&nbsp;Characters: " + characterCount;
 }
 
+//Intitate focus mode (get rid of the explanation bit and widen the editor)
+function focusMode(){
+    console.log("Focus mode on");
+    document.getElementById("editor").style['width'] = "100%";
+    document.getElementById("info").style.display = "none";
+    document.getElementById("unfoc").style.display = "block";
+    document.getElementById("foc").style.display = "none";
+}
+
+function unfocus(){
+    console.log("Focus mode off")
+    document.getElementById("editor").style['width'] = "70%";
+    document.getElementById("info").style.display = "block";
+    document.getElementById("foc").style.display = "block";
+    document.getElementById("unfoc").style.display = "none";
+}
+
+//Save and saveload functions
 function save(quill) {
     console.log('Saving changes');
     const data = JSON.stringify(quill.getContents());
     return data;
 }
+
 
 function saveLocal(){
     try {
@@ -25,6 +46,7 @@ function saveLocal(){
         console.log("failed to save to local storage. error: " + error);
     }
 }
+
 
 function dlSave(){
     console.log("dlSave requested");
@@ -47,6 +69,7 @@ function dlSave(){
         console.log("fuck you :D " + error);
     }
 }
+
 
 function upSave(){
     console.log("upSave requested");
@@ -72,10 +95,32 @@ function upSave(){
 
 }
 
+
+//Set quill to an empty string. Just disables all quill functions. Not sure why you need this.
 function killQuill(){
     quill = "";
     console.log("quill killed. saving and loading is broken but it probably still works");
 }
+
+
+//Custom handler functions for the video link input (turns it into embedded links)
+function getVideoUrl(url) {
+    let match =
+    url.match(/^(?:(https?):\/\/)?(?:(?:www|m)\.)?youtube\.com\/watch.*v=([a-zA-Z0-9_-]+)/) || //Yes this is a pain to decipher, I had bing do it
+    url.match(/^(?:(https?):\/\/)?(?:(?:www|m)\.)?youtu\.be\/([a-zA-Z0-9_-]+)/);
+
+    if (match && match.length === 3) {
+    return `https://www.youtube.com/embed/${match[2]}?showinfo=0`;
+    }
+
+    match = url.match(/^(?:(https?):\/\/)?(?:www\.)?vimeo\.com\/(\d+)/);
+    if (match) {
+        return `https://player.vimeo.com/video/${match[1]}/`;
+    }
+
+return "invalid";
+}
+
 
 function videoHandler() {
     console.log("Video embed button triggered");
@@ -98,23 +143,8 @@ function videoHandler() {
     }
 }
 
-function getVideoUrl(url) {
-    let match =
-    url.match(/^(?:(https?):\/\/)?(?:(?:www|m)\.)?youtube\.com\/watch.*v=([a-zA-Z0-9_-]+)/) ||
-    url.match(/^(?:(https?):\/\/)?(?:(?:www|m)\.)?youtu\.be\/([a-zA-Z0-9_-]+)/);
 
-    if (match && match.length === 3) {
-    return `https://www.youtube.com/embed/${match[2]}?showinfo=0`;
-    }
-
-    match = url.match(/^(?:(https?):\/\/)?(?:www\.)?vimeo\.com\/(\d+)/);
-    if (match) {
-        return `https://player.vimeo.com/video/${match[1]}/`;
-    }
-
-return "invalid";
-}
-
+//Essentially the main function, cuz quill needs the page to be loaded first (ik it's not a function)
 document.addEventListener('DOMContentLoaded', (event) => {
 
     //Only init quill after everything has loaded because otherwise it throws an error :shrug:
@@ -126,21 +156,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         Size.whitelist = fontSizeArr;
         Quill.register(Size, true);
         var toolbarOptions = {
-            container: [
+            container: [ //All the toolbar shit
+            [{ 'font': [] }, { 'size': fontSizeArr }],
             ['bold', 'italic', 'underline', 'strike'],
             ['link', 'image', 'video'],
-            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'align': [] }],
             [{ 'color': [] }, { 'background': [] }],
-            [{ 'font': [] }, { 'size': fontSizeArr }],  
-            [{ 'align': [] }],
+            [{ 'script': 'sub'}, { 'script': 'super' }],
             ['clean']
             ],
             handlers: {
                 video: videoHandler
             }
         };
-
-        //figure out how to not make the toolbar really long and the custom buttons look terrible
 
         quill = new Quill('#editor', {
             modules: {

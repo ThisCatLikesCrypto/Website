@@ -9,10 +9,12 @@
   <body>
     <script src="quill/quill.js"></script>
     <script src="script.js"></script>
-    <h1 id="mainheader">wTextitor v0.1.2c</h1>
+    <h1 id="mainheader" onclick="alert('Stands for Wilbur Text Editor, or Wrapped Text Editor (cuz it uses quill, idk)')">wTextitor v0.1.3a</h1>
     <button class="normalbutton" onclick="saveLocal()">Save</button>
     <button class="normalbutton" onclick="dlSave()">dlSave</button>
     <button class="normalbutton" onclick="upSave()">upSave</button>
+    <button class="normalbutton" id="foc" onclick="focusMode()">Focus Mode</button>
+    <button class="normalbutton" id="unfoc" onclick="unfocus()">Remove Focus Mode</button>
     <div id="editor">
       <p>Write text here...</p>
     </div>
@@ -23,7 +25,7 @@
     <br><br><br><br><br>
     <div id="info">
       <h1 id="infoh1">What is this?</h1>
-      <p id="infop1">This is a simple webapp that allows you to write text, and saves to local storage every ten seconds (trigger a manual save by pressing 'Save' in the toolbar.).</p>
+      <p id="infop1">This is a simple webapp that, using the <a href="https://quilljs.com" onmouseover="alert('2.0.0-rc.4, if you were wondering')">Quill Library</a>, allows you to write text, and saves to local storage every ten seconds (trigger a manual save by pressing 'Save' in the toolbar.).</p>
       <p id="infop2">Very much in alpha; not exactly great yet.</p>
       <p id="infop3">If I ever do something with it I may add the ability to convert text to HTML tags.</p>
     </div>

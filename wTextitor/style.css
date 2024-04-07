@@ -65,6 +65,10 @@ body {
     font-family: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 }
 
+#unfoc {
+    display: none;
+}
+
 .ql-snow{
     .ql-picker{
         &.ql-size{
