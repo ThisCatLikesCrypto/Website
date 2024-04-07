@@ -61,7 +61,7 @@ esd { /* ESDlang code */
 }
 
 
-#buttonlt{    
+.buttonlt{    
     font-size:12px;
     padding: 8px;
     border-width:0px;
@@ -71,7 +71,7 @@ esd { /* ESDlang code */
     text-align:center;
 }
 
-#buttonlt:hover{
+.buttonlt:hover{
     background-color: orangered;
     color:aqua;
 }
