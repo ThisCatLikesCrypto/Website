@@ -82,6 +82,10 @@ function videoHandler() {
     
     if (url) {
         url = getVideoUrl(url); // Convert the URL to an embeddable format
+        if (url === "invaid") {
+            alert("invalid url provided (needs youtube or vimeo)");
+            url = "https://www.youtube.com/embed/dQw4w9WgXcQ?showinfo=0"
+;       }
 
         let range = quill.getSelection();
         if (url) {
@@ -106,7 +110,7 @@ function getVideoUrl(url) {
         return `https://player.vimeo.com/video/${match[1]}/`;
     }
 
-return null;
+return "invalid";
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
