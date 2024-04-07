@@ -45,6 +45,7 @@ body {
     color: aqua !important;
     float: right;
     width: fit-content !important;
+    background-color: grey;
 }
 
 #info {
@@ -54,3 +55,16 @@ body {
 #mainheader {
     font-family: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 }
+
+.ql-snow{
+    .ql-picker{
+        &.ql-size{
+            .ql-picker-label,
+            .ql-picker-item{
+                &::before{
+                    content: attr(data-value) !important;
+                }
+            }
+        }
+    }
+    }

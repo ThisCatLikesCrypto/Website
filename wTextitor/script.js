@@ -76,15 +76,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     //Only init quill after everything has loaded because otherwise it throws an error :shrug:
     console.log("initalise quill");
+    const fontSizeArr = ['8px','9px','10px','12px','14px','16px','20px','24px','32px','42px','54px','68px','84px','98px'];
     try {
         var Delta = Quill.import('delta');
-        quill = new Quill('#editor', {
-        modules: {
-        toolbar: '#toolbar'
-        },
-        theme: 'snow'
-        });
-        console.log("..success!");
+        var Size = Quill.import('attributors/style/size');
+        Size.whitelist = fontSizeArr;
+        Quill.register(Size, true);
+        var toolbarOptions = {
+            container: [
+            ['bold', 'italic', 'underline', 'strike'],        // Basic formatting buttons
+            [{ 'size': fontSizeArr }],                        // Font size selector
+            ['link', 'image'],                                // Additional buttons
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            ['clean']
+            ]
+};
+
+//figure out how to not make the toolbar really long and the custom buttons look terrible
+
+quill = new Quill('#editor', {
+    modules: {
+        toolbar: toolbarOptions
+    },
+    theme: 'snow'
+});
+
     } catch(error) {
         console.log("quill broke with " + error)
         document.getElementById('infoh1').innerHTML = "quill failed to load.";
