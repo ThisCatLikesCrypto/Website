@@ -1,7 +1,5 @@
 body {
-    background-image:url("../assets/background.png");
-    background-position: center;
-    background-size: cover;
+    background-color: #121212;
     height: 100vh;
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Open Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
@@ -21,8 +19,12 @@ body {
     color: aqua;
 }
 
+.ql-picker-options {
+    background-color: black !important;
+}
+
 #editor {
-    width: 52%;
+    width: 70%;
     max-height: 80%;
     float: left;
 }
@@ -45,7 +47,14 @@ body {
     color: aqua !important;
     float: right;
     width: fit-content !important;
-    background-color: grey;
+    background: none;
+    padding: 0.5rem;
+    white-space: 0;
+}
+
+.normalbutton:hover {
+    color: black !important;
+    background-color: aqua !important;
 }
 
 #info {

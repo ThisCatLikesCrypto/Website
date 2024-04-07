@@ -72,6 +72,43 @@ function upSave(){
 
 }
 
+function killQuill(){
+    quill = "";
+    console.log("quill killed. saving and loading is broken but it probably still works");
+}
+
+function videoHandler() {
+    let url = prompt("Enter Video URL:"); // Prompt the user for the video URL
+    
+    if (url) {
+        url = getVideoUrl(url); // Convert the URL to an embeddable format
+
+        let range = quill.getSelection();
+        if (url) {
+            quill.insertEmbed(range, "video", url); // Insert the video embed
+        }
+    } else {
+        console.log("Invalid video URL provided.");
+    }
+}
+
+function getVideoUrl(url) {
+    let match =
+    url.match(/^(?:(https?):\/\/)?(?:(?:www|m)\.)?youtube\.com\/watch.*v=([a-zA-Z0-9_-]+)/) ||
+    url.match(/^(?:(https?):\/\/)?(?:(?:www|m)\.)?youtu\.be\/([a-zA-Z0-9_-]+)/);
+
+    if (match && match.length === 3) {
+    return `https://www.youtube.com/embed/${match[2]}?showinfo=0`;
+    }
+
+    match = url.match(/^(?:(https?):\/\/)?(?:www\.)?vimeo\.com\/(\d+)/);
+    if (match) {
+        return `https://player.vimeo.com/video/${match[1]}/`;
+    }
+
+return null;
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
 
     //Only init quill after everything has loaded because otherwise it throws an error :shrug:
@@ -84,27 +121,34 @@ document.addEventListener('DOMContentLoaded', (event) => {
         Quill.register(Size, true);
         var toolbarOptions = {
             container: [
-            ['bold', 'italic', 'underline', 'strike'],        // Basic formatting buttons
-            [{ 'size': fontSizeArr }],                        // Font size selector
-            ['link', 'image'],                                // Additional buttons
+            ['bold', 'italic', 'underline', 'strike'],
+            ['link', 'image', 'video'],
             [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            [{ 'color': [] }, { 'background': [] }],
+            [{ 'font': [] }, { 'size': fontSizeArr }],  
+            [{ 'align': [] }],
             ['clean']
-            ]
-};
+            ],
+            handlers: {
+                video: videoHandler
+            }
+        };
 
-//figure out how to not make the toolbar really long and the custom buttons look terrible
+        //figure out how to not make the toolbar really long and the custom buttons look terrible
 
-quill = new Quill('#editor', {
-    modules: {
-        toolbar: toolbarOptions
-    },
-    theme: 'snow'
-});
+        quill = new Quill('#editor', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+        theme: 'snow'
+        });
 
     } catch(error) {
-        console.log("quill broke with " + error)
+        console.log("quill broke with " + error);
         document.getElementById('infoh1').innerHTML = "quill failed to load.";
         document.getElementById('infop1').innerHTML = "Please refresh the page. If this this issue persists, please create an issue on https://github.com/ThisCatLikesCrypto/Website (not a link)";
+        document.getElementById('infop2').innerHTML = "Error is " + error;
+        document.getElementById('infop3').innerHTML = "Please remember that this is still in alpha, and all feedback is welcome!";
     }
 
     console.log("load previous save");
