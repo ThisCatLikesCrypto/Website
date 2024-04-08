@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'align': [] }],
             [{ 'color': [] }, { 'background': [] }],
             [{ 'script': 'sub'}, { 'script': 'super' }],
+            [{'header': 1}, {'header': 2}],
             ['clean']
             ],
             handlers: {
