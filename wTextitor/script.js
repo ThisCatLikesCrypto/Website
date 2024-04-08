@@ -5,6 +5,15 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+//Copy to clipboard
+function clipCopy(stuff) {
+    try {
+        navigator.clipboard.writeText(stuff);
+    } catch(error){
+        console.log("Copy of text failed " + error);
+    }
+}
+
 //Count characters, runs at 10times/sec
 function countChars() {
     var divContent = document.getElementById('editor').textContent;
@@ -95,6 +104,19 @@ function upSave(){
 
 }
 
+//Function to get HTML from a quill delta
+function quillGetHTML(inputDelta=JSON.parse(localStorage.getItem('storedText'))) {
+    console.log("Get Quill HTML");
+    try {
+        var tempCont = document.createElement("div");
+        (new Quill(tempCont)).setContents(inputDelta);
+        convhtml = tempCont.getElementsByClassName("ql-editor")[0].innerHTML;
+        clipCopy(convhtml);
+        console.log("..success!");
+    } catch(error){
+        console.log("Quill HTML convert failed. " + error);
+    }
+}
 
 //Set quill to an empty string. Just disables all quill functions. Not sure why you need this.
 function killQuill(){
@@ -160,10 +182,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
             [{ 'font': [] }, { 'size': fontSizeArr }],
             ['bold', 'italic', 'underline', 'strike'],
             ['link', 'image', 'video'],
-            [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'align': [] }],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }, { 'align': [] }],
+            [{ 'indent': '-1'}, { 'indent': '+1' }],
             [{ 'color': [] }, { 'background': [] }],
             [{ 'script': 'sub'}, { 'script': 'super' }],
             [{'header': 1}, {'header': 2}],
+            ['blockquote', 'code-block', 'formula'],
             ['clean']
             ],
             handlers: {
@@ -204,3 +228,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     setInterval(saveLocal, 10000)
     setInterval(countChars, 500);
 });
+
+quillGetHTML();
