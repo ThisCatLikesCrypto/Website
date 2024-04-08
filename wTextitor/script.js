@@ -14,6 +14,43 @@ function clipCopy(stuff) {
     }
 }
 
+//Make HTML out of quill
+function quilltoHTML(debug=false){
+    alert("this is VERY MUCH IN ALPHA, DO NOT expect to get clean code, it also might not work for everything. No style is included. You have been warned.");
+    console.log("Converting quill to HTML..");
+    ogcontent = quillGetHTML();
+    if(debug){
+        console.log(ogcontent);
+    }
+    let substrings = ogcontent.split(/(?=<)/);
+    if(debug){
+            console.log(substrings);
+    }
+    for (let i = 0; i < substrings.length; i++) {
+        substrings[i] += '\n';
+    }
+    if(debug){
+        console.log(substrings);
+    }
+
+    let brrr = substrings.join('')
+
+    //hella replace things (split up so it's not readable but not as bad as if it were one long line)
+    brrr = brrr.replace(/class="[^"]*"/g, '');
+    brrr = brrr.replace(/ >/g, '>');
+    brrr = brrr.replace(/\n<\//g, '</');
+    brrr = brrr.replace(/<p>\n<br><\/p>/g, '<br>');
+    brrr = brrr.replace(/<p>\n<strong>/g, '<p><strong>');
+
+    //UNFINISHED
+
+    console.log(brrr);
+    output=brrr;
+
+    document.getElementById('convertedhtml').innerText = output;
+    document.getElementById('htmlout').style.display = 'block';
+}
+
 //Count characters, runs at 10times/sec
 function countChars() {
     var divContent = document.getElementById('editor').textContent;
@@ -114,8 +151,9 @@ function quillGetHTML(inputDelta=JSON.parse(localStorage.getItem('storedText')))
         clipCopy(convhtml);
         console.log("..success!");
     } catch(error){
-        console.log("Quill HTML convert failed. " + error);
+        console.log("Quill HTML get failed. " + error);
     }
+    return convhtml;
 }
 
 //Set quill to an empty string. Just disables all quill functions. Not sure why you need this.

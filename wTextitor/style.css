@@ -119,3 +119,9 @@ body {
     visibility: visible;
     opacity: 1;
 }
+
+#htmlout {
+    display: none;
+    max-height: 80%;
+    float: left;
+}
