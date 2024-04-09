@@ -16,7 +16,8 @@ function clipCopy(stuff) {
 
 //Make HTML out of quill
 function quilltoHTML(debug=false){
-    alert("this is VERY MUCH IN ALPHA, DO NOT expect to get clean code, it also might not work for everything. No style is included. You have been warned.");
+    try {
+    alert("No style is included, and equations are funky but other than that i think this works");
     console.log("Converting quill to HTML..");
     ogcontent = quillGetHTML();
     if(debug){
@@ -41,14 +42,26 @@ function quilltoHTML(debug=false){
     brrr = brrr.replace(/\n<\//g, '</');
     brrr = brrr.replace(/<p>\n<br><\/p>/g, '<br>');
     brrr = brrr.replace(/<p>\n<strong>/g, '<p><strong>');
+    brrr = brrr.replace(/ rel="noopener noreferrer" target="_blank"/, '')
+    for (let confusion=0; confusion < 11323; confusion++){ //idk why this is necessary but i cba to find a better solution
+        brrr = brrr.replace(/<div  data-language="plain">(.*?)<\/div>/, '<code>$1</code>'); 
+    }
 
-    //UNFINISHED
+    //I FUCKING HATE HOW QUILL DOES EQUATIONS LIKE THIS, THIS DOES LIKE NOTHING (I moved on because I have better things to do)
+    brrr = brrr.replace(/<span[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/span>/g, '');
 
-    console.log(brrr);
+    if(debug){
+        console.log(brrr);
+    }
+
     output=brrr;
 
     document.getElementById('convertedhtml').innerText = output;
     document.getElementById('htmlout').style.display = 'block';
+    console.log("..success!")
+    } catch(error){
+        console.log("error "+error);
+    }
 }
 
 //Count characters, runs at 10times/sec
@@ -148,7 +161,6 @@ function quillGetHTML(inputDelta=JSON.parse(localStorage.getItem('storedText')))
         var tempCont = document.createElement("div");
         (new Quill(tempCont)).setContents(inputDelta);
         convhtml = tempCont.getElementsByClassName("ql-editor")[0].innerHTML;
-        clipCopy(convhtml);
         console.log("..success!");
     } catch(error){
         console.log("Quill HTML get failed. " + error);
