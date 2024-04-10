@@ -31,7 +31,7 @@ html {
 
 .header {
   background-repeat: no-repeat;
-  background-image: url("/sh1mmer/assets/background_min.webp");
+  background-image: url("https://wilburwilliams.uk/sh1mmer/assets/background_min.webp");
   background-size: 540px 100%;
   background-repeat: repeat-x;
   text-align: center;
@@ -67,6 +67,11 @@ html {
 h3 {
   font-family: "Space Grotesk", monospace;
   font-size: 50px;
+}
+
+h4 {
+  font-size: 30px;
+  margin-top: 30px;
 }
 
 p,
