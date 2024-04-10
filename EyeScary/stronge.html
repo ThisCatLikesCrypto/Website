@@ -1,34 +1,74 @@
-<!DOCTYPE html><html>
+<!doctype html>
+<html>
+    <head>
+        <title>Stronge editor - EyeScary Development</title>
+        <link rel="STYLESHEET" href="style.css" />
+    </head>
 
-<head>
-    <title>Stronge editor - EyeScary Development</title>
-    <link rel="STYLESHEET" href="style.css">
-</head>
-
-<body>
-    <div class="topbar">
-        <a href="index.html"><button class="button">Home</button></a>
-        <a href="ESDlang.html"><button class="button">ESDlang</button></a>
-        <a href="stronge.html"><button class="button">Stronge code editor</button></a>
-        <a href="padms.html"><button class="button">Padms</button></a>
-    </div>
-    <div class="header">
-        <h1>Stronge</h1>
-        <h3>we're out here making notepad look like an IDE</h3>
-        <p>NEWS!: Stronge 0.3 beta is out now! you can change your previous lines now, but it's still very buggy (hence beta)</p>
-    </div>
-    <div class="main">
-        <p>Stronge is a minimal code editor written in Python</p>
-        <h2>Features:</h2>
-        <p>Write to any file type</p>
-        <p>if your code is in ESDlang you can execute it with our built in interpreter!</p>
-        <p>Better not make any errors, you can't change a previous line!</p>
-        <h2>Can I download it?</h2>
-        <p>sure, the latest preview is available below:</p>
-        <a href="../dl/download.html?fileName=Stronge_v0.2.zip"><button class="buttonlt">Download v0.2 preview here</button></a>
-        <p>when you launch stronge, it will prompt you to come up with a filename, then a file extension, put your chosen file extension here or leave the input blank for .txt, then get to writing code! to clear a file, type <code>filclr</code> on a new line, to save a file and exit, type <code>savex</code> on a new line, and to run your ESDLang code, type <code>savrun</code> on a new line</p>
-        <p><br>looking for something new? how about Stronge 0.3? using the <code>ins</code> command, you can now edit previous lines in this version, and we added line numbers! This is however a beta product due to some janky code used for editing previous lines, if your code constantly refreshes every time you enter a line, it's because of how we had to manage editing the file</p>
-        <a href="../dl/download.html?fileName=Stronge_v0.3.zip"><button class="buttonlt">Download version 0.3 preview here</button></a>
-        <p>formatting the <code>ins</code> command: type <code>ins</code>, space and then the line number you would like to amend, 2 colons will pop up and this is where you write your amended line</p>
-    </div>
-</body></html>
+    <body>
+        <div class="topbar">
+            <a href="index.html"><button class="button">Home</button></a>
+            <a href="ESDlang.html"><button class="button">ESDlang</button></a>
+            <a href="stronge.html"
+                ><button class="button">Stronge code editor</button></a
+            >
+            <a href="padms.html"><button class="button">Padms</button></a>
+        </div>
+        <div class="header">
+            <h1>Stronge</h1>
+            <h3>we're out here making notepad look like an IDE</h3>
+            <p>
+                NEWS!: Stronge 0.4 super early preview is out now! you can now
+                add new lines by typing <code>newln</code>, space and the line
+                number you want a newline after
+            </p>
+        </div>
+        <div class="main">
+            <p>Stronge is a minimal code editor written in Python</p>
+            <h2>Features:</h2>
+            <p>Write to any file type</p>
+            <p>
+                if your code is in ESDlang you can execute it with our built in
+                interpreter!
+            </p>
+            <p>Better not make any errors, you can't change a previous line!</p>
+            <h2>Can I download it?</h2>
+            <p>
+                sure, the latest completely stable preview is available below:
+            </p>
+            <a href="../dl/download.html?fileName=Stronge_v0.2.zip"
+                ><button class="buttonlt">Download v0.2 preview here</button></a
+            >
+            <p>
+                when you launch stronge, it will prompt you to come up with a
+                filename, then a file extension, put your chosen file extension
+                here or leave the input blank for .txt, then get to writing
+                code! to clear a file, type <code>filclr</code> on a new line,
+                to save a file and exit, type <code>savex</code> on a new line,
+                and to run your ESDLang code, type <code>savrun</code> on a new
+                line
+            </p>
+            <p>
+                <br />looking for something new? how about Stronge 0.4 super
+                early preview? using <code>newln (linenumber)</code> you can now
+                add new lines after any line!
+            </p>
+            <a href="../dl/download.html?fileName=Stronge_v0.4.zip"
+                ><button class="buttonlt">
+                    Download version 0.4 super early preview here
+                </button></a
+            >
+            <h3>new commands for super early preview stronge versions:</h3>
+            <p>
+                formatting the <code>ins</code> command: type <code>ins</code>,
+                space and then the line number you would like to amend, 2 colons
+                will pop up and this is where you write your amended line
+            </p>
+            <p>
+                formatting the <code>newln</code> command: type
+                <code>newln</code>, space and then the line number you want to
+                add a new line after
+            </p>
+        </div>
+    </body>
+</html>
