@@ -1,2 +1,12 @@
-body {background-color:blueviolet; text-align: center; font-family: Arial}
-button{background-color:rgb(117, 35, 195); border: 0px; border-radius: 32px; font-size: 128px; padding: 24px}
+body {
+    background-color: blueviolet;
+    text-align: center;
+    font-family: Arial;
+}
+button {
+    background-color: rgb(117, 35, 195);
+    border: 0px;
+    border-radius: 32px;
+    font-size: 32px;
+    padding: 24px;
+}

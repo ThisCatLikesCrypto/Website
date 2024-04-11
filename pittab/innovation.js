@@ -1,14 +1,10 @@
-let ino=0
+let ino = 0;
 
-function innovation() 
-{
+function innovation(string) {
+  if (string == "True") {
     ino += 1;
-    alert("innovation counter is at: " + ino + " innovations");
-     }
-
-
-function unin() 
-{
-     ino -= 1;
-     alert("you uninnovated. innovation counter is at: " + ino + " innovations"); 
-     }
+  } else {
+    ino -= 1;
+  }
+  document.getElementById("inocount").innerHTML = ino + " innovations";
+}

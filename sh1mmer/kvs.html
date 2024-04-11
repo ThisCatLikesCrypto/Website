@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>KVS (Modified Rehost)</title>
+    <link rel="preload" href="sh1mmer/style.css" as="style">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  </head>
+  <body>
+    <div class="header">
+      <h1>KVS</h1>
+      <p class="acronym">Kernel Version Switcher</p>
+    </div>
+    <div class="main">
+      <div class="section blue">
+        <h3>What is KVS?</h3>
+        <p>KVS is a utility made by <a href="https://discord.com/users/952792525637312552">kxtz</a> that will change your current tpm_kernver to ANY version between 0 and 3.</p>
+        <p>This works using the hexdumps of 0x1008 (kernver TPM index) and <kbd>tpmc</kbd> to write the hexdumps of your selected kernver to the 0x1008 TPM index.</p>
+      </div>
+      <div class="section green">
+        <h3>How do I use this?</h3>
+	    <p>1. Make sure you are <b>unenrolled!</b></p>
+        <i>Therefore this is not for unenrollment, but it's helpful if you need to downgrade for whatever reason.</i>
+	    <p>2. Download your shim from <a href="https://dl.kxtz.dev/shims/KVS/">kxtz' shim mirror</a> or <a href="https://dl.osu.bio/KVS">dl.osu.bio</a>.</p>
+        <p>3. After downloading, flash your USB/SD with the file, Chrome Recovery Utility is recommended.</p>
+	    <p>4. Boot your shim by pressing <kbd>ESC + REFRESH + POWER</kbd> and then <kbd>CTRL + D.</kbd></p>
+	    <p>   After you are on the Developer Mode screen, do NOT press enter.</p>
+	    <p>   Instead, press <kbd>ESC + REFRESH + POWER</kbd> again and then insert your USB.<p>
+        <hr>
+        <h3>FAQ</h3>
+        <h4><b>Q: </b>Will this brick my device?</h4>
+        <p><b>A: </b>No, KVS has no way to permanantly brick / hard brick a device. At most, it will make ChromeOS stop booting, but you will still be able to boot shims to recover the kernver index.</p>
+        <h4><b>Q: </b>What kernvers are there?</h4>
+        <p><b>A: </b>There are 4 valid kernvers, 0, 1, 2, and 3. </p>
+        <h4><b>Q: </b>What versions can I downgrade to with kernver _?</h4>
+        <p><b>A: </b>Heres what versions you can downgrade to with each kernver:</p>
+        <p>kernver 0: any</p>
+        <p>kernver 1: any</p>
+        <p>kernver 2: 112 - 119</p>
+        <p>kernver 3: 120 - latest</p>
+        <h4><b>Q: </b>What is the difference between kernver 0 and kernver 1?</h4>
+        <p><b>A: </b>Both kernver 0 and kernver 1 can downgrade to any version, but kernver 0 doesn't get overriden if you recover to a newer version.</p>
+      </div>
+      <div class="section blue">
+        <h3>Credits</h3>
+        <p><b>kxtzownsu</b> - Writing KVS, Providing kernver 0 & kernver 1 files.</p>
+        <p><b>[REDACTED]</b> - Providing kernver 2 files</p>
+        <p><b>miimaker</b> - Providing kernver 3 files</p>
+        <p><b>OlyB</b> - Helping me with the shim builder, most of the shim builder wouldn't exist without him.</p>
+        <p><b>Google</b> - Writing the <kbd>tpmc</kbd> command :3</p>
+      </div>
+    </div>
+    </body>
+</html>
