@@ -4,8 +4,8 @@ function sleep(ms) {
 
 async function easter(){
     console.log("you found an easter egg. enjoy le sound");
-    await sleep(2000);
-    var audio = new Audio('assets/idek-anymore.mp3');
+    alert("sorry KyYay (turn up volume once it starts if you can't hear it)");
+    var audio = new Audio('assets/aprilscattered.ogg');
     audio.play();
 }
 
