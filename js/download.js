@@ -22,31 +22,7 @@ function SetdlOptions(inFileName) {
         gDriveLink: "None",
         directLink: "es/ESDlang.zip",
         GitHubLink: "None",
-      },
-      {
-        fileName: "Stronge_v0.1.zip",
-        gDriveLink: "None",
-        directLink: "es/Stronge_v0.1.zip",
-        GitHubLink: "None",
-      },
-      {
-        fileName: "Stronge_v0.2.zip",
-        gDriveLink: "None",
-        directLink: "es/Stronge_v0.2.zip",
-        GitHubLink: "None",
-      },
-      {
-        fileName: "Stronge_v0.3.zip",
-        gDriveLink: "None",
-        directLink: "es/Stronge_v0.3.zip",
-        GitHubLink: "None",
-      },
-      {
-        fileName: "Stronge_v0.4.zip",
-        gDriveLink: "None",
-        directLink: "es/Stronge_v0.4.zip",
-        GitHubLink: "None",
-      },
+      }
     ],
   };
 
@@ -104,3 +80,11 @@ function onload() {
     "Selected File: " + fileName;
   SetdlOptions(fileName);
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  var typed = new Typed('#dltyped', {
+    strings: ['Download Options', 'Download a File', 'Choose an Option', 'Unnecessary Fanciness'],
+    typeSpeed: 50, // Adjust typing speed (in milliseconds)
+    loop: true, // Set to true if you want the text to loop
+  });
+});
