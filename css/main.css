@@ -1,5 +1,6 @@
-/* Font for sidebar (in case it's not installed)*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/* Fonts (in case they're not installed)*/
+@import url("../fonts/Montserrat.css");
+@import url("../fonts/Calibri.css");
 
 /* Stuff that needs to affect the whole page */
 body {
@@ -49,7 +50,7 @@ a {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* When you mouse over the navigation links, change their color */
+/* When you mouse over the navigation links, change their colour */
 .sidenav a:hover {
     color: #f1f1f1;
 }

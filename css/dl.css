@@ -1,10 +1,5 @@
-h1 {
-    font-size: 5vw;
-    text-align: center;
-}
-
 h2 {
-    font-size: 3vw;
+    font-size: 50px;
     text-align: center;
 }
 
@@ -20,4 +15,12 @@ body {
     height: 100vh;
     font-family: Calibri, sans-serif;
     color: whitesmoke;
+}
+
+#dltyped {
+    height: 100px;
+    padding: 10px;
+    font-size: 80px;
+    display: block;
+    text-align: center;
 }
