@@ -3,20 +3,67 @@
 /* Style for the search box */
 #searchForm {
     text-align: center;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 40%;
+}
+
+#searchbit {
+    display: flex;
+    justify-content: center; /* Horizontally center the inner divs */
+    align-items: center; /* Vertically center the inner divs */
 }
 
 #searchInput {
     padding: 20px; /* Increased padding */
     font-size: 24px; /* Increased font size */
-    width: 400px; /* Increased width */
+    width: calc(100% - 30px); /* Adjusted width to consider padding */
     border: none; /* Removed border */
     border-radius: 10px; /* Rounded corners */
-    background-color: #ccc; /* Grey background */
-    color: aqua; /* Aqua font color */
+    background-color: darkcyan; /* Grey background */
+    color: #37f32e;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#searchGoogle {
+    width: 100%; /* Make it take the full width of the parent */
+    max-width: 200px; /* Limit the maximum width */
+    background-color: orange;
+    margin: 10px auto; /* Center the search button horizontally */
+    color: navy;
+}
+
+.stuffbelowsearchbit {
+    display: flex;
+    justify-content: center; /* Horizontally center the inner divs */
+    align-items: center; /* Vertically center the inner divs */
+    margin: 0 10em;
+}
+
+#quicklinks {
+    display: flex;
+    justify-content: space-between; /* Horizontally center the inner divs */
+    align-items: center; /* Vertically center the inner divs */
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+#quicklinks button {
+    width: 18%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+#quicklinks img {
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+input::placeholder {
+    color: orange;
+    opacity: 1; /* Fix for Firefox */
 }
 
 /* Optional: Style for the main content */
@@ -26,10 +73,45 @@
 
 h1 {
     text-align: center;
+    font-size: 48px;
+    padding: 30px;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #1b2c56;
+    background: linear-gradient(
+        135deg,
+        #1b2c56,
+        #1d2a52,
+        #1f2850,
+        #21264d,
+        #23254a,
+        #252347,
+        #272145,
+        #292042,
+        #2b1e3f,
+        #2d1d3c,
+        #2f1b39,
+        #311937,
+        #331734,
+        #351631,
+        #37152f,
+        #39132c,
+        #3b1129,
+        #3d1026,
+        #3f0e24,
+        #410c21,
+        #430a1e,
+        #070d1a
+    ); /* Background gradient */
     color: #37f32e;
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.spacer {
+    padding: 2%;
 }

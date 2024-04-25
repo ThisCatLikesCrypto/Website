@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wilbur's Site</title>
     <link href="css/newtab.css" rel="stylesheet">
-    <script src="script.js"></script>
+    <script src="js/newtab.js"></script>
 </head>
-<body onload="mobileCheck()">
+<body>
     <div class="main">
-        <h1>New Tab Page</h1>
-        <form id="searchForm" onsubmit="return searchEcosia()">
-            <input type="text" id="searchInput" placeholder="Search Ecosia...">
-        </form>
+        <h1>New Tab Go Brrrr</h1>
+        <p class="spacer"></p>
+        <div id="searchbit">
+            <form id="searchForm" onsubmit="return searchEcosia()">
+                <input type="text" id="searchInput" placeholder="Search Ecosia...">
+            </form>
+        </div>
+        <div class="stuffbelowsearchbit">
+            <button id="searchGoogle" onclick="return searchGoogle()">Search Google Instead</button>
+        </div>
+        <br>
+        <div id="quicklinks">
+            <button onclick="goPlaces('https://bing.com/chat')"><img src="assets/newtab/copilot.jpg"></button>
+            <button onclick="goPlaces('https://ecosia.org/chat')"><img src="assets/newtab/ecosia.jpeg"></button>
+        </div>
     </div> 
-
-    <script>
-        function searchEcosia() {
-            var searchTerm = document.getElementById("searchInput").value;
-            window.location.href = "https://www.ecosia.org/search?q=" + encodeURIComponent(searchTerm);
-            return false; // Prevent default form submission
-        }
-    </script>
 </body>
 </html>
