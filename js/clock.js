@@ -14,7 +14,7 @@ function getTime() {
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
-    return [`${hours}:${minutes}:${seconds} ${dayOfWeek}, ${year}-${month}-${date}`];
+    return [`${dayOfWeek}, ${year}-${month}-${date} ${hours}:${minutes}:${seconds}`];
 }
 
 // Function to update the time display
