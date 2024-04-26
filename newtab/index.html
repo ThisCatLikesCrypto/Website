@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" href="assets/newtab/copilot.jpg" as="image">
-    <link rel="preload" href="assets/newtab/ecosia.jpeg" as="image">
-    <link rel="preload" href="assets/newtab/gclass.png" as="image">
+    <link rel="preload" href="../assets/newtab/copilot.jpg" as="image">
+    <link rel="preload" href="../assets/newtab/ecosia.jpeg" as="image">
+    <link rel="preload" href="../assets/newtab/gclass.png" as="image">
     <title>New Tab</title>
-    <link href="css/newtab.css" rel="stylesheet">
-    <script src="js/newtab.js"></script>
+    <link href="../css/newtab.css" rel="stylesheet">
 </head>
 <body>
     <div class="main">
@@ -17,6 +16,13 @@
             <div class="dropdown-content">
                 <a href="#" onclick="changeClassroomLink('https://classroom.google.com')">u0</a>
                 <a href="#" onclick="changeClassroomLink('https://classroom.google.com/u/1/')">u1 (for pittab and me)</a>
+            </div>
+        </div>
+        <div class="dropdown2">
+            <button class="dropbtn">Credits</button>
+            <div class="dropdown-content">
+                <p>Me</p>
+                <p>Pittab (for dev superiority)</p>
             </div>
         </div>
         <p class="spacersmol"></p>
@@ -33,10 +39,13 @@
         </div>
         <p>(click images to go to the websites)</p>
         <div id="quicklinks">
-            <button onclick="goPlaces('https://bing.com/chat')"><img src="assets/newtab/copilot.jpg"></button>
-            <button onclick="goPlaces('https://ecosia.org/chat')"><img src="assets/newtab/ecosia.jpeg"></button>
-            <button onclick="goPlaces(getClassroomLink())"><img src="assets/newtab/gclass.png"></button>
+            <button onclick="goPlaces('https://bing.com/chat')"><img src="../assets/newtab/copilot.jpg"></button>
+            <button onclick="goPlaces('https://ecosia.org/chat')"><img src="../assets/newtab/ecosia.jpeg"></button>
+            <button onclick="goPlaces(getClassroomLink())"><img src="../assets/newtab/gclass.png"></button>
         </div>
+        <p id="mesage"></p>
     </div> 
+    <script src="../js/newtab.js"></script>
+    <script src="../js/messages.js"></script>
 </body>
 </html>
