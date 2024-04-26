@@ -53,7 +53,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-#searchGoogle, #searchEcosia {
+.stuffbelowsearchbit button {
     width: 100%; /* Make it take the full width of the parent */
     max-width: 200px; /* Limit the maximum width */
     background-color: orange;
@@ -74,6 +74,11 @@
     border-radius: 5px;
     padding: 5px;
     border: none; /* Removed border */
+}
+
+button:hover {
+    background-color: green;
+    color: aqua;
 }
 
 #quicklinks {
