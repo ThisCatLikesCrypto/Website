@@ -18,6 +18,7 @@
     background-color: transparent;
     margin: auto;
     cursor: pointer;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 
@@ -103,6 +104,9 @@
     background-color: orange;
     margin: 10px auto; /* Center the search button horizontally */
     color: navy;
+    border-radius: 5px;
+    padding: 5px;
+    border: none; /* Removed border */
 }
 
 .stuffbelowsearchbit {
@@ -114,18 +118,13 @@
     margin-right: 35%;
 }
 
-.stuffbelowsearchbit button {
-    border-radius: 5px;
-    padding: 5px;
-    border: none; /* Removed border */
-}
 
 button:hover {
-    background-color: green;
+    background-color: darkmagenta;
     color: aqua;
 }
 
-#quicklinks {
+#quicklinks, #smallquicklinks {
     display: flex;
     justify-content: space-between; /* Horizontally center the inner divs */
     align-items: center; /* Vertically center the inner divs */
@@ -140,7 +139,7 @@ button:hover {
     padding: 0;
 }
 
-#quicklinks img {
+#quicklinks img, #smallquicklinks img {
     width: 100%;
     border: none;
     margin: 0;
@@ -148,6 +147,12 @@ button:hover {
     background-color: darkcyan;
 }
 
+#smallquicklinks button {
+    width: 12%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
 
 input::placeholder {
     color: orange;
@@ -216,11 +221,17 @@ body {
     #quicklinks button {
         width: 25%; /* Adjusted width for smaller screens */
     }
+    #smallquicklinks button {
+        width: 20%;
+    }
 }
 
 @media screen and (max-width: 768px) {
     #quicklinks button {
         width: 30%; /* Adjusted width for smaller screens */
+    }
+    #smallquicklinks {
+        display: none;
     }
 }
 
@@ -234,4 +245,10 @@ body {
     #quicklinks button {
         width: 50%; /* Adjusted width for smaller screens */
     }
+}
+
+@media screen and (max-height: 900px) {
+    .spacersmol {
+        padding: 0.5%;
+    }    
 }

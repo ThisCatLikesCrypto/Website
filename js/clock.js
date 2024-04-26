@@ -26,5 +26,4 @@ function updateTime() {
 
 document.addEventListener('DOMContentLoaded', updateTime());
 
-// Update time display every second
-setInterval(updateTime, 1000);
+setInterval(updateTime, 500);
