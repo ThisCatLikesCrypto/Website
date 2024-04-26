@@ -81,6 +81,15 @@ button:hover {
     color: aqua;
 }
 
+.dropbtn {
+    background-color: darkblue;
+    color: aqua;
+}
+
+.dropbtn:hover {
+    background-color: navy;
+}
+
 #quicklinks {
     display: flex;
     justify-content: space-between; /* Horizontally center the inner divs */
