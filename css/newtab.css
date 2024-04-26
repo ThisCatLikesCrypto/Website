@@ -70,6 +70,12 @@
     margin-right: 35%;
 }
 
+.stuffbelowsearchbit button {
+    border-radius: 5px;
+    padding: 5px;
+    border: none; /* Removed border */
+}
+
 #quicklinks {
     display: flex;
     justify-content: space-between; /* Horizontally center the inner divs */
