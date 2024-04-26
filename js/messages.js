@@ -3,11 +3,11 @@ document.getElementById("mesage").innerHTML=msg;
 
 function msgs(){
   if (msg == "It's just javascript, bro"){
-    msg="Bet you wish you could make this, huh"
+    msg="Bet you wish you could make this, huh?"
     document.getElementById("mesage").innerHTML=msg;
     return
   }
-  else if (msg == "Bet you wish you could make this, huh"){
+  else if (msg == "Bet you wish you could make this, huh?"){
     msg="What? Never seen a clean chromebook before?"
     document.getElementById("mesage").innerHTML=msg;
     return
@@ -23,4 +23,4 @@ function msgs(){
     return
   }
 }
-setInterval(msgs, 15000)
+setInterval(msgs, 3000)
