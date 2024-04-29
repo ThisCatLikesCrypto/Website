@@ -1,3 +1,8 @@
+var directory = {
+    "classroomLink": "https://classroom.google.com",
+    "githubLink": "https://github.com"
+};
+
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -21,15 +26,40 @@ function getCookie(cname) {
     return "";
 }
 
-var classroomLink = getCookie("classroomLink") || 'https://classroom.google.com'; // Default classroom link
-
-function changeClassroomLink(link) {
-    classroomLink = link;
-    setCookie("classroomLink", link, 30); // Save the choice in a cookie for 30 days
+function getLink(Link) {
+    return directory[Link];
 }
 
-function getClassroomLink() {
-    return classroomLink;
+function updateLinkList(){
+    var ul = document.getElementById("availableLinks");
+    ul.innerHTML = "";
+    for (var key in directory) {
+        if (directory.hasOwnProperty(key)) {
+            var li = document.createElement("li");
+            li.textContent = key + ": " + directory[key];
+            ul.appendChild(li);
+        }
+    }
+}
+
+function updateLink() {
+    var linkName = document.getElementById("linkName").value;
+    var newLink = document.getElementById("linkContent").value;
+    directory[linkName] = newLink;
+    setCookie(linkName, newLink, 30); // Save the updated link in a cookie for 30 days
+    messageMessage = "Update success: " + linkName + " was set to " + newLink;
+    document.getElementById("failthing").innerHTML = messageMessage;
+    updateLinkList();
+}
+
+function showLinkEditor() {
+    document.getElementById("linkeditor").style.display = "block";
+    document.getElementById("main").style.display = "none";
+}
+
+function hideLinkEditor() {
+    document.getElementById("main").style.display = "block";
+    document.getElementById("linkeditor").style.display = "none";
 }
 
 function searchEcosia() {
@@ -50,3 +80,5 @@ function searchGoogle() {
 function goPlaces(place){
     window.location.href=place;
 }
+
+document.addEventListener('DOMContentLoaded', updateLinkList)

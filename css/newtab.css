@@ -81,16 +81,7 @@
     width: 40%;
 }
 
-#searchbit {
-    display: flex;
-    justify-content: center; /* Horizontally center the inner divs */
-    align-items: center; /* Vertically center the inner divs */
-}
-
-#searchInput {
-    padding: 20px; /* Increased padding */
-    font-size: 24px; /* Increased font size */
-    width: calc(100% - 30px); /* Adjusted width to consider padding */
+.inputBox {
     border: none; /* Removed border */
     border-radius: 10px; /* Rounded corners */
     background-color: darkcyan; /* Grey background */
@@ -98,7 +89,19 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.stuffbelowsearchbit button {
+.linkInput {
+    padding: 20px; /* Increased padding */
+    font-size: 24px; /* Increased font size */
+    width: calc(70% - 30px); /* Adjusted width to consider padding */
+}
+
+#searchInput {
+    padding: 20px; /* Increased padding */
+    font-size: 24px; /* Increased font size */
+    width: calc(100% - 30px); /* Adjusted width to consider padding */
+}
+
+button {
     width: 100%; /* Make it take the full width of the parent */
     max-width: 200px; /* Limit the maximum width */
     background-color: orange;
@@ -159,7 +162,7 @@ input::placeholder {
     opacity: 1; /* Fix for Firefox */
 }
 
-.main {
+#main {
     margin-top: 100px; /* Increased margin to avoid overlap with the search box */
 }
 
@@ -170,7 +173,7 @@ h1 {
     font-family: 'Montserrat', sans-serif;
 }
 
-h3 {
+h2, h3 {
     text-align: center;
 }
 
@@ -215,6 +218,25 @@ body {
 
 .spacersmol {
     padding: 1%;
+}
+
+#linkeditor {
+    display: none;
+}
+
+.centreplease {
+    display: flex;
+    justify-content: center; /* Horizontally center the inner divs */
+    align-items: center; /* Vertically center the inner divs */
+}
+
+#linkForm {
+    text-align: center;
+    width: 40%;
+}
+
+#linkName, #linkContent {
+    background-color: grey;
 }
 
 @media screen and (max-width: 1100px) {

@@ -11,12 +11,11 @@
     <link href="../css/newtab.css" rel="stylesheet">
 </head>
 <body>
-    <div class="main">
+    <div id="main">
         <div class="dropdown">
             <button class="dropbtn">Options</button>
             <div class="dropdown-content">
-                <a href="#" onclick="changeClassroomLink('https://classroom.google.com')">Classroom Link: u0</a>
-                <a href="#" onclick="changeClassroomLink('https://classroom.google.com/u/1/')">Classroom Link: u1 (for pittab and me)</a>
+                <a href="#" onclick="showLinkEditor()">Custom Link Editor</a>
             </div>
         </div>
         <div class="dropdown2">
@@ -30,9 +29,9 @@
         <h1>New Tab Go Brrrr</h1>
         <h3 id="time">Loading...</h1>
         <p class="spacersmol"></p>
-        <div id="searchbit">
+        <div class="centreplease">
             <form id="searchForm" onsubmit="return searchEcosia()">
-                <input type="text" id="searchInput" placeholder="Search Ecosia... (Enter to search)">
+                <input type="text" id="searchInput" class="inputBox" placeholder="Search Ecosia... (Enter to search)">
             </form>
         </div>
         <div class="stuffbelowsearchbit">
@@ -42,18 +41,41 @@
         <p>(click images to go to the websites)</p>
         <div id="quicklinks">
             <button onclick="goPlaces('https://bing.com/chat')"><img src="../assets/newtab/copilot.jpg"></button>
-            <button onclick="goPlaces(getClassroomLink())"><img src="../assets/newtab/gclass.png"></button>
+            <button onclick="goPlaces(getLink('classroomLink'))"><img src="../assets/newtab/gclass.png"></button>
             <button onclick="goPlaces('https://docs.google.com')"><img src="../assets/newtab/gdoc.png"></button>
         </div>
         <br>
         <div id="smallquicklinks">
-            <button onclick="goPlaces('https://github.com/')"><img src="../assets/newtab/ghlogo.png"></button>
-            <button onclick="goPlaces('https://wilbur.is-a.dev')"><img id="wisdevlogo" src="../assets/newtab/wisdev.png"></button>
+            <button onclick="goPlaces(getLink('githubLink'))"><img src="../assets/newtab/ghlogo.png"></button>
             <button onclick="goPlaces('https://ecosia.org/chat')"><img src="../assets/newtab/ecosia.jpeg"></button>
+            <button onclick="goPlaces('https://wilbur.is-a.dev/wTextitor')"><img id="wisdevlogo" src="../assets/newtab/wisdev.png"></button>
+            <button onclick="goPlaces('https://quizlet.com/latest')"><img src="../assets/newtab/quizlet.jpeg"></button>
             <button onclick="goPlaces('https://dashboard.blooket.com')"><img src="../assets/newtab/blooket.png"></button>
         </div>
         <p id="mesage"></p>
     </div> 
+    <div id="linkeditor">
+        <p class="spacersmol"></p>
+        <h1>Quicklink editor</h1>
+        <p id="failthing"></p>
+        <div class="centreplease">
+            <button onclick="hideLinkEditor()">Hide Link Editor</button>
+        </div>
+        <div class="centreplease">
+            <form id="linkForm" onsubmit="return updateLink()">
+                <input type="text" class="inputBox linkInput" id="linkName" placeholder="Link name...">
+                <br><br>
+                <input type="text" class="inputBox linkInput" id="linkContent" placeholder="Link content...">
+            </form>
+        </div>
+        <div class="centreplease">
+            <button onclick="return updateLink()">Submit</button>
+        </div>
+        <h2>Available Links:</h2>
+        <div class="centreplease">
+            <ul id="availableLinks"></ul>
+        </div>
+    </div>
     <script src="../js/newtab.js"></script>
     <script src="../js/messages.js"></script>
     <script src="../js/clock.js"></script>
