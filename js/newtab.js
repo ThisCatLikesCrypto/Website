@@ -1,8 +1,3 @@
-var directory = {
-    "classroomLink": "https://classroom.google.com",
-    "githubLink": "https://github.com"
-};
-
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -26,6 +21,15 @@ function getCookie(cname) {
     return "";
 }
 
+try {
+    var directory = JSON.parse(getCookie("directory"));
+} catch {
+    var directory = {
+        "classroomLink": "https://classroom.google.com",
+        "githubLink": "https://github.com"
+    };
+};
+
 function getLink(Link) {
     return directory[Link];
 }
@@ -46,7 +50,7 @@ function updateLink() {
     var linkName = document.getElementById("linkName").value;
     var newLink = document.getElementById("linkContent").value;
     directory[linkName] = newLink;
-    setCookie(linkName, newLink, 30); // Save the updated link in a cookie for 30 days
+    setCookie("directory", JSON.stringify(directory), 30); // Save the updated link in a cookie for 30 days
     messageMessage = "Update success: " + linkName + " was set to " + newLink;
     document.getElementById("failthing").innerHTML = messageMessage;
     updateLinkList();
