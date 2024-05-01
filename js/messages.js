@@ -28,8 +28,14 @@ const messageElement = document.getElementById("mesage");
 function msgs(){
   if (messages[currentIndex] === "data") {
     getCO2API().then(function(result){
-      data = result['data'][0]['intensity']['actual']+ 'gCO₂/kWh';
-      messageElement.innerHTML = data;
+      data = result['data'][0]['intensity']['actual'];
+      if (data === null) {
+        let dformat = result['data'][0]['intensity']['forecast'] + 'gCO₂/kWh';
+        messageElement.innerHTML = dformat;
+      } else {
+        messageElement.innerHTML = data + 'gCO₂/kWh';
+      }
+      
     });
   } else {
     messageElement.innerHTML = messages[currentIndex];
