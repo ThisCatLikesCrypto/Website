@@ -131,12 +131,12 @@ button:hover {
     display: flex;
     justify-content: space-between; /* Horizontally center the inner divs */
     align-items: center; /* Vertically center the inner divs */
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 32%;
+    margin-right: 32%;
 }
 
 #quicklinks button {
-    width: 18%;
+    width: 17%;
     border: none;
     margin: 0;
     padding: 0;
@@ -151,7 +151,7 @@ button:hover {
 }
 
 #smallquicklinks button {
-    width: 12%;
+    width: 11%;
     border: none;
     margin: 0;
     padding: 0;
@@ -237,6 +237,10 @@ body {
 
 #linkName, #linkContent {
     background-color: grey;
+}
+
+.svglogo {
+    background-color: aqua !important;
 }
 
 @media screen and (max-width: 1100px) {

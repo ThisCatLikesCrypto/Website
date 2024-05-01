@@ -1,26 +1,40 @@
 let msg="It's just javascript, bro"
 document.getElementById("mesage").innerHTML=msg;
 
-function msgs(){
-  if (msg == "It's just javascript, bro"){
-    msg="Bet you wish you could make this, huh?"
-    document.getElementById("mesage").innerHTML=msg;
-    return
-  }
-  else if (msg == "Bet you wish you could make this, huh?"){
-    msg="What? Never seen a clean chromebook before?"
-    document.getElementById("mesage").innerHTML=msg;
-    return
-  }
-  else if (msg == "What? Never seen a clean chromebook before?"){
-    msg="Oh, this? It's just web dev"
-    document.getElementById("mesage").innerHTML=msg;
-    return
-  }
-  else if (msg == "Oh, this? It's just web dev"){
-    msg="It's just javascript, bro"
-    document.getElementById("mesage").innerHTML=msg;
-    return
-  }
+var data = "";
+async function getCO2API() {
+    const response = await fetch('https://api.carbonintensity.org.uk/intensity');
+    const stuff = await response.json();
+    console.log(stuff);
+    return stuff;
 }
-setInterval(msgs, 3000)
+
+
+let messages = [
+  "It's just JavaScript, bro",
+  "Bet you wish you could make this, huh?",
+  "What? Never seen a custom new tab before?",
+  "Oh, this? It's just web dev",
+  "Imagine not knowing how to code, couldn't be me!",
+  "Aww sweetie, you don't know what JS is?",
+  "haha compiler go brrrr",
+  "data",
+  "Looks like some intensity data slipped in there, didn't it?"
+];
+
+let currentIndex = 0;
+const messageElement = document.getElementById("mesage");
+
+function msgs(){
+  if (messages[currentIndex] === "data") {
+    getCO2API().then(function(result){
+      data = result['data'][0]['intensity']['actual']+ 'gCO₂/kWh';
+      messageElement.innerHTML = data;
+    });
+  } else {
+    messageElement.innerHTML = messages[currentIndex];
+  }
+  currentIndex = (currentIndex + 1) % messages.length;
+}
+
+setInterval(msgs, 3000);
