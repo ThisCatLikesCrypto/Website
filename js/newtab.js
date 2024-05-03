@@ -85,8 +85,23 @@ function goPlaces(place){
     window.location.href=place;
 }
 
+function changeTheme(theme) {
+    themething = "../css/themes/" + theme + ".css"
+    document.getElementById("them").href = themething;
+    setCookie("theme", themething, 180);
+}
+
+function updateTheme() {
+    themething = getCookie("theme");
+    if (themething === "") {
+        themething = "../css/themes/surface.css"
+    }
+    document.getElementById("them").href = themething;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    updateLinkList()
+    updateLinkList();
+    updateTheme();
     var typed = new Typed('#brr', {
         strings: ['Brrr', 'Vroom'],
         typeSpeed: 100, // Adjust typing speed (in milliseconds)
