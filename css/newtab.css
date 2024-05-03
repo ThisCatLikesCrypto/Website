@@ -1,0 +1,202 @@
+.dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.dropdown .dropdown-content {
+    left: -100px;
+}
+
+.dropbtn {
+    font-size: 16px;
+    margin: auto;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+
+.dropdown-content a {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Style for dropdown2 */
+.dropdown2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+}
+  
+/* Show the dropdown content on hover */
+.dropdown2:hover .dropdown-content {
+    display: block;
+}
+  
+/* Style the dropdown links */
+.dropdown-content p {
+    display: block;
+    padding: 12px 16px;
+}
+
+
+/* Style for the search box */
+#searchForm {
+    text-align: center;
+    width: 40%;
+}
+
+.inputBox {
+    border: none; /* Removed border */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.linkInput {
+    padding: 20px; /* Increased padding */
+    font-size: 24px; /* Increased font size */
+    width: calc(70% - 30px); /* Adjusted width to consider padding */
+}
+
+#searchInput {
+    padding: 20px; /* Increased padding */
+    font-size: 24px; /* Increased font size */
+    width: calc(100% - 30px); /* Adjusted width to consider padding */
+}
+
+button {
+    width: 100%; /* Make it take the full width of the parent */
+    max-width: 200px; /* Limit the maximum width */
+    margin: 10px auto; /* Center the search button horizontally */
+    border-radius: 5px;
+    padding: 5px;
+    border: none; /* Removed border */
+}
+
+.stuffbelowsearchbit {
+    display: flex;
+    justify-content: center; /* Horizontally center the inner divs */
+    align-items: center; /* Vertically center the inner divs */
+    margin: 0 10em;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+#quicklinks, #smallquicklinks {
+    display: flex;
+    justify-content: space-between; /* Horizontally center the inner divs */
+    align-items: center; /* Vertically center the inner divs */
+    margin-left: 32%;
+    margin-right: 32%;
+}
+
+#quicklinks button {
+    width: 17%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+#quicklinks img, #smallquicklinks img {
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+#smallquicklinks button {
+    width: 11%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+#main {
+    margin-top: 100px; /* Increased margin to avoid overlap with the search box */
+}
+
+h1 {
+    text-align: center;
+    font-size: 48px;
+    padding: none;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+
+.spacersmol {
+    padding: 1%;
+}
+
+#linkeditor {
+    display: none;
+}
+
+.centreplease {
+    display: flex;
+    justify-content: center; /* Horizontally center the inner divs */
+    align-items: center; /* Vertically center the inner divs */
+}
+
+#linkForm {
+    text-align: center;
+    width: 40%;
+}
+
+#linkName, #linkContent {
+    background-color: grey !important;
+}
+
+@media screen and (max-width: 1100px) {
+    #quicklinks button {
+        width: 25%; /* Adjusted width for smaller screens */
+    }
+    #smallquicklinks button {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #quicklinks button {
+        width: 30%; /* Adjusted width for smaller screens */
+    }
+    #smallquicklinks {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #quicklinks button {
+        width: 40%; /* Adjusted width for smaller screens */
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #quicklinks button {
+        width: 50%; /* Adjusted width for smaller screens */
+    }
+}
+
+@media screen and (max-height: 900px) {
+    .spacersmol {
+        padding: 0.5%;
+    }    
+}

@@ -13,13 +13,13 @@ a, p, h1 {
 }
 
 @keyframes funnyRainbow {
-    0% {background-image:url("kieran/images/Boris/Bojo.jpeg");} 
-    16% {background-image:url("kieran/images/Boris/Bojo2.jpeg");}
-    32% {background-image:url("kieran/images/Boris/funnyJoe.jpeg");}
-    50% {background-image:url("kieran/images/Boris/Bojo3.jpeg");} 
-    66% {background-image:url("kieran/images/Boris/KimJongUn.jpeg");}
-    84% {background-image:url("kieran/images/Boris/fart.jpeg");}
-    100% {background-image:url("kieran/images/Boris/Bojo.jpeg");} 
+    0% {background-image:url("../assets/funi/Bojo.jpeg");} 
+    16% {background-image:url("../assets/funi/Bojo2.jpeg");}
+    32% {background-image:url("../assets/funi/funnyJoe.jpeg");}
+    50% {background-image:url("../assets/funi/Bojo3.jpeg");} 
+    66% {background-image:url("../assets/funi/KimJongUn.jpeg");}
+    84% {background-image:url("../assets/funi/fart.jpeg");}
+    100% {background-image:url("../assets/funi/Bojo.jpeg");} 
   
 }
 

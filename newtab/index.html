@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="../assets/newtab/copilot.jpg" as="image">
+    <link rel="preload" href="../assets/newtab/ecosia.jpeg" as="image">
+    <link rel="preload" href="../assets/newtab/gclass.png" as="image">
+    <link rel="preload" href="../assets/newtab/ghlogo.png" as="image">
+    <title>New Tab</title>
+    <link id="them" href="../css/themes/surface.css" rel="stylesheet">
+    <link href="../css/newtab.css" rel="stylesheet">
+</head>
+<body onload="msgs()">
+    <div id="main">
+        <div class="dropdown">
+            <button class="dropbtn wws-dropbtn">Options</button>
+            <div class="wws-dropdown-content dropdown-content">
+                <a href="#" onclick="showLinkEditor()">Custom Link Editor</a>
+                <a href="#" onclick="changeTheme('surface')">Surface Theme</a>
+                <a href="#" onclick="changeTheme('deep')">Deep Theme</a>
+            </div>
+        </div>
+        <div class="dropdown2">
+            <button class="dropbtn wws-dropbtn">Credits</button>
+            <div class="dropdown-content wws-dropdown-content">
+                <a href="https://wilburwilliams.uk">Wilbur Williams</a>
+                <a href="https://devsuperiority.pages.dev/">Pittab (for dev superiority)</a>
+            </div>
+        </div>
+        <p class="spacersmol"></p>
+        <h1>New Tab Go Brrr</h1>
+        <h3 id="time">Loading...</h1>
+        <p class="spacersmol"></p>
+        <div class="centreplease">
+            <form id="searchForm" onsubmit="return searchEcosia()">
+                <input type="text" id="searchInput" class="wws-inputBox inputBox" placeholder="Search Ecosia... (Enter to search)">
+            </form>
+        </div>
+        <div class="stuffbelowsearchbit">
+            <button id="searchEcosia" class="belowaction" onclick="return searchEcosia()">Search Ecosia (or go to chat)</button>
+            <button id="searchGoogle" class="belowaction" onclick="return searchGoogle()">Search Google Instead</button>
+        </div>
+        <p>(click images to go to the websites)</p>
+        <div id="quicklinks">
+            <button onclick="goPlaces('https://bing.com/chat')"><img src="../assets/newtab/copilot.jpg"></button>
+            <button onclick="goPlaces(getLink('classroomLink'))"><img src="../assets/newtab/gclass.png"></button>
+            <button onclick="goPlaces('https://docs.google.com')"><img src="../assets/newtab/gdoc.png"></button>
+        </div>
+        <br>
+        <div id="smallquicklinks">
+            <button onclick="goPlaces(getLink('githubLink'))"><img src="../assets/newtab/ghlogo.png"></button>
+            <button onclick="goPlaces('https://ecosia.org/chat')"><img src="../assets/newtab/ecosia.jpeg"></button>
+            <button onclick="goPlaces('https://wilbur.is-a.dev/wTextitor')"><img id="wisdevlogo" src="../assets/newtab/wisdev.png"></button>
+            <button onclick="goPlaces('https://app.electricitymaps.com/app')"><img class="wws-svglogo" src="../assets/newtab/electricitymaps-icon.svg"></button>
+            <button onclick="goPlaces('https://quizlet.com/latest')"><img src="../assets/newtab/quizlet.jpeg"></button>
+            <button onclick="goPlaces('https://dashboard.blooket.com')"><img src="../assets/newtab/blooket.png"></button>
+        </div>
+        <p id="mesage"></p>
+    </div> 
+    <div id="linkeditor">
+        <p class="spacersmol"></p>
+        <h1>Quicklink editor</h1>
+        <p id="failthing"></p>
+        <div class="centreplease">
+            <button onclick="hideLinkEditor()">Hide Link Editor</button>
+        </div>
+        <div class="centreplease">
+            <form id="linkForm" onsubmit="return updateLink()">
+                <input type="text" class="inputBox linkInput wws-inputBox" id="linkName" placeholder="Link name...">
+                <br><br>
+                <input type="text" class="inputBox linkInput wws-inputBox" id="linkContent" placeholder="Link content...">
+            </form>
+        </div>
+        <div class="centreplease">
+            <button onclick="return updateLink()">Submit</button>
+        </div>
+        <h2>Available Links:</h2>
+        <div class="centreplease">
+            <ul id="availableLinks"></ul>
+        </div>
+    </div>
+    <script src="../js/newtab.js"></script>
+    <script src="../js/messages.js"></script>
+    <script src="../js/clock.js"></script>
+    <script src="../js/typed.js"></script>
+</body>
+</html>
