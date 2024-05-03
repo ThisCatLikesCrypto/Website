@@ -1,0 +1,91 @@
+@import url("https://wilburwilliams.uk/fonts/Montserrat.css");
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(
+    135deg,
+    #0f1d3a,
+    #122037,
+    #151d34,
+    #181b31,
+    #1b192e,
+    #1e172b,
+    #211529,
+    #241326,
+    #070d1a
+    ); /* Background gradient */
+
+    color: #87ff80;
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+button {
+    background-color: rgb(83, 83, 83);
+    color: aquamarine;
+}
+
+button:hover {
+    background-color: aquamarine;
+    color: rgb(83, 83, 83);
+}
+
+input::placeholder {
+    color: orange;
+    opacity: 1; /* Fix for Firefox */
+}
+
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.wws-dropdown-content {
+    background-color: #1d2a52;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.wws-dropdown-content a {
+    color: aqua;
+    text-decoration: none;
+}
+
+.wws-dropdown-content a:hover {
+    background-color: cyan;
+    color: #1d2a52;
+}
+
+.wws-dropdown-content p {
+    color: black;
+    text-decoration: none;
+}
+
+.wws-dropbtn {
+    color: orange;
+    background-color: transparent;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: transparent;
+}
+
+.wws-dropbtn:hover {
+    background-color: navy;
+}
+
+.wws-inputBox {
+    background-color: darkblue; /* Grey background */
+    color: #37f32e;
+    font-family: 'Montserrat', sans-serif;
+}
+
+img {
+    background-color: darkcyan;
+}
+
+.wws-svglogo {
+    background-color: aqua !important;
+} 
