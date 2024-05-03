@@ -1,0 +1,8 @@
+button {
+    width: 100%; /* Make it take the full width of the parent */
+    max-width: 200px; /* Limit the maximum width */
+    margin: 10px auto; /* Center the search button horizontally */
+    border-radius: 5px;
+    padding: 5px;
+    border: none; /* Removed border */
+}
