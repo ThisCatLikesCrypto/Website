@@ -102,10 +102,5 @@ function updateTheme() {
 document.addEventListener('DOMContentLoaded', function() {
     updateLinkList();
     updateTheme();
-    var typed = new Typed('#brr', {
-        strings: ['Brrr', 'Vroom'],
-        typeSpeed: 100, // Adjust typing speed (in milliseconds)
-        loop: true, // Set to true if you want the text to loop
-    });
 
 });
