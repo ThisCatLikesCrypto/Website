@@ -8,19 +8,20 @@
     <link rel="preload" href="../assets/newtab/gclass.png" as="image">
     <link rel="preload" href="../assets/newtab/ghlogo.png" as="image">
     <title>New Tab</title>
+    <link id="them" href="../css/themes/surface.css" rel="stylesheet">
     <link href="../css/newtab.css" rel="stylesheet">
 </head>
 <body onload="msgs()">
     <div id="main">
         <div class="dropdown">
-            <button class="dropbtn">Options</button>
-            <div class="dropdown-content">
+            <button class="dropbtn wws-dropbtn">Options</button>
+            <div class="wws-dropdown-content dropdown-content">
                 <a href="#" onclick="showLinkEditor()">Custom Link Editor</a>
             </div>
         </div>
         <div class="dropdown2">
-            <button class="dropbtn">Credits</button>
-            <div class="dropdown-content">
+            <button class="dropbtn wws-dropbtn">Credits</button>
+            <div class="dropdown-content wws-dropdown-content">
                 <a href="https://wilburwilliams.uk">Wilbur Williams</a>
                 <a href="https://devsuperiority.pages.dev/">Pittab (for dev superiority)</a>
             </div>
@@ -31,7 +32,7 @@
         <p class="spacersmol"></p>
         <div class="centreplease">
             <form id="searchForm" onsubmit="return searchEcosia()">
-                <input type="text" id="searchInput" class="inputBox" placeholder="Search Ecosia... (Enter to search)">
+                <input type="text" id="searchInput" class="wws-inputBox inputBox" placeholder="Search Ecosia... (Enter to search)">
             </form>
         </div>
         <div class="stuffbelowsearchbit">
@@ -49,7 +50,7 @@
             <button onclick="goPlaces(getLink('githubLink'))"><img src="../assets/newtab/ghlogo.png"></button>
             <button onclick="goPlaces('https://ecosia.org/chat')"><img src="../assets/newtab/ecosia.jpeg"></button>
             <button onclick="goPlaces('https://wilbur.is-a.dev/wTextitor')"><img id="wisdevlogo" src="../assets/newtab/wisdev.png"></button>
-            <button onclick="goPlaces('https://app.electricitymaps.com/app')"><img class="svglogo" src="../assets/newtab/electricitymaps-icon.svg"></button>
+            <button onclick="goPlaces('https://app.electricitymaps.com/app')"><img class="wws-svglogo" src="../assets/newtab/electricitymaps-icon.svg"></button>
             <button onclick="goPlaces('https://quizlet.com/latest')"><img src="../assets/newtab/quizlet.jpeg"></button>
             <button onclick="goPlaces('https://dashboard.blooket.com')"><img src="../assets/newtab/blooket.png"></button>
         </div>
@@ -64,9 +65,9 @@
         </div>
         <div class="centreplease">
             <form id="linkForm" onsubmit="return updateLink()">
-                <input type="text" class="inputBox linkInput" id="linkName" placeholder="Link name...">
+                <input type="text" class="inputBox linkInput wws-inputBox" id="linkName" placeholder="Link name...">
                 <br><br>
-                <input type="text" class="inputBox linkInput" id="linkContent" placeholder="Link content...">
+                <input type="text" class="inputBox linkInput wws-inputBox" id="linkContent" placeholder="Link content...">
             </form>
         </div>
         <div class="centreplease">
