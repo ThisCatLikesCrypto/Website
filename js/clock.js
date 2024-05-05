@@ -1,7 +1,11 @@
 // Function to get the day of the week
 function getDayOfWeek(day) {
     const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    return daysOfWeek[day];
+    if (daysOfWeek[day] === undefined){
+        return 'Sunday' //dumb fix for breakage on Sunday
+    } else {
+        return daysOfWeek[day];
+    }
 }
 
 // Function to get the current time
