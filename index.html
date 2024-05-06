@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wilbur's Site</title>
     <link href="css/main.css" rel="stylesheet">
-    <script src="js/script.js"></script>
+    <script id="mainscript" src="js/script.js"></script>
 </head>
 <body onload="mobileCheck()">
     <!-- Site navigation -->
@@ -65,5 +65,10 @@
         </svg>
         <!--I very much stole the above from mercury workshop no way I write that myself-->
     </div>
+    <script>
+        var scriptTag = document.getElementById("mainscript");
+        scriptTag.setAttribute('type', 'text/javascript');
+        scriptTag.onerror = function(){window.location.href = "https://http.cat/404"}
+    </script>
 </body>
 </html>
