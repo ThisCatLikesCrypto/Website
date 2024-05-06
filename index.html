@@ -7,7 +7,7 @@
     <link href="css/main.css" rel="stylesheet">
     <script id="mainscript" src="js/script.js"></script>
 </head>
-<body onload="mobileCheck()">
+<body>
     <!-- Site navigation -->
     <div class="sidenav">
         <a href="index.html">Main</a>
@@ -66,8 +66,14 @@
         <!--I very much stole the above from mercury workshop no way I write that myself-->
     </div>
     <script>
-        var scriptTag = document.getElementById("mainscript");
-        scriptTag.onerror = function(){window.location.href = "https://http.cat/404"}
+        function trytocheck() {
+            try {
+            mobileCheck();
+            } catch {
+            window.location.href = "https://http.cat/404"
+            }
+        }
+        document.addEventListener("DOMContentLoaded", trytocheck)
     </script>
 </body>
 </html>
