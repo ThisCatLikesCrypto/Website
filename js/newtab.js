@@ -70,6 +70,8 @@ function searchEcosia() {
     var searchTerm = document.getElementById("searchInput").value;
     if (searchTerm === ""){
         window.location.href="https://ecosia.org/chat"
+    } else if (searchTerm.startsWith("https://") || searchTerm.startsWith("http://")) {
+        window.location.href=searchTerm;
     } else {
         window.location.href = "https://www.ecosia.org/search?q=" + encodeURIComponent(searchTerm);
     }
