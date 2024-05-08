@@ -72,6 +72,10 @@ function searchEcosia() {
         window.location.href="https://ecosia.org/chat"
     } else if (searchTerm.startsWith("https://") || searchTerm.startsWith("http://")) {
         window.location.href=searchTerm;
+    } else if (searchTerm.startsWith("!")){
+        window.location.href = "https://duckduckgo.com/?q=" + encodeURIComponent(searchTerm);
+    } else if (searchTerm.endsWith(".uk") || searchTerm.endsWith(".com")) {
+        window.location.href=searchTerm;
     } else {
         window.location.href = "https://www.ecosia.org/search?q=" + encodeURIComponent(searchTerm);
     }
