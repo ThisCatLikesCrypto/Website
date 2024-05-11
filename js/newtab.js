@@ -66,9 +66,10 @@ function hideLinkEditor() {
     document.getElementById("linkeditor").style.display = "none";
 }
 
+
 function searchEcosia() {
     var searchTerm = document.getElementById("searchInput").value;
-    setCookie('points', getCookie('points')+1, 365);
+    setCookie('points', parseInt(getCookie('points'))+1, 365);
     getPoints();
     if (searchTerm === ""){
         window.location.href="https://ecosia.org/chat"
@@ -86,6 +87,8 @@ function searchEcosia() {
 
 function searchGoogle() {
     var searchTerm = document.getElementById("searchInput").value;
+    setCookie('points', parseInt(getCookie('points'))+1, 365);
+    getPoints();
     window.location.href = "https://google.com/search?q=" + encodeURIComponent(searchTerm);
 }
 
