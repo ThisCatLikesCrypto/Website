@@ -68,6 +68,8 @@ function hideLinkEditor() {
 
 function searchEcosia() {
     var searchTerm = document.getElementById("searchInput").value;
+    setCookie('points', getCookie('points')+1, 365);
+    getPoints();
     if (searchTerm === ""){
         window.location.href="https://ecosia.org/chat"
     } else if (searchTerm.startsWith("https://") || searchTerm.startsWith("http://")) {
@@ -105,8 +107,20 @@ function updateTheme() {
     document.getElementById("them").href = themething;
 }
 
+function getPoints() {
+    let pints = getCookie('points');
+    if (pints===undefined || pints===null || pints==="") {
+        console.log("failed to get points cookie, if this is the first load ignore this. otherwise raise an issue on ThisCatLikesCrypto/Website");
+        setCookie('points', 0, 365);
+        document.getElementById('points™').innerHTML = 0;
+    } else {
+        document.getElementById('points™').innerHTML = pints;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     updateLinkList();
     updateTheme();
+    getPoints();
 
 });

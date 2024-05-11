@@ -67,6 +67,13 @@ h1:hover, h3:hover {
     padding: 12px 16px;
 }
 
+.belowdrop2 {
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    
+}
+
 
 /* Style for the search box */
 #searchForm {
