@@ -21,6 +21,10 @@ function getCookie(cname) {
     return "";
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 try {
     var directory = JSON.parse(getCookie("directory"));
 } catch {
@@ -76,6 +80,17 @@ function hideThemes() {
     document.getElementById("themes").style.display = "none";
 }
 
+function showTimetable() {
+    document.getElementById("viewtimetable").style.display = "block";
+    document.getElementById("main").style.display = "none";
+    useCachedTimetable();
+}
+
+function hideTimetable() {
+    document.getElementById("main").style.display = "block";
+    document.getElementById("viewtimetable").style.display = "none";
+}
+
 
 function searchEcosia() {
     var searchTerm = document.getElementById("searchInput").value;
@@ -128,6 +143,62 @@ function getPoints() {
         document.getElementById('points™').innerHTML = 0;
     } else {
         document.getElementById('points™').innerHTML = pints;
+    }
+}
+
+function displayTimetable(jsonData) {
+    const timetableData = JSON.parse(jsonData);
+
+    // Clear existing timetable rows
+    document.getElementById('timetableBody').innerHTML = '';
+    for (let i = 1; i < 3; i++) {
+        weekh = document.createElement('h2');
+        weekh.innerHTML = "Week " + i.toString();
+        document.getElementById('timetableBody').append(document.createElement('br'));
+        document.getElementById('timetableBody').append(weekh);
+        let weekData = timetableData['week' + i.toString()];
+        console.log(weekData);
+        weekData.forEach((period) => {
+            const row = document.createElement('tr');
+            const periodCell = document.createElement('td');
+            periodCell.innerText = period.period;
+            row.appendChild(periodCell);
+      
+            period.days.forEach((subject) => {
+                const subjectCell = document.createElement('td');
+                subjectCell.innerText = subject;
+                row.appendChild(subjectCell);
+                document.getElementById('timetableBody').appendChild(row);
+            });
+        });
+    }
+}
+
+function importJSON() {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        let jsonData = event.target.result;
+        displayTimetable(jsonData);
+      };
+      reader.readAsText(file);
+    } else {
+      alert('Please select a JSON file.');
+    }
+}
+
+async function useCachedTimetable() {
+    let jsonData = localStorage.getItem('timetable');
+    if (jsonData) {
+        displayTimetable(jsonData);
+    }
+    else {
+        document.getElementById('ttstatus').innerHTML = "No local timetable found.";
+        await sleep(3000);
+        document.getElementById('ttstatus').innerHTML = "";
     }
 }
 

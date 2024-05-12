@@ -19,13 +19,15 @@
             <div class="wws-dropdown-content dropdown-content">
                 <a href="#" onclick="showLinkEditor()">Custom Link Editor</a>
                 <a href="#" onclick="showThemes()">Themes</a>
+                <a href="#" onclick="showTimetable()">View Timetable</a>
             </div>
         </div>
         <div class="dropdown2">
             <button class="dropbtn wws-dropbtn">Credits</button>
             <div class="dropdown-content wws-dropdown-content">
-                <a href="https://wilburwilliams.uk">Wilbur Williams</a>
+                <a href="https://wilburwilliams.uk">Wilbur Williams (made this)</a>
                 <a href="https://devsuperiority.pages.dev/">Pittab (for dev superiority)</a>
+                <a href="https://brungle.pages.dev">Brungle (for inspiration)</a>
             </div>
         </div>
         <div class="belowdrop2">
@@ -100,6 +102,37 @@
         <h2>Available Links:</h2>
         <div class="centreplease">
             <ul id="availableLinks"></ul>
+        </div>
+    </div>
+    <div id="viewtimetable">
+        <div id="table1" style="display: block;">
+            <br>
+            <h1 id="weekHeader"> Timetable </h1>
+            <p id="ttstatus"></p>
+            <div class="centreplease">
+                <button onclick="hideTimetable()">Go Back</button>
+            </div>
+            <br>
+            <table class="timetable">
+              <tbody id="timetableBody">
+                <tr>
+                  <th>Period</th>
+                  <th>Monday</th>
+                  <th>Tuesday</th>
+                  <th>Wednesday</th>
+                  <th>Thursday</th>
+                  <th>Friday</th>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <label for="fileInput" class="custom-file-upload">
+                Select JSON
+            </label>
+            <input type="file" id="fileInput" accept=".json">
+            <button onclick="importJSON()">View</button>
+            <button onclick="useCachedTimetable()">Retry Use Local Storage Timetable</button>
+            <button onclick="goPlaces('timetable.html')">Edit Timetable</button>
         </div>
     </div>
     <script src="../js/newtab.js"></script>
