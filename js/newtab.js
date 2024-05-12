@@ -25,6 +25,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+
 try {
     var directory = JSON.parse(getCookie("directory"));
 } catch {
@@ -147,7 +148,16 @@ function getPoints() {
 }
 
 function displayTimetable(jsonData) {
-    const timetableData = JSON.parse(jsonData);
+    var timetableData = JSON.parse(jsonData);
+    try {
+        weekData.forEach((period) => {
+            console.log("fuck this shit");
+        });
+    } catch(e) {
+        //This is necessary because... idk but it breaks if you remove it :D
+        timetableData = JSON.parse(timetableData);
+        console.log(timetableData);
+    }
 
     // Clear existing timetable rows
     document.getElementById('timetableBody').innerHTML = '';
@@ -156,7 +166,8 @@ function displayTimetable(jsonData) {
         weekh.innerHTML = "Week " + i.toString();
         document.getElementById('timetableBody').append(document.createElement('br'));
         document.getElementById('timetableBody').append(weekh);
-        let weekData = timetableData['week' + i.toString()];
+        console.log(timetableData);
+        var weekData = timetableData['week' + i.toString()];
         console.log(weekData);
         weekData.forEach((period) => {
             const row = document.createElement('tr');
