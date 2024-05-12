@@ -66,6 +66,16 @@ function hideLinkEditor() {
     document.getElementById("linkeditor").style.display = "none";
 }
 
+function showThemes() {
+    document.getElementById("themes").style.display = "block";
+    document.getElementById("main").style.display = "none";
+}
+
+function hideThemes() {
+    document.getElementById("main").style.display = "block";
+    document.getElementById("themes").style.display = "none";
+}
+
 
 function searchEcosia() {
     var searchTerm = document.getElementById("searchInput").value;
@@ -77,7 +87,7 @@ function searchEcosia() {
         window.location.href=searchTerm;
     } else if (searchTerm.startsWith("!")){
         window.location.href = "https://duckduckgo.com/?q=" + encodeURIComponent(searchTerm);
-    } else if (searchTerm.endsWith(".uk") || searchTerm.endsWith(".com")) {
+    } else if (searchTerm.endsWith(".uk") || searchTerm.endsWith(".com") || searchTerm.endsWith(".co") || searchTerm.endsWith(".net") || searchTerm.endsWith(".org")) {
         window.location.href="https://" + searchTerm;
     } else {
         window.location.href = "https://www.ecosia.org/search?q=" + encodeURIComponent(searchTerm);
@@ -113,7 +123,7 @@ function updateTheme() {
 function getPoints() {
     let pints = getCookie('points');
     if (pints===undefined || pints===null || pints==="") {
-        console.log("failed to get points cookie, if this is the first load ignore this. otherwise raise an issue on ThisCatLikesCrypto/Website");
+        console.log("failed to get points cookie, if this is the first load ignore this. otherwise raise an issue on https://github.com/ThisCatLikesCrypto/Website");
         setCookie('points', 0, 365);
         document.getElementById('points™').innerHTML = 0;
     } else {

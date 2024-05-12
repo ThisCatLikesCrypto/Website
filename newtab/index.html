@@ -15,12 +15,10 @@
 <body onload="msgs()">
     <div id="main">
         <div class="dropdown">
-            <button class="dropbtn wws-dropbtn">Options</button>
+            <button class="dropbtn wws-dropbtn">Settings</button>
             <div class="wws-dropdown-content dropdown-content">
                 <a href="#" onclick="showLinkEditor()">Custom Link Editor</a>
-                <a href="#" onclick="changeTheme('surface')">Surface Theme</a>
-                <a href="#" onclick="changeTheme('deep')">Deep Theme</a>
-                <a href="#" onclick="changeTheme('pitchdark')">Dark Theme</a>
+                <a href="#" onclick="showThemes()">Themes</a>
             </div>
         </div>
         <div class="dropdown2">
@@ -63,6 +61,25 @@
         </div>
         <p id="mesage"></p>
     </div> 
+    <div id="themes">
+        <p class="spacersmol"></p>
+        <h1>Theme Switcher</h1>
+        <div class="centreplease">
+            <button onclick="hideThemes()">Hide Theme Switcher</button>
+        </div>
+        <div class="centreplease" id="themeslinks">
+            <h2>
+                <a href="#" onclick="changeTheme('surface')">Surface Theme (left)</a> &ndash;
+                <a href="#" onclick="changeTheme('deep')">Deep Theme (centre)</a> &ndash;
+                <a href="#" onclick="changeTheme('pitchdark')">Dark Theme (right)</a>
+            </h2>
+        </div>
+        <div class="centreplease">
+            <img class="themeimg" src="../assets/newtab/surfacetheme.png">
+            <img class="themeimg" src="../assets/newtab/deeptheme.png">
+            <img class="themeimg" src="../assets/newtab/darktheme.png">
+        </div>
+    </div>
     <div id="linkeditor">
         <p class="spacersmol"></p>
         <h1>Quicklink editor</h1>

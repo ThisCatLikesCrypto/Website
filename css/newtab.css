@@ -32,6 +32,9 @@ h1:hover, h3:hover {
     outline: none;
 }
 
+.dropbtn:hover {
+    background-color: transparent !important;
+}
 
 .dropdown-content a {
     display: block;
@@ -140,11 +143,18 @@ h1:hover, h3:hover {
     padding: 0;
 }
 
+.themeimg {
+    width: 30%;
+}
+
+#themeslinks a {
+    color: aqua;
+}
+
 
 #main {
     margin-top: 100px; /* Increased margin to avoid overlap with the search box */
 }
-
 
 
 .spacersmol {
@@ -152,6 +162,10 @@ h1:hover, h3:hover {
 }
 
 #linkeditor {
+    display: none;
+}
+
+#themes {
     display: none;
 }
 
