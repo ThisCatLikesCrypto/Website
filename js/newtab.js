@@ -182,6 +182,7 @@ function importJSON() {
       const reader = new FileReader();
       reader.onload = function(event) {
         let jsonData = event.target.result;
+        localStorage.setItem('timetable', JSON.stringify(jsonData));
         displayTimetable(jsonData);
       };
       reader.readAsText(file);
