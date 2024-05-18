@@ -136,6 +136,30 @@ function updateTheme() {
     document.getElementById("them").href = themething;
 }
 
+function changeToCustomTheme(){
+    const cssURL = document.getElementById("cssURL").value;
+    setCookie("theme", cssURL, 180);
+    updateTheme();
+    return false;
+}
+
+function updateInlineCSS(){
+    try {
+        const inlineCSS = getCookie("inlineCSS");
+        console.log(inlineCSS);
+        document.getElementById("inlineCustomCSS").innerHTML = inlineCSS;
+        document.getElementById("inlineCSSeditor").innerHTML = inlineCSS;
+    } catch {
+        console.log("UpdateInlineCSS() failed, probably failed in getting cookie.");
+    }
+}
+
+function useCustomInlineCSS(){
+    const inlineCSS = document.getElementById("inlineCSSeditor").textContent;
+    setCookie("inlineCSS", inlineCSS, 365);
+    updateInlineCSS();
+}
+
 function getPoints() {
     let pints = getCookie('points');
     if (pints===undefined || pints===null || pints==="") {
@@ -217,6 +241,6 @@ async function useCachedTimetable() {
 document.addEventListener('DOMContentLoaded', function() {
     updateLinkList();
     updateTheme();
+    updateInlineCSS();
     getPoints();
-
 });

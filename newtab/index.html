@@ -11,6 +11,9 @@
     <link id="them" href="../css/themes/pitchdark.css" rel="stylesheet">
     <link href="../css/themes/universal.css" rel="stylesheet">
     <link href="../css/newtab.css" rel="stylesheet">
+    <style id="inlineCustomCSS">
+        /* This is replaced with any custom css not imported with a URL*/
+    </style>
 </head>
 <body onload="msgs()">
     <div id="main">
@@ -80,6 +83,24 @@
             <img class="themeimg" src="../assets/newtab/surfacetheme.png">
             <img class="themeimg" src="../assets/newtab/deeptheme.png">
             <img class="themeimg" src="../assets/newtab/darktheme.png">
+        </div>
+        <br><br>
+        <h2>Custom CSS</h2>
+        <div class="centreplease">
+            <form id="customCSSInput" onsubmit="return changeToCustomTheme()">
+                <input type="text" id="cssURL" class="wws-inputBox inputBox" placeholder="Enter a css url...">
+            </form>
+        </div>
+        <p><i>Will remove theme if invalid URL, or will use surface.css if blank</i></p>
+        <br>
+        <h2>Custom CSS Editor</h2>
+        <h3><i>May be used in conjunction with a custom URL</i></h3>
+        <p><i>Editing BG colour is broken sometimes</i></p>
+        <div class="centreplease" id="divaroundCSSeditor">
+            <p id="inlineCSSeditor" contenteditable="true">/* Put CSS here!*/</p>
+        </div>
+        <div class="centreplease">
+            <button onclick="useCustomInlineCSS()">Save</button>
         </div>
     </div>
     <div id="linkeditor">
