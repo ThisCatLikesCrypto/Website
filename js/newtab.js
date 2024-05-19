@@ -146,7 +146,6 @@ function changeToCustomTheme(){
 function updateInlineCSS(){
     try {
         const inlineCSS = getCookie("inlineCSS");
-        console.log(inlineCSS);
         document.getElementById("inlineCustomCSS").innerHTML = inlineCSS;
         document.getElementById("inlineCSSeditor").innerHTML = inlineCSS;
     } catch {
