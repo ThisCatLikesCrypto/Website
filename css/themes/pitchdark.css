@@ -1,4 +1,4 @@
-@import url("https://wilburwilliams.uk/fonts/Montserrat.css");
+@import url("../../fonts/Montserrat.css");
 
 body {
     background-color: #121212;
@@ -75,6 +75,6 @@ a {
     color: lime;
 }
 
-p { 
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
