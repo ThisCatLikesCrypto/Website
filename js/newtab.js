@@ -92,6 +92,16 @@ function hideTimetable() {
     document.getElementById("viewtimetable").style.display = "none";
 }
 
+function showData() {
+    document.getElementById("datashit").style.display = "block";
+    document.getElementById("main").style.display = "none";
+}
+
+function hideData() {
+    document.getElementById("main").style.display = "block";
+    document.getElementById("datashit").style.display = "none";
+}
+
 
 function searchEcosia() {
     var searchTerm = document.getElementById("searchInput").value;

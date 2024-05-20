@@ -23,6 +23,7 @@
                 <a href="#" onclick="showLinkEditor()">Custom Link Editor</a>
                 <a href="#" onclick="showThemes()">Themes</a>
                 <a href="#" onclick="showTimetable()">View Timetable</a>
+                <a href="#" onclick="showData()">Data iframes test</a>
             </div>
         </div>
         <div class="dropdown2">
@@ -155,6 +156,15 @@
             <button onclick="importJSON()">View</button>
             <button onclick="useCachedTimetable()">Retry Use Local Storage Timetable</button>
             <button onclick="goPlaces('timetable.html')">Edit Timetable</button>
+        </div>
+    </div>
+    <div id="datashit" style="display: none;">
+        <h1>Data iframes Test</h1>
+        <div class="centreplease">
+            <button onclick="hideData()">Go Back</button>
+        </div>
+        <div class="centreplease">
+            <iframe class="dataiframe" src="https://energydashboard.co.uk"></iframe>
         </div>
     </div>
     <script src="../js/newtab.js"></script>
