@@ -32,7 +32,7 @@ input[type="file"] {
 }
 
 .dropdown .dropdown-content {
-    left: -100px;
+    left: -110px;
 }
 
 .dropbtn {
@@ -85,7 +85,7 @@ input[type="file"] {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    
+    font-size: 1vw;
 }
 
 
@@ -162,11 +162,9 @@ input[type="file"] {
     color: aqua;
 }
 
-
 #main {
     margin-top: 100px; /* Increased margin to avoid overlap with the search box */
 }
-
 
 .spacersmol {
     padding: 1%;
@@ -242,6 +240,13 @@ input[type="file"] {
     width: 90vw;
 }
 
+.widget {
+    height: 300px;
+    width: 300px;
+}
+
+
+/* Really shoulda found some way to do this dynamically*/
 @media screen and (max-width: 1100px) {
     #quicklinks button {
         width: 25%; /* Adjusted width for smaller screens */
@@ -258,11 +263,17 @@ input[type="file"] {
     #smallquicklinks {
         display: none;
     }
+    #searchForm {
+        width: 60%
+    }
 }
 
 @media screen and (max-width: 400px) {
     #quicklinks button {
         width: 40%; /* Adjusted width for smaller screens */
+    }
+    #pnts {
+        display: none;
     }
 }
 
@@ -276,4 +287,15 @@ input[type="file"] {
     .spacersmol {
         padding: 0.5%;
     }    
+}
+@media screen and (max-height: 700px) {
+    #smallquicklinks {
+        display: none;
+    }
+ }
+
+@media screen and (max-height: 600px) {
+    .spacersmol {
+        display: none;
+    }
 }
