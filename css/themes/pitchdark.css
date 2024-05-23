@@ -1,0 +1,80 @@
+@import url("../../fonts/Montserrat.css");
+
+body {
+    background-color: #121212;
+    color: rgb(13, 147, 250);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Open Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+button {
+    background-color: orange;
+    color: navy;
+}
+
+button:hover {
+    background-color: orangered;
+}
+
+input::placeholder {
+    color: orange;
+    opacity: 1; /* Fix for Firefox */
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.wws-dropdown-content {
+    background-color: darkslategrey;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.wws-dropdown-content a {
+    color: rgb(13, 147, 250);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.wws-dropdown-content a:hover {
+    background-color: #1d2a52;
+}
+
+.wws-dropdown-content p {
+    color: navy;
+    text-decoration: none;
+}
+
+.wws-dropbtn {
+    color: limegreen;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: transparent;
+}
+
+.wws-dropbtn:hover {
+    background-color: orange;
+}
+
+.wws-inputBox {
+    background-color: rgb(60, 59, 59);
+    color: rgb(13, 147, 250);
+    font-family: 'Montserrat', sans-serif;
+}
+
+img {
+    background-color: grey;
+}
+
+.wws-svglogo {
+    background-color: rgb(13, 147, 250) !important;
+} 
+
+a {
+    color: lime;
+}
+
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

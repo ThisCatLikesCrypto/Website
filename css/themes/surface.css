@@ -1,4 +1,4 @@
-@import url("https://wilburwilliams.uk/fonts/Montserrat.css");
+@import url("../../fonts/Montserrat.css");
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -29,7 +29,6 @@ body {
     ); /* Background gradient */
     color: #37f32e;
     background-size: cover;
-    height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
 }

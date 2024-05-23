@@ -1,3 +1,30 @@
+body {
+    min-height: 100vh;
+}
+
+button:hover {
+    box-shadow: 0 0 5px rgb(255, 255, 255); /* Glow effect */
+}
+
+a:hover {
+    box-shadow: 0 0 5px rgb(255, 255, 255); /* Glow effect */
+}
+
+h1:hover, h3:hover {
+    font-weight: bold;  text-shadow: 2px 2px 0 green;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
 .dropdown {
     position: absolute;
     top: 0;
@@ -5,7 +32,7 @@
 }
 
 .dropdown .dropdown-content {
-    left: -100px;
+    left: -110px;
 }
 
 .dropbtn {
@@ -16,6 +43,9 @@
     outline: none;
 }
 
+.dropbtn:hover {
+    background-color: transparent !important;
+}
 
 .dropdown-content a {
     display: block;
@@ -51,6 +81,13 @@
     padding: 12px 16px;
 }
 
+.belowdrop2 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 1vw;
+}
+
 
 /* Style for the search box */
 #searchForm {
@@ -63,6 +100,10 @@
     border-radius: 10px; /* Rounded corners */
 }
 
+.inputBox:hover {
+    box-shadow: 0 0 20px rgb(255, 255, 255); /* Glow effect */
+}
+
 .linkInput {
     padding: 20px; /* Increased padding */
     font-size: 24px; /* Increased font size */
@@ -73,15 +114,6 @@
     padding: 20px; /* Increased padding */
     font-size: 24px; /* Increased font size */
     width: calc(100% - 30px); /* Adjusted width to consider padding */
-}
-
-button {
-    width: 100%; /* Make it take the full width of the parent */
-    max-width: 200px; /* Limit the maximum width */
-    margin: 10px auto; /* Center the search button horizontally */
-    border-radius: 5px;
-    padding: 5px;
-    border: none; /* Removed border */
 }
 
 .stuffbelowsearchbit {
@@ -122,31 +154,27 @@ button {
     padding: 0;
 }
 
+.themeimg {
+    width: 30%;
+}
+
+#themeslinks a {
+    color: aqua;
+}
 
 #main {
     margin-top: 100px; /* Increased margin to avoid overlap with the search box */
 }
-
-h1 {
-    text-align: center;
-    font-size: 48px;
-    padding: none;
-}
-
-h2, h3 {
-    text-align: center;
-}
-
-p {
-    text-align: center;
-}
-
 
 .spacersmol {
     padding: 1%;
 }
 
 #linkeditor {
+    display: none;
+}
+
+#themes {
     display: none;
 }
 
@@ -165,6 +193,60 @@ p {
     background-color: grey !important;
 }
 
+.timetable {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.timetable th, .timetable td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: center;
+}
+
+.timetable h2 {
+    text-align: left !important;
+}
+
+#viewtimetable {
+    display: none;
+}
+
+#customCSSInput {
+    text-align: center;
+    width: 30%;
+}
+
+#cssURL {
+    padding: 10px;
+    font-size: 20px;
+    width: calc(80% - 30px);
+}
+
+#inlineCSSeditor {
+    text-align: left;
+    background-color: black;
+    font-family: monospace;
+}
+
+#divaroundCSSSeditor {
+    width: 50%;
+    background-color: grey;
+}
+
+.dataiframe {
+    /* fdasfads */
+    height: 70vh;
+    width: 90vw;
+}
+
+.widget {
+    height: 300px;
+    width: 300px;
+}
+
+
+/* Really shoulda found some way to do this dynamically*/
 @media screen and (max-width: 1100px) {
     #quicklinks button {
         width: 25%; /* Adjusted width for smaller screens */
@@ -181,11 +263,17 @@ p {
     #smallquicklinks {
         display: none;
     }
+    #searchForm {
+        width: 60%
+    }
 }
 
 @media screen and (max-width: 400px) {
     #quicklinks button {
         width: 40%; /* Adjusted width for smaller screens */
+    }
+    #pnts {
+        display: none;
     }
 }
 
@@ -199,4 +287,15 @@ p {
     .spacersmol {
         padding: 0.5%;
     }    
+}
+@media screen and (max-height: 700px) {
+    #smallquicklinks {
+        display: none;
+    }
+ }
+
+@media screen and (max-height: 600px) {
+    .spacersmol {
+        display: none;
+    }
 }
