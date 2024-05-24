@@ -9,6 +9,7 @@ body {
     background-size: cover;
     height: 100vh;
     font-family: 'Calibri', sans-serif;
+    cursor: url('../assets/g305cursor.png'), default;
 }
 
 a {
@@ -64,6 +65,22 @@ a {
 
 .centretext {
     text-align: center;
+}
+
+.centreplease {
+    display: flex;
+    justify-content: space-between; /* Horizontally center the inner divs */
+}
+
+.section {
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 1px solid #fff;
+}
+
+.section div {
+    padding: 0px 20px;
+    min-width: 10%;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */

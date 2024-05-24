@@ -1,5 +1,5 @@
 html, body {
-  background-image:url(https://html2.wilburjwilliams.repl.co/wilbur/images/cat.jpeg);
+  background-image:url("../images/cat.jpeg");
   color:darkorange; 
   background-size:14%;
   height: 100%;
