@@ -1,0 +1,50 @@
+/* Setting up basic styles */
+body {
+    font-family: Calibri, sans-serif;
+    line-height: 1.6;
+    background-color: #333;
+    color: aqua;
+}
+
+header {
+    padding: 20px;
+    text-align: center !important;
+}
+
+.nav {
+    padding: 10px;
+    text-align: center;
+}
+
+.main {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#logoimg {
+    float: left;
+}
+
+@media screen and (max-width: 1000px) {
+    .main {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #logoimg {
+        display: none;
+    }
+}
