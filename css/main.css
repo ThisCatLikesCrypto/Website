@@ -17,9 +17,9 @@ a {
     cursor: url('../assets/g305cursorgreen.png'), pointer;
 }
 
-/* All main content areas */
-.main {
-    font-size: large;
+.abutp {
+    color: white;
+    text-decoration: none;
 }
 
 /* Main content area (index.html) */
@@ -62,6 +62,7 @@ a {
     margin-left: 12%;
     padding: 0px 10px;
     color: white;
+    font-size: large;
 }
 
 .centretext {

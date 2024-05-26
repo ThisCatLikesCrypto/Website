@@ -4,8 +4,8 @@ function sleep(ms) {
 
 async function easter(){
     console.log("you found an easter egg. enjoy le sound");
-    alert("sorry KyYay (turn up volume once it starts if you can't hear it)");
     var audio = new Audio('assets/aprilscattered.ogg');
+    alert("sorry KyYay (turn up volume once it starts if you can't hear it)");
     audio.play();
 }
 
