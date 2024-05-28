@@ -10,7 +10,7 @@
 <body onload="mobileCheck()">
     <!-- Site navigation -->
     <button id="sidenavbtn" onclick="showSide()">Show Sidebar</button>
-    <div class="sidenav">
+    <div class="sidenav" id="sidenav">
         <a href="index.html">Main</a>
         <a href="https://wilbur.is-a.dev">Programs</a>
         <a href="https://dl.wilburwilliams.uk">ISO dl</a>
@@ -25,6 +25,7 @@
         <a href="downloads.html">dl Index</a>
         <a href="directory.html">Crypto Links</a>
         <a href="donate.html">Donate</a>
+        <a href="tos.html">'TOS'</a>
     </div>
     <div class="main">
         <!--Put shit here-->
