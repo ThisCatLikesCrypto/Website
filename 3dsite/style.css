@@ -1,0 +1,53 @@
+body { 
+    margin: 0;
+    background-color: #000;
+}
+
+canvas { 
+    display: block; 
+}
+
+.content {
+    font-family: 'Reddit Mono', monospace;
+    width: 80vw;
+    height: 80%;
+    background-color: black;
+    border: 1px solid black;
+    justify-content: center;
+    color: aqua;
+}
+
+.content div {
+    margin: 10px;
+}
+
+.shitwithincontent {
+    margin: 10px;
+    overflow-y: scroll;
+}
+
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.enter-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #000;
+    color: aqua;
+    border: 1px solid aqua;
+    cursor: pointer;
+}
+
+iframe {
+    background-color: white;
+}

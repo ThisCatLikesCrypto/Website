@@ -3,51 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D View with WASD and Arrow Key Controls</title>
+    <title>o o oa oa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://dev.wilburwilliams.uk">
-    <link rel="preload" href="Unify.mp3">
+    <link rel="preload" href="caramelldansen.mp3" as="audio">
     <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
-    <style>
-        body { 
-            margin: 0;
-            background-color: #000;
-        }
-        canvas { display: block; }
-        .content {
-            font-family: 'Reddit Mono', monospace;
-            width: 80%;
-            height: 80%;
-            background-color: black;
-            border: 1px solid black;
-            justify-content: center;
-            color: aqua;
-        }
-        .shitwithincontent {
-            margin: 10px;
-        }
-        .responsive-iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .enter-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 10px 20px;
-            font-size: 20px;
-            background-color: #000;
-            color: aqua;
-            border: 1px solid aqua;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <button class="enter-button" id="enterButton">Enter (WASD to move, arrow keys to look)</button>
@@ -65,180 +27,25 @@
             <h3>IAQs (Infrequently Asked Questions):</h3>
             <p>- <b>Why link no worky?</b> Firefox Devs.</p>
             <p>- <b>Why?</b> Yes.</p>
-            <p>- <b>Music?</b> Unify - The Convergence.</p><i style="font-size: 10px;">(if anyone from that group is seeing this and you want it removed please get in contact with me)</i>
+            <p>- <b>Music?</b> Caramelldansen</p><i style="font-size: 10px;">(I think it's enough of a meme song that copyright wont murder me)</i>
+        </div>
+    </div>
+    <div id="content0" class="content" style="display:none;">
+        <div class="shitwithincontent">
+            <iframe class="responsive-iframe" src="../HTML2/index.html"></iframe>
+        </div>
+    </div>
+    <div id="content3" class="content" style="display: none;">
+        <iframe class="responsive-iframe" src="https://cscode.pages.dev/?lang=javascript"></iframe>
+    </div>
+    <div id="content4" class="content" style="display: none;">
+        <div>
+            <h1>How the fuck did you even...</h1>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS3DRenderer.js"></script>
-    <script>
-        let scene, camera, renderer, cssRenderer;
-        let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
-        let rotateUp = false, rotateDown = false, rotateLeft = false, rotateRight = false;
-        let velocity = new THREE.Vector3();
-        const movementSpeed = 1;
-        const rotationSpeed = 0.02;
-
-        let floor;
-
-        function init() {
-            music();
-            // Scene
-            scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x201263);
-
-            // Camera
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 5;
-
-            // WebGL Renderer
-            renderer = new THREE.WebGLRenderer();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.body.appendChild(renderer.domElement);
-
-            // CSS3D Renderer
-            cssRenderer = new THREE.CSS3DRenderer();
-            cssRenderer.setSize(window.innerWidth, window.innerHeight);
-            cssRenderer.domElement.style.position = 'absolute';
-            cssRenderer.domElement.style.top = '0';
-            document.body.appendChild(cssRenderer.domElement);
-
-            // Add floor
-            const floorGeometry = new THREE.PlaneGeometry(8000, 8000);
-            const floorMaterial = new THREE.MeshBasicMaterial({ color: 0x808080, side: THREE.DoubleSide });
-            floor = new THREE.Mesh(floorGeometry, floorMaterial);
-            floor.rotation.x = Math.PI / 2;
-            floor.position.y = -1;
-            scene.add(floor);
-
-            // Add HTML elements to the scene
-            const content1 = document.getElementById('content1');
-            content1.style.display = 'block';
-            const content1Object = new THREE.CSS3DObject(content1);
-            content1Object.position.set(0, 0, 1000);
-            content1Object.rotation.set(0, 9.5, 0)
-            scene.add(content1Object);
-
-            const content2 = document.getElementById('content2');
-            content2.style.display = 'block';
-            const content2Object = new THREE.CSS3DObject(content2);
-            content2Object.position.set(0, 0, -1000);
-            scene.add(content2Object);
-
-            // Event listeners for key press
-            document.addEventListener('keydown', onKeyDown, false);
-            document.addEventListener('keyup', onKeyUp, false);
-
-            // Handle window resize
-            window.addEventListener('resize', onWindowResize, false);
-
-            animate();
-            animfloor();
-        }
-
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            cssRenderer.setSize(window.innerWidth, window.innerHeight);
-        }
-
-        function onKeyDown(event) {
-            switch (event.code) {
-                case 'KeyW':
-                    moveForward = true;
-                    break;
-                case 'KeyS':
-                    moveBackward = true;
-                    break;
-                case 'KeyA':
-                    moveLeft = true;
-                    break;
-                case 'KeyD':
-                    moveRight = true;
-                    break;
-                case 'ArrowLeft':
-                case 'KeyJ':
-                    rotateRight = true;
-                    break;
-                case 'ArrowRight':
-                case 'KeyL':
-                    rotateLeft = true;
-                    break;
-            }
-        }
-
-        function onKeyUp(event) {
-            switch (event.code) {
-                case 'KeyW':
-                    moveForward = false;
-                    break;
-                case 'KeyS':
-                    moveBackward = false;
-                    break;
-                case 'KeyA':
-                    moveLeft = false;
-                    break;
-                case 'KeyD':
-                    moveRight = false;
-                    break;
-                case 'ArrowLeft':
-                case 'KeyJ':
-                    rotateRight = false;
-                    break;
-                case 'ArrowRight':
-                case 'KeyL':
-                    rotateLeft = false;
-                    break;
-            }
-        }
-
-        async function animfloor() {
-            // Change floor color
-            const time = Date.now() * 0.001;
-            const hue = (time % 1) * 360;
-            floor.material.color.setHSL(hue / 360, 1, 0.5);
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-
-            const direction = new THREE.Vector3();
-            camera.getWorldDirection(direction);
-
-            const moveDirection = new THREE.Vector3();
-
-            if (moveForward) moveDirection.add(direction);
-            if (moveBackward) moveDirection.add(direction.negate());
-            if (moveLeft) moveDirection.add(new THREE.Vector3().crossVectors(camera.up, direction).normalize());
-            if (moveRight) moveDirection.add(new THREE.Vector3().crossVectors(direction, camera.up).normalize());
-
-            moveDirection.normalize();
-            velocity.add(moveDirection.multiplyScalar(movementSpeed));
-
-            // Rotate camera
-            if (rotateLeft) camera.rotation.y -= rotationSpeed;
-            if (rotateRight) camera.rotation.y += rotationSpeed;
-
-            // Apply velocity and damping
-            camera.position.add(velocity);
-            velocity.multiplyScalar(0.9);
-
-            renderer.render(scene, camera);
-            cssRenderer.render(scene, camera);
-        }
-
-        document.getElementById('enterButton').addEventListener('click', function() {
-            this.style.display = 'none';
-            init();
-            setInterval(animfloor, 200)
-        });
-    </script>
-    <script>
-        async function music(){
-            var audio = new Audio('Unify.mp3');
-            audio.play();
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
