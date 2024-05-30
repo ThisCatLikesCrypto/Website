@@ -51,3 +51,8 @@ canvas {
 iframe {
     background-color: white;
 }
+
+button {
+    background-color: transparent;
+    color: aqua;
+}

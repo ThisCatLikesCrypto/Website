@@ -2,13 +2,38 @@ let scene, camera, renderer, cssRenderer;
 let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
 let rotateUp = false, rotateDown = false, rotateLeft = false, rotateRight = false;
 let velocity = new THREE.Vector3();
+var audio = new Audio('caramelldansen.mp3');
+let floor;
 const movementSpeed = 1;
 const rotationSpeed = 0.02;
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 const wallDistance = 0.4*vw; // Distance of walls from the center
 
-let floor;
+audio.load();
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
 function addObject(namesd, p1, p2, p3, r1, r2, r3) {
     const thing = document.getElementById(namesd);
@@ -20,7 +45,6 @@ function addObject(namesd, p1, p2, p3, r1, r2, r3) {
 }
 
 function init() {
-    music();
     // Scene
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x201263);
@@ -62,6 +86,11 @@ function init() {
 
     animate();
     setInterval(animfloor, 20);
+
+    msuic = getCookie("audio");
+    if (msuic === "play" || msuic === null || msuic === undefined){
+        music();
+    }
 }
 
 function onWindowResize() {
@@ -175,12 +204,29 @@ document.getElementById('enterButton').addEventListener('click', function() {
 });
 
 async function music() {
-    var audio = new Audio('caramelldansen.mp3');
+    mbtn = document.getElementById("musicBtn");
+    mbtn.innerHTML = "Pause Music";
+    mbtn.onclick = pauseMusic;
     audio.play();
     audio.addEventListener("ended", function(){
         audio.currentTime = 0;
         audio.play();
     });
+    setCookie("audio", "play", 365);
+}
+
+async function pauseMusic() {
+    mbtn = document.getElementById("musicBtn");
+    mbtn.innerHTML = "Play Music";
+    mbtn.onclick = music;
+    audio.removeEventListener("ended", audio);
+    audio.pause();
+    setCookie("audio", "paused", 365);
+}
+
+function dipSettin() {
+    document.getElementById('settings').style.display = "block";
+    document.getElementById('explain').style.display = "none";
 }
 
 // Handle window resize
