@@ -52,18 +52,24 @@
         </div>
         <p>(click images to go to the websites)</p>
         <div id="quicklinks">
-            <button onclick="goPlaces('https://bing.com/chat')"><img src="../assets/newtab/copilot.jpg"></button>
-            <button onclick="goPlaces(getLink('classroomLink'))"><img src="../assets/newtab/gclass.png"></button>
-            <button onclick="goPlaces('https://docs.google.com')"><img src="../assets/newtab/gdoc.png"></button>
+            <button id="quicklink1" onclick="goPlaces(getLink('link1'))">
+                <img src="../assets/newtab/copilot.jpg">
+            </button>
+            <button id="quicklink2" onclick="goPlaces(getLink('link2'))">
+                <img src="../assets/newtab/gclass.png">
+            </button>
+            <button id="quicklink3" onclick="goPlaces(getLink('link3'))">
+                <img src="../assets/newtab/gdoc.png">
+            </button>
         </div>
         <br>
         <div id="smallquicklinks">
-            <button onclick="goPlaces(getLink('githubLink'))"><img src="../assets/newtab/ghlogo.png"></button>
-            <button onclick="goPlaces('https://ecosia.org/chat')"><img src="../assets/newtab/ecosia.jpeg"></button>
-            <button onclick="goPlaces('https://wilbur.is-a.dev/wTextitor')"><img id="wisdevlogo" src="../assets/newtab/wisdev.png"></button>
-            <button onclick="goPlaces('https://app.electricitymaps.com/app')"><img class="wws-svglogo" src="../assets/newtab/electricitymaps-icon.svg"></button>
-            <button onclick="goPlaces('https://quizlet.com/latest')"><img src="../assets/newtab/quizlet.jpeg"></button>
-            <button onclick="goPlaces('https://dashboard.blooket.com')"><img src="../assets/newtab/blooket.png"></button>
+            <button onclick="goPlaces(getLink('link4'))"><img src="../assets/newtab/ghlogo.png"></button>
+            <button onclick="goPlaces(getLink('link5'))"><img src="../assets/newtab/ecosia.jpeg"></button>
+            <button onclick="goPlaces(getLink('link6'))"><img id="wisdevlogo" src="../assets/newtab/wisdev.png"></button>
+            <button onclick="goPlaces(getLink('link7'))"><img class="wws-svglogo" src="../assets/newtab/electricitymaps-icon.svg"></button>
+            <button onclick="goPlaces(getLink('link8'))"><img src="../assets/newtab/quizlet.jpeg"></button>
+            <button onclick="goPlaces(getLink('link9'))"><img src="../assets/newtab/blooket.png"></button>
         </div>
         <p id="mesage"></p>
     </div> 
@@ -114,9 +120,11 @@
         </div>
         <div class="centreplease">
             <form id="linkForm" onsubmit="return updateLink()">
-                <input type="text" class="inputBox linkInput wws-inputBox" id="linkName" placeholder="Link name...">
+                <input type="text" class="inputBox linkInput wws-inputBox" id="linkName" placeholder="Link ID (e.g., link1)">
                 <br><br>
-                <input type="text" class="inputBox linkInput wws-inputBox" id="linkContent" placeholder="Link content...">
+                <input type="text" class="inputBox linkInput wws-inputBox" id="linkContent" placeholder="Link URL...">
+                <br><br>
+                <input type="file" id="iconUpload" accept="image/*">
             </form>
         </div>
         <div class="centreplease">
@@ -124,7 +132,11 @@
         </div>
         <h2>Available Links:</h2>
         <div class="centreplease">
-            <ul id="availableLinks"></ul>
+            <ul id="availableLinks">
+                <li>quicklink1</li>
+                <li>quicklink2</li>
+                <li>quicklink3</li>
+            </ul>
         </div>
     </div>
     <div id="viewtimetable">

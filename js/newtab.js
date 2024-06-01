@@ -25,13 +25,22 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
 try {
     var directory = JSON.parse(getCookie("directory"));
+    if (directory['classroomLink']){
+        alert("Please reset your cookies for this site in devtools due to an update in how links will work going forward.");
+    }
 } catch {
     var directory = {
-        "classroomLink": "https://classroom.google.com",
-        "githubLink": "https://github.com"
+        "link1": "https://bing.com/chat",
+        "link2": "https://classroom.google.com",
+        "link3": "https://docs.google.com",
+        "link4": "https://github.com",
+        "link5": "https://ecosia.org/chat",
+        "link6": "https://wilbur.is-a.dev/wTextitor",
+        "link7": "https://app.electricitymaps.com/map",
+        "link8": "https://quizlet.com/latest",
+        "link9": "https://dashboard.blooket.com"
     };
 };
 
