@@ -3,30 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <title>Wilbur's Site</title>
+    <script src="https://cdn.jsdelivr.net/npm/dreamland@0.0.21/dist/all.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/tube.js"></script>
     <link href="css/main.css" rel="stylesheet">
     <script src="js/script.js"></script>
 </head>
 <body>
-    <!-- Site navigation -->
-    <button id="sidenavbtn" onclick="showSide()">Show Sidebar</button>
-    <div class="sidenav" id="sidenav">
-        <a href="index.html">Main</a>
-        <a href="https://wilbur.is-a.dev">Programs</a>
-        <a href="https://dl.wilburwilliams.uk">ISO dl</a>
-        <a href="about.html">About This</a>
-        <a href="data/index.html">Data!</a>
-        <a href="newtab/index.html">Newtab</a>
-        <a href="HTML2/index.html">HTML2</a>
-        <a href="HTML3/index.html">HTML3</a>
-        <a href="https://eyescary.pages.dev">EyeScary</a>
-        <a href="specs.html">Tech Specs</a>
-        <a href="software.html">Software Setup</a>
-        <a href="downloads.html">dl Index</a>
-        <a href="directory.html">Crypto Links</a>
-        <a href="donate.html">Donate</a>
-        <a href="tos.html">'TOS'</a>
-    </div>
+    <div id="nesteddivsgobrrr"><!--Where the nav goes once it loads in--></div>
+    <noscript>
+        <div style="font-size: 5vw; top: 50%; left: 30%; position: absolute; color: aqua;">
+            <h1>Please Enable JavaScript</h1>
+            <h2 style="font-size: 2vw;">The nav and some stuff is broken if you don't</h2>
+        </div>
+    </noscript>
     <div class="main">
         <h1 style="text-align: center;">Wilbur's Website</h1>
         <div class="maindivdiv section">
@@ -97,7 +89,7 @@
             <div>
                 <h2>Stuff I did/Achievements</h2>
                 <p>Visited all tube stations (hover to see the video)</p>
-                <iframe class="hovertext" width="640" height="360" src="https://www.youtube.com/embed/3LHoQfxffSk" title="I visited every station on the tube. (Music Sync)" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div id="everytube"></div>
                 <p>That's about it for anything notable :p</p>
                 <p><i>Well hey i have a 365+ day Duolingo streak so that's cool ig</i></p>
             </div>
