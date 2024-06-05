@@ -15,7 +15,7 @@ window.addEventListener("keyup", ({ code }) => {
   keys.push(code);
   keys = keys.slice(-11);
   if (keys.join("") == "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightKeyBKeyAEnter") {
-      easter()
+      easter();
   }
 });
 
@@ -45,7 +45,26 @@ function hideSide(){
   snavb.onclick = showSide;
 }
 
+function getUKTime() {
+  // Create a Date object for the current date and time
+  const now = new Date();
+
+  // Format the date and time for the UK timezone
+  const ukTimeFormatter = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+
+  // Get the formatted time string
+  const ukTime = ukTimeFormatter.format(now);
+
+  return ukTime;
+}
+
 document.addEventListener('DOMContentLoaded', async function(){
+  document.getElementById('mytime').innerHTML = getUKTime();
   await sleep(1000);
   const px20text = 'font-weight: bold; font-size: 20px; color: aqua; text-shadow: 2px 2px 0 rgb(217,31,38)';
   const px15text = 'font-weight: bold; font-size: 15px; color: aqua; text-shadow: 1px 1px 0 rgb(217,31,38)';
@@ -56,4 +75,8 @@ document.addEventListener('DOMContentLoaded', async function(){
   console.log('%cNote that some of this is written in dreamland.js, so some of the content is dynamically loaded from JavaScript.', px15text);
   console.log('%cDreamland source is available at https://github.com/MercuryWorkshop/DreamlandJS', px15text);
   console.log("%cIf my source code is erm... not the greatest then feel free to tell me how to improve just don't be unkind about it.", px15text);
-})
+});
+
+setInterval(function(){
+  document.getElementById('mytime').innerHTML = getUKTime();
+}, 1000);

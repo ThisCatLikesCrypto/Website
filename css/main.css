@@ -22,6 +22,10 @@ a {
     text-decoration: none;
 }
 
+.abutp:hover {
+    color: lightgrey;
+}
+
 /* Main content area (index.html) */
 .maindivdiv {
     display: flex;
