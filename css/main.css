@@ -102,6 +102,36 @@ a {
     display: block;
 }
 
+/* Will scroll once there's more
+.scrolling-widget {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    float: center;
+}
+
+.scrolling-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    animation: scroll 4s linear infinite;
+}
+
+.item {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+*/
+
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidenav {
@@ -129,5 +159,8 @@ a {
     #sidenavbtn {
         display: block;
         order: 1;
+    }
+    .scrolling-widget {
+        display: none;
     }
 }
