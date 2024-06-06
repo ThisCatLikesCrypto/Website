@@ -63,6 +63,17 @@ function getUKTime() {
   return ukTime;
 }
 
+function copyBtnEmbed() {
+  embedCode = '<a href="https://wilburwilliams.uk" target="_blank"><img src="https://wilburwilliams.uk/assets/button.gif"></a>'
+
+  navigator.clipboard.writeText(embedCode).then(function() {
+      alert("Copied Embed Code");
+  }, function(err) {
+      console.error("Could not copy text: ", err);
+  });
+}
+
+
 document.addEventListener('DOMContentLoaded', async function(){
   document.getElementById('mytime').innerHTML = getUKTime();
   await sleep(1000);
