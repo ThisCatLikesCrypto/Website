@@ -1,3 +1,5 @@
+//Made with dreamland.js v0.0.21
+
 function LoadNav(){
     return html`
     <div class="nav">
