@@ -10,7 +10,7 @@ function LoadNav(){
             <a href="https://wilbur.is-a.dev">Programs</a>
             <a href="https://dl.wilburwilliams.uk">ISO dl</a>
             <a href="about.html">About This</a>
-            <a href="data/index.html">Data!</a>
+            <a href="data.html">Data!</a>
             <a href="newtab/index.html">Newtab</a>
             <a href="HTML2/index.html">HTML2</a>
             <a href="HTML3/index.html">HTML3</a>
