@@ -17,9 +17,19 @@ a {
     cursor: url('../assets/g305cursorgreen.png'), pointer;
 }
 
+button {
+    background-color: black;
+    color: aqua;
+    border-width: 0;
+}
+
 .abutp {
     color: white;
     text-decoration: none;
+}
+
+.abutp:hover {
+    color: lightgrey;
 }
 
 /* Main content area (index.html) */
@@ -98,6 +108,10 @@ a {
     display: block;
 }
 
+.mobileonly {
+    display: none;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidenav {
@@ -125,5 +139,11 @@ a {
     #sidenavbtn {
         display: block;
         order: 1;
+    }
+    .buttons {
+        display: none;
+    }
+    .mobileonly {
+        display: block;
     }
 }
