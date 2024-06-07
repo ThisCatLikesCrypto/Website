@@ -1,4 +1,6 @@
 var audio = new Audio('assets/scatteredcells.ogg');
+var eaudio = "";
+var eaudion = false;
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -6,9 +8,15 @@ function sleep(ms) {
 
 async function easter(){
     console.log("you found an easter egg. enjoy le sound");
-    var audio = new Audio('assets/aprilscattered.ogg');
+    eaudio = new Audio('assets/aprilscattered.ogg');
     alert("sorry KyYay (turn up volume once it starts if you can't hear it)");
-    audio.play();
+    audio.pause();
+    eaudion=true;
+    eaudio.play();
+    eaudio.addEventListener("ended", function(){
+      eaudion = false;
+      audio.play();
+    });
 }
 
 let keys = [];
@@ -61,11 +69,13 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 function playmusic(){
-  audio.play();
-  audio.addEventListener("ended", function(){
-    audio.currentTime = 0;
+  if (!eaudion){
     audio.play();
-  });
+    audio.addEventListener("ended", function(){
+      audio.currentTime = 0;
+      audio.play();
+    });
+  }
 }
 
 document.addEventListener('keydown', playmusic);
