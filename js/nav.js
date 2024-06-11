@@ -9,6 +9,7 @@ function LoadNav(){
             <a href="index.html">Main</a>
             <a href="https://wilbur.is-a.dev">Programs</a>
             <a href="https://dl.wilburwilliams.uk">ISO dl</a>
+            <a href="blog/index.html">Blog</a>
             <a href="about.html">About This</a>
             <a href="data.html">Data!</a>
             <a href="newtab/index.html">Newtab</a>
@@ -54,4 +55,4 @@ function LoadFooter(){
 window.addEventListener('load', () => {
     document.getElementById("nesteddivsgobrrr").appendChild(h(LoadNav));
     document.querySelector(".main").appendChild(h(LoadFooter));
-})
+});
