@@ -2,7 +2,7 @@ function TopMenu(){
     return html`
     <div id="header">
         <div>
-            <h1 class=rainbow><a href="index.html">wilburwilliams.uk blog</a></h1>
+            <h1 class=rainbow><a href="/blog/index.html">wilburwilliams.uk blog</a></h1>
             <p>Will contain blogs, eventually. Just once I add the finishing touches to design...</p>
         </div>
         <div>
@@ -16,5 +16,6 @@ function TopMenu(){
     </div>`
 }
 window.addEventListener('load', () => {
+
     document.getElementById("headercontainer").appendChild(h(TopMenu));
 });

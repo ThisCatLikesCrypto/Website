@@ -58,7 +58,6 @@
 body {
     color: aqua;
     font-family: 'Reddit Sans', sans-serif;
-    padding: 0;
     background-color: var(--base);
 }
 
@@ -93,7 +92,6 @@ hr {
 
 #main {
     padding: 20px;
-    display: flex;
     margin-left: 20%;
     margin-right: 20%;
 }
