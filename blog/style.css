@@ -108,3 +108,21 @@ hr {
     color: #bb86fc;
     margin-top: 0;
 }
+
+@media screen and (max-width: 700px) {
+    #main {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #header {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #header {
+        display: block;
+    }
+}   
