@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Blog</title>
+        <script src="https://cdn.jsdelivr.net/npm/dreamland@0.0.21/dist/all.js"></script>
+        <link href="../style.css" rel="stylesheet">
+        <script src="../nav.js"></script>
+    </head>
+    <body>
+        <div id="headercontainer"></div>
+        <hr>
+        <div id="main">
+            
+        </div>
+    </body>
+</html>
