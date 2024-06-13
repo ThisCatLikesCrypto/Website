@@ -1,12 +1,22 @@
+var audio = new Audio('assets/scatteredcells.ogg');
+var eaudio = "";
+var eaudion = false;
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function easter(){
     console.log("you found an easter egg. enjoy le sound");
-    var audio = new Audio('assets/aprilscattered.ogg');
+    eaudio = new Audio('assets/aprilscattered.ogg');
     alert("sorry KyYay (turn up volume once it starts if you can't hear it)");
-    audio.play();
+    audio.pause();
+    eaudion=true;
+    eaudio.play();
+    eaudio.addEventListener("ended", function(){
+      eaudion = false;
+      audio.play();
+    });
 }
 
 let keys = [];
@@ -45,38 +55,8 @@ function hideSide(){
   snavb.onclick = showSide;
 }
 
-function getUKTime() {
-  // Create a Date object for the current date and time
-  const now = new Date();
 
-  // Format the date and time for the UK timezone
-  const ukTimeFormatter = new Intl.DateTimeFormat('en-GB', {
-    timeZone: 'Europe/London',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  });
-
-  // Get the formatted time string
-  const ukTime = ukTimeFormatter.format(now);
-
-  return ukTime;
-}
-
-function copyBtnEmbed() {
-  embedCode = '<a href="https://wilburwilliams.uk" target="_blank"><img src="https://wilburwilliams.uk/assets/button.gif"></a>'
-
-  navigator.clipboard.writeText(embedCode).then(function() {
-      alert("Copied Embed Code");
-  }, function(err) {
-      console.error("Could not copy text: ", err);
-  });
-}
-
-
-document.addEventListener('DOMContentLoaded', async function(){
-  document.getElementById('mytime').innerHTML = getUKTime();
-  await sleep(1000);
+document.addEventListener('DOMContentLoaded', function(){
   const px20text = 'font-weight: bold; font-size: 20px; color: aqua; text-shadow: 2px 2px 0 rgb(217,31,38)';
   const px15text = 'font-weight: bold; font-size: 15px; color: aqua; text-shadow: 1px 1px 0 rgb(217,31,38)';
   console.log('%cHello Internet Citizen. Welcome to the JavaScript console of wilburwilliams.uk.', 'font-weight: bold; font-size: 30px; color: aqua; text-shadow: 2px 2px 0 rgb(217,31,38)');
@@ -88,6 +68,15 @@ document.addEventListener('DOMContentLoaded', async function(){
   console.log("%cIf my source code is erm... not the greatest then feel free to tell me how to improve just don't be unkind about it.", px15text);
 });
 
-setInterval(function(){
-  document.getElementById('mytime').innerHTML = getUKTime();
-}, 1000);
+function playmusic(){
+  if (!eaudion){
+    audio.play();
+    audio.addEventListener("ended", function(){
+      audio.currentTime = 0;
+      audio.play();
+    });
+  }
+}
+
+document.addEventListener('keydown', playmusic);
+document.addEventListener('click', playmusic);

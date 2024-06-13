@@ -140,10 +140,8 @@ button {
         display: block;
         order: 1;
     }
-    .buttons {
-        display: none;
-    }
     .mobileonly {
         display: block;
+        text-align: center;
     }
 }
