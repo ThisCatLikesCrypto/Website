@@ -9,12 +9,12 @@ body {
     background-size: cover;
     height: 100vh;
     font-family: 'Calibri', sans-serif;
-    cursor: url('../assets/g305cursor.png'), default;
+    cursor: url('../images/g305cursor.png'), default;
 }
 
 a {
     color: lightblue;
-    cursor: url('../assets/g305cursorgreen.png'), pointer;
+    cursor: url('../images/g305cursorgreen.png'), pointer;
 }
 
 button {
