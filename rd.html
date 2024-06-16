@@ -7,9 +7,11 @@
         <p>Redirecting to <span id="place"></span></p>
         <script defer>
             const search = new URLSearchParams(document.location.search);
-			if (new URLSearchParams(document.location.search).has("guess")){
+			if (search.has("guess")){
                 document.getElementById("place").innerHTML = "...guess";
                 window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            } else if (search.has("immashortenthat")){
+                window.location.replace("https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/")
             }
         </script>
     </body>
