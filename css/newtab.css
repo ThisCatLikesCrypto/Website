@@ -178,6 +178,10 @@ input[type="file"] {
     display: none;
 }
 
+#primaryoptions {
+    display: none;
+}
+
 .centreplease {
     display: flex;
     justify-content: center; /* Horizontally center the inner divs */

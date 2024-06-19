@@ -1,3 +1,5 @@
+var domainEndings = ["uk", "com", "net", "org", "co", "ooo", "ca", "de", "eu", "us", "cn", "in", "website", "site", "tr", "dev"]
+
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -7,8 +9,7 @@ function setCookie(cname, cvalue, exdays) {
 
 function getCookie(cname) {
     var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
+    var ca = document.cookie.split(';');
     for(var i = 0; i < ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0) == ' ') {
@@ -90,6 +91,16 @@ function hideThemes() {
     document.getElementById("themes").style.display = "none";
 }
 
+function showOptions() {
+    document.getElementById("primaryoptions").style.display = "block";
+    document.getElementById("main").style.display = "none";
+}
+
+function hideOptions() {
+    document.getElementById("main").style.display = "block";
+    document.getElementById("primaryoptions").style.display = "none";
+}
+
 function showTimetable() {
     document.getElementById("viewtimetable").style.display = "block";
     document.getElementById("main").style.display = "none";
@@ -117,17 +128,10 @@ function searchEcosia() {
     setCookie('points', parseInt(getCookie('points'))+1, 365);
     getPoints();
     if (searchTerm === ""){
-        window.location.href="https://ecosia.org/chat"
-    } else if (searchTerm.startsWith("https://") || searchTerm.startsWith("http://")) {
-        window.location.href=searchTerm;
-    } else if (searchTerm.startsWith("!")){
-        window.location.href = "https://duckduckgo.com/?q=" + encodeURIComponent(searchTerm);
-    } else if (searchTerm.endsWith(".uk") || searchTerm.endsWith(".com") || searchTerm.endsWith(".co") || searchTerm.endsWith(".net") || searchTerm.endsWith(".org")) {
-        window.location.href="https://" + searchTerm;
+        window.location.href="https://ecosia.org/chat";
     } else {
         window.location.href = "https://www.ecosia.org/search?q=" + encodeURIComponent(searchTerm);
     }
-    return false; // Prevent default form submission
 }
 
 function searchGoogle() {
@@ -137,8 +141,43 @@ function searchGoogle() {
     window.location.href = "https://google.com/search?q=" + encodeURIComponent(searchTerm);
 }
 
+function search(query) {
+    var searchTerm = query || document.getElementById("searchInput").value;
+    var engine = getCookie("engine") || "https://ecosia.org/search?q=%s";
+
+    console.log(searchTerm);
+
+    setCookie('points', parseInt(getCookie('points')) + 1, 365);
+    getPoints();
+
+    var queryEnding = searchTerm.split(".");
+    queryEnding = queryEnding[queryEnding.length - 1];
+    console.log(queryEnding);
+
+    if (searchTerm === "") {
+        console.log("Empty search string");
+    } else if (searchTerm.startsWith("https://") || searchTerm.startsWith("http://") || searchTerm.startsWith("?")) {
+        window.location.href = searchTerm;
+    } else if (searchTerm.startsWith("!")) {
+        window.location.href = "https://duckduckgo.com/?q=" + encodeURIComponent(searchTerm);
+    } else if (domainEndings.includes(queryEnding)) {
+        window.location.href = "https://" + searchTerm;
+    } else {
+        window.location.href = engine.replace("%s", encodeURIComponent(searchTerm));
+    }
+    return false; // Prevent default form submission
+}
+
 function goPlaces(place){
     window.location.href=place;
+}
+
+function changeSearch(){
+    var engine = document.getElementById("engineInput").value;
+    console.log("Switching to " + engine);
+    setCookie('engine', engine, 365);
+    document.getElementById('failthing2').innerHTML = "Updated to " + engine;
+    return false;
 }
 
 function changeTheme(theme) {

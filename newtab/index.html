@@ -20,6 +20,7 @@
         <div class="dropdown">
             <button class="dropbtn wws-dropbtn">Menu</button>
             <div class="wws-dropdown-content dropdown-content">
+                <a href="#" onclick="showOptions()">Primary Options</a>
                 <a href="#" onclick="showLinkEditor()">Custom Link Editor</a>
                 <a href="#" onclick="showThemes()">Themes</a>
                 <a href="#" onclick="showTimetable()">View Timetable</a>
@@ -42,8 +43,8 @@
         <h3 id="time">Loading...</h1>
         <p class="spacersmol"></p>
         <div class="centreplease">
-            <form id="searchForm" onsubmit="return searchEcosia()">
-                <input type="text" id="searchInput" class="wws-inputBox inputBox" placeholder="Search Ecosia... (Enter to search)" autofocus>
+            <form id="searchForm" onsubmit="return search()">
+                <input type="text" id="searchInput" class="wws-inputBox inputBox" placeholder="Enter to search..." autofocus>
             </form>
         </div>
         <div class="stuffbelowsearchbit">
@@ -109,6 +110,22 @@
         </div>
         <div class="centreplease">
             <button onclick="useCustomInlineCSS()">Save</button>
+        </div>
+    </div>
+    <div id="primaryoptions">
+        <p class="spacersmol"></p>
+        <h1>Primary Options</h1>
+        <p id="failthing2"></p>
+        <div class="centreplease">
+            <button onclick="hideOptions()">Hide Options</button>
+        </div>
+        <br>
+        <h2>Change Search Engine</h2>
+        <div class="centreplease">
+            <form id="searchForm" onsubmit="return changeSearch()">
+                <input type="text" class="inputBox linkInput wws-inputBox" id="engineInput" placeholder="URL with %s in place of query">
+                <p>(like https://ecosia.org/search?q=%s)</p>
+            </form>
         </div>
     </div>
     <div id="linkeditor">
