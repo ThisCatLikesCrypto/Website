@@ -249,6 +249,11 @@ input[type="file"] {
     width: 300px;
 }
 
+.inputWide {
+    text-align: center;
+    width: 40%;
+}
+
 
 /* Really shoulda found some way to do this dynamically*/
 @media screen and (max-width: 1100px) {

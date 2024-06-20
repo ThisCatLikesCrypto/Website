@@ -180,6 +180,19 @@ function changeSearch(){
     return false;
 }
 
+function updateTitle(){
+    title = getCookie("title") || "New Tab Go Brrr";
+    document.getElementById("ntitle").innerHTML = title;
+}
+
+function setNewTitle(){
+    newtitle = document.getElementById("newTitleInput").value;
+    console.log("Switching title " + newtitle);
+    setCookie("title", newtitle, 365);
+    document.getElementById('failthing2').innerHTML = "Updated to " + newtitle;
+    updateTitle();
+}
+
 function changeTheme(theme) {
     themething = "../css/themes/" + theme + ".css"
     document.getElementById("them").href = themething;
@@ -296,6 +309,7 @@ async function useCachedTimetable() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    updateTitle();
     updateLinkList();
     updateTheme();
     updateInlineCSS();

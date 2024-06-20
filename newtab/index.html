@@ -39,7 +39,7 @@
             <h2>Meaningless Internet Points™: <span id="points™"></span></h2>
         </div>
         <p class="spacersmol"></p>
-        <h1>New Tab Go Brrr</h1>
+        <h1 id="ntitle">New Tab</h1>
         <h3 id="time">Loading...</h1>
         <p class="spacersmol"></p>
         <div class="centreplease">
@@ -122,9 +122,16 @@
         <br>
         <h2>Change Search Engine</h2>
         <div class="centreplease">
-            <form id="searchForm" onsubmit="return changeSearch()">
+            <form class="inputWide" onsubmit="return changeSearch()">
                 <input type="text" class="inputBox linkInput wws-inputBox" id="engineInput" placeholder="URL with %s in place of query">
                 <p>(like https://ecosia.org/search?q=%s)</p>
+            </form>
+        </div>
+        <br>
+        <h2>Change Title</h2>
+        <div class="centreplease">
+            <form class="inputWide" onsubmit="return setNewTitle()">
+                <input type="text" class="inputBox linkInput wws-inputBox" id="newTitleInput" placeholder="New Title">
             </form>
         </div>
     </div>
