@@ -156,8 +156,10 @@ function search(query) {
 
     if (searchTerm === "") {
         console.log("Empty search string");
-    } else if (searchTerm.startsWith("https://") || searchTerm.startsWith("http://") || searchTerm.startsWith("?")) {
+    } else if (searchTerm.startsWith("https://") || searchTerm.startsWith("http://")) {
         window.location.href = searchTerm;
+    } else if (searchTerm.startsWith("?")) {
+        window.location.href=searchTerm.replace("?", "https://");
     } else if (searchTerm.startsWith("!")) {
         window.location.href = "https://duckduckgo.com/?q=" + encodeURIComponent(searchTerm);
     } else if (domainEndings.includes(queryEnding)) {
