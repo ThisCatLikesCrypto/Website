@@ -23,6 +23,14 @@ button {
     border-width: 0;
 }
 
+.success {
+    color: limegreen;
+}
+
+.fail {
+    color: red;
+}
+
 .abutp {
     color: white;
     text-decoration: none;
