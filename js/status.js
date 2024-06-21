@@ -20,11 +20,13 @@ async function fetchStatus() {
         const siteElement = document.getElementById("sitestatus");
         const devElement = document.getElementById("devstatus");
         const dlElement = document.getElementById("dlstatus");
+        const projElement = document.getElementById("projstatus");
 
         // Set innerHTML and style based on status
         siteElement.innerHTML = data['site'];
         devElement.innerHTML = data['dev'];
         dlElement.innerHTML = data['dl'];
+        projElement.innerHTML = data['proj'];
 
         // Change text color based on status
         if (data['site'] === '200 OK') {
@@ -41,6 +43,11 @@ async function fetchStatus() {
             dlElement.style.color = 'limegreen';
         } else {
             dlElement.style.color = 'red';
+        }
+        if (data['proj'] === '200 OK') {
+            projElement.style.color = 'limegreen';
+        } else {
+            projElement.style.color = 'red';
         }
 
     } catch (error) {
