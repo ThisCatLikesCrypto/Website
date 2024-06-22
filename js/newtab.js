@@ -1,4 +1,4 @@
-var domainEndings = ["uk", "com", "net", "org", "co", "ooo", "ca", "de", "eu", "us", "cn", "in", "website", "site", "tr", "dev"]
+var domainEndings = ["uk", "com", "net", "org", "co", "ooo", "ca", "de", "eu", "us", "cn", "in", "website", "site", "tr", "dev"];
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -43,7 +43,7 @@ try {
         "link8": "https://quizlet.com/latest",
         "link9": "https://dashboard.blooket.com"
     };
-};
+}
 
 function getLink(Link) {
     return directory[Link];
@@ -100,28 +100,6 @@ function hideOptions() {
     document.getElementById("main").style.display = "block";
     document.getElementById("primaryoptions").style.display = "none";
 }
-
-function showTimetable() {
-    document.getElementById("viewtimetable").style.display = "block";
-    document.getElementById("main").style.display = "none";
-    useCachedTimetable();
-}
-
-function hideTimetable() {
-    document.getElementById("main").style.display = "block";
-    document.getElementById("viewtimetable").style.display = "none";
-}
-
-function showData() {
-    document.getElementById("datashit").style.display = "block";
-    document.getElementById("main").style.display = "none";
-}
-
-function hideData() {
-    document.getElementById("main").style.display = "block";
-    document.getElementById("datashit").style.display = "none";
-}
-
 
 function searchEcosia() {
     var searchTerm = document.getElementById("searchInput").value;
@@ -196,7 +174,7 @@ function setNewTitle(){
 }
 
 function changeTheme(theme) {
-    themething = "../css/themes/" + theme + ".css"
+    themething = "../css/themes/" + theme + ".css";
     document.getElementById("them").href = themething;
     setCookie("theme", themething, 180);
 }
@@ -204,7 +182,7 @@ function changeTheme(theme) {
 function updateTheme() {
     themething = getCookie("theme");
     if (themething === "") {
-        themething = "../css/themes/surface.css"
+        themething = "../css/themes/surface.css";
     }
     document.getElementById("them").href = themething;
 }
@@ -222,7 +200,7 @@ function updateInlineCSS(){
         document.getElementById("inlineCustomCSS").innerHTML = inlineCSS;
         document.getElementById("inlineCSSeditor").innerHTML = inlineCSS;
     } catch {
-        console.log("UpdateInlineCSS() failed, probably failed in getting cookie.");
+        console.log("updateInlineCSS() failed, probably failed in getting cookie.");
     }
 }
 
@@ -234,79 +212,12 @@ function useCustomInlineCSS(){
 
 function getPoints() {
     let pints = getCookie('points');
-    if (pints===undefined || pints===null || pints==="") {
+    if (pints === undefined || pints === null || pints === "") {
         console.log("failed to get points cookie, if this is the first load ignore this. otherwise raise an issue on https://github.com/ThisCatLikesCrypto/Website");
         setCookie('points', 0, 365);
         document.getElementById('points™').innerHTML = 0;
     } else {
         document.getElementById('points™').innerHTML = pints;
-    }
-}
-
-function displayTimetable(jsonData) {
-    var timetableData = JSON.parse(jsonData);
-    try {
-        weekData.forEach((period) => {
-            console.log("fuck this shit");
-        });
-    } catch(e) {
-        //This is necessary because... idk but it breaks if you remove it :D
-        timetableData = JSON.parse(timetableData);
-        console.log(timetableData);
-    }
-
-    // Clear existing timetable rows
-    document.getElementById('timetableBody').innerHTML = '';
-    for (let i = 1; i < 3; i++) {
-        weekh = document.createElement('h2');
-        weekh.innerHTML = "Week " + i.toString();
-        document.getElementById('timetableBody').append(document.createElement('br'));
-        document.getElementById('timetableBody').append(weekh);
-        console.log(timetableData);
-        var weekData = timetableData['week' + i.toString()];
-        console.log(weekData);
-        weekData.forEach((period) => {
-            const row = document.createElement('tr');
-            const periodCell = document.createElement('td');
-            periodCell.innerText = period.period;
-            row.appendChild(periodCell);
-      
-            period.days.forEach((subject) => {
-                const subjectCell = document.createElement('td');
-                subjectCell.innerText = subject;
-                row.appendChild(subjectCell);
-                document.getElementById('timetableBody').appendChild(row);
-            });
-        });
-    }
-}
-
-function importJSON() {
-    const fileInput = document.getElementById('fileInput');
-    const file = fileInput.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        let jsonData = event.target.result;
-        localStorage.setItem('timetable', JSON.stringify(jsonData));
-        displayTimetable(jsonData);
-      };
-      reader.readAsText(file);
-    } else {
-      alert('Please select a JSON file.');
-    }
-}
-
-async function useCachedTimetable() {
-    let jsonData = localStorage.getItem('timetable');
-    if (jsonData) {
-        displayTimetable(jsonData);
-    }
-    else {
-        document.getElementById('ttstatus').innerHTML = "No local timetable found.";
-        await sleep(3000);
-        document.getElementById('ttstatus').innerHTML = "";
     }
 }
 

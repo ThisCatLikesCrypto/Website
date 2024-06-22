@@ -23,8 +23,6 @@
                 <a href="#" onclick="showOptions()">Primary Options</a>
                 <a href="#" onclick="showLinkEditor()">Custom Link Editor</a>
                 <a href="#" onclick="showThemes()">Themes</a>
-                <a href="#" onclick="showTimetable()">View Timetable</a>
-                <a href="#" onclick="showData()">Data iframes</a>
             </div>
         </div>
         <div class="dropdown2">
@@ -161,46 +159,6 @@
                 <li>quicklink2</li>
                 <li>quicklink3</li>
             </ul>
-        </div>
-    </div>
-    <div id="viewtimetable">
-        <div id="table1" style="display: block;">
-            <br>
-            <h1 id="weekHeader"> Timetable </h1>
-            <p id="ttstatus"></p>
-            <div class="centreplease">
-                <button onclick="hideTimetable()">Go Back</button>
-            </div>
-            <br>
-            <table class="timetable">
-              <tbody id="timetableBody">
-                <tr>
-                  <th>Period</th>
-                  <th>Monday</th>
-                  <th>Tuesday</th>
-                  <th>Wednesday</th>
-                  <th>Thursday</th>
-                  <th>Friday</th>
-                </tr>
-              </tbody>
-            </table>
-            <br>
-            <label for="fileInput" class="custom-file-upload">
-                Select JSON
-            </label>
-            <input type="file" id="fileInput" accept=".json">
-            <button onclick="importJSON()">View</button>
-            <button onclick="useCachedTimetable()">Retry Use Local Storage Timetable</button>
-            <button onclick="goPlaces('timetable.html')">Edit Timetable</button>
-        </div>
-    </div>
-    <div id="datashit" style="display: none;">
-        <h1>Data iframes</h1>
-        <div class="centreplease">
-            <button onclick="hideData()">Go Back</button>
-        </div>
-        <div class="centreplease">
-            <iframe class="widget" src="https://wilbur.is-a.dev/widgets/wGrid?theme=dark"></iframe>
         </div>
     </div>
     <script src="../js/newtab.js"></script>
