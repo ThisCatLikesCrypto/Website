@@ -3,7 +3,7 @@ html, body {
   animation-direction: normal;
   color: white;
   height: 100%;
-  width: 100%;
+  width: 100vw;
 }
 
 a, p, h1 {
