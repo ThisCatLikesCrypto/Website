@@ -17,7 +17,7 @@ function getUKTime() {
   }
   
   function copyBtnEmbed() {
-    embedCode = '<a href="https://wilburwilliams.uk" target="_blank"><img src="https://wilburwilliams.uk/assets/button.gif"></a>'
+    embedCode = '<a href="https://wilburwilliams.uk" target="_blank"><img src="https://cdn.jsdelivr.net/gh/ThisCatLikesCrypto/Website/assets/button.gif" alt="wilburwilliams.uk (spinny cat icon)></a>'
   
     navigator.clipboard.writeText(embedCode).then(function() {
         alert("Copied Embed Code");
