@@ -178,6 +178,10 @@ input[type="file"] {
     display: none;
 }
 
+#primaryoptions {
+    display: none;
+}
+
 .centreplease {
     display: flex;
     justify-content: center; /* Horizontally center the inner divs */
@@ -243,6 +247,11 @@ input[type="file"] {
 .widget {
     height: 300px;
     width: 300px;
+}
+
+.inputWide {
+    text-align: center;
+    width: 40%;
 }
 
 

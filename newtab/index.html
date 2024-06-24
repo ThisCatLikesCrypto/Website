@@ -20,10 +20,9 @@
         <div class="dropdown">
             <button class="dropbtn wws-dropbtn">Menu</button>
             <div class="wws-dropdown-content dropdown-content">
+                <a href="#" onclick="showOptions()">Primary Options</a>
                 <a href="#" onclick="showLinkEditor()">Custom Link Editor</a>
                 <a href="#" onclick="showThemes()">Themes</a>
-                <a href="#" onclick="showTimetable()">View Timetable</a>
-                <a href="#" onclick="showData()">Data iframes</a>
             </div>
         </div>
         <div class="dropdown2">
@@ -38,12 +37,12 @@
             <h2>Meaningless Internet Points™: <span id="points™"></span></h2>
         </div>
         <p class="spacersmol"></p>
-        <h1>New Tab Go Brrr</h1>
+        <h1 id="ntitle">New Tab</h1>
         <h3 id="time">Loading...</h1>
         <p class="spacersmol"></p>
         <div class="centreplease">
-            <form id="searchForm" onsubmit="return searchEcosia()">
-                <input type="text" id="searchInput" class="wws-inputBox inputBox" placeholder="Search Ecosia... (Enter to search)" autofocus>
+            <form id="searchForm" onsubmit="return search()">
+                <input type="text" id="searchInput" class="wws-inputBox inputBox" placeholder="Enter to search..." autofocus>
             </form>
         </div>
         <div class="stuffbelowsearchbit">
@@ -64,12 +63,12 @@
         </div>
         <br>
         <div id="smallquicklinks">
-            <button onclick="goPlaces(getLink('link4'))"><img src="../assets/newtab/ghlogo.png"></button>
-            <button onclick="goPlaces(getLink('link5'))"><img src="../assets/newtab/ecosia.jpeg"></button>
-            <button onclick="goPlaces(getLink('link6'))"><img id="wisdevlogo" src="../assets/newtab/wisdev.png"></button>
-            <button onclick="goPlaces(getLink('link7'))"><img class="wws-svglogo" src="../assets/newtab/electricitymaps-icon.svg"></button>
-            <button onclick="goPlaces(getLink('link8'))"><img src="../assets/newtab/quizlet.jpeg"></button>
-            <button onclick="goPlaces(getLink('link9'))"><img src="../assets/newtab/blooket.png"></button>
+            <button onclick="goPlaces(getLink('link4'))"><img id="link4" src="../assets/newtab/ghlogo.png"></button>
+            <button onclick="goPlaces(getLink('link5'))"><img id="link5" src="../assets/newtab/ecosia.jpeg"></button>
+            <button onclick="goPlaces(getLink('link6'))"><img id="link6" id="wisdevlogo" src="../assets/newtab/wisdev.png"></button>
+            <button onclick="goPlaces(getLink('link7'))"><img id="link7" class="wws-svglogo" src="../assets/newtab/electricitymaps-icon.svg"></button>
+            <button onclick="goPlaces(getLink('link8'))"><img id="link8" src="../assets/newtab/quizlet.jpeg"></button>
+            <button onclick="goPlaces(getLink('link9'))"><img id="link9" src="../assets/newtab/blooket.png"></button>
         </div>
         <p id="mesage"></p>
     </div> 
@@ -111,6 +110,29 @@
             <button onclick="useCustomInlineCSS()">Save</button>
         </div>
     </div>
+    <div id="primaryoptions">
+        <p class="spacersmol"></p>
+        <h1>Primary Options</h1>
+        <p id="failthing2"></p>
+        <div class="centreplease">
+            <button onclick="hideOptions()">Hide Options</button>
+        </div>
+        <br>
+        <h2>Change Search Engine</h2>
+        <div class="centreplease">
+            <form class="inputWide" onsubmit="return changeSearch()">
+                <input type="text" class="inputBox linkInput wws-inputBox" id="engineInput" placeholder="URL with %s in place of query">
+                <p>(like https://ecosia.org/search?q=%s)</p>
+            </form>
+        </div>
+        <br>
+        <h2>Change Title</h2>
+        <div class="centreplease">
+            <form class="inputWide" onsubmit="return setNewTitle()">
+                <input type="text" class="inputBox linkInput wws-inputBox" id="newTitleInput" placeholder="New Title">
+            </form>
+        </div>
+    </div>
     <div id="linkeditor">
         <p class="spacersmol"></p>
         <h1>Quicklink editor</h1>
@@ -137,46 +159,6 @@
                 <li>quicklink2</li>
                 <li>quicklink3</li>
             </ul>
-        </div>
-    </div>
-    <div id="viewtimetable">
-        <div id="table1" style="display: block;">
-            <br>
-            <h1 id="weekHeader"> Timetable </h1>
-            <p id="ttstatus"></p>
-            <div class="centreplease">
-                <button onclick="hideTimetable()">Go Back</button>
-            </div>
-            <br>
-            <table class="timetable">
-              <tbody id="timetableBody">
-                <tr>
-                  <th>Period</th>
-                  <th>Monday</th>
-                  <th>Tuesday</th>
-                  <th>Wednesday</th>
-                  <th>Thursday</th>
-                  <th>Friday</th>
-                </tr>
-              </tbody>
-            </table>
-            <br>
-            <label for="fileInput" class="custom-file-upload">
-                Select JSON
-            </label>
-            <input type="file" id="fileInput" accept=".json">
-            <button onclick="importJSON()">View</button>
-            <button onclick="useCachedTimetable()">Retry Use Local Storage Timetable</button>
-            <button onclick="goPlaces('timetable.html')">Edit Timetable</button>
-        </div>
-    </div>
-    <div id="datashit" style="display: none;">
-        <h1>Data iframes</h1>
-        <div class="centreplease">
-            <button onclick="hideData()">Go Back</button>
-        </div>
-        <div class="centreplease">
-            <iframe class="widget" src="https://wilbur.is-a.dev/widgets/wGrid?theme=dark"></iframe>
         </div>
     </div>
     <script src="../js/newtab.js"></script>
