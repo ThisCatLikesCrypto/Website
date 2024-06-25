@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'Minecraft';
+    font-weight: 400;
+    font-display: swap;
+    src: url("random/Minecraft.ttf") format('ttf');
+}
