@@ -13,13 +13,13 @@ a, p, h1 {
 }
 
 @keyframes funnyRainbow {
-    0% {background-image:url("../assets/funi/Bojo.jpeg");} 
-    16% {background-image:url("../assets/funi/Bojo2.jpeg");}
-    32% {background-image:url("../assets/funi/funnyJoe.jpeg");}
-    50% {background-image:url("../assets/funi/Bojo3.jpeg");} 
-    66% {background-image:url("../assets/funi/KimJongUn.jpeg");}
-    84% {background-image:url("../assets/funi/fart.jpeg");}
-    100% {background-image:url("../assets/funi/Bojo.jpeg");} 
+  0% {background-image:url("../assets/funi/Bojo.jpeg");} 
+  16% {background-image:url("../assets/funi/Bojo2.jpeg");}
+  32% {background-image:url("../assets/funi/funnyJoe.jpeg");}
+  50% {background-image:url("../assets/funi/Bojo3.jpeg");} 
+  66% {background-image:url("../assets/funi/KimJongUn.jpeg");}
+  84% {background-image:url("../assets/funi/fart.jpeg");}
+  100% {background-image:url("../assets/funi/Bojo.jpeg");} 
   
 }
 
@@ -31,4 +31,16 @@ a, p, h1 {
   64% {background-color: blue;}
   80% {background-color: purple;}
   100% {background-color: red;}
+}
+
+@media (prefers-reduced-motion) {
+  html, body {
+    animation: none;
+  }
+  
+  a, p, h1 {
+    color: darkslategrey;
+    animation: none;
+    padding: 4px;
+  }
 }
