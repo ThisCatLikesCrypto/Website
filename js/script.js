@@ -1,6 +1,6 @@
 var audio = new Audio('assets/scatteredcells.ogg');
-var eaudio = "";
 var eaudion = false;
+var eaudio = "";
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -10,7 +10,9 @@ async function easter(){
     console.log("you found an easter egg. enjoy le sound");
     eaudio = new Audio('assets/aprilscattered.ogg');
     alert("sorry KyYay (turn up volume once it starts if you can't hear it)");
-    audio.pause();
+    if (audio){
+      audio.pause();
+    }
     eaudion=true;
     eaudio.play();
     eaudio.addEventListener("ended", function(){
@@ -67,16 +69,6 @@ document.addEventListener('DOMContentLoaded', function(){
   console.log('%cDreamland source is available at https://github.com/MercuryWorkshop/DreamlandJS', px15text);
   console.log("%cIf my source code is erm... not the greatest then feel free to tell me how to improve just don't be unkind about it.", px15text);
 });
-
-function playmusic(){
-  if (!eaudion){
-    audio.play();
-    audio.addEventListener("ended", function(){
-      audio.currentTime = 0;
-      audio.play();
-    });
-  }
-}
 
 document.addEventListener('keydown', playmusic);
 document.addEventListener('click', playmusic);

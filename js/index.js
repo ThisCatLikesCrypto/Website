@@ -1,3 +1,5 @@
+var eaudion = false;
+
 function getUKTime() {
     // Create a Date object for the current date and time
     const now = new Date();
@@ -26,6 +28,16 @@ function getUKTime() {
     });
   
 }
+
+function playmusic(){
+    if (!eaudion){
+      audio.play();
+      audio.addEventListener("ended", function(){
+        audio.currentTime = 0;
+        audio.play();
+      });
+    }
+  }
 
 document.addEventListener('DOMContentLoaded', async function(){
     document.getElementById('mytime').innerHTML = getUKTime();
