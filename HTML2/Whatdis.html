@@ -1,46 +1,44 @@
 <!DOCTYPE html>
-<head>
-  <link rel="stylesheet" href="Whatdis.css">
-</head>
-<body onload="document.getElementById('defaultTab').click();">
+<html>
+  <head>
+    <title>hmmmm</title>
+    <link rel="stylesheet" href="Whatdis.css">
+  </head>
+  <body onload="document.getElementById('defaultTab').click();">
     <script src=Whatdis.js></script>
-        <div class="tab">
-            <button class="tablinks active" onclick="openTab(event, 'Tab0')" id="defaultTab">main</button>
-            <button class="tablinks" onclick="openTab(event, 'Epic')">Epic!</button>
-            <button class="tablinks" onclick="openTab(event, 'about')">about</button>
-            <button class="tablinks" onclick="openTab(event, 'subsites')">sub-sites</button>
-            <div id="Tab0" class="tabcontent">
-              YOOO
-            </div>
-            <div id="Epic" class="tabcontent">
-                 <button onclick="alert(5 + 6)">Button</button> 
-                 <p> </p>
-                 <button onclick="alert('Flip')">Boooo</button>
-                 <p> </p>
-                 <button onclick="EpicFunction()">EEEE</button>
-                 <p> </p>
-                 <button onclick="EpicFunction2()">Pain_Button</button>
-            </div>
-            <div id="about" class="tabcontent">
-              <form id="userForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
-        
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
-        
-                <input type="submit" value="Submit" onclick="displayInfo()">
-            </form>
-
-            <p id="id243">
-            </p>
-      
-              </div>
-            <div id="subsites" class="tabcontent">
-                yesfe
-            </div>
-        </div>
-
-  
-  <p>WebWork? Yes</p>
-</body>
+    <div class="tab">
+      <button class="tablinks active" onclick="openTab(event, 'Tab0')" id="defaultTab">main</button>
+      <button class="tablinks" onclick="openTab(event, 'Epic')">Epic!</button>
+      <button class="tablinks" onclick="openTab(event, 'about')">about</button>
+      <button class="tablinks" onclick="openTab(event, 'subsites')">sub-sites</button>
+      <div id="Tab0" class="tabcontent">
+        YOOO
+      </div>
+      <div id="Epic" class="tabcontent">
+        <button onclick="alert(5 + 6)">Button</button> 
+        <p> </p>
+        <button onclick="alert('Flip')">Boooo</button>
+        <p> </p>
+        <button onclick="EpicFunction()">EEEE</button>
+        <p> </p>
+        <button onclick="EpicFunction2()">Pain_Button</button>
+      </div>
+      <div id="about" class="tabcontent">
+        <form id="userForm">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <br>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <br>
+          <input type="submit" value="Submit" onclick="displayInfo()">
+        </form>
+        <p id="id243"></p>
+      </div>
+      <div id="subsites" class="tabcontent">
+          yesfe
+      </div>
+    </div>
+    <p>WebWork? Yes</p>
+  </body>
+</html>

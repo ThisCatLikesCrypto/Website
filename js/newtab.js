@@ -1,4 +1,6 @@
 var domainEndings = ["uk", "com", "net", "org", "co", "ooo", "ca", "de", "eu", "us", "cn", "in", "website", "site", "tr", "dev"];
+var titleIndex = 0;
+var titles = "";
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -160,9 +162,24 @@ function changeSearch(){
     return false;
 }
 
+function titleCycle(){
+    ntitle = document.getElementById("ntitle");
+    let currentTitle = titles[titleIndex];
+    currentTitle = currentTitle.replace(/\[\s*|\s*\]/g, '');
+    ntitle.innerHTML = currentTitle;
+    titleIndex = (titleIndex + 1) % titles.length;
+}
+
+
 function updateTitle(){
     title = getCookie("title") || "New Tab Go Brrr";
-    document.getElementById("ntitle").innerHTML = title;
+    if (title.startsWith("[") && title.endsWith("]")){
+        titles = title.split(", ");
+        titleCycle();
+        setInterval(titleCycle, 10000);
+    } else {
+        document.getElementById("ntitle").innerHTML = title;
+    }
 }
 
 function setNewTitle(){
@@ -170,7 +187,7 @@ function setNewTitle(){
     console.log("Switching title " + newtitle);
     setCookie("title", newtitle, 365);
     document.getElementById('failthing2').innerHTML = "Updated to " + newtitle;
-    updateTitle();
+    window.location.href="index.html";
 }
 
 function changeTheme(theme) {

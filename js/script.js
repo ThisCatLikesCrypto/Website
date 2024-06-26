@@ -69,6 +69,3 @@ document.addEventListener('DOMContentLoaded', function(){
   console.log('%cDreamland source is available at https://github.com/MercuryWorkshop/DreamlandJS', px15text);
   console.log("%cIf my source code is erm... not the greatest then feel free to tell me how to improve just don't be unkind about it.", px15text);
 });
-
-document.addEventListener('keydown', playmusic);
-document.addEventListener('click', playmusic);
