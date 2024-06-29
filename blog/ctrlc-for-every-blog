@@ -10,7 +10,8 @@
         <div id="headercontainer"></div>
         <hr>
         <div id="main">
-            
+            <h1 class="centretext"></h1>
+            <p class="centretext"><i></i></p>
         </div>
     </body>
 </html>
