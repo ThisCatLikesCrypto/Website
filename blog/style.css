@@ -73,10 +73,14 @@ hr {
 
 #header {
     margin-top: 5%;
-    display: flex;
-    justify-content: space-between;
     margin-left: 20%;
     margin-right: 20%;
+}
+
+#headercontent {
+    justify-content: space-between;
+    display: flex;
+    overflow: hidden;
 }
 
 #header div h1 {
