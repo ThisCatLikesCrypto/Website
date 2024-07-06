@@ -1,35 +1,98 @@
 var audio = new Audio('assets/scatteredcells.ogg');
 var eaudion = false;
-var eaudio = "";
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function easter(){
-    console.log("you found an easter egg. enjoy le sound");
-    eaudio = new Audio('assets/aprilscattered.ogg');
-    alert("sorry KyYay (turn up volume once it starts if you can't hear it)");
-    if (audio){
+async function playAprilCells() {
+  console.log("You found an easter egg. Enjoy the sound");
+  try {
+    muct = document.getElementById('musiccontrol')
+    muct.innerHTML = "Controls are disabled while easter audio is running";
+    muct.onclick = function(){alert("stop trying")};
+  } catch {
+    console.log("djsifsd");
+  }
+  if (easterAudio) {
+    easterAudio.pause();
+    easterAudio = new Audio('assets/aprilscattered.ogg');
+  } else {
+    var easterAudio = new Audio('assets/aprilscattered.ogg');
+  }
+
+  eaudion = true;
+
+  alert("Sorry KyYay (turn up volume once it starts if you can't hear it)");
+
+  if (audio) {
       audio.pause();
-    }
-    eaudion=true;
-    eaudio.play();
-    eaudio.addEventListener("ended", function(){
+  }
+
+  easterAudio.play();
+  easterAudio.addEventListener("ended", function() {
       eaudion = false;
-      audio.play();
-    });
+      try {
+        muct = document.getElementById('musiccontrol');
+        muct.innerHTML = "Click to pause music";
+        muct.onclick = pausemusic;
+        audio.play();
+      } catch {
+        console.log("djsifsd2");
+      }
+  });
+}
+
+async function handleKeyPress(event) {
+  const keysContainer = document.getElementById('keys-container');
+  keys.push(event.code);
+  keys = keys.slice(-11);
+
+  displayKeys();
+
+  const konamiCode = "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightKeyBKeyA";
+  const fnafCode = "KeyFKeyNKeyAKeyF";
+  const sweeney = "KeySKeyWKeyEKeyEKeyNKeyEKeyY";
+  const idea = "KeyIKeyDKeyEKeyA";
+
+  if (keys.join("") === konamiCode && eaudion == false) {
+      await sleep(500);
+      keysContainer.style.color = "lime";
+      playAprilCells();
+  } else if (keys.join("").endsWith(fnafCode)) {
+      keysContainer.style.color = "lime";
+      await sleep(500);
+      window.location.href = "https://itsperfect.firstipourthemilk.thenipourthecereal.breakfastmyfriend.fnaf.stream/";
+  } else if (keys.join("").endsWith(sweeney)) {
+      keysContainer.style.color = "lime";
+      await sleep(500);
+      window.location.href = "https://sweensters.neocities.org/videos";
+  } else if (keys.join("").endsWith(idea)) {
+      keysContainer.style.color = "lime";
+      await sleep(500);
+      window.location.href = "https://theabsoluterealm.com";
+  }
+}
+
+function displayKeys() {
+  const keysContainer = document.getElementById('keys-container');
+  let keysdotjoin = keys.join(' ').replace(/Key/g, '');
+  console.log(keysdotjoin);
+  keysContainer.innerHTML = keysdotjoin;
+  keysContainer.style.opacity = 1;
+  clearTimeout(fadeTimeout);
+  fadeTimeout = setTimeout(() => {
+      keysContainer.style.opacity = 0;
+      keysContainer.style.color = "white";
+      keys = [];
+  }, 2000);
 }
 
 let keys = [];
-const code = [];
-window.addEventListener("keyup", ({ code }) => {
-  keys.push(code);
-  keys = keys.slice(-11);
-  if (keys.join("") == "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightKeyBKeyAEnter") {
-      easter();
-  }
-});
+let fadeTimeout;
+window.addEventListener("keyup", handleKeyPress);
+
+
 
 function mobileCheck() {
   let check = false;
@@ -38,6 +101,28 @@ function mobileCheck() {
     console.warn("Mobile is still in beta on this site.");
   }
 };
+
+function catGoMeow(){
+  fetch('https://api.thecatapi.com/v1/images/search')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json();
+  })
+  .then(data => {
+    if (data.length > 0) {
+      const imageUrl = data[0].url;
+      console.log('Cat image URL:', imageUrl);
+      window.location.href = imageUrl;
+    } else {
+      console.log('No images found');
+    }
+  })
+  .catch(error => {
+    console.error('There has been a problem with your fetch operation:', error);
+  });
+}
 
 function showSide() {
   snav = document.getElementById("sidenav");
