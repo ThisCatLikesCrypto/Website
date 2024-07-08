@@ -49,6 +49,7 @@ function LoadFooter(){
                 <img src="https://www.mousometer.de/mousometer32504.gif" alt="Mousometer - Distance meter for your mouse">
             </a>
         </abbr>
+        <div id="keys-container"></div>
     </footer>`
 }
 
