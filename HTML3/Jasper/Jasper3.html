@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
 <script src="Jasper3.js"></script>
+<style src="Jasper3.css"></style>
   <title> This is Funny</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,26 +13,46 @@
 
 <div class="container">
   <h1>Da De deeee dah doh doh deeh dah do </h1>
-  <p>Spijunn.</p>
   <div class="spinner-border spinner-border-sm"></div>
   <div class="spinner-grow"></div>
 </div>
 
-<div class="dropdown">
+
+<div class="dropdown" id="Drop">
   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-    Dropdown button
+    Is it?
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#"> Yes</a></li>
+    <li><a class="dropdown-item" href="#" onclick="Yees()"> Yes</a></li>
     <li><a class="dropdown-item" href="#" onclick="Who()"> No </a></li>
-    <li><a class="dropdown-item" href="#" onclick="YeS()"> Banno</a></li>
+    <li><a class="dropdown-item" href="#" onclick="Bannona()"> Banno</a></li>
   </ul>
 </div>
-<p id = "A">A</p>
-
-<div class="progress">
-  <button onclick="Poreg()"></button>
-  <div class="progress-bar" style="width:20%" id="Update">70%</div>
+<p id ="A" onclick="YeS()">A</p>
+<div class="btn-group" id="Order">
+  <button type="button" class="btn btn-primary" onclick="Primary()"> Primary</button>
+  <button type="button" class="btn btn-secondary" onclick="Secondary()"> Secondary</button>
+  <button type="button" class="btn btn-success" onclick="Triary()"> Triary</button>
 </div>
+
+<div id="Box1">
+  This is a div, not turned into a box after ages of trying
+  It sads me
+</div>
+<div>
+  <button onclick="Poreg()">Poreg?</button>
+  <button onclick="ReversePoreg()">?geroP</button>
+</div>
+
+<div class="progress" id="Poreg">
+  <button onclick="Poreg()"></button>
+  <div class="progress-bar" style="width:1%" id="Update">0%</div>
+</div>
+
+<div>
+  <button type="button" class="btn btn-primary" onmouseover="Something()">Something</button>
+  <p id="Count">0</p>
+</div>
+
 </body>
 </html>

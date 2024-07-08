@@ -1,0 +1,7 @@
+#Box_1 {
+    width: 300px;
+    border: 1px solid white;
+    outline-style: solid;
+    padding: 50px;
+    margin: 20px;
+}
