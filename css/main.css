@@ -1,6 +1,6 @@
 /* Fonts (in case they're not installed)*/
 @import url("../fonts/Montserrat.css");
-@import url("../fonts/Calibri.css");
+@import url("https://cdn.jsdelivr.net/gh/EyeScary-Development/CDN/fonts/croscore/css/carlito.css");
 @import url("../fonts/minecraft.css");
 
 /* Stuff that needs to affect the whole page */
@@ -9,7 +9,7 @@ body {
     background-position: center;
     background-size: cover;
     height: 100vh;
-    font-family: 'Calibri', sans-serif;
+    font-family: 'Carlito', sans-serif;
     cursor: url('../images/g305cursor.png'), default;
 }
 
