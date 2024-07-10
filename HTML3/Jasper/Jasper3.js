@@ -1,12 +1,8 @@
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-}) // Initialises tooltips
-
 var Thom = 0;
 var Count = 0;
 var CountForPoreg = 0;
 var OtherCount = 0
+var CountAgain = 0
 const ButtonOrder = []
 
 function YeS() {
@@ -101,5 +97,11 @@ function Something() {
   if (OtherCount > 100) {
     OtherCount = 0
     Poreg()
+  }
+}
+function Something0() {
+  if (CountAgain == 0) {
+    Something()
+    CountAgain = CountAgain + 1
   }
 }

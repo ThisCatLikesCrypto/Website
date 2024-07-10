@@ -1,7 +1,34 @@
-#Box_1 {
+#Box1 {
     width: 300px;
     border: 1px solid white;
     outline-style: solid;
     padding: 50px;
     margin: 20px;
+}
+
+#Buttons {
+    width: 200px;
+    border: 2px solid white;
+    outline-style: solid;
+    padding: 50px;
+    margin: 20px;
+}
+
+#Header {
+    font-family: "Princess Sofia", cursive;
+}
+
+#Hver {
+    display: none;
+    width: 100px;
+    border: 2px solid white;
+    outline-style: solid;
+}
+
+#Gins {
+    font-size: 30px;
+}
+
+#Gins:hover #Hver {
+    display: block;
 }
