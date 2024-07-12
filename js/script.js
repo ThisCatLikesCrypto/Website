@@ -47,6 +47,7 @@ async function handleKeyPress(event) {
   const keysContainer = document.getElementById('keys-container');
   keys.push(event.code);
   keys = keys.slice(-11);
+  console.log(keys);
 
   displayKeys();
 
@@ -54,6 +55,7 @@ async function handleKeyPress(event) {
   const fnafCode = "KeyFKeyNKeyAKeyF";
   const sweeney = "KeySKeyWKeyEKeyEKeyNKeyEKeyY";
   const idea = "KeyIKeyDKeyEKeyA";
+  const rm = "KeyRKeyMMinusKeyRKeyFSlash"
 
   if (keys.join("") === konamiCode && eaudion == false) {
       await sleep(500);
@@ -71,13 +73,16 @@ async function handleKeyPress(event) {
       keysContainer.style.color = "lime";
       await sleep(500);
       window.location.href = "https://theabsoluterealm.com";
+  } else if (keys.join("").endsWith(rm)) {
+      keysContainer.style.color = "lime";
+      await sleep(500);
+      document.body.innerHTML = "";
   }
 }
 
 function displayKeys() {
   const keysContainer = document.getElementById('keys-container');
   let keysdotjoin = keys.join(' ').replace(/Key/g, '');
-  console.log(keysdotjoin);
   keysContainer.innerHTML = keysdotjoin;
   keysContainer.style.opacity = 1;
   clearTimeout(fadeTimeout);
