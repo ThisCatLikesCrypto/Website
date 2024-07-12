@@ -54,7 +54,8 @@ async function handleKeyPress(event) {
   const fnafCode = "KeyFKeyNKeyAKeyF";
   const sweeney = "KeySKeyWKeyEKeyEKeyNKeyEKeyY";
   const idea = "KeyIKeyDKeyEKeyA";
-  const jasperCode = "KeyJKeyAKeySKeyPKeyEKeyR"
+  const jasperCode = "KeyJKeyAKeySKeyPKeyEKeyR";
+  const rm = "KeyRKeyMMinusKeyRKeyFSlash";
 
   if (keys.join("") === konamiCode && eaudion == false) {
       await sleep(500);
@@ -76,7 +77,11 @@ async function handleKeyPress(event) {
     keysContainer.style.color = "lime";
     await sleep(500);
     alert("Jasper is here, hide your uranium, oh dear!")
-  }
+  } else if (keys.join("").endsWith(rm)) {
+    keysContainer.style.color = "lime";
+    await sleep(500);
+    document.body.innerHTML = "";
+}
 }
 
 function displayKeys() {

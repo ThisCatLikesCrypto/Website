@@ -9,7 +9,7 @@ body {
     background-position: center;
     background-size: cover;
     height: 100vh;
-    font-family: 'Carlito', sans-serif;
+    font-family: Calibri, 'Carlito', sans-serif;
     cursor: url('../images/g305cursor.png'), default;
 }
 
