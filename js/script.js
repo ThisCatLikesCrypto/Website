@@ -47,6 +47,7 @@ async function handleKeyPress(event) {
   const keysContainer = document.getElementById('keys-container');
   keys.push(event.code);
   keys = keys.slice(-11);
+  console.log(keys);
 
   displayKeys();
 
@@ -82,12 +83,10 @@ async function handleKeyPress(event) {
     await sleep(500);
     document.body.innerHTML = "";
 }
-}
 
 function displayKeys() {
   const keysContainer = document.getElementById('keys-container');
   let keysdotjoin = keys.join(' ').replace(/Key/g, '');
-  console.log(keysdotjoin);
   keysContainer.innerHTML = keysdotjoin;
   keysContainer.style.opacity = 1;
   clearTimeout(fadeTimeout);
