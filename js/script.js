@@ -83,6 +83,7 @@ async function handleKeyPress(event) {
     await sleep(500);
     document.body.innerHTML = "";
 }
+}
 
 function displayKeys() {
   const keysContainer = document.getElementById('keys-container');
@@ -100,8 +101,6 @@ function displayKeys() {
 let keys = [];
 let fadeTimeout;
 window.addEventListener("keyup", handleKeyPress);
-
-
 
 function mobileCheck() {
   let check = false;
