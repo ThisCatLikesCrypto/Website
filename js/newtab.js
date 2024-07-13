@@ -134,20 +134,47 @@ function search(query) {
     queryEnding = queryEnding[queryEnding.length - 1];
     console.log(queryEnding);
 
+    var searchquOption = getCookie("searchqu") || "https";
+    var searchexOption = getCookie("searchex") || "ddgbangs";
+
     if (searchTerm === "") {
         console.log("Empty search string");
     } else if (searchTerm.startsWith("https://") || searchTerm.startsWith("http://")) {
         window.location.href = searchTerm;
     } else if (searchTerm.startsWith("?")) {
-        window.location.href=searchTerm.replace("?", "https://");
+        handleQuestionQuery(searchTerm, searchquOption);
     } else if (searchTerm.startsWith("!")) {
-        window.location.href = "https://duckduckgo.com/?q=" + encodeURIComponent(searchTerm);
+        handleExclamationQuery(searchTerm, searchexOption);
     } else if (domainEndings.includes(queryEnding)) {
         window.location.href = "https://" + searchTerm;
     } else {
         window.location.href = engine.replace("%s", encodeURIComponent(searchTerm));
     }
     return false; // Prevent default form submission
+}
+
+function handleQuestionQuery(query, option) {
+    if (option === "https") {
+        window.location.href = query.replace("?", "https://");
+    } else if (option === "http") {
+        window.location.href = query.replace("?", "http://");
+    } else if (option === "search") {
+        var engine = getCookie("engine") || "https://ecosia.org/search?q=%s";
+        window.location.href = engine.replace("%s", encodeURIComponent(query));
+    }
+}
+
+function handleExclamationQuery(query, option) {
+    if (option === "ddgbangs") {
+        window.location.href = "https://duckduckgo.com/?q=" + encodeURIComponent(query);
+    } else if (option === "https") {
+        window.location.href = query.replace("!", "https://");
+    } else if (option === "http") {
+        window.location.href = query.replace("!", "http://");
+    } else if (option === "search") {
+        var engine = getCookie("engine") || "https://ecosia.org/search?q=%s";
+        window.location.href = engine.replace("%s", encodeURIComponent(query));
+    }
 }
 
 function goPlaces(place){
@@ -169,7 +196,6 @@ function titleCycle(){
     ntitle.innerHTML = currentTitle;
     titleIndex = (titleIndex + 1) % titles.length;
 }
-
 
 function updateTitle(){
     title = getCookie("title") || "New Tab Go Brrr";
@@ -238,10 +264,36 @@ function getPoints() {
     }
 }
 
+function saveSearchQuOption() {
+    var searchqu = document.getElementById("searchqu").value;
+    setCookie("searchqu", searchqu, 365);
+}
+
+function saveSearchExOption() {
+    var searchex = document.getElementById("searchex").value;
+    setCookie("searchex", searchex, 365);
+}
+
+function loadSearchOptions() {
+    var searchqu = getCookie("searchqu");
+    if (searchqu) {
+        document.getElementById("searchqu").value = searchqu;
+    }
+
+    var searchex = getCookie("searchex");
+    if (searchex) {
+        document.getElementById("searchex").value = searchex;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     updateTitle();
     updateLinkList();
     updateTheme();
     updateInlineCSS();
     getPoints();
+    loadSearchOptions();
+
+    document.getElementById("searchqu").addEventListener("change", saveSearchQuOption);
+    document.getElementById("searchex").addEventListener("change", saveSearchExOption);
 });
