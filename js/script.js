@@ -81,7 +81,8 @@ async function handleKeyPress(event) {
   } else if (keys.join("").endsWith(rm)) {
     keysContainer.style.color = "lime";
     await sleep(500);
-    document.body.innerHTML = "";
+    document.body.style = "background: white";
+    document.body.innerHTML = "<h1 style='text-align: center;'>404 Not Found</h1><hr style='max-width: 300px'><p style='text-align: center;'>Cloudflare</p></div>";
 }
 }
 
