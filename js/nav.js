@@ -22,6 +22,7 @@ function LoadNav(){
             <a href="directory.html">Crypto Links</a>
             <a href="donate.html">Donate</a>
             <a href="licence.html">Licence</a>
+            <a href="domains.html">Domains</a>
         </div>
     </div>`
 }
