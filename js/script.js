@@ -43,6 +43,8 @@ async function playAprilCells() {
   });
 }
 
+
+//Feel free to cheat if you want lmao
 async function handleKeyPress(event) {
   const keysContainer = document.getElementById('keys-container');
   keys.push(event.code);
@@ -82,7 +84,7 @@ async function handleKeyPress(event) {
     keysContainer.style.color = "lime";
     await sleep(500);
     document.body.style = "background: white";
-    document.body.innerHTML = "<h1 style='text-align: center;'>404 Not Found</h1><hr style='max-width: 300px'><p style='text-align: center;'>Cloudflare</p></div>";
+    document.body.innerHTML = `<h1 style='text-align: center;'>404 Not Found</h1><hr><p style='text-align: center;'>Cloudflare</p>`;
 }
 }
 
