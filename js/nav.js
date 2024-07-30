@@ -15,7 +15,7 @@ function LoadNav(){
             <a href="newtab/index.html">Newtab</a>
             <a href="HTML2/index.html">HTML2</a>
             <a href="HTML3/index.html">HTML3</a>
-            <a href="https://eyescary.pages.dev">EyeScary</a>
+            <a href="https://eyescary.uk">EyeScary</a>
             <a href="specs.html">Tech Specs</a>
             <a href="software.html">Software Setup</a>
             <a href="downloads.html">dl Index</a>
