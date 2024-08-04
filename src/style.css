@@ -1,4 +1,5 @@
 @import url("https://fonts.bunny.net/css?family=space-mono");
+/* Bunny Fonts > Google Fonts */
 
 /* Yes this is Catppuccin. I finally gave in to Pittab's demands.*/
 :root {
@@ -33,23 +34,21 @@
 }
 
 .rainbow {
-    background: linear-gradient(
-        to right,
-        var(--rosewater),
-        var(--flamingo),
-        var(--pink),
-        var(--mauve),
-        var(--red),
-        var(--maroon),
-        var(--peach),
-        var(--yellow),
-        var(--green),
-        var(--teal),
-        var(--sky),
-        var(--sapphire),
-        var(--blue),
-        var(--lavender)
-    );
+    background: linear-gradient(to right,
+            var(--rosewater),
+            var(--flamingo),
+            var(--pink),
+            var(--mauve),
+            var(--red),
+            var(--maroon),
+            var(--peach),
+            var(--yellow),
+            var(--green),
+            var(--teal),
+            var(--sky),
+            var(--sapphire),
+            var(--blue),
+            var(--lavender));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -61,6 +60,11 @@ body {
     background-color: var(--base);
 }
 
+p {
+    padding: 0;
+    margin-bottom: 3px;
+}
+
 a {
     color: rgb(0, 217, 255);
     text-decoration: none;
@@ -68,11 +72,6 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-hr {
-    margin-left: 20%;
-    margin-right: 20%;
 }
 
 button {
@@ -94,10 +93,9 @@ button {
 
 .inlineplease {
     display: flex;
-    align-items: center; /* Aligns items vertically */
-    justify-content: center; /* Aligns items horizontally */
+    align-items: center;
+    justify-content: center;
 }
-
 
 .blog-preview {
     padding: 20px;
@@ -121,20 +119,114 @@ button {
     text-align: center;
 }
 
-@media screen and (max-width: 700px) {
-    #main {
-        margin-left: 0;
-        margin-right: 0;
+.success {
+    color: limegreen;
+}
+
+.fail {
+    color: red;
+}
+
+.abutp {
+    color: white;
+    text-decoration: none;
+}
+
+.abutp:hover {
+    color: lightgrey;
+}
+
+/* Main content area (index.html) */
+.maindivdiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.centretext {
+    text-align: center;
+}
+
+.centreplease {
+    display: flex;
+    justify-content: space-between;
+    /* Horizontally center the inner divs */
+}
+
+.section {
+    border: 1px solid #fff;
+}
+
+.section div {
+    padding: 0px 20px;
+    min-width: 10%;
+}
+
+.hovertext {
+    display: none;
+}
+
+.makehover:hover .hovertext {
+    display: block;
+}
+
+.mobileonly {
+    display: none;
+}
+
+#keys-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    font-family: monospace;
+}
+
+.maindivdiv {
+    text-align: center;
+}
+
+.mobileonly {
+    display: block;
+    text-align: center;
+}
+
+.mainheader {
+    left: 3%;
+}
+
+.main {
+    display: flex;
+}
+
+.sidebar {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* ik my website will get like 2% of visits from people with visual impairment but still */
+@media (prefers-reduced-motion) {
+    .splash {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .centreimage {
+        width: 100%;
     }
 
-    #header {
-        margin-left: 0;
-        margin-right: 0;
+    .desktoponly {
+        display: none;
     }
-
-    .blog-preview {
-        padding: 5px;
-        border: none;
+    
+    .maindivdiv {
+        flex-direction: column;
     }
 }
 
@@ -142,4 +234,4 @@ button {
     #header {
         display: block;
     }
-}   
+}

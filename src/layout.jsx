@@ -18,18 +18,20 @@ function choose(choices) {
 const footerCSS = css`
     display: flex;
     justify-content: space-between;
+    margin-top: 10px;
 `
 
 const Header = function(){
     this.message = choose(splashtext);
     return (
         <div id="header">
+            <script src="../js/script.js"></script>
             <div id="headercontent">
                 <div>
                     <h1 class="rainbow"><a href="/">wilburwilliams.uk</a></h1>
                     <div>{this.message}</div>
                 </div>
-                <div>
+                <div class="desktoponly">
                     <p class="inlineplease">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text)">
                             <path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 32.5-156t88-127Q256-817 330-848.5T488-880q80 0 151 27.5t124.5 76q53.5 48.5 85 115T880-518q0 115-70 176.5T640-280h-74q-9 0-12.5 5t-3.5 11q0 12 15 34.5t15 51.5q0 50-27.5 74T480-80Zm0-400Zm-220 40q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120-160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm200 0q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120 160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17ZM480-160q9 0 14.5-5t5.5-13q0-14-15-33t-15-57q0-42 29-67t71-25h70q66 0 113-38.5T800-518q0-121-92.5-201.5T488-800q-136 0-232 93t-96 227q0 133 93.5 226.5T480-160Z"></path>
@@ -38,8 +40,26 @@ const Header = function(){
                     </p>
                 </div>
             </div>
+            <hr />
         </div>
     );
+}
+
+const Sidebar = function(){
+    return (
+        <div class="sidebar section">
+            <div>
+                <h2>Nav</h2>
+                <a href="3dsite/index.html">3D site</a><br />
+                <a href="ppp/index.html">PPP</a>
+            </div>
+            <div>
+                <h2>Webrings</h2>
+                <b><a class="abutp" href="https://webring.dinhe.net/">Retronaut webring</a></b>
+                <p><a href='https://webring.dinhe.net/prev/https://wilburwilliams.uk'>Previous</a> | <a href='https://webring.dinhe.net/next/https://wilburwilliams.uk'>Next</a></p>
+            </div>
+        </div>
+    )
 }
 
 const Footer = function(){
@@ -55,7 +75,7 @@ const Footer = function(){
             </abbr>
             <abbr title="Button, click to copy">
                 <a onclick="copyBtnEmbed()">
-                    <img src="//wilburwilliams.uk/assets/button.gif"/>
+                    <img src="/assets/button.gif"/>
                 </a>
             </abbr>
             <button height="88px" width="31px" onclick="catGoMeow()">Click for free cat!</button>
@@ -69,4 +89,4 @@ const Footer = function(){
     );
 }
 
-export {Header, Footer};
+export {Header, Sidebar, Footer};
