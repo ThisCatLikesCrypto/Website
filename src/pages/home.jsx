@@ -122,10 +122,8 @@ const Site = function(){
                 </div>
             </div>
             <Footer></Footer>
-            <script src="../js/index.js"></script>
-            <script src="../js/status.js"></script>
         </div>
     );
 };
 
-export default Site;
+document.body.appendChild(h(Site));

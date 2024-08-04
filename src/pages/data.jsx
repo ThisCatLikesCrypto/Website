@@ -38,4 +38,4 @@ const Data = function(){
     );
 }
 
-export default Data;
+document.body.appendChild(h(Data));

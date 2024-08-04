@@ -20,8 +20,9 @@ const About = function () {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
 
-export default About;
+document.body.appendChild(h(About));

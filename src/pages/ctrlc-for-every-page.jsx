@@ -22,4 +22,4 @@ const Thing = function(){
     );
 }
 
-export default Thing;
+document.body.appendChild(h(Thing));

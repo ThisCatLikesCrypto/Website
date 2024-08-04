@@ -54,4 +54,4 @@ const Specs = function () {
     );
 }
 
-export default Specs;
+document.body.appendChild(h(Specs));
