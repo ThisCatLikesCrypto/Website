@@ -71,16 +71,15 @@ const Sidebar = function(){
                 <a href="https://dl.wilburwilliams.uk">ISO dl</a><br />
                 <a href="blog/index.html">Blog</a><br />
                 <a href="about">About This</a><br />
-                <a href="data.html">Data!</a><br />
+                <a href="data">Data!</a><br />
                 <a href="newtab/index.html">Newtab</a><br />
                 <a href="HTML2/index.html">HTML2</a><br />
                 <a href="HTML3/index.html">HTML3</a><br />
                 <a href="https://eyescary.uk">EyeScary</a><br />
-                <a href="specs.html">Tech Specs</a><br />
+                <a href="specs">Tech Specs</a><br />
                 <a href="software.html">Software Setup</a><br />
                 <a href="downloads.html">dl Index</a><br />
                 <a href="directory.html">Crypto Links</a><br />
-                <a href="donate.html">Donate</a><br />
                 <a href="licence.html">Licence</a><br />
                 <a href="domains.html">Domains</a><br />
                 <a href="3dsite/index.html">3D site</a><br />
@@ -111,18 +110,17 @@ const MobileSidebar = function(){
             <AButton href="https://dl.wilburwilliams.uk" text="ISO dl"></AButton>&nbsp;
             <AButton href="blog/index.html" text="Blog"></AButton>&nbsp;
             <AButton href="about" text="About This"></AButton>&nbsp;
-            <AButton href="data.html" text="Data!"></AButton>&nbsp;
+            <AButton href="data" text="Data!"></AButton>&nbsp;
             <AButton href="newtab/index.html" text="Newtab"></AButton>&nbsp;
             <AButton href="HTML2/index.html" text="HTML2"></AButton>&nbsp;
             <AButton href="HTML3/index.html" text="HTML3"></AButton>&nbsp;
             <AButton href="https://eyescary.uk" text="EyeScary"></AButton>&nbsp;
-            <AButton href="specs.html" text="Tech Specs"></AButton>&nbsp;
-            <AButton href="software.html" text="Software Setup"></AButton>&nbsp;
-            <AButton href="downloads.html" text="dl Index"></AButton>&nbsp;
-            <AButton href="directory.html" text="Crypto Links"></AButton>&nbsp;
-            <AButton href="donate.html" text="Donate"></AButton>&nbsp;
-            <AButton href="licence.html" text="Licence"></AButton>&nbsp;
-            <AButton href="domains.html" text="Domains"></AButton>&nbsp;
+            <AButton href="specs" text="Tech Specs"></AButton>&nbsp;
+            <AButton href="software" text="Software Setup"></AButton>&nbsp;
+            <AButton href="downloads" text="dl Index"></AButton>&nbsp;
+            <AButton href="directory" text="Crypto Links"></AButton>&nbsp;
+            <AButton href="licence" text="Licence"></AButton>&nbsp;
+            <AButton href="domains" text="Domains"></AButton>&nbsp;
             <AButton href="3dsite/index.html" text="3DSite"></AButton>&nbsp;
             <AButton href="ppp/index.html" text="PPP"></AButton>
         </div>
