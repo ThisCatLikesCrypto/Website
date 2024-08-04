@@ -1,6 +1,6 @@
 import 'dreamland';
 import '../style.css';
-import {Header, Footer, Sidebar} from '../layout.jsx';
+import {Header, Footer, MobileSidebar, Sidebar} from '../layout.jsx';
 import {globalCSS} from '../globalcss.jsx';
 
 const Site = function(){
@@ -10,6 +10,7 @@ const Site = function(){
             <h1 class="centretext mainheader">Wilbur's Website</h1>
             <p class="centretext"><a class="abutp" onclick="playmusic()" id="musiccontrol">*Click here to play music!*</a></p>
             <p class="centretext"><a href="old.html">Go Back To Old Site (not everything has been ported)</a></p>
+            <MobileSidebar></MobileSidebar>
             <div class="main">
                 <Sidebar></Sidebar>
                 <div class="main-content">

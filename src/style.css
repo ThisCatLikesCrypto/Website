@@ -170,7 +170,7 @@ button {
 }
 
 .mobileonly {
-    display: none;
+    display: none !important;
 }
 
 #keys-container {
@@ -204,10 +204,6 @@ button {
     display: flex;
 }
 
-.sidebar {
-    margin-top: 0;
-    padding-top: 0;
-}
 
 /* ik my website will get like 2% of visits from people with visual impairment but still */
 @media (prefers-reduced-motion) {
@@ -223,6 +219,10 @@ button {
 
     .desktoponly {
         display: none;
+    }
+
+    .mobileonly {
+        display: flex !important;
     }
     
     .maindivdiv {

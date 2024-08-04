@@ -21,6 +21,21 @@ const footerCSS = css`
     margin-top: 10px;
 `
 
+const sidebarCSS = css`
+    margin-top: 0;
+    padding-top: 0;
+`
+
+const mobileSidebarCSS = css`
+    max-height: 25px;
+    overflow-x: auto;
+    white-space: nowrap;
+    button {
+        border-radius: 10px;
+    }
+`;
+
+
 const Header = function(){
     this.message = choose(splashtext);
     return (
@@ -46,8 +61,9 @@ const Header = function(){
 }
 
 const Sidebar = function(){
+    this.isstupid = `sidebar section desktoponly ${sidebarCSS}`
     return (
-        <div class="sidebar section">
+        <div class={this.isstupid}>
             <div>
                 <h2>Nav</h2>
                 <a href="3dsite/index.html">3D site</a><br />
@@ -58,6 +74,25 @@ const Sidebar = function(){
                 <b><a class="abutp" href="https://webring.dinhe.net/">Retronaut webring</a></b>
                 <p><a href='https://webring.dinhe.net/prev/https://wilburwilliams.uk'>Previous</a> | <a href='https://webring.dinhe.net/next/https://wilburwilliams.uk'>Next</a></p>
             </div>
+        </div>
+    )
+}
+
+const AButton = function(){
+    return (
+        <button><a href={this.href}>{this.text}</a></button>
+    )
+}
+
+const MobileSidebar = function(){
+    this.isstupid = `mobileonly ${mobileSidebarCSS}`
+    return (
+        <div class={this.isstupid}>
+            <b>Nav:&nbsp;</b>
+            <AButton href="3dsite/index.html" text="3DSite"></AButton>&nbsp;
+            <AButton href="ppp/index.html" text="PPP"></AButton>&nbsp;
+            somethingthattakesupalotofspacefortestingidk&nbsp;
+            somethingthattakesupalotofspacefortestingidk
         </div>
     )
 }
@@ -89,4 +124,4 @@ const Footer = function(){
     );
 }
 
-export {Header, Sidebar, Footer};
+export {Header, Sidebar, MobileSidebar, Footer};
