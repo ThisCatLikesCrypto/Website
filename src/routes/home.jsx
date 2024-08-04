@@ -9,7 +9,6 @@ const Site = function(){
             <Header></Header>
             <h1 class="centretext mainheader">Wilbur's Website</h1>
             <p class="centretext"><a class="abutp" onclick="playmusic()" id="musiccontrol">*Click here to play music!*</a></p>
-            <p class="centretext"><a href="old.html">Go Back To Old Site (not everything has been ported)</a></p>
             <MobileSidebar></MobileSidebar>
             <div class="main">
                 <Sidebar></Sidebar>
@@ -113,9 +112,9 @@ const Site = function(){
                         <h2 class="centretext">Status</h2>
                         <h3 class="centretext">
                             <code>Website:
-                                <span id="sitestatus"></span> Dev Site:
-                                <span id="devstatus"></span> Downloads Site:
-                                <span id="dlstatus"></span> Projects Site:
+                                <span id="sitestatus"></span> Dev Site:&nbsp;
+                                <span id="devstatus"></span> Downloads Site:&nbsp;
+                                <span id="dlstatus"></span> Projects Site:&nbsp;
                                 <span id="projstatus"></span>
                             </code>
                         </h3>

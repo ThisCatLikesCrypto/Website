@@ -154,6 +154,7 @@ button {
 
 .section {
     border: 1px solid #fff;
+    padding: 10px;
 }
 
 .section div {
@@ -204,7 +205,6 @@ button {
     display: flex;
 }
 
-
 /* ik my website will get like 2% of visits from people with visual impairment but still */
 @media (prefers-reduced-motion) {
     .splash {
@@ -233,5 +233,9 @@ button {
 @media screen and (max-width: 600px) {
     #header {
         display: block;
+    }
+
+    #headercontent div h1 a {
+        font-size: 30px;
     }
 }
