@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wilbur's Site</title>
-    <script src="https://cdn.jsdelivr.net/npm/dreamland@0.0.21/dist/all.js"></script>
-    <script src="js/nav.js"></script>
-    <link href="css/main.css" rel="stylesheet">
-    <script src="js/script.js"></script>
-</head>
-<body>
-    <div id="nesteddivsgobrrr"><!--Where the nav goes once it loads in--></div>
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<Layout title="Directory | Wilbur's Site">
+    <Nav></Nav>
     <div class="main">
         <h1>Directory</h1>
         <h2>(crypto links)</h2>
@@ -59,8 +53,4 @@
         <p><span><a href="https://salad.com/download">Salad &ndash; Distributed cloud computing/mining software for gamers. Use my code TJMIEA for 2x earnings (up to $4 earned)</a></span>
         <br><br><br>
     </div>
-    <!--These analytics are so basic they're public lmao-->
-    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
-</body>
-</html>
+</Layout>

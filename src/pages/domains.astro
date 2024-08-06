@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <title>Wilbur's Site</title>
-    <script src="https://cdn.jsdelivr.net/npm/dreamland@0.0.21/dist/all.js"></script>
-    <script src="js/nav.js"></script>
-    <link href="css/main.css" rel="stylesheet">
-    <script src="js/script.js"></script>
-</head>
-<body>
-    <div id="nesteddivsgobrrr"><!--Where the nav goes once it loads in--></div>
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<Layout title="Wilbur's Domains">
+    <Nav></Nav>
     <div class="main">
         <h1>Domains</h1>
         <h3>wilburwilliams.uk</h3>
@@ -44,8 +37,5 @@
             <a href="https://peppahack.dev">peppahack.dev</a> (uhhhh all you need to know is that it's <a href="https://github.com/CattoYT/Peppahack.dev">not my project</a>)<br>
             (i also probably won't renew the domain when it comes up)
         </p>
-    <!--These analytics are so basic they're public lmao-->
-    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
-</body>
-</html>
+    </div>
+</Layout>
