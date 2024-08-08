@@ -1,0 +1,99 @@
+---
+import Blog from "../../../layouts/Blog.astro"
+---
+
+
+<Blog title="Website History">
+        <div id="main">
+            <h1 class="centretext">The history of this website</h1>
+            <p class="centretext"><i>2024-06-15, updated 2024-08-08</i></p>
+            <h2>Intro</h2>
+            <p>This website has changed a lot in just a short space of time,
+                and is likely to continue to change in the future,
+                so I thought I'd write a timeline of sorts about this.
+            </p>
+            <h2>The beginnings - HTML2</h2>
+            <p><a href="../../HTML2/index.html">HTML2</a> was a website me and a couple of my friends 
+                created to have all of our HTML in one place when we were doing HTML in computer science in Year 8.
+                It was a simple website, hosted on replit, showcasing our very beginner HTML skills.
+            </p>
+            <p>Eventually we had quite a lot of pages on it, 
+                and I decided that at some point it would be a part of a bigger website, which became this one.
+            </p>
+            <p>You may notice how, on the HTML2 rehosted here, there are distinct sections for me, Jasper and Kieran (Confu doesn't exist until later).
+                This may lead you to wonder why it is distinctly on my portion of the internet.
+                Honestly, it's simply because I was the first to create a personal website, and already owned the repl. :shrug:
+            </p>
+            <p>Anyway, that website was hosted on replit until they stopped letting you host your website for free indefinitely.
+                I'm not sure if this was <i>intended</i> in the first place, but it was working fine at 
+                <a href="https://html2.wilburjwilliams.repl.co">html2.wilburjwilliams.repl.co</a> anyway so I just left it.
+            </p>
+            <p>Fortunately, around this time I was looking at ways I could host an actual website with a custom domain.
+                I tried to find a hosting provider, but as they all costed money (remember I'm a broke teenager),
+                I was discouraged from doing it. That was until I was browsing other sites, 
+                and noticed how <a href="https://iamkate.com">iamkate.com</a> 
+                (I came across the website while looking at UK electricity dashboards) was hosted.
+                I had discovered <a href="https://pages.dev">Cloudflare Pages</a>.
+            </p>
+            <h2>The move to wilburwilliams.uk</h2>
+            <p>Once I had discovered Cloudflare Pages, I made a (rare for me) impulse decision, went on 
+                <a href="https://123-reg.co.uk">123reg</a>, and bought my domain.
+            </p>
+            <p>Looking back, I should've just used 
+                <a href="https://developers.cloudflare.com/registrar/">Cloudflare Registrar</a> (it's roughly half price compared to 123reg,
+                but the difference is about £5/year so it doesn't <i>really</i> matter).
+                But nevertheless I bought the domain, linked it to Cloudflare, moved HTML2 to GitHub,
+                made a basic landing page with just a link to HTML2, 
+                made a copyright section (because that came to my head first for some reason),
+                made a basic about section, made the DNS records, and deployed.
+            </p>
+            <img class="centreimage" src="/blog/2024/assets/website-history/OGsite.png">
+            <p><sup><i>The Original Site</i></sup></p>
+            <br>
+            <p>After this, the website slowly developed, gaining more and more tabs, 
+                until <a href="https://github.com/ThisCatLikesCrypto/Website/tree/53c44d001d62515c2220174f75d8eea63b58668e">commit 53c44d0</a> 
+                on the 28<sup>th</sup> of March, 2024.
+            </p>
+            <p>This was the last ever commit on the old design of the website, now accessible at 
+                <a href="https://v1.old.wilburwilliams.uk">v1.old.wilburwilliams.uk</a> (you may recognise some things from the site today).
+            </p>
+            <p>Around this time Jasper made 'Confu' on HTML2, mainly because AuDHD (he probably has a reason for it).</p>
+            <h2>The first rewrite</h2>
+            <h3>(probably won't be the last)</h3>
+            <p>Once I had made that commit, I was already in the process of rewriting the website (at /rewrite in v1.old). 
+                This was because the code (which relied on tabs) was become more and more cumbersome and a pain to maintain,
+                plus I just thought it could do with a redesign.
+            </p>
+            <p>By the 9<sup>th</sup> of April the site was getting clogged again, and I had found out about 
+                <a href="https://is-a.dev">is-a.dev</a> and wanted to separate my projects from personal site,
+                so on commit <a href="https://github.com/ThisCatLikesCrypto/Website/commit/591990fc0f331ac64d629e240ea41867545f018a">591990f</a> 
+                I moved all of the online programming stuff to <a href="https://wilbur.is-a.dev">wilbur.is-a.dev</a>.
+            </p>
+            <p>Over time more and more pages have been added, like previously (but less cumbersome).</p>
+            <p>This time however, to improve maintainability, I adopted <a href="https://dreamland.js.org">dreamland.js</a> 
+                for the navigation bar and footer of my website.
+            </p>
+            <p>This has avoided the need to constantly repaste the same boilerplate code over and over again, 
+                instead loading from a <code>nav.js</code> file.
+            </p>
+            <p>I have also added more and more components from the old web2, like buttons and joined the Retronaut Webring.</p>
+            <h2>(Edit 2024-08-08): Astro rewrite</h2>
+            <p>
+                Starting on 2024-08-04, the site was rewritten. I was originally going to go for full dreamland.js, but 
+                ran into issues with routing and so used Astro instead. I also originally planned to rewrite the CSS but didn't 
+                end up doing that so the site looks exactly the same as it did before, but is slightly easier to 
+                maintain than evenn with dreamland and <code>nav.js</code>.
+            </p>
+            <h2>Conclusion</h2>
+            <p>And that brings us up to date! Obviously not everything was covered, 
+                so if you want a more in-depth look at it ask me and that may come in future,
+                if I can even remember everything I've done!
+                This site is likely to continue to grow and expand over time, so watch this space.
+            </p>
+            <h2>Honourable Mention: dl.wilburwilliams.uk</h2>
+            <p>That site is completely separate from the main site, and I honestly have no idea how it works. 
+                I simply forked <a href="https://github.com/spencerwooo/onedrive-vercel-index">Onedrive Vercel Index</a>, 
+                set it up, and deployed. I got the idea from <a href="https://dl.darkn.bio">Darkn's Sh1mmer host</a>.
+            </p>
+        </div>
+    </Blog>
