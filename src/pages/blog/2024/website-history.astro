@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Website History | Wilbur's Blog</title>
-        <script src="https://cdn.jsdelivr.net/npm/dreamland@0.0.21/dist/all.js"></script>
-        <link href="../style.css" rel="stylesheet">
-        <script src="../nav.js"></script>
-    </head>
-    <body>
-        <div id="headercontainer"></div>
-        <hr>
+---
+import Blog from "../../../layouts/Blog.astro"
+---
+
+
+<Blog title="Website History">
         <div id="main">
             <h1 class="centretext">The history of this website</h1>
             <p class="centretext"><i>2024-06-15, might be updated in future</i></p>
@@ -52,7 +47,7 @@
                 made a copyright section (because that came to my head first for some reason),
                 made a basic about section, made the DNS records, and deployed.
             </p>
-            <img class="centreimage" src="assets/website-history/OGsite.png">
+            <img class="centreimage" src="/blog/2024/assets/website-history/OGsite.png">
             <p><sup><i>The Original Site</i></sup></p>
             <br>
             <p>After this, the website slowly developed, gaining more and more tabs, 
@@ -95,5 +90,4 @@
                 set it up, and deployed. I got the idea from <a href="https://dl.darkn.bio">Darkn's Sh1mmer host</a>.
             </p>
         </div>
-    </body>
-</html>
+    </Blog>

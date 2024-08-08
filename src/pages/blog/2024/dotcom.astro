@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>wilburwilliams.com | Wilbur's Blog</title>
-        <script src="https://cdn.jsdelivr.net/npm/dreamland@0.0.21/dist/all.js"></script>
-        <link href="../style.css" rel="stylesheet">
-        <script src="../nav.js"></script>
-    </head>
-    <body>
-        <div id="headercontainer"></div>
-        <hr>
+---
+import Blog from "../../../layouts/Blog.astro"
+---
+
+<Blog title="wilburwilliams.com">
         <div id="main">
             <h1 class="centretext">wilburwilliams.com</h1>
             <p class="centretext"><i>2024-06-26</i></p>
             <h2>What</h2>
-            <img class="centreimage" src="assets/dotcom/email1.png">
+            <img class="centreimage" src="/blog/2024/assets/dotcom/email1.png">
             <p>So I received this email about 4 days ago.</p>
             <p>
                 It contained no contact information except the email it was sent from, 
@@ -28,7 +22,7 @@
             <p>
                 In case you're wondering, here's what the site <a href="https://web.archive.org/web/20231101073034/https://wilburwilliams.com/">used to look like</a>:
             </p>
-            <img class="centreimage" src="assets/dotcom/oldwwcom.png">
+            <img class="centreimage" src="/blog/2024/assets/dotcom/oldwwcom.png">
             <p>
                 In my dad's own words, a "handsome American black man".
             </p>
@@ -53,5 +47,4 @@
                 <sub>(I have no idea where I was going with this post but oh well)</sub>
             </p>
         </div>
-    </body>
-</html>
+</Blog>
