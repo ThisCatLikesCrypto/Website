@@ -59,6 +59,7 @@ body {
     color: aqua;
     font-family: 'Reddit Sans', sans-serif;
     background-color: var(--base);
+    line-height: 1.4;
 }
 
 a {
@@ -66,9 +67,17 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 hr {
     margin-left: 20%;
     margin-right: 20%;
+}
+
+img {
+    max-width: 100%;
 }
 
 #header {
