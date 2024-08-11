@@ -19,5 +19,7 @@ const { title } = Astro.props;
 	<body>
 		<slot />
 		<div id="keys-container"></div>
+		<script is:inline async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+		<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
 	</body>
 </html>
