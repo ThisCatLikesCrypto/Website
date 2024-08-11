@@ -1,4 +1,4 @@
-var audio = new Audio('assets/scatteredcells.ogg');
+var audio = new Audio('/assets/scatteredcells.ogg');
 var eaudion = false;
 
 function sleep(ms) {
@@ -16,9 +16,9 @@ async function playAprilCells() {
   }
   if (easterAudio) {
     easterAudio.pause();
-    easterAudio = new Audio('assets/aprilscattered.ogg');
+    easterAudio = new Audio('/assets/aprilscattered.ogg');
   } else {
-    var easterAudio = new Audio('assets/aprilscattered.ogg');
+    var easterAudio = new Audio('/assets/aprilscattered.ogg');
   }
 
   eaudion = true;

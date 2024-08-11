@@ -1,4 +1,4 @@
-// Define the URL to fetch
+// this should be status.cf.wilburwilliams.uk but then it always returns 'down' for dl.wilburwilliams.uk
 const url = 'https://ww-status.thiscatlikescrypto.workers.dev/all';
 
 // Function to fetch and decode the JSON response
@@ -6,11 +6,6 @@ async function fetchStatus() {
     try {
         // Fetch data from the URL
         const response = await fetch(url);
-
-        // Check if the response is ok (status code 200-299)
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
 
         // Parse the JSON response
         const data = await response.json();
