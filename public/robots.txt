@@ -1,0 +1,7 @@
+# OpenAI (I still hate that they're called that, it's not open anymore) GPT scraper
+User-agent: GPTBot
+Disallow: /
+
+# Google's "bard" AI scraper
+User-agent: Google-Extended
+Disallow: /
