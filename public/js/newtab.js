@@ -239,7 +239,7 @@ function changeToCustomTheme(){
 
 function updateInlineCSS(){
     try {
-        const inlineCSS = getCookie("inlineCSS");
+        const inlineCSS = localStorage.getItem("inlineCSS");
         document.getElementById("inlineCustomCSS").innerHTML = inlineCSS;
         document.getElementById("inlineCSSeditor").innerHTML = inlineCSS;
     } catch {
@@ -249,7 +249,7 @@ function updateInlineCSS(){
 
 function useCustomInlineCSS(){
     const inlineCSS = document.getElementById("inlineCSSeditor").textContent;
-    setCookie("inlineCSS", inlineCSS, 365);
+    localStorage.setItem("inlineCSS", inlineCSS);
     updateInlineCSS();
 }
 
