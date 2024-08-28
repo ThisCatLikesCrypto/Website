@@ -161,7 +161,5 @@ document.addEventListener('DOMContentLoaded', function(){
   console.log('%cThe source code for this site is available at https://github.com/ThisCatLikesCrypto/Website', px20text)
   console.log('%cPlease do not steal large amounts of code before getting permission from me, or pass this off as your own. This should be obvious, but some people can be straight-up bad people sometimes.', px20text);
   console.log('%cOther than that do whatever you feel like here.', px20text);
-  console.log('%cNote that some of this is written in dreamland.js, so some of the content is dynamically loaded from JavaScript.', px15text);
-  console.log('%cDreamland source is available at https://github.com/MercuryWorkshop/DreamlandJS', px15text);
   console.log("%cIf my source code is erm... not the greatest then feel free to tell me how to improve just don't be unkind about it.", px15text);
 });
