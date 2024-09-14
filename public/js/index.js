@@ -3,7 +3,8 @@ var splashtext = ["Why does this exist again", "prefers-reduced-motion: no movem
   "hmmm, what to put here?", "defying gravity", "HTML2 is just an archive", "Wine Is Not an Emulator",
   "built with VSCode", "<a href='https://www.youtube.com/watch?v=M93mt3NzkmM'>This song has no right being this good</a>",
   "<a href='https://www.youtube.com/watch?v=24sx3aFynQI'>1996 stock motors</a>",
-  "One of the few cis straights on Wet-Dry World", "<a href='https://www.youtube.com/watch?v=83CqPViJB0I'>UNIFY</a>"];
+  "<img style='height: 32px; width: 32px;' src='/images/spinny_cat_ace.gif' alt='spinny_cat_ace'>", 
+  "<a href='https://www.youtube.com/watch?v=83CqPViJB0I'>UNIFY</a>"];
 
 function choose(choices) {
   var index = Math.floor(Math.random() * choices.length);
@@ -29,7 +30,7 @@ function getUKTime() {
   }
   
   function copyBtnEmbed() {
-    embedCode = '<a href="https://wilburwilliams.uk" target="_blank"><img src="https://cdn.jsdelivr.net/gh/ThisCatLikesCrypto/Website@active-dev/assets/button.gif" alt="wilburwilliams.uk (spinny cat icon)></a>'
+    embedCode = '<a href="https://wilburwilliams.uk" target="_blank"><img src="https://dev.wilburwilliams.uk/assets/button.gif" alt="wilburwilliams.uk (spinny cat icon)></a>'
   
     navigator.clipboard.writeText(embedCode).then(function() {
         alert("Copied Embed Code");
