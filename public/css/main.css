@@ -1,6 +1,5 @@
 /* Fonts (in case they're not installed)*/
-@import url("../fonts/Montserrat.css");
-@import url("https://cdn.jsdelivr.net/gh/EyeScary-Development/CDN/fonts/croscore/css/carlito.css");
+@import url("https://fonts.bunny.net/css?family=fira-code:400,700|lexend:400,700|montserrat:400,700");
 @import url("../fonts/minecraft.css");
 
 /* Stuff that needs to affect the whole page */
@@ -9,13 +8,17 @@ body {
     background-position: center;
     background-size: cover;
     height: 100vh;
-    font-family: Calibri, 'Carlito', sans-serif;
+    font-family: 'Lexend', Calibri, sans-serif;
     cursor: url('../images/g305cursor.png'), default;
 }
 
 a {
     color: lightblue;
     cursor: url('../images/g305cursorgreen.png'), pointer;
+}
+
+code {
+    font-family: 'Fira Code', monospace;
 }
 
 button {
@@ -86,7 +89,8 @@ button {
     margin-left: 12%;
     padding: 0px 10px;
     color: white;
-    font-size: large;
+    font-size: 16px;
+    line-height: 1.4;
 }
 
 .centretext {
