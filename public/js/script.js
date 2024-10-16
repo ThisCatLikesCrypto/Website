@@ -58,6 +58,7 @@ async function handleKeyPress(event) {
   const sweeney = "KeySKeyWKeyEKeyEKeyNKeyEKeyY";
   const idea = "KeyIKeyDKeyEKeyA";
   const jasperCode = "KeyJKeyAKeySKeyPKeyEKeyR";
+  const graphs = "KeyGKeyRKeyAKeyPKeyHKeyS";
   const rm = "KeyRKeyMMinusKeyRKeyFSlash";
 
   if (keys.join("") === konamiCode && eaudion == false) {
@@ -85,7 +86,11 @@ async function handleKeyPress(event) {
     await sleep(500);
     document.body.style = "background: white";
     document.body.innerHTML = `<h1 style='text-align: center;'>404 Not Found</h1><hr><p style='text-align: center;'>Cloudflare</p>`;
-}
+  } else if (keys.join("").endsWith(graphs)){
+    keysContainer.style.color = "lime";
+    await sleep(500);
+    window.location.href = "https://jasperweb.uk/Graphs/Graphs";
+  }
 }
 
 function displayKeys() {
