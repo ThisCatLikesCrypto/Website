@@ -16,12 +16,14 @@ async function fetchStatus() {
         const devElement = document.getElementById("devstatus");
         const dlElement = document.getElementById("dlstatus");
         const projElement = document.getElementById("projstatus");
+        const mirrorElement = document.getElementById("mirrorstatus");
 
         // Set innerHTML and style based on status
         siteElement.innerHTML = data['site'];
         devElement.innerHTML = data['dev'];
         dlElement.innerHTML = data['dl'];
         projElement.innerHTML = data['proj'];
+        mirrorElement.innerHTML = data['repo'];
 
         // Change text color based on status
         if (data['site'] === '200 OK') {
@@ -43,6 +45,11 @@ async function fetchStatus() {
             projElement.style.color = 'limegreen';
         } else {
             projElement.style.color = 'red';
+        }
+        if (data['repo'] === '200 OK') {
+            mirrorElement.style.color = 'limegreen';
+        } else {
+            mirrorElement.style.color = 'red';
         }
 
     } catch (error) {
