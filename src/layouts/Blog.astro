@@ -11,6 +11,12 @@ const { title } = Astro.props;
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="title" content=`${title} | Wilbur's Blog`>
+        <meta name="description" content=`Wilbur Williams' blog. Page: ${title}`>
+        <meta name="author" content="Wilbur Williams">
+        <meta name="og:title" content=`${title} | Wilbur's Blog`>
+        <meta name="og:description" content=`Wilbur Williams' blog. Page: ${title}`>
+        <meta name="fediverse:creator" content="@wilbur@wetdry.world">
         <link rel="preconnect" href="https://fonts.bunny.net">
         <title>{title} | Wilbur's Blog</title>
         <link href="/blog/style.css" rel="stylesheet">

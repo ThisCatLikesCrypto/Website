@@ -2,34 +2,12 @@ var domainEndings = ["uk", "com", "net", "org", "co", "ooo", "ca", "de", "eu", "
 var titleIndex = 0;
 var titles = "";
 
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 try {
-    var directory = JSON.parse(getCookie("directory"));
+    var directory = JSON.parse(localStorage.getItem("directory"));
     if (directory['classroomLink']){
         alert("Please reset your cookies for this site in devtools due to an update in how links will work going forward.");
     }
@@ -67,7 +45,7 @@ function updateLink() {
     var linkName = document.getElementById("linkName").value;
     var newLink = document.getElementById("linkContent").value;
     directory[linkName] = newLink;
-    setCookie("directory", JSON.stringify(directory), 30); // Save the updated link in a cookie for 30 days
+    localStorage.setItem("directory", JSON.stringify(directory));
     messageMessage = "Update success: " + linkName + " was set to " + newLink;
     document.getElementById("failthing").innerHTML = messageMessage;
     updateLinkList();
@@ -105,7 +83,7 @@ function hideOptions() {
 
 function searchEcosia() {
     var searchTerm = document.getElementById("searchInput").value;
-    setCookie('points', parseInt(getCookie('points'))+1, 365);
+    localStorage.setItem('points', parseInt(localStorage.getItem('points'))+1);
     getPoints();
     if (searchTerm === ""){
         window.location.href="https://ecosia.org/chat";
@@ -116,26 +94,26 @@ function searchEcosia() {
 
 function searchGoogle() {
     var searchTerm = document.getElementById("searchInput").value;
-    setCookie('points', parseInt(getCookie('points'))+1, 365);
+    localStorage.setItem('points', parseInt(localStorage.getItem('points'))+1);
     getPoints();
     window.location.href = "https://google.com/search?q=" + encodeURIComponent(searchTerm);
 }
 
 function search(query) {
     var searchTerm = query || document.getElementById("searchInput").value;
-    var engine = getCookie("engine") || "https://ecosia.org/search?q=%s";
+    var engine = localStorage.getItem("engine") || "https://ecosia.org/search?q=%s";
 
     console.log(searchTerm);
 
-    setCookie('points', parseInt(getCookie('points')) + 1, 365);
+    localStorage.setItem('points', parseInt(localStorage.getItem('points')) + 1);
     getPoints();
 
     var queryEnding = searchTerm.split(".");
     queryEnding = queryEnding[queryEnding.length - 1];
     console.log(queryEnding);
 
-    var searchquOption = getCookie("searchqu") || "https";
-    var searchexOption = getCookie("searchex") || "ddgbangs";
+    var searchquOption = localStorage.getItem("searchqu") || "https";
+    var searchexOption = localStorage.getItem("searchex") || "ddgbangs";
 
     if (searchTerm === "") {
         console.log("Empty search string");
@@ -159,7 +137,7 @@ function handleQuestionQuery(query, option) {
     } else if (option === "http") {
         window.location.href = query.replace("?", "http://");
     } else if (option === "search") {
-        var engine = getCookie("engine") || "https://ecosia.org/search?q=%s";
+        var engine = localStorage.getItem("engine") || "https://ecosia.org/search?q=%s";
         window.location.href = engine.replace("%s", encodeURIComponent(query));
     }
 }
@@ -172,7 +150,7 @@ function handleExclamationQuery(query, option) {
     } else if (option === "http") {
         window.location.href = query.replace("!", "http://");
     } else if (option === "search") {
-        var engine = getCookie("engine") || "https://ecosia.org/search?q=%s";
+        var engine = localStorage.getItem("engine") || "https://ecosia.org/search?q=%s";
         window.location.href = engine.replace("%s", encodeURIComponent(query));
     }
 }
@@ -184,7 +162,7 @@ function goPlaces(place){
 function changeSearch(){
     var engine = document.getElementById("engineInput").value;
     console.log("Switching to " + engine);
-    setCookie('engine', engine, 365);
+    localStorage.setItem('engine', engine);
     document.getElementById('failthing2').innerHTML = "Updated to " + engine;
     return false;
 }
@@ -198,7 +176,7 @@ function titleCycle(){
 }
 
 function updateTitle(){
-    title = getCookie("title") || "New Tab Go Brrr";
+    title = localStorage.getItem("title") || "New Tab Go Brrr";
     if (title.startsWith("[") && title.endsWith("]")){
         titles = title.split(", ");
         titleCycle();
@@ -211,7 +189,7 @@ function updateTitle(){
 function setNewTitle(){
     newtitle = document.getElementById("newTitleInput").value;
     console.log("Switching title " + newtitle);
-    setCookie("title", newtitle, 365);
+    localStorage.setItem("title", newtitle);
     document.getElementById('failthing2').innerHTML = "Updated to " + newtitle;
     window.location.href="index.html";
 }
@@ -219,12 +197,12 @@ function setNewTitle(){
 function changeTheme(theme) {
     themething = "../css/themes/" + theme + ".css";
     document.getElementById("them").href = themething;
-    setCookie("theme", themething, 180);
+    localStorage.setItem("theme", themething);
 }
 
 function updateTheme() {
-    themething = getCookie("theme");
-    if (themething === "") {
+    themething = localStorage.getItem("theme");
+    if (themething === null) {
         themething = "../css/themes/surface.css";
     }
     document.getElementById("them").href = themething;
@@ -232,7 +210,7 @@ function updateTheme() {
 
 function changeToCustomTheme(){
     const cssURL = document.getElementById("cssURL").value;
-    setCookie("theme", cssURL, 180);
+    localStorage.setItem("theme", cssURL);
     updateTheme();
     return false;
 }
@@ -254,10 +232,9 @@ function useCustomInlineCSS(){
 }
 
 function getPoints() {
-    let pints = getCookie('points');
+    let pints = localStorage.getItem('points');
     if (pints === undefined || pints === null || pints === "") {
-        console.log("failed to get points cookie, if this is the first load ignore this. otherwise raise an issue on https://github.com/ThisCatLikesCrypto/Website");
-        setCookie('points', 0, 365);
+        localStorage.setItem('points', 0);
         document.getElementById('points™').innerHTML = 0;
     } else {
         document.getElementById('points™').innerHTML = pints;
@@ -266,21 +243,21 @@ function getPoints() {
 
 function saveSearchQuOption() {
     var searchqu = document.getElementById("searchqu").value;
-    setCookie("searchqu", searchqu, 365);
+    localStorage.setItem("searchqu", searchqu);
 }
 
 function saveSearchExOption() {
     var searchex = document.getElementById("searchex").value;
-    setCookie("searchex", searchex, 365);
+    localStorage.setItem("searchex", searchex);
 }
 
 function loadSearchOptions() {
-    var searchqu = getCookie("searchqu");
+    var searchqu = localStorage.getItem("searchqu");
     if (searchqu) {
         document.getElementById("searchqu").value = searchqu;
     }
 
-    var searchex = getCookie("searchex");
+    var searchex = localStorage.getItem("searchex");
     if (searchex) {
         document.getElementById("searchex").value = searchex;
     }
