@@ -263,6 +263,15 @@ function loadSearchOptions() {
     }
 }
 
+function lazyAss(){
+    // set all my settings
+    localStorage.setItem('directory', '{"link1":"https://bing.com/chat","link2":"https://classroom.google.com/u/1/","link3":"https://docs.google.com","link4":"https://github.com","link5":"https://ecosia.org/chat","link6":"https://grid.me.uk","link7":"https://app.electricitymaps.com/map","link8":"https://quizlet.com/latest","link9":"https://dashboard.blooket.com"}');
+    localStorage.setItem('inlineCSS', 'body {background-image: url("../assets/background.png");}');
+    localStorage.setItem('theme', '../css/themes/deep.css');
+    localStorage.setItem('title', "[quark, <span style='color: crimson'>ANTI QUARK!!!!</span>, how are you today?, <span style='color: white'>i wonder how long one of these can be</span>, <i style='color: pink'>Welcome to osu!</i>, <img src='https://media.wetdry.world/custom_emojis/images/000/200/093/original/b33cffec87dc68fc.gif' style='background: transparent !important' width=85>, <a href='https://1centstock.com'>BHP IS A ONE CENT STOCK FRAUD!!</a>, <i>big banana cheescake</i>]");
+    window.location.reload();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     updateTitle();
     updateLinkList();
