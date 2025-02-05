@@ -1,0 +1,78 @@
+@import url('https://wilburwilliams.uk/fonts/Montserrat.css');
+@import url('https://cdn.jsdelivr.net/gh/EyeScary-Development/CDN/fonts/croscore/css/carlito.css');
+
+/* Stuff that needs to affect the whole page */
+body {
+    background-image: url('https://wilburwilliams.uk/assets/background.png');
+    background-position: center;
+    background-size: cover;
+    font-family: 'Carlito', sans-serif;
+    padding: 0px 2%;
+    color: white;
+    font-size: large;
+    text-align: center;
+}
+
+a {
+    color: lightblue;
+}
+
+img {
+    height: 25vh;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    background: #252526;
+    padding: 1.0rem;
+    border-radius:32px;
+}
+
+/* The navigation menu links */
+.nav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* When you mouse over the navigation links, change their color */
+.nav a:hover {
+    color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+    display: flex;
+    justify-content: space-between; /* Horizontally center the inner divs */
+    align-items: center; /* Vertically center the inner divs */
+    margin: 0 10%;
+}
+
+.centreplease {
+    display: flex;
+    justify-content: space-between; /* Horizontally center the inner divs */
+    align-items: center; /* Vertically center the inner divs */
+}
+
+.stuff {
+    max-width: 40%;
+}
+
+.ghstats {
+    max-width: 30%;
+}
+
+@media screen and (max-width: 1050px) {
+    .main {
+        flex-direction: column; /* Change to a column layout */
+    }
+
+    .stuff,
+    .ghstats {
+        max-width: 100%; /* Take full width when stacked */
+        margin-bottom: 20px; /* Add some space between stacked items */
+    }
+}
