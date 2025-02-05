@@ -8,9 +8,6 @@ function sleep(ms) {
 
 try {
     var directory = JSON.parse(localStorage.getItem("directory"));
-    if (directory['classroomLink']){
-        alert("Please reset your cookies for this site in devtools due to an update in how links will work going forward.");
-    }
 } catch {
     var directory = {
         "link1": "https://bing.com/chat",
