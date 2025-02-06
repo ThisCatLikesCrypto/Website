@@ -1,5 +1,5 @@
 /* Fonts (in case they're not installed)*/
-@import url("https://fonts.bunny.net/css?family=fira-code:400,700|lexend:400,700|montserrat:400,700");
+@import url("https://fonts.bunny.net/css?family=lexend:400,700|montserrat:400,700");
 @import url("../fonts/minecraft.css");
 
 /* Stuff that needs to affect the whole page */
@@ -15,10 +15,6 @@ body {
 a {
     color: lightblue;
     cursor: url('../images/g305cursorgreen.png'), pointer;
-}
-
-code {
-    font-family: 'Fira Code', monospace;
 }
 
 button {
@@ -150,6 +146,11 @@ button {
     left: 24%;
     right: 0;
     text-align: center;
+}
+
+.line {
+    text-wrap: none;
+    white-space: nowrap;
 }
 
 #keys-container {

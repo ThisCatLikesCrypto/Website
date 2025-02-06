@@ -1,11 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generic ass webpage</title>
-    <link href="es.css" rel="stylesheet">
+    <style>
+        /* this was gonna be a standard css thing and then i didn't
+        leaving this in here cuz idk funni */
+
+        :root {
+            --max-width: 700px;
+            --max-header-width: 700px;
+            --max-nav-width: 1000px;
+
+            --text-colour: white;
+            --text-font: 'Reddit Sans', 'Calibri', sans-serif;
+            --link-colour: lightblue;
+            --link-hover-colour: cyan;
+
+            --bg: url("assets/background.png");
+            --nav-bg: rgb(20, 10, 50);
+            --section-bg: rgb(51, 51, 51);
+            --footer-bg: rgb(20, 0, 109);
+
+            --nav-pos: absolute;
+            /* Change to 'fixed' if you want the bar to stay at the top of the screen no matter how far you scroll*/
+        }
+
+
+        body {
+            font-family: var(--text-font);
+            background: var(--bg);
+            background-size: cover;
+            color: var(--text-colour);
+            max-width: 100vw;
+            max-height: 100vh;
+        }
+
+        a {
+            color: var(--link-colour);
+        }
+
+        a:hover {
+            color: var(--link-hover-colour);
+        }
+
+        .nav,
+        nav {
+            background: var(--nav-bg);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            position: var(--nav-pos);
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav div {
+            max-width: var(--max-nav-width);
+            font-size: large;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav a {
+            padding: 5px;
+        }
+
+        .header,
+        header {
+            justify-content: space-between;
+            margin: 20px auto;
+            padding: 10px;
+            max-width: var(--max-header-width);
+            width: calc(100% - 20px);
+        }
+
+        .main,
+        main {
+            margin: 20px auto;
+            max-width: var(--max-width);
+            width: calc(100% - 20px);
+        }
+
+        .section,
+        section {
+            padding: 15px;
+            margin: 10px;
+            display: block;
+            background: var(--section-bg);
+        }
+
+        .footer,
+        footer {
+            padding: 2px;
+            background: var(--footer-bg);
+            text-align: center;
+        }
+
+
+        .centreplease {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .centreimage {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        /* Light mode */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --text-colour: black;
+                --link-colour: blue;
+                --link-hover-colour: navy;
+
+                --bg: white;
+                --nav-bg: aqua;
+                --section-bg: lightgrey;
+                --footer-bg: rgb(27, 139, 5);
+            }
+        }
+    </style>
 </head>
+
 <body>
     <div class="nav">
         <div>
@@ -26,22 +151,54 @@
     <div class="main">
         <div class="section">
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Massa id neque aliquam vestibulum morbi blandit cursus. Porta lorem mollis aliquam ut porttitor leo a. Sit amet consectetur adipiscing elit. Sit amet mauris commodo quis imperdiet. Mauris rhoncus aenean vel elit. Euismod nisi porta lorem mollis aliquam ut porttitor leo. Sem integer vitae justo eget. Ut diam quam nulla porttitor. Vel pretium lectus quam id leo in vitae turpis.<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Massa id neque aliquam
+                vestibulum morbi blandit cursus. Porta lorem mollis aliquam ut porttitor leo a. Sit amet consectetur
+                adipiscing elit. Sit amet mauris commodo quis imperdiet. Mauris rhoncus aenean vel elit. Euismod nisi
+                porta lorem mollis aliquam ut porttitor leo. Sem integer vitae justo eget. Ut diam quam nulla porttitor.
+                Vel pretium lectus quam id leo in vitae turpis.<br>
 
-                Facilisi morbi tempus iaculis urna. Consectetur adipiscing elit pellentesque habitant. Tellus integer feugiat scelerisque varius morbi enim nunc faucibus a. Facilisis leo vel fringilla est ullamcorper eget nulla facilisi etiam. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Ac tortor vitae purus faucibus ornare. Augue mauris augue neque gravida. Ullamcorper malesuada proin libero nunc consequat interdum varius sit. Feugiat vivamus at augue eget arcu. Purus faucibus ornare suspendisse sed nisi. Dolor sit amet consectetur adipiscing elit. Tellus in hac habitasse platea dictumst vestibulum rhoncus est. Malesuada fames ac turpis egestas sed tempus urna et. Vel quam elementum pulvinar etiam.<br>
+                Facilisi morbi tempus iaculis urna. Consectetur adipiscing elit pellentesque habitant. Tellus integer
+                feugiat scelerisque varius morbi enim nunc faucibus a. Facilisis leo vel fringilla est ullamcorper eget
+                nulla facilisi etiam. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Praesent
+                semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Duis ultricies lacus sed turpis
+                tincidunt id aliquet risus. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada
+                bibendum. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Ac tortor vitae purus
+                faucibus ornare. Augue mauris augue neque gravida. Ullamcorper malesuada proin libero nunc consequat
+                interdum varius sit. Feugiat vivamus at augue eget arcu. Purus faucibus ornare suspendisse sed nisi.
+                Dolor sit amet consectetur adipiscing elit. Tellus in hac habitasse platea dictumst vestibulum rhoncus
+                est. Malesuada fames ac turpis egestas sed tempus urna et. Vel quam elementum pulvinar etiam.<br>
                 <br>
-                Dictum at tempor <b>commodo</b> ullamcorper a lacus vestibulum. Sed faucibus turpis in eu mi. Arcu cursus vitae congue mauris. Et netus et malesuada fames ac turpis egestas sed tempus. Vel eros donec ac odio tempor. A lacus vestibulum sed arcu non odio euismod lacinia. Pharetra et ultrices neque ornare aenean euismod. Morbi tristique senectus et netus et malesuada. Turpis egestas sed tempus urna. Risus commodo viverra maecenas accumsan. Turpis egestas sed tempus urna. Ultricies lacus sed turpis tincidunt. Eu facilisis sed odio morbi.<br>
-            
-                Eu mi bibendum neque egestas congue quisque egestas diam. Arcu dui vivamus arcu felis bibendum ut tristique et. Tortor at risus viverra adipiscing at. Ut placerat orci nulla pellentesque dignissim enim. Vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur. Blandit massa enim nec dui nunc mattis enim. Gravida quis blandit turpis cursus in hac habitasse. Proin sagittis nisl rhoncus mattis rhoncus urna neque. Iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui. Quisque non tellus orci ac. Justo laoreet sit amet cursus sit amet dictum. Faucibus pulvinar elementum integer enim neque volutpat. Mattis pellentesque id nibh tortor id aliquet lectus proin. Amet commodo nulla facilisi nullam. Sed egestas egestas fringilla phasellus faucibus. Risus in hendrerit gravida rutrum quisque non tellus.<br>
-            
-                Et malesuada fames ac turpis egestas sed. Etiam tempor orci eu lobortis elementum. Orci phasellus egestas tellus rutrum. Nec dui nunc mattis enim ut tellus elementum sagittis. Ut lectus arcu bibendum at varius vel. Eu mi bibendum neque egestas congue quisque. Pharetra convallis posuere morbi leo. Duis at tellus at urna condimentum mattis pellentesque id. Imperdiet nulla malesuada pellentesque elit eget gravida cum. Neque sodales ut etiam sit amet nisl purus in. Tortor pretium viverra suspendisse potenti nullam ac tortor.
+                Dictum at tempor <b>commodo</b> ullamcorper a lacus vestibulum. Sed faucibus turpis in eu mi. Arcu
+                cursus vitae congue mauris. Et netus et malesuada fames ac turpis egestas sed tempus. Vel eros donec ac
+                odio tempor. A lacus vestibulum sed arcu non odio euismod lacinia. Pharetra et ultrices neque ornare
+                aenean euismod. Morbi tristique senectus et netus et malesuada. Turpis egestas sed tempus urna. Risus
+                commodo viverra maecenas accumsan. Turpis egestas sed tempus urna. Ultricies lacus sed turpis tincidunt.
+                Eu facilisis sed odio morbi.<br>
+
+                Eu mi bibendum neque egestas congue quisque egestas diam. Arcu dui vivamus arcu felis bibendum ut
+                tristique et. Tortor at risus viverra adipiscing at. Ut placerat orci nulla pellentesque dignissim enim.
+                Vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur. Blandit massa enim nec dui
+                nunc mattis enim. Gravida quis blandit turpis cursus in hac habitasse. Proin sagittis nisl rhoncus
+                mattis rhoncus urna neque. Iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui.
+                Quisque non tellus orci ac. Justo laoreet sit amet cursus sit amet dictum. Faucibus pulvinar elementum
+                integer enim neque volutpat. Mattis pellentesque id nibh tortor id aliquet lectus proin. Amet commodo
+                nulla facilisi nullam. Sed egestas egestas fringilla phasellus faucibus. Risus in hendrerit gravida
+                rutrum quisque non tellus.<br>
+
+                Et malesuada fames ac turpis egestas sed. Etiam tempor orci eu lobortis elementum. Orci phasellus
+                egestas tellus rutrum. Nec dui nunc mattis enim ut tellus elementum sagittis. Ut lectus arcu bibendum at
+                varius vel. Eu mi bibendum neque egestas congue quisque. Pharetra convallis posuere morbi leo. Duis at
+                tellus at urna condimentum mattis pellentesque id. Imperdiet nulla malesuada pellentesque elit eget
+                gravida cum. Neque sodales ut etiam sit amet nisl purus in. Tortor pretium viverra suspendisse potenti
+                nullam ac tortor.
             </p>
             <code>running <i>full</i> system diagnostics</code>
         </div>
         <div class="section">
             <h2>and now i embed 404</h2>
             <br>
-                <image class="centreimage" src="assets/cookies.png"></iframe>
+            <image class="centreimage" src="assets/cookies.png"></iframe>
         </div>
     </div>
     <div class="footer">
@@ -49,7 +206,9 @@
     </div>
     <!--These analytics are so basic they're public lmao-->
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""
+            referrerpolicy="no-referrer-when-downgrade" /></noscript>
     <!--! 2025-01-04: breh i really added them to this?? -->
 </body>
+
 </html>
