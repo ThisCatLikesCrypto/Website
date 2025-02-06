@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rickroll challenge | Wilbur's Site</title>
+</head>
+<body>
+    <h1>rickroll challenge</h1>
+    <p>When you press the button below, it will start a timer. For each second that passes, 
+        there is a 20% chance that you will get a rickroll.</p>
+    <button id="start" onclick="start()">Start</button>
+    <p>Time so far: <span id="time">0</span></p>
+    <video style="display: none;" id="video" src="rickroll.mp4"></video>
+    <script>
+        function start() {
+            let time = 0;
+            document.getElementById("start").style.display = "none";
+            const interval = setInterval(() => {
+                time++;
+                document.getElementById("time").innerHTML = time;
+                if (Math.random() < 0.2) {
+                    document.getElementById("video").style.display = "block";
+                    document.getElementById("video").play();
+                    // break out of setInterval
+                    clearInterval(interval);
+                }
+            }, 1000);
+        }
+    </script>
+</body>
