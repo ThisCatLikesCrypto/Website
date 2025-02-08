@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+import "../styles/main.css";
 ---
 
 <!DOCTYPE html>
@@ -20,13 +22,11 @@ const { title } = Astro.props;
 		<title>{title}</title>
 		<link rel="dns-prefetch" href="https://fonts.bunny.net">
 		<link rel="preconnect" href="https://fonts.bunny.net">
-		<link rel="preload" href="/css/main.css" as="style">
 		<link rel="preload" href="/js/script.js" as="script">
 		<link rel="preload" href="/assets/background.png" as="image">
 		<link rel="preload" href="/images/g305cursor.png" as="image">
 		<link rel="preload" href="/images/g305cursorgreen.png" as="image">
 		<link rel="icon" type="image/png" href="/assets/icon.png">
-		<link href="/css/main.css" rel="stylesheet">
 		<script is:inline src="/js/script.js"></script>
 	</head>
 	<body>
