@@ -218,7 +218,7 @@ function updateInlineCSS(){
         document.getElementById("inlineCustomCSS").innerHTML = inlineCSS;
         document.getElementById("inlineCSSeditor").innerHTML = inlineCSS;
     } catch {
-        console.log("updateInlineCSS() failed, probably failed in getting cookie.");
+        console.log("updateInlineCSS() failed.");
     }
 }
 

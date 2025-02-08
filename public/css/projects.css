@@ -1,9 +1,9 @@
-@import url('https://wilburwilliams.uk/fonts/Montserrat.css');
+@import url('/fonts/Montserrat.css');
 @import url('https://cdn.jsdelivr.net/gh/EyeScary-Development/CDN/fonts/croscore/css/carlito.css');
 
 /* Stuff that needs to affect the whole page */
 body {
-    background-image: url('https://wilburwilliams.uk/assets/background.png');
+    background-image: url('/assets/background.png');
     background-position: center;
     background-size: cover;
     font-family: 'Carlito', sans-serif;

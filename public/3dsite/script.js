@@ -229,5 +229,10 @@ function dipSettin() {
     document.getElementById('explain').style.display = "none";
 }
 
+function dopSettin() {
+    document.getElementById('settings').style.display = "none";
+    document.getElementById('explain').style.display = "block";
+}
+
 // Handle window resize
 window.addEventListener('resize', onWindowResize, false);

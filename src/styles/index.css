@@ -1,0 +1,28 @@
+@import url("minecraft.css");
+
+.splash {
+    font-family: "Minecraft", sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    color: lightblue;
+    transform: rotate(-15deg);
+    animation: minecraft 2s infinite alternate ease-in-out;
+    text-align: center;
+    position: absolute;
+    top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 24%;
+    right: 0;
+    text-align: center;
+}
+
+@keyframes minecraft {
+    from {
+        font-size: 18px;
+    }
+
+    to {
+        font-size: 15px;
+    }
+}
