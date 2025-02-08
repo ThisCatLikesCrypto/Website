@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
         /* This is replaced with any custom css not imported with a URL*/
     </style>
 </head>
+
 <body onload="msgs()">
     <div id="main">
         <div class="dropdown">
@@ -29,7 +31,7 @@
         <div class="dropdown2">
             <button class="dropbtn wws-dropbtn">Credits</button>
             <div class="dropdown-content wws-dropdown-content">
-                <a href="../index.html">Wilbur Williams (made this)</a>
+                <a href="../">Wilbur Williams (made this)</a>
                 <a href="https://devsuperiority.pages.dev/">Pittab (for dev superiority)</a>
             </div>
         </div>
@@ -38,16 +40,19 @@
         </div>
         <p class="spacersmol"></p>
         <h1 id="ntitle">New Tab</h1>
-        <h3 id="time">Loading...</h1>
+        <h3 id="time">Loading...</h3>
         <p class="spacersmol"></p>
         <div class="centreplease">
             <form id="searchForm" onsubmit="return search()">
-                <input type="text" id="searchInput" class="wws-inputBox inputBox" placeholder="Enter to search..." autofocus>
+                <input type="text" id="searchInput" class="wws-inputBox inputBox" placeholder="Enter to search..."
+                    autofocus>
             </form>
         </div>
         <div class="stuffbelowsearchbit">
-            <button id="searchEcosia" class="belowaction" onclick="return searchEcosia()">Search Ecosia (or go to chat)</button>
-            <button id="searchGoogle" class="belowaction" onclick="return searchGoogle()">Search Google Instead</button>
+            <button id="searchEcosia" class="belowaction" onclick="return searchEcosia()">Search Ecosia (or go to
+                chat)</button>
+            <button id="searchGoogle" class="belowaction" onclick="return searchGoogle()">Search Google
+                Instead</button>
         </div>
         <p>(click images to go to the websites)</p>
         <div id="quicklinks">
@@ -65,13 +70,15 @@
         <div id="smallquicklinks">
             <button onclick="goPlaces(getLink('link4'))"><img id="link4" src="../assets/newtab/ghlogo.png"></button>
             <button onclick="goPlaces(getLink('link5'))"><img id="link5" src="../assets/newtab/ecosia.jpeg"></button>
-            <button onclick="goPlaces(getLink('link6'))"><img id="link6" id="wisdevlogo" src="../assets/newtab/wisdev.png"></button>
-            <button onclick="goPlaces(getLink('link7'))"><img id="link7" class="wws-svglogo" src="../assets/newtab/electricitymaps-icon.svg"></button>
+            <button onclick="goPlaces(getLink('link6'))"><img id="link6" id="wisdevlogo"
+                    src="../assets/newtab/wisdev.png"></button>
+            <button onclick="goPlaces(getLink('link7'))"><img id="link7" class="wws-svglogo"
+                    src="../assets/newtab/electricitymaps-icon.svg"></button>
             <button onclick="goPlaces(getLink('link8'))"><img id="link8" src="../assets/newtab/quizlet.jpeg"></button>
             <button onclick="goPlaces(getLink('link9'))"><img id="link9" src="../assets/newtab/blooket.png"></button>
         </div>
         <p id="mesage"></p>
-    </div> 
+    </div>
     <div id="themes">
         <p class="spacersmol"></p>
         <h1>Theme Switcher</h1>
@@ -120,7 +127,8 @@
         <h2>Change Search Engine</h2>
         <div class="centreplease">
             <form class="inputWide" onsubmit="return changeSearch()">
-                <input type="text" class="inputBox linkInput wws-inputBox" id="engineInput" placeholder="URL with %s in place of query">
+                <input type="text" class="inputBox linkInput wws-inputBox" id="engineInput"
+                    placeholder="URL with %s in place of query">
                 <p>(like https://ecosia.org/search?q=%s)</p>
             </form>
         </div>
@@ -160,7 +168,8 @@
         </div>
         <div class="centreplease">
             <form id="linkForm" onsubmit="return updateLink()">
-                <input type="text" class="inputBox linkInput wws-inputBox" id="linkName" placeholder="Link ID (e.g., link1)">
+                <input type="text" class="inputBox linkInput wws-inputBox" id="linkName"
+                    placeholder="Link ID (e.g., link1)">
                 <br><br>
                 <input type="text" class="inputBox linkInput wws-inputBox" id="linkContent" placeholder="Link URL...">
                 <br><br>
@@ -179,8 +188,58 @@
             </ul>
         </div>
     </div>
-    <script src="../js/newtab.js"></script>
-    <script src="../js/messages.js"></script>
-    <script src="../js/clock.js"></script>
 </body>
+
 </html>
+
+<script is:inline src="../js/newtab.js"></script>
+<script>
+    // Function to get the day of the week
+    function getDayOfWeek(day) {
+        const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        if (daysOfWeek[day] === undefined) {
+            return 'Sunday' //dumb fix for breakage on Sunday
+        } else {
+            return daysOfWeek[day];
+        }
+    }
+    // Function to get the current time
+    function getTime() {
+        const now = new Date();
+        const date = now.getDate().toString().padStart(2, '0');
+        const dayOfWeek = getDayOfWeek(now.getDay() - 1);
+        const month = (now.getMonth() + 1).toString().padStart(2, '0');
+        const year = now.getFullYear().toString();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        return [`${dayOfWeek}, ${year}-${month}-${date} ${hours}:${minutes}:${seconds}`];
+    }
+    // Function to update the time display
+    function updateTime() {
+        const time = getTime();
+        const timeDisplay = document.getElementById('time');
+        timeDisplay.textContent = time[0];
+    }
+    document.addEventListener('DOMContentLoaded', updateTime);
+    setInterval(updateTime, 500);
+    let msg = "It's just javascript, bro"
+    document.getElementById("mesage").innerHTML = msg;
+    let messages = [
+        "It's just JavaScript, bro",
+        "Bet you wish you could make this, huh?",
+        "What? Never seen a custom new tab before?",
+        "Oh, this? It's just web dev",
+        "Imagine not knowing how to code, couldn't be me!",
+        "Aww sweetie, you don't know what JS is?",
+        "Looks like some intensity data slipped in there, didn't it?"
+    ];
+    let currentIndex = 0;
+    const messageElement = document.getElementById("mesage");
+
+    function msgs() {
+        messageElement.innerHTML = messages[currentIndex];
+        currentIndex = (currentIndex + 1) % messages.length;
+    }
+    setInterval(msgs, 3000);
+</script>
