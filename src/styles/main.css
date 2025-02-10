@@ -150,6 +150,38 @@ button {
     font-family: monospace;
 }
 
+.techdivdiv {
+    display: flex;
+}
+
+#scrollbar {
+    float: left;
+    width: 30%;
+}
+
+#scrollibit {
+    max-height: 80vh;
+    font-size: 30px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+}
+
+#picturething {
+    float: left;
+    text-align: center;
+}
+
+#picturething video {
+    /* centre it */
+    display: flex;
+    float: center;
+    margin: auto;
+    justify-self: center;
+    align-self: center;
+    max-width: 70%;
+    height: 100%;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidenav {

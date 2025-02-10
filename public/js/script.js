@@ -5,7 +5,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function playAprilCells() {
+async function songPlay(songURL) {
   console.log("You found an easter egg. Enjoy the sound");
   try {
     muct = document.getElementById('musiccontrol')
@@ -16,14 +16,12 @@ async function playAprilCells() {
   }
   if (easterAudio) {
     easterAudio.pause();
-    easterAudio = new Audio('/assets/aprilscattered.ogg');
+    easterAudio = new Audio(songURL);
   } else {
-    var easterAudio = new Audio('/assets/aprilscattered.ogg');
+    var easterAudio = new Audio(songURL);
   }
 
   eaudion = true;
-
-  alert("Sorry KyYay (turn up volume once it starts if you can't hear it)");
 
   if (audio) {
     audio.pause();
@@ -43,8 +41,267 @@ async function playAprilCells() {
   });
 }
 
+async function playAprilCells() {
+  await songPlay('/assets/aprilscattered.ogg');
+}
 
-//Feel free to cheat if you want lmao
+function smoothScroll() {
+  let scrollbar = document.getElementById("scrollibit");
+  let scrollSpeed = 2;
+
+  function scrollStep() {
+    if (scrollbar.scrollTop < scrollbar.scrollHeight - scrollbar.clientHeight) {
+      scrollbar.scrollTop += scrollSpeed;
+      requestAnimationFrame(scrollStep);
+    }
+  }
+
+  scrollStep();
+}
+
+async function technologyConnectionsOutro(keysContainer) {
+  keysContainer.innerHTML = "Connecting to Technology...";
+  await sleep(1000);
+  //await songPlay('/assets/floaters.ogx');
+  console.log('hmmm');
+  keysContainer.style.opacity = 1;
+  keysContainer.innerHTML = 'Playing Connectedly Smooth Jazz';
+  await sleep(250);
+  keysContainer.style.opacity = 1;
+  await sleep(250);
+  keysContainer.style.opacity = 1;
+  fadeTimeout = setTimeout(() => {
+    keysContainer.style.opacity = 0;
+    keysContainer.style.color = "white";
+    keys = [];
+  }, 2000);
+  //await sleep(13000);
+  const mainelement = document.getElementById('main');
+  mainelement.innerHTML = '';
+  const stfuconsole = document.createElement('span');
+  stfuconsole.id = 'mytime';
+  stfuconsole.style.display = 'none';
+  document.body.style.background = 'black';
+  await sleep(1000);
+  mainelement.innerHTML = `
+  <div class="techdivdiv">
+    <div id="scrollbar">
+      <h2>Fake Names</h2>
+      <div id="scrollibit">
+        <ul>
+        <li>Vanessa Fields</li>
+        <li>Jennifer Mcdaniel</li>
+        <li>Daniel Delgado</li>
+        <li>Alyssa Clark</li>
+        <li>David James</li>
+        <li>Jeffery Hamilton</li>
+        <li>Amanda Morris</li>
+        <li>Tina Martinez</li>
+        <li>Brian Wright</li>
+        <li>Sir Kyle Garcia</li>
+        <li>Rebecca Malone</li>
+        <li>David Brewer</li>
+        <li>Stephanie Brown</li>
+        <li>Morgan Jackson</li>
+        <li>Joshua Francis</li>
+        <li>Tricia Edwards</li>
+        <li>Miss Caroline Jones</li>
+        <li>Nancy Davis</li>
+        <li>Wayne Sexton</li>
+        <li>Richard Leblanc</li>
+        <li>Richard Morales</li>
+        <li>Lauren Walker</li>
+        <li>Alex Vasquez</li>
+        <li>Lindsey Chen</li>
+        <li>Rachel Valdez</li>
+        <li>Brady Gardner</li>
+        <li>Christy Novak</li>
+        <li>Robert Williams</li>
+        <li>Nicole Gonzalez</li>
+        <li>Richard Jacobs</li>
+        <li>Terry Hunt</li>
+        <li>Perry Wheeler</li>
+        <li>Brandi Campbell</li>
+        <li>Amber Smith</li>
+        <li>Craig Peterson</li>
+        <li>Brittney Smith</li>
+        <li>Janet Gould</li>
+        <li>Carla Wright</li>
+        <li>Louis Perez</li>
+        <li>Jennifer Gonzalez</li>
+        <li>Austin Martin</li>
+        <li>Todd Gross</li>
+        <li>Michael Allen</li>
+        <li>David Williamson</li>
+        <li>Donna Lara</li>
+        <li>Kimberly Hall</li>
+        <li>Rebecca Griffith</li>
+        <li>Kimberly Waller CBE</li>
+        <li>Jennifer Black</li>
+        <li>Scott Watson</li>
+        <li>Derek Evans</li>
+        <li>Brandy Gutierrez</li>
+        <li>Cindy Chen</li>
+        <li>Margaret Richmond</li>
+        <li>Christopher Watts</li>
+        <li>Nicholas Edwards</li>
+        <li>Lynn Elliott</li>
+        <li>Stephanie Moyer</li>
+        <li>Amanda Lynch</li>
+        <li>Christopher Vance</li>
+        <li>Matthew Mccarthy</li>
+        <li>Blake Raymond</li>
+        <li>Mark Herrera</li>
+        <li>Jennifer Williams</li>
+        <li>Amy Martin</li>
+        <li>Jason Collins</li>
+        <li>Todd Carpenter</li>
+        <li>Kelly Glass</li>
+        <li>Lisa Stewart</li>
+        <li>Nicholas Patterson</li>
+        <li>Jacqueline Case</li>
+        <li>Joel Rose</li>
+        <li>Angela Cruz</li>
+        <li>Tammy Wilson</li>
+        <li>Rachel Meyer</li>
+        <li>Jamie Hawkins</li>
+        <li>Heather Sanchez</li>
+        <li>Melissa Williamson</li>
+        <li>Matthew Johnson</li>
+        <li>Tiffany Sullivan</li>
+        <li>Ashley Sharp</li>
+        <li>Michelle Lopez</li>
+        <li>Aaron Johnson</li>
+        <li>Francisco Suarez</li>
+        <li>Amy Gill</li>
+        <li>Joseph Roberts</li>
+        <li>Dr. Christopher Mccoy</li>
+        <li>Christopher Thompson</li>
+        <li>David Murphy</li>
+        <li>Edward Rivera</li>
+        <li>Lauren Gregory</li>
+        <li>Daniel Aguilar</li>
+        <li>Bernard Roberts</li>
+        <li>James Ramirez</li>
+        <li>Patricia Lane</li>
+        <li>Alison Sloan</li>
+        <li>Hailey Evans</li>
+        <li>Mia Mckenzie</li>
+        <li>Edward Melton</li>
+        <li>David Smith</li>
+        <li>Nicholas Johnson</li>
+        <li>Dan Woods</li>
+        <li>Erin Hill</li>
+        <li>Melissa Romero</li>
+        <li>James Weaver</li>
+        <li>Shannon Jones</li>
+        <li>Justin Evans</li>
+        <li>Daniel Berry</li>
+        <li>Penny Barnes</li>
+        <li>Eric Morrison</li>
+        <li>Todd George</li>
+        <li>Brian Lowe</li>
+        <li>Charles Giles</li>
+        <li>Robert Kirk</li>
+        <li>Richard Pennington</li>
+        <li>Patricia Rodriguez</li>
+        <li>Destiny Johnson</li>
+        <li>Ashley Barber</li>
+        <li>Tina Wilson</li>
+        <li>Michael Dunn</li>
+        <li>Christopher Vasquez</li>
+        <li>Michael Henry</li>
+        <li>Anthony Ray</li>
+        <li>Charles Bray</li>
+        <li>Alison Gutierrez</li>
+        <li>Brenda Weaver</li>
+        <li>Jacob Rivera</li>
+        <li>Elizabeth Knapp</li>
+        <li>William Bush</li>
+        <li>Madeline Church</li>
+        <li>Kayla Hart</li>
+        <li>Michelle Phillips</li>
+        <li>Paul Hernandez</li>
+        <li>Amanda Evans</li>
+        <li>Kelsey Wells</li>
+        <li>John Thomas</li>
+        <li>Alison Jackson</li>
+        <li>Sue Barber</li>
+        <li>Jose Lopez</li>
+        <li>Kimberly Arroyo</li>
+        <li>Victor Mejia</li>
+        <li>Lauren Scott</li>
+        <li>Robert Kim</li>
+        <li>Anne Preston</li>
+        <li>Elizabeth Sanford</li>
+        <li>Linda Coleman</li>
+        <li>Sarah Ramsey</li>
+        <li>Samantha Adams DVM</li>
+        <li>Jamie Marsh</li>
+        <li>Christopher Miller</li>
+        <li>Miss Rhonda Roy MD</li>
+        <li>Matthew Thomas</li>
+        <li>Melanie Lewis</li>
+        <li>Jerry Turner</li>
+        <li>Jason Hansen</li>
+        <li>Cheryl Lam</li>
+        <li>James Johnson</li>
+        <li>Ariana Sanders</li>
+        <li>Aaron Quinn</li>
+        <li>John Finley</li>
+        <li>Tracey Morales</li>
+        <li>Bridget Clark</li>
+        <li>Nicole Gonzalez</li>
+        <li>Jacqueline Costa</li>
+        <li>Debra Davidson</li>
+        <li>Sandra Morales</li>
+        <li>Shawn Shaw</li>
+        <li>Monica Rodgers</li>
+        <li>Rebecca Hale</li>
+        <li>David Tanner</li>
+        <li>Jacqueline Peterson MD</li>
+        <li>Bradley Hayes</li>
+        <li>Matthew Hunt</li>
+        <li>Alexis Jones</li>
+        <li>Christine Turner</li>
+        <li>Rebecca Carson</li>
+        <li>Benjamin Turner</li>
+        <li>Kristin David</li>
+        <li>Ronnie Haney</li>
+        <li>Joshua West</li>
+        <li>Mariah Perez</li>
+        <li>Bianca Marsh</li>
+        <li>Jay Lewis</li>
+        <li>Logan Franco</li>
+        <li>Michael Alvarez</li>
+        <li>Jerry Frank</li>
+        <li>Jose Smith</li>
+        <li>Benjamin Herrera</li>
+        <li>Katherine Jones</li>
+        <li>Shawn Williamson</li>
+        <li>Rhonda Torres</li>
+        <li>Cody Rodriguez</li>
+        <li>Nicole Dennis</li>
+        <li>Brent Estes</li>
+        <li>Michael Nguyen</li>
+        <li>Lisa Carpenter</li>
+        <li>John Walker</li>
+        <li>Christopher Johnson</li>
+        <li>Jose Rodriguez</li>
+        <li>Kelly Martin</li>
+        </ul>
+      </div>
+    </div>
+    <div id="picturething">
+      <video src='https://r2.wilburwilliams.com/uh.mp4' loop autoplay></video>
+    </div>
+  </div>
+  `;
+  mainelement.appendChild(stfuconsole);
+  smoothScroll();
+}
+
+// Feel free to cheat if you want lmao
 async function handleKeyPress(event) {
   const keysContainer = document.getElementById('keys-container');
   keys.push(event.code);
@@ -60,6 +317,7 @@ async function handleKeyPress(event) {
   const jasperCode = "KeyJKeyAKeySKeyPKeyEKeyR";
   const graphs = "KeyGKeyRKeyAKeyPKeyHKeyS";
   const rm = "KeyRKeyMMinusKeyRKeyFSlash";
+  const connect = "KeyCKeyOKeyNKeyNKeyEKeyCKeyT"
 
   if (keys.join("") === konamiCode && eaudion == false) {
     await sleep(500);
@@ -85,11 +343,16 @@ async function handleKeyPress(event) {
     keysContainer.style.color = "lime";
     await sleep(500);
     document.body.style = "background: white";
-    document.body.innerHTML = `<h1 style='text-align: center;'>404 Not Found</h1><hr><p style='text-align: center;'>Cloudflare</p>`;
+    document.body.innerHTML = `<h1 style='text-align: center;'>404 Not Found</h1><hr><p style='text-align: center;'>nginx</p>`;
   } else if (keys.join("").endsWith(graphs)) {
     keysContainer.style.color = "lime";
     await sleep(500);
     window.location.href = "https://jasperweb.uk/Graphs/Graphs";
+  } else if (keys.join("").endsWith(connect)) {
+    await sleep(250);
+    keysContainer.style.color = "lime";
+    await sleep(250);
+    technologyConnectionsOutro(keysContainer);
   }
 }
 

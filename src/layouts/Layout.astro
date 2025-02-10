@@ -22,10 +22,10 @@ import "../styles/main.css";
 		<title>{title}</title>
 		<link rel="dns-prefetch" href="https://fonts.bunny.net">
 		<link rel="preconnect" href="https://fonts.bunny.net">
-		<link rel="preload" href="/js/script.js" as="script">
-		<link rel="preload" href="/assets/background.png" as="image">
-		<link rel="preload" href="/images/g305cursor.png" as="image">
-		<link rel="preload" href="/images/g305cursorgreen.png" as="image">
+		<link rel="preload" href="/js/script.js" as="script" crossorigin>
+		<link rel="preload" href="/assets/background.png" as="image" crossorigin>
+		<link rel="preload" href="/images/g305cursor.png" as="image" crossorigin>
+		<link rel="preload" href="/images/g305cursorgreen.png" as="image" crossorigin>
 		<link rel="icon" type="image/png" href="/assets/icon.png">
 		<script is:inline src="/js/script.js"></script>
 	</head>
@@ -51,7 +51,7 @@ import "../styles/main.css";
 				<a href="/domains/">Domains</a>
 			</div>
 		</div>
-		<div class="main">
+		<div class="main" id="main">
 			<slot />
 			<footer class="centreplease">
 				<svg xmlns="http://www.w3.org/2000/svg" height="0.5em" viewBox="0 0 1021.2 71.6">
