@@ -164,6 +164,7 @@ button {
     font-size: 30px;
     overflow-y: auto; /* Enable vertical scrolling */
     padding: 10px;
+    scrollbar-color: transparent transparent;
 }
 
 #picturething {

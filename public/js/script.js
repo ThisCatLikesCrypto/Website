@@ -62,7 +62,7 @@ function smoothScroll() {
 async function technologyConnectionsOutro(keysContainer) {
   keysContainer.innerHTML = "Connecting to Technology...";
   await sleep(1000);
-  //await songPlay('/assets/floaters.ogx');
+  await songPlay('/assets/floaters.ogx');
   console.log('hmmm');
   keysContainer.style.opacity = 1;
   keysContainer.innerHTML = 'Playing Connectedly Smooth Jazz';
@@ -75,7 +75,7 @@ async function technologyConnectionsOutro(keysContainer) {
     keysContainer.style.color = "white";
     keys = [];
   }, 2000);
-  //await sleep(13000);
+  await sleep(13000);
   const mainelement = document.getElementById('main');
   mainelement.innerHTML = '';
   const stfuconsole = document.createElement('span');
@@ -194,6 +194,7 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>Erin Hill</li>
         <li>Melissa Romero</li>
         <li>James Weaver</li>
+        <li>Lily Radley</li>
         <li>Shannon Jones</li>
         <li>Justin Evans</li>
         <li>Daniel Berry</li>
@@ -212,6 +213,7 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>Christopher Vasquez</li>
         <li>Michael Henry</li>
         <li>Anthony Ray</li>
+        <li>Kieran Lynch</li>
         <li>Charles Bray</li>
         <li>Alison Gutierrez</li>
         <li>Brenda Weaver</li>
@@ -228,7 +230,7 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>Alison Jackson</li>
         <li>Sue Barber</li>
         <li>Jose Lopez</li>
-        <li>Kimberly Arroyo</li>
+        <li>Jasper Cayley</li>
         <li>Victor Mejia</li>
         <li>Lauren Scott</li>
         <li>Robert Kim</li>
@@ -250,7 +252,7 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>Aaron Quinn</li>
         <li>John Finley</li>
         <li>Tracey Morales</li>
-        <li>Bridget Clark</li>
+        <li>Jennifer Broadbent</li>
         <li>Nicole Gonzalez</li>
         <li>Jacqueline Costa</li>
         <li>Debra Davidson</li>
@@ -271,7 +273,7 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>Joshua West</li>
         <li>Mariah Perez</li>
         <li>Bianca Marsh</li>
-        <li>Jay Lewis</li>
+        <li>Vivian Harris</li>
         <li>Logan Franco</li>
         <li>Michael Alvarez</li>
         <li>Jerry Frank</li>
@@ -289,11 +291,31 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>Christopher Johnson</li>
         <li>Jose Rodriguez</li>
         <li>Kelly Martin</li>
+        <li>Kimberly Arroyo</li>
+        <li>Michael Alvarez</li>
+        <li>Logan Franco</li>
+        <li>Mariah Perez</li>
+        <li>Bianca Marsh</li>
+        <li>Jay Lewis</li>
+        <li>Rhonda Torres</li>
+        <li>Cody Rodriguez</li>
+        <li>Nicole Dennis</li>
+        <li>Brent Estes</li>
+        <li>Michael Nguyen</li>
+        <li>Lisa Carpenter</li>
+        <li>Christopher Johnson</li>
+        <li>John Walker</li>
+        <li>Chris Spencer</li>
+        <li>Hannah Johnson</li>
+        <li>Sudbury Town</li>
+        <li>Samuel Caulfield</li>
+        <li>Crisitan Gherb</li>
+        <li>A 555 and a 6x6</li>
         </ul>
       </div>
     </div>
     <div id="picturething">
-      <video src='https://r2.wilburwilliams.com/uh.mp4' loop autoplay></video>
+      <video src='https://r2.wilburwilliams.com/uh.mp4' muted loop autoplay></video>
     </div>
   </div>
   `;
