@@ -47,7 +47,7 @@ async function playAprilCells() {
 
 function smoothScroll() {
   let scrollbar = document.getElementById("scrollibit");
-  let scrollSpeed = 2;
+  let scrollSpeed = 1.5;
 
   function scrollStep() {
     if (scrollbar.scrollTop < scrollbar.scrollHeight - scrollbar.clientHeight) {
@@ -75,7 +75,7 @@ async function technologyConnectionsOutro(keysContainer) {
     keysContainer.style.color = "white";
     keys = [];
   }, 2000);
-  await sleep(13000);
+  await sleep(12750);
   const mainelement = document.getElementById('main');
   mainelement.innerHTML = '';
   const stfuconsole = document.createElement('span');
@@ -105,16 +105,7 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>Morgan Jackson</li>
         <li>Joshua Francis</li>
         <li>Tricia Edwards</li>
-        <li>Miss Caroline Jones</li>
-        <li>Nancy Davis</li>
-        <li>Wayne Sexton</li>
-        <li>Richard Leblanc</li>
-        <li>Richard Morales</li>
-        <li>Lauren Walker</li>
-        <li>Alex Vasquez</li>
-        <li>Lindsey Chen</li>
-        <li>Rachel Valdez</li>
-        <li>Brady Gardner</li>
+        <li>Caroline Jones</li>
         <li>Christy Novak</li>
         <li>Robert Williams</li>
         <li>Nicole Gonzalez</li>
@@ -152,19 +143,6 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>Matthew Mccarthy</li>
         <li>Blake Raymond</li>
         <li>Mark Herrera</li>
-        <li>Jennifer Williams</li>
-        <li>Amy Martin</li>
-        <li>Jason Collins</li>
-        <li>Todd Carpenter</li>
-        <li>Kelly Glass</li>
-        <li>Lisa Stewart</li>
-        <li>Nicholas Patterson</li>
-        <li>Jacqueline Case</li>
-        <li>Joel Rose</li>
-        <li>Angela Cruz</li>
-        <li>Tammy Wilson</li>
-        <li>Rachel Meyer</li>
-        <li>Jamie Hawkins</li>
         <li>Heather Sanchez</li>
         <li>Melissa Williamson</li>
         <li>Matthew Johnson</li>
@@ -180,13 +158,6 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>David Murphy</li>
         <li>Edward Rivera</li>
         <li>Lauren Gregory</li>
-        <li>Daniel Aguilar</li>
-        <li>Bernard Roberts</li>
-        <li>James Ramirez</li>
-        <li>Patricia Lane</li>
-        <li>Alison Sloan</li>
-        <li>Hailey Evans</li>
-        <li>Mia Mckenzie</li>
         <li>Edward Melton</li>
         <li>David Smith</li>
         <li>Nicholas Johnson</li>
@@ -196,30 +167,11 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>James Weaver</li>
         <li>Lily Radley</li>
         <li>Shannon Jones</li>
-        <li>Justin Evans</li>
-        <li>Daniel Berry</li>
-        <li>Penny Barnes</li>
-        <li>Eric Morrison</li>
-        <li>Todd George</li>
-        <li>Brian Lowe</li>
-        <li>Charles Giles</li>
-        <li>Robert Kirk</li>
-        <li>Richard Pennington</li>
-        <li>Patricia Rodriguez</li>
-        <li>Destiny Johnson</li>
-        <li>Ashley Barber</li>
-        <li>Tina Wilson</li>
         <li>Michael Dunn</li>
         <li>Christopher Vasquez</li>
         <li>Michael Henry</li>
         <li>Anthony Ray</li>
         <li>Kieran Lynch</li>
-        <li>Charles Bray</li>
-        <li>Alison Gutierrez</li>
-        <li>Brenda Weaver</li>
-        <li>Jacob Rivera</li>
-        <li>Elizabeth Knapp</li>
-        <li>William Bush</li>
         <li>Madeline Church</li>
         <li>Kayla Hart</li>
         <li>Michelle Phillips</li>
@@ -231,9 +183,6 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>Sue Barber</li>
         <li>Jose Lopez</li>
         <li>Jasper Cayley</li>
-        <li>Victor Mejia</li>
-        <li>Lauren Scott</li>
-        <li>Robert Kim</li>
         <li>Anne Preston</li>
         <li>Elizabeth Sanford</li>
         <li>Linda Coleman</li>
@@ -253,74 +202,43 @@ async function technologyConnectionsOutro(keysContainer) {
         <li>John Finley</li>
         <li>Tracey Morales</li>
         <li>Jennifer Broadbent</li>
-        <li>Nicole Gonzalez</li>
-        <li>Jacqueline Costa</li>
-        <li>Debra Davidson</li>
-        <li>Sandra Morales</li>
-        <li>Shawn Shaw</li>
-        <li>Monica Rodgers</li>
-        <li>Rebecca Hale</li>
-        <li>David Tanner</li>
-        <li>Jacqueline Peterson MD</li>
-        <li>Bradley Hayes</li>
-        <li>Matthew Hunt</li>
-        <li>Alexis Jones</li>
-        <li>Christine Turner</li>
-        <li>Rebecca Carson</li>
-        <li>Benjamin Turner</li>
-        <li>Kristin David</li>
-        <li>Ronnie Haney</li>
-        <li>Joshua West</li>
-        <li>Mariah Perez</li>
         <li>Bianca Marsh</li>
         <li>Vivian Harris</li>
-        <li>Logan Franco</li>
-        <li>Michael Alvarez</li>
-        <li>Jerry Frank</li>
-        <li>Jose Smith</li>
-        <li>Benjamin Herrera</li>
-        <li>Katherine Jones</li>
-        <li>Shawn Williamson</li>
-        <li>Rhonda Torres</li>
-        <li>Cody Rodriguez</li>
-        <li>Nicole Dennis</li>
-        <li>Brent Estes</li>
-        <li>Michael Nguyen</li>
-        <li>Lisa Carpenter</li>
-        <li>John Walker</li>
-        <li>Christopher Johnson</li>
-        <li>Jose Rodriguez</li>
-        <li>Kelly Martin</li>
-        <li>Kimberly Arroyo</li>
-        <li>Michael Alvarez</li>
-        <li>Logan Franco</li>
-        <li>Mariah Perez</li>
-        <li>Bianca Marsh</li>
-        <li>Jay Lewis</li>
-        <li>Rhonda Torres</li>
-        <li>Cody Rodriguez</li>
-        <li>Nicole Dennis</li>
-        <li>Brent Estes</li>
-        <li>Michael Nguyen</li>
-        <li>Lisa Carpenter</li>
-        <li>Christopher Johnson</li>
-        <li>John Walker</li>
         <li>Chris Spencer</li>
         <li>Hannah Johnson</li>
         <li>Sudbury Town</li>
         <li>Samuel Caulfield</li>
         <li>Crisitan Gherb</li>
-        <li>A 555 and a 6x6</li>
         </ul>
       </div>
     </div>
     <div id="picturething">
-      <video src='https://r2.wilburwilliams.com/uh.mp4' muted loop autoplay></video>
+      <video src='https://r2.wilburwilliams.com/titled.mov' muted autoplay></video>
     </div>
   </div>
   `;
-  mainelement.appendChild(stfuconsole);
+  document.body.appendChild(stfuconsole);
   smoothScroll();
+  await sleep(48000);
+  document.getElementById('main').innerHTML = '';
+  keysContainer.style.opacity = 1;
+  keysContainer.innerHTML = 'Hope you enjoyed this thing lol';
+  await sleep(3000);
+  keysContainer.innerHTML = 'And I hope at least one person gets the reference';
+  await sleep(3000);
+  keysContainer.innerHTML = "Did you know there's more song than you thought?";
+  await sleep(3000);
+  keysContainer.innerHTML = "It has a proper ending";
+  await sleep(3000);
+  keysContainer.innerHTML = "Listen:";
+  await sleep(3000);
+  keysContainer.innerHTML = "";
+  await sleep(25000);
+  keysContainer.innerHTML = "Cya and thank you for listening! <3";
+  await sleep(3000);
+  keysContainer.style.opacity = 0;
+  await sleep(1000);
+  window.location.reload();
 }
 
 // Feel free to cheat if you want lmao

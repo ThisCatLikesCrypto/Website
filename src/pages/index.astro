@@ -168,7 +168,6 @@ import "../styles/index.css";
                 <span class="line">Website: <span id="sitestatus"></span></span>
                 <span class="line">&nbsp;&nbsp;Dev Site: <span id="devstatus"></span></span>
                 <span class="line">&nbsp;&nbsp;Downloads Site: <span id="dlstatus"></span></span>
-                <span class="line">&nbsp;&nbsp;Projects Site: <span id="projstatus"></span></span>
                 <span class="line">&nbsp;&nbsp;Mirror: <span id="mirrorstatus"></span></span>
             </code>
         </h3>
@@ -250,12 +249,10 @@ import "../styles/index.css";
             const siteElement = document.getElementById("sitestatus");
             const devElement = document.getElementById("devstatus");
             const dlElement = document.getElementById("dlstatus");
-            const projElement = document.getElementById("projstatus");
             const mirrorElement = document.getElementById("mirrorstatus");
             siteElement.innerHTML = data["site"];
             devElement.innerHTML = data["dev"];
             dlElement.innerHTML = data["dl"];
-            projElement.innerHTML = data["proj"];
             mirrorElement.innerHTML = data["repo"];
             if (data["site"] === "200 OK") {
                 siteElement.style.color = "limegreen";
@@ -271,11 +268,6 @@ import "../styles/index.css";
                 dlElement.style.color = "limegreen";
             } else {
                 dlElement.style.color = "red";
-            }
-            if (data["proj"] === "200 OK") {
-                projElement.style.color = "limegreen";
-            } else {
-                projElement.style.color = "red";
             }
             if (data["repo"] === "200 OK") {
                 mirrorElement.style.color = "limegreen";
