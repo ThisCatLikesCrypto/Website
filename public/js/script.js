@@ -65,7 +65,7 @@ async function technologyConnectionsOutro(keysContainer) {
   await songPlay('/assets/floaters.ogx');
   console.log('hmmm');
   keysContainer.style.opacity = 1;
-  keysContainer.innerHTML = 'Playing Connectedly Smooth Jazz';
+  keysContainer.innerHTML = '♫ connectedly smooth jazz ♫';
   await sleep(250);
   keysContainer.style.opacity = 1;
   await sleep(250);
