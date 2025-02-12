@@ -166,7 +166,6 @@ import "../styles/index.css";
         <h3 class="centretext">
             <code>
                 <span class="line">Website: <span id="sitestatus"></span></span>
-                <span class="line">&nbsp;&nbsp;Dev Site: <span id="devstatus"></span></span>
                 <span class="line">&nbsp;&nbsp;Downloads Site: <span id="dlstatus"></span></span>
                 <span class="line">&nbsp;&nbsp;Mirror: <span id="mirrorstatus"></span></span>
             </code>
@@ -247,22 +246,15 @@ import "../styles/index.css";
             const data = await response.json();
             console.log(data);
             const siteElement = document.getElementById("sitestatus");
-            const devElement = document.getElementById("devstatus");
             const dlElement = document.getElementById("dlstatus");
             const mirrorElement = document.getElementById("mirrorstatus");
             siteElement.innerHTML = data["site"];
-            devElement.innerHTML = data["dev"];
             dlElement.innerHTML = data["dl"];
             mirrorElement.innerHTML = data["repo"];
             if (data["site"] === "200 OK") {
                 siteElement.style.color = "limegreen";
             } else {
                 siteElement.style.color = "red";
-            }
-            if (data["dev"] === "200 OK") {
-                devElement.style.color = "limegreen";
-            } else {
-                devElement.style.color = "red";
             }
             if (data["dl"] === "200 OK") {
                 dlElement.style.color = "limegreen";
