@@ -1,4 +1,4 @@
-var audio = new Audio('/assets/scatteredcells.ogg');
+var audio = new Audio('/assets/scatteredcells.opus');
 var eaudion = false;
 
 function sleep(ms) {
@@ -42,7 +42,7 @@ async function songPlay(songURL) {
 }
 
 async function playAprilCells() {
-  await songPlay('/assets/aprilscattered.ogg');
+  await songPlay('/assets/aprilscattered.opus');
 }
 
 function smoothScroll() {
