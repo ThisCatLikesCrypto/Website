@@ -1,6 +1,6 @@
 /* Fonts (in case they're not installed)*/
-@import url("https://assets.c48.uk/lexend.css");
-@import url("https://assets.c48.uk/montserrat.css");
+@import url("https://assets.c48.uk/fonts/lexend.css");
+@import url("https://assets.c48.uk/fonts/montserrat.css");
 
 /* Stuff that needs to affect the whole page */
 body {
