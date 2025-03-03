@@ -24,10 +24,22 @@ import Layout from '../layouts/Layout.astro';
     <p>
         <a href="https://c48.uk">c48.uk</a> (redirects to wilburwilliams.uk, I'll use it for some other stuff in the
         future, bought it as a short URL)<br>
-        <a href="https://repo.c48.uk">repo.c48.uk</a> (hosts some mirrors under the EyeScary name)<br>
-        <a href="http://sathonyia.srv.c48.uk">sathonyia.srv.c48.uk</a> (my UK VPS server that hosts repo.c48.uk)<br>
-        <a href="http://melina.srv.c48.uk">melina.srv.c48.uk</a> (my German VPS server, will host this site in the
-        future [probably])
+        <a href="http://sathonyia.srv.c48.uk">sathonyia.srv.c48.uk</a> (my UK VPS server) hosts:
+        <ul>
+            <li><a href="https://repo.c48.uk">repo.c48.uk</a> (hosts some mirrors under the EyeScary name)</li>
+            <li><a href="https://gcore.c48.uk">gcore.c48.uk</a> (repo.c48.uk proxied through gcore for wGrid's API)</li>
+        </ul>
+        <a href="https://melina.srv.c48.uk">melina.srv.c48.uk</a> (my German VPS server) hosts:
+        <ul>
+            <li><a href="https://de.repo.c48.uk">de.repo.c48.uk</a> (hosts mirrors, in Germany this time)</li>
+            <li><a href="https://panel.vivwebz.net">panel.vivwebz.net</a> (a file management for vivwebz [my friend's site])</li>
+        </ul>
+        <p>and proxied through CDNs:</p>
+        <ul>
+            <li><a href="https://assets.c48.uk">assets.c48.uk</a> (shared assets for my stuff, through AWS CloudFront's free plan)</li>
+            <li><a href="https://assets.vivwebz.net">assets.vivwebz.net</a> (assets for vivwebz, through Vivian's Cloudflare account)</li>
+            <li>and this site, which is through Gcore</li>
+        </ul>
     </p>
     <br>
     <h3>grid.me.uk</h3>
