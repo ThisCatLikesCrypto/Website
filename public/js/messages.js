@@ -8,7 +8,7 @@ let messages = [
   "Oh, this? It's just web dev",
   "Imagine not knowing how to code, couldn't be me!",
   "Aww sweetie, you don't know what JS is?",
-  "Looks like some intensity data slipped in there, didn't it?"
+  "hehe sudo rm -rf /*"
 ];
 
 let currentIndex = 0;
