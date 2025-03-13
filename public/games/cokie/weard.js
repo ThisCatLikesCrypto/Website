@@ -1,12 +1,14 @@
 var cokcl = 0;
 var cursorAmount = 0;
 var procursorAmount = 0;
-var farmamount = 0;
+var farmAmount = 0;
+var factoryAmount = 0;
 var msg = "";
 var cookiesGainedByClicking = 1;
 var priceocur = 5;
 var priceoprocur = 10;
-var priceofarm = 1000;
+var priceofarm = 100;
+var priceofactory = 1000;
 
 function saveCookie(name, saveString) {
   // Set the cookie with a 10-year expiration
@@ -49,7 +51,7 @@ const writeToTextFile = (text, fileName) => {
 // Encodes Saves
 function encodeV001() {
   const header = "cokclv001";
-  let saveString = header + "-" + "AA" + cokcl + "AB" + cookiesGainedByClicking + "BA" + cursorAmount + "BB" + procursorAmount + "BC" + farmamount;
+  let saveString = header + "-" + "AA" + cokcl + "AB" + cookiesGainedByClicking + "BA" + cursorAmount + "BB" + procursorAmount + "BC" + farmAmount + "CA" + factoryAmount;
   return saveString;
 }
 
@@ -67,9 +69,10 @@ function decodeV001(saveString) {
   cookiesGainedByClicking = parseInt(saveString.split("AB")[1].split("BA")[0]);
   cursorAmount = parseInt(saveString.split("BA")[1].split("BB")[0]);
   procursorAmount = parseInt(saveString.split("BB")[1].split("BC")[0]);
-  farmamount = parseInt(saveString.split("BC")[1]);
+  farmAmount = parseInt(saveString.split("BC")[1]);
+  factoryAmount = parseInt(saveString.split("CA")[1]);
 
-  console.log(`cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}, farmamount ${farmamount}.`);
+  console.log(`cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}, farmAmount ${farmAmount}.`);
 }
 
 // Saves the Game (To a Browser Cookie)
@@ -97,8 +100,8 @@ function saveload() {
 }
 
 function quickRun() {
-  if (farmamount > 0) {
-    priceofarm = 1000 * farmamount
+  if (farmAmount > 0) {
+    priceofarm = 100 * farmAmount
     document.getElementById("farmby").innerHTML = priceofarm;
   }
   if (cursorAmount > 0) {
@@ -109,19 +112,25 @@ function quickRun() {
     priceoprocur = 10 * procursorAmount
     document.getElementById("procurby").innerHTML = priceoprocur;
   }
+  if (factoryAmount > 0) {
+    priceofactory = 1000 * factoryAmount
+    document.getElementById("factoryby").innerHTML = priceofactory;
+  }
 }
 
 function updateCount() {
-  stats = "Du hast: " + cokcl + " cokie(s), " + cursorAmount + " cursor(s), " + procursorAmount + " pro cursor(s), " + farmamount + " farm(s).";
+  stats = "Du hast: " + cokcl + " cokie(s), " + cursorAmount + " cursor(s), " + procursorAmount + " pro cursor(s), " + farmAmount + " farm(s), " + factoryAmount + " factory(s).";
+  document.getElementById("cps").innerHTML = "You're generating " + (cursorAmount + (procursorAmount*2) + (farmAmount*10) + (factoryAmount*100)) + " cokies automatically per second.";
   document.getElementById("counter").innerHTML = stats;
   document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
 }
 
 function runner() {
   // Update Counter
-  cokcl += 0.5 * cursorAmount;
-  cokcl += 1 * procursorAmount;
-  cokcl += 10 * farmamount
+  cokcl += 1 * cursorAmount;
+  cokcl += 2 * procursorAmount;
+  cokcl += 10 * farmAmount;
+  cokcl += 100 * factoryAmount;
   updateCount();
 
   // Update Message
@@ -134,7 +143,7 @@ function runner() {
   } else if (cokcl > 100) {
     msg = "Local enterprise, you have many happy customers";
   } else if (cokcl > 10) {
-    msg = "Beginner business: Supplying stuff for the local female trooper (girl scout, pittab thought this was funny) group";
+    msg = "Beginner business: Supplying stuff for the girl scout group";
   } else {
     msg = "Your business just begun, have fun!";
   }
@@ -168,8 +177,16 @@ function buyCursor() {
 }
 function buyfarm() {
   if (cokcl > priceofarm) {
-    farmamount += 1;
+    farmAmount += 1;
     cokcl -= priceofarm;
+  }
+  quickRun()
+}
+
+function buyfactory() {
+  if (cokcl > priceofactory) {
+    factoryAmount += 1;
+    cokcl -= priceofactory;
   }
   quickRun()
 }
