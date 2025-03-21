@@ -1,4 +1,9 @@
 @import url("minecraft.css");
+@import url("https://assets.c48.uk/fonts/sometype-mono.css");
+
+code {
+    font-family: "Sometype Mono", monospace;
+}
 
 .splash {
     font-family: "Minecraft", sans-serif;

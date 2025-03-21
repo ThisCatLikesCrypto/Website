@@ -15,7 +15,7 @@ try {
         "link3": "https://docs.google.com",
         "link4": "https://github.com",
         "link5": "https://ecosia.org/chat",
-        "link6": "https://wilbur.is-a.dev/wTextitor",
+        "link6": "https://wilburwilliams.uk/wTextitor",
         "link7": "https://app.electricitymaps.com/map",
         "link8": "https://quizlet.com/latest",
         "link9": "https://dashboard.blooket.com"
