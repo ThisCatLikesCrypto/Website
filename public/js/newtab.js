@@ -1,4 +1,11 @@
-var domainEndings = ["uk", "com", "net", "org", "co", "ooo", "ca", "de", "eu", "us", "cn", "in", "website", "site", "tr", "dev"];
+const domainEndings = [
+    "com", "net", "org", "co", "uk", "de", "cn", "us", "ru", "info",
+    "xyz", "top", "site", "club", "online", "biz", "shop", "website", "store", "live",
+    "pro", "tech", "blog", "me", "ca", "fr", "au", "in", "eu", "it",
+    "nl", "es", "cz", "tr", "ch", "se", "no", "br", "pl", "jp",
+    "mx", "id", "kr", "vn", "za", "ar", "at", "be", "dk", "gr", 
+    "dev", "app", "io", "network", "ooo", "me", "cx", "services"
+];
 var titleIndex = 0;
 var titles = "";
 
@@ -6,21 +13,17 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-try {
-    var directory = JSON.parse(localStorage.getItem("directory"));
-} catch {
-    var directory = {
-        "link1": "https://bing.com/chat",
-        "link2": "https://classroom.google.com",
-        "link3": "https://docs.google.com",
-        "link4": "https://github.com",
-        "link5": "https://ecosia.org/chat",
-        "link6": "https://wilburwilliams.uk/wTextitor",
-        "link7": "https://app.electricitymaps.com/map",
-        "link8": "https://quizlet.com/latest",
-        "link9": "https://dashboard.blooket.com"
-    };
-}
+var directory = JSON.parse(localStorage.getItem("directory")) || {
+    "link1": "https://bing.com/chat",
+    "link2": "https://classroom.google.com",
+    "link3": "https://docs.google.com",
+    "link4": "https://github.com",
+    "link5": "https://ecosia.org/chat",
+    "link6": "https://wilburwilliams.uk/wTextitor",
+    "link7": "https://app.electricitymaps.com/map",
+    "link8": "https://quizlet.com/latest",
+    "link9": "https://dashboard.blooket.com"
+};
 
 function getLink(Link) {
     return directory[Link];
