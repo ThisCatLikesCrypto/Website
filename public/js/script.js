@@ -246,6 +246,10 @@ async function technologyConnectionsOutro(keysContainer) {
   window.location.reload();
 }
 
+async function killerQueen() {
+  await songPlay('/assets/killerqueen.opus');
+}
+
 // Feel free to cheat if you want lmao
 async function handleKeyPress(event) {
   const keysContainer = document.getElementById('keys-container');
@@ -262,9 +266,11 @@ async function handleKeyPress(event) {
   const jasperCode = "KeyJKeyAKeySKeyPKeyEKeyR";
   const graphs = "KeyGKeyRKeyAKeyPKeyHKeyS";
   const rm = "KeyRKeyMMinusKeyRKeyFSlash";
-  const connect = "KeyCKeyOKeyNKeyNKeyEKeyCKeyT"
+  const connect = "KeyCKeyOKeyNKeyNKeyEKeyCKeyT";
+  const killerqueen = "KeyKKeyIKeyLKeyLKeyEKeyRKeyQKeyUKeyEKeyEKeyN";
+  const killerqueenwithspace = "KeyKKeyIKeyLKeyLKeyEKeyRSpaceKeyQKeyUKeyEKeyEKeyN";
 
-  if (keys.join("") === konamiCode && eaudion == false) {
+  if (keys.join("") === konamiCode) {
     await sleep(500);
     keysContainer.style.color = "lime";
     playAprilCells();
@@ -298,6 +304,10 @@ async function handleKeyPress(event) {
     keysContainer.style.color = "lime";
     await sleep(250);
     technologyConnectionsOutro(keysContainer);
+  } else if (keys.join("").endsWith(killerqueen) || keys.join("").endsWith(killerqueenwithspace)) {
+    keysContainer.style.color = "lime";
+    await sleep(500);
+    killerQueen();
   }
 }
 
