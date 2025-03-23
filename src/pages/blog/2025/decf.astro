@@ -1,0 +1,73 @@
+---
+import Blog from '../../../layouts/Blog.astro';
+---
+
+<Blog title="De-Cloudflareing">
+    <div id="main">
+        <h1 class="centretext">De-Cloudflareing</h1>
+        <p class="centretext"><i>2025-03-23</i></p>
+        <h2>Intro</h2>
+        <p>
+            Over the past few months I've been taking more and more things off 
+            of cloudflare. This includes my website, DNS, and domains.
+        </p>
+        <h2>Why?</h2>
+        <p>
+            While I actually love Cloudflare, I've been moving off of it for 
+            two reasons:
+            <ol>
+                <li>It's based in America, and I'm in the UK. I don't want to 
+                    be supporting a Trumpian America and I don't really trust 
+                    the US anymore, either. I don't want to be so tied down to
+                    them.</li>
+                <li>I'm uh... <i>technically</i> breaking TOS for being under 
+                    18. I didn't actually realise this when signing up, but it's probably 
+                    a smart idea to _not_ break TOS, y'know?</li>
+            </ol>
+        </p>
+        <h2>What?</h2>
+        <p>
+            So far, this is what I've migrated:
+            <ol>
+                <li>Domains. This includes aqasbasement.uk, c48.uk, this domain, grid.me.uk, 
+                    and pretty much everything except peppahack.dev (which I won't renew) and 
+                    wilburwilliams.com (which I use exclusively for cloudflare services, like r2).
+                </li>
+                <li>DNS. Obviously with Cloudflare registrar your domains are tied to Cloudflare's 
+                    DNS, however this is not the case with other registrars. At the moment grid.me.uk 
+                    and aqasbasement.uk are still on Cloudflare's DNS, but I'm going to move them at some point.
+                </li>
+                <li>Websites. Cloudflare Pages still hosts wilburwilliams.com, grid.me.uk and aqasbasement.uk, but everything 
+                    else is off of there.
+                </li>
+            </ol>
+        </p>
+        <h2>Where to?</h2>
+        <p>
+            There's quite a few different providers now. Domains are simple, they're on <a href="https://www.netim.com">Netim</a>. 
+            The reasoning for this is that they're French-based, so not American, and I'm not breaking TOS by being under 18.<br>
+            DNS for jasperweb.uk is on Netim, but everything else that's moved is on <a href="https://gcore.com">GCore</a>'s DNS.
+            GCore are Luxembourgish and therefore I'm alright with them being a critical part of my infrastructure.<br>
+            This website uses <a href="https://melina.srv.c48.uk">this server</a> for hosting, and GCore's CDN in front of it.<br>
+            Lots of other stuff including jasperweb.uk and eyescary sites are on <a href="https://pages.github.com">GitHub Pages</a>. 
+            While I know GitHub is American, I'm not paying them, and I can easily move to a different host in under 30 minutes.<br>
+            <a href="https://assets.c48.uk">assets.c48.uk</a> is a new domain I created during migrations for assets, with the backend 
+            being melina.srv.c48.uk again. This is through Amazon CloudFront, and I'm using that for the sole purpose of making 
+            them pay very small amounts of money whenever someone loads I page I made :D
+        </p>
+        <h2>How much does this cost?</h2>
+        <p>
+            I'm paying about £6 more a year per .uk I migrate, but all of GCore's services I'm using are free and GH Pages is free.
+        </p>
+        <h2>What's next?</h2>
+        <p>
+            I'm not sure when grid.me.uk and aqasbasement.uk will be moved, but I'm going to move them at some point. Because domains 
+            for those have moved to Netim, I feel a lot safer keeping them on Cloudflare since I can easily move them to a different 
+            host quickly, if required.<br>
+            I don't think I'll host either of those sites on melina.srv.c48.uk, so I think I'll end up using Netlify or Vercel or Azure 
+            Static Web Apps or something.<br>
+            If I ever get enough traffic to make it so I need to pay, I'll likely use <a href="https://bunny.net">Bunny.net</a> as they've 
+            slowly become my favourite provider, and they're Slovenia-based.
+        </p>
+    </div>
+</Blog>
