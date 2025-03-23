@@ -1,4 +1,3 @@
-var audio = new Audio('/assets/scatteredcells.opus');
 var eaudion = false;
 
 function sleep(ms) {
@@ -22,6 +21,12 @@ async function songPlay(songURL) {
   }
 
   eaudion = true;
+
+  try {
+    audio = document.getElementById('audioPlayer');
+  } catch {
+    console.log("djsifsd2");
+  }
 
   if (audio) {
     audio.pause();

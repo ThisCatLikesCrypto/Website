@@ -14,13 +14,22 @@ import "../styles/index.css";
     </p>
     <p class="centretext">
         <a class="abutp" id="musiccontrol">*Click here to play music!*</a>
+        <br>
+        <!-- Music Player Controls -->
+        <button id="prevTrack">Previous</button>
+        <button id="nextTrack">Next</button>
+        <br>
+        <sub><a href="https://music.eyescary.uk">ESMusic</a></sub>
     </p>
+    <!-- Hidden audio element -->
+    <audio id="audioPlayer" preload="auto"></audio>
     <div class="section maindivdiv">
         <div>
             <h2>Webrings</h2>
             <b><a class="abutp" href="https://webring.dinhe.net/">Retronaut webring</a></b>
             <p>
-                <a href="https://webring.dinhe.net/prev/https://wilburwilliams.uk">Previous</a> | <a href="https://webring.dinhe.net/next/https://wilburwilliams.uk">Next</a>
+                <a href="https://webring.dinhe.net/prev/https://wilburwilliams.uk">Previous</a> |
+                <a href="https://webring.dinhe.net/next/https://wilburwilliams.uk">Next</a>
             </p>
         </div>
         <div>
@@ -34,15 +43,17 @@ import "../styles/index.css";
             </p>
             <p>
                 Feel free to have a look around this site to explore from the
-                <a href="HTML2/wilbur/manipulator.html">downright stupid</a>
-                to the
+                <a href="HTML2/wilbur/manipulator.html">downright stupid</a> to the
                 <a href="newtab/">actually kinda cool</a>.
             </p>
             <p>
                 My hyperfixations (interests) include computer hardware (and
                 electronics in general), software engineering (duh),
                 cryptotechnology, and
-                <a href="https://dl.wilburwilliams.uk/Other/Underground%20Sync.mov">trains/trams</a>.
+                <a
+                    href="https://dl.wilburwilliams.uk/Other/Underground%20Sync.mov"
+                    >trains/trams</a
+                >.
             </p>
             <p>
                 I enjoy programming, researching random stuff (I spend too much
@@ -60,7 +71,9 @@ import "../styles/index.css";
             </p>
             <p><a href="publickey.html">Public key here</a></p>
             <p>
-                <a class="abutp" href="https://time.is/United_Kingdom">My Time:</a>
+                <a class="abutp" href="https://time.is/United_Kingdom"
+                    >My Time:</a
+                >
                 <span id="mytime"></span>
             </p>
             <p><a href="https://github.com/ThisCatLikesCrypto">My GitHub</a></p>
@@ -142,7 +155,7 @@ import "../styles/index.css";
                 >
             </a>
             <a href="https://fluoritebyte.neocities.org">
-                <img 
+                <img
                     loading="eager"
                     src="https://fluoritebyte.neocities.org/88x31.png"
                     alt="fluoritebyte"
@@ -166,15 +179,99 @@ import "../styles/index.css";
         <h3 class="centretext">
             <code>
                 <span class="line">Website: <span id="sitestatus"></span></span>
-                <span class="line">&nbsp;&nbsp;Downloads Site: <span id="dlstatus"></span></span>
-                <span class="line">&nbsp;&nbsp;Mirror: <span id="mirrorstatus"></span></span>
+                <span class="line"
+                    >&nbsp;&nbsp;Downloads Site: <span id="dlstatus"
+                    ></span></span
+                >
+                <span class="line"
+                    >&nbsp;&nbsp;Mirror: <span id="mirrorstatus"></span></span
+                >
             </code>
         </h3>
     </div>
     <br>
 </Layout>
+
 <script>
-    var eaudion = false;
+    // --- Music Player Code ---
+    // List of song URLs – update these with your actual songs.
+    const songList = [
+        "/assets/scatteredcells.opus",
+        "https://eyescary-development.github.io/CDN/musik/ESDP2/BHP_IS_A_ONE_CENT_STOCK_FRAUD.mp3",
+        "https://eyescary-development.github.io/CDN/musik/DRUMNBASS/DRUMNBASS1.mp3",
+        // add more song URLs as needed
+    ];
+
+    // Function to shuffle an array (Fisher-Yates algorithm)
+    function shuffleArray(array) {
+        let currentIndex = array.length,
+            temporaryValue,
+            randomIndex;
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
+    }
+
+    // Create a randomly sorted queue of songs.
+    let shuffledSongs = shuffleArray([...songList]); // Copy and shuffle
+    let currentTrack = 0;
+    const audio = document.getElementById("audioPlayer");
+
+    // Load a track by index.
+    function loadTrack(index) {
+        if (index < 0 || index >= shuffledSongs.length) return;
+        audio.src = shuffledSongs[index];
+        audio.load();
+    }
+
+    // Initialize the player with the first track.
+    loadTrack(currentTrack);
+    let isPlaying = false;
+
+    // Toggle play and pause.
+    function togglePlay() {
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+            document.getElementById("musiccontrol").innerHTML =
+                "Click to resume music";
+        } else {
+            audio.play();
+            isPlaying = true;
+            document.getElementById("musiccontrol").innerHTML =
+                "Click to pause music";
+        }
+    }
+
+    // Play the next track in the queue.
+    function nextTrack() {
+        currentTrack = (currentTrack + 1) % shuffledSongs.length;
+        loadTrack(currentTrack);
+        if (isPlaying) {
+            audio.play();
+        }
+    }
+
+    // Play the previous track in the queue.
+    function prevTrack() {
+        currentTrack =
+            (currentTrack - 1 + shuffledSongs.length) % shuffledSongs.length;
+        loadTrack(currentTrack);
+        if (isPlaying) {
+            audio.play();
+        }
+    }
+    
+    // When a track ends, move to the next one.
+    audio.addEventListener("ended", function () {
+        nextTrack();
+    });
+
     var splashtext = [
         "Why does this exist again",
         "prefers-reduced-motion: no movement",
@@ -190,8 +287,7 @@ import "../styles/index.css";
     ];
 
     function choose(choices) {
-        var index = Math.floor(Math.random() * choices.length);
-        return choices[index];
+        return choices[Math.floor(Math.random() * choices.length)];
     }
 
     function getUKTime() {
@@ -202,43 +298,20 @@ import "../styles/index.css";
             minute: "2-digit",
             second: "2-digit",
         });
-        const ukTime = ukTimeFormatter.format(now);
-        return ukTime;
+        return ukTimeFormatter.format(now);
     }
-
-    function playmusic() {
-        if (!eaudion) {
-            audio.play();
-            const muct = document.getElementById("musiccontrol");
-            muct.innerHTML = "Click to pause music";
-            muct.onclick = pausemusic;
-            audio.addEventListener("ended", function () {
-                audio.currentTime = 0;
-                audio.play();
-            });
-        }
-    }
-
-    function pausemusic() {
-        audio.pause();
-        eaudion = false;
-        const muct = document.getElementById("musiccontrol");
-        muct.innerHTML = "Click to resume music";
-        muct.onclick = playmusic;
-    }
-
-    document.addEventListener("DOMContentLoaded", async function () {
-        document.getElementById("mytime").innerHTML = getUKTime();
+    // --- Event Listeners ---
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("musiccontrol").onclick = togglePlay;
+        document.getElementById("prevTrack").onclick = prevTrack;
+        document.getElementById("nextTrack").onclick = nextTrack;
         document.getElementById("splash").innerHTML = choose(splashtext);
-        document.getElementById("musiccontrol").onclick = playmusic;
+        document.getElementById("mytime").innerHTML = getUKTime();
     });
-
     setInterval(function () {
         document.getElementById("mytime").innerHTML = getUKTime();
     }, 1000);
-
     const url = "https://ww-status.thiscatlikescrypto.workers.dev/all";
-
     async function fetchStatus() {
         try {
             const response = await fetch(url);
@@ -250,21 +323,12 @@ import "../styles/index.css";
             siteElement.innerHTML = data["site"];
             dlElement.innerHTML = data["dl"];
             mirrorElement.innerHTML = data["repo"];
-            if (data["site"] === "200 OK") {
-                siteElement.style.color = "limegreen";
-            } else {
-                siteElement.style.color = "red";
-            }
-            if (data["dl"] === "200 OK") {
-                dlElement.style.color = "limegreen";
-            } else {
-                dlElement.style.color = "red";
-            }
-            if (data["repo"] === "200 OK") {
-                mirrorElement.style.color = "limegreen";
-            } else {
-                mirrorElement.style.color = "red";
-            }
+            siteElement.style.color =
+                data["site"] === "200 OK" ? "limegreen" : "red";
+            dlElement.style.color =
+                data["dl"] === "200 OK" ? "limegreen" : "red";
+            mirrorElement.style.color =
+                data["repo"] === "200 OK" ? "limegreen" : "red";
         } catch (error) {
             console.error(
                 "There was a problem with the fetch operation:",
