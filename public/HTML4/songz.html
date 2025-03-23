@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Songz</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Songz</h1>
+    <p>enjoy the chaos</p>
+    <p>didn't work? click <button onclick="playAll()">here</button></p>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const songlist =  [
+                "/assets/scatteredcells.opus",
+                "https://eyescary-development.github.io/CDN/musik/ESDP2/BHP_IS_A_ONE_CENT_STOCK_FRAUD.mp3",
+                "https://eyescary-development.github.io/CDN/musik/ESDP2/BHP_IS_A_ONE_CENT_STOCK_FRAUD_2.mp3",
+                "https://eyescary-development.github.io/CDN/musik/DRUMNBASS/DRUMNBASS1.mp3",
+                "https://eyescary-development.github.io/CDN/musik/DRUMNBASS/DRUMNBASS2.mp3",
+                "https://eyescary-development.github.io/CDN/musik/DRUMNBASS/DRUMNBASS3.mp3",
+                "https://eyescary-development.github.io/CDN/musik/DRUMNBASS/DRUMNBASS4.mp3",
+                "https://eyescary-development.github.io/CDN/musik/ESDP2/Stronge.mp3",
+                "https://eyescary-development.github.io/CDN/musik/ESDP2/Stronge_2.mp3",
+                "https://eyescary-development.github.io/CDN/musik/ESDP1/AGPM.mp3",
+                "https://eyescary-development.github.io/CDN/musik/ESDP1/Harmony.mp3",
+                "https://eyescary-development.github.io/CDN/musik/ESDP3/E.mp3",
+                "https://eyescary-development.github.io/CDN/musik/ESDP3/E_2.mp3",
+                "https://eyescary-development.github.io/CDN/musik/ESDP3/England.mp3",
+                "https://eyescary-development.github.io/CDN/musik/ESDP3/England_2.mp3",
+                "/assets/aprilscattered.opus",
+                "/assets/floaters.ogx",
+                "/assets/killerqueen.opus",
+            ];
+            songlist.forEach(function(song) {
+                const audio = document.createElement("audio");
+                audio.src = song;
+                audio.controls = true;
+                audio.autoplay = true;
+                audio.style.width = "100%";
+                document.body.appendChild(audio);
+            });
+        });
+        function playAll() {
+                audioelements = document.getElementsByTagName("audio");
+                for (let i = 0; i < audioelements.length; i++) {
+                    audioelements[i].play();
+                }
+        }
+    </script>
+</body> 
