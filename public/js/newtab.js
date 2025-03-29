@@ -14,12 +14,12 @@ function sleep(ms) {
 }
 
 var directory = JSON.parse(localStorage.getItem("directory")) || {
-    "link1": "https://bing.com/chat",
+    "link1": "https://copilot.microsoft.com",
     "link2": "https://classroom.google.com",
     "link3": "https://docs.google.com",
     "link4": "https://github.com",
     "link5": "https://ecosia.org/chat",
-    "link6": "https://wilburwilliams.uk/wTextitor",
+    "link6": "https://grid.me.uk",
     "link7": "https://app.electricitymaps.com/map",
     "link8": "https://quizlet.com/latest",
     "link9": "https://dashboard.blooket.com"
@@ -86,7 +86,7 @@ function searchEcosia() {
     localStorage.setItem('points', parseInt(localStorage.getItem('points'))+1);
     getPoints();
     if (searchTerm === ""){
-        window.location.href="https://ecosia.org/chat";
+        window.location.href="https://www.ecosia.org/chat";
     } else {
         window.location.href = "https://www.ecosia.org/search?q=" + encodeURIComponent(searchTerm);
     }
@@ -101,7 +101,7 @@ function searchGoogle() {
 
 function search(query) {
     var searchTerm = query || document.getElementById("searchInput").value;
-    var engine = localStorage.getItem("engine") || "https://ecosia.org/search?q=%s";
+    var engine = localStorage.getItem("engine") || "https://www.ecosia.org/search?q=%s";
 
     console.log(searchTerm);
 
@@ -265,10 +265,10 @@ function loadSearchOptions() {
 
 function lazyAss(){
     // set all my settings
-    localStorage.setItem('directory', '{"link1":"https://bing.com/chat","link2":"https://classroom.google.com/u/1/","link3":"https://docs.google.com","link4":"https://github.com","link5":"https://ecosia.org/chat","link6":"https://grid.me.uk","link7":"https://app.electricitymaps.com/map","link8":"https://quizlet.com/latest","link9":"https://dashboard.blooket.com"}');
+    localStorage.setItem('directory', '{"link1":"https://copilot.microsoft.com","link2":"https://classroom.google.com/u/1/","link3":"https://docs.google.com","link4":"https://github.com","link5":"https://ecosia.org/chat","link6":"https://grid.me.uk","link7":"https://app.electricitymaps.com/map","link8":"https://quizlet.com/latest","link9":"https://dashboard.blooket.com"}');
     localStorage.setItem('inlineCSS', 'body {background-image: url("../assets/background.png");}');
     localStorage.setItem('theme', '../css/themes/deep.css');
-    localStorage.setItem('title', "[quark, <span style='color: crimson'>ANTI QUARK!!!!</span>, how are you today?, <span style='color: white'>i wonder how long one of these can be</span>, <i style='color: pink'>Welcome to osu!</i>, <img src='https://media.wetdry.world/custom_emojis/images/000/200/093/original/b33cffec87dc68fc.gif' style='background: transparent !important' width=85>, <a href='https://1centstock.com'>BHP IS A ONE CENT STOCK FRAUD!!</a>, <i>big banana cheescake</i>]");
+    localStorage.setItem('title', "[quark, <span style='color: crimson'>ANTI QUARK!!!!</span>, how are you today?, <span style='color: white'>i wonder how long one of these can be</span>, <i style='color: pink'>Welcome to osu!</i>, <img src='https://assets.c48.uk/spinny_cat/spinny_cat_aroace.gif' style='background: transparent !important' width=85>, <a href='https://1centstock.com'>BHP IS A ONE CENT STOCK FRAUD!!</a>, <i>big banana cheescake</i>]");
     window.location.reload();
 }
 
