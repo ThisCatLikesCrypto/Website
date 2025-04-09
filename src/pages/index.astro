@@ -15,13 +15,11 @@ import "../styles/index.css";
     <p class="centretext">
         <a class="abutp" id="musiccontrol">*Click here to play music!*</a>
         <br>
-        <!-- Music Player Controls -->
         <button id="prevTrack">Previous</button>
         <button id="nextTrack">Next</button>
         <br>
         <sub><a href="https://music.eyescary.uk">ESMusic</a></sub>
     </p>
-    <!-- Hidden audio element -->
     <audio id="audioPlayer" preload="auto"></audio>
     <div class="section maindivdiv">
         <div>
@@ -194,15 +192,13 @@ import "../styles/index.css";
 
 <script>
     // --- Music Player Code ---
-    // List of song URLs – update these with your actual songs.
     const songList = [
         "/assets/scatteredcells.opus",
         "https://eyescary-development.github.io/CDN/musik/ESDP2/BHP_IS_A_ONE_CENT_STOCK_FRAUD.mp3",
         "https://eyescary-development.github.io/CDN/musik/DRUMNBASS/DRUMNBASS1.mp3",
-        // add more song URLs as needed
     ];
 
-    // Function to shuffle an array (Fisher-Yates algorithm)
+    // (Fisher-Yates algorithm)
     function shuffleArray(array) {
         let currentIndex = array.length,
             temporaryValue,
@@ -217,23 +213,18 @@ import "../styles/index.css";
         return array;
     }
 
-    // Create a randomly sorted queue of songs.
-    let shuffledSongs = shuffleArray([...songList]); // Copy and shuffle
+    let shuffledSongs = shuffleArray([...songList]);
     let currentTrack = 0;
     const audio = document.getElementById("audioPlayer");
 
-    // Load a track by index.
     function loadTrack(index) {
         if (index < 0 || index >= shuffledSongs.length) return;
         audio.src = shuffledSongs[index];
-        audio.load();
     }
 
-    // Initialize the player with the first track.
     loadTrack(currentTrack);
     let isPlaying = false;
 
-    // Toggle play and pause.
     function togglePlay() {
         if (isPlaying) {
             audio.pause();
@@ -248,7 +239,6 @@ import "../styles/index.css";
         }
     }
 
-    // Play the next track in the queue.
     function nextTrack() {
         currentTrack = (currentTrack + 1) % shuffledSongs.length;
         loadTrack(currentTrack);
@@ -257,7 +247,6 @@ import "../styles/index.css";
         }
     }
 
-    // Play the previous track in the queue.
     function prevTrack() {
         currentTrack =
             (currentTrack - 1 + shuffledSongs.length) % shuffledSongs.length;
@@ -267,7 +256,6 @@ import "../styles/index.css";
         }
     }
     
-    // When a track ends, move to the next one.
     audio.addEventListener("ended", function () {
         nextTrack();
     });
