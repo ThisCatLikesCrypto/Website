@@ -52,7 +52,7 @@ async function playAprilCells() {
 
 function smoothScroll() {
   let scrollbar = document.getElementById("scrollibit");
-  let scrollSpeed = 1.5;
+  let scrollSpeed = 1;
 
   function scrollStep() {
     if (scrollbar.scrollTop < scrollbar.scrollHeight - scrollbar.clientHeight) {
