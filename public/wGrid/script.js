@@ -139,7 +139,7 @@ async function main() {
     displayGenData(generationData);
 }
 
-//Yes you need JS to click links. In fairness, if you visit this without JS the hell are you trying to do?
+// Yes you need JS to click links. In fairness, if you visit this without JS the hell are you trying to do?
 function goPlaces(place){
     window.location.href=place;
 }

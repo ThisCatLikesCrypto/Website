@@ -3,9 +3,10 @@ const domainEndings = [
     "xyz", "top", "site", "club", "online", "biz", "shop", "website", "store", "live",
     "pro", "tech", "blog", "me", "ca", "fr", "au", "in", "eu", "it",
     "nl", "es", "cz", "tr", "ch", "se", "no", "br", "pl", "jp",
-    "mx", "id", "kr", "vn", "za", "ar", "at", "be", "dk", "gr", 
+    "mx", "id", "kr", "vn", "za", "ar", "at", "be", "dk", "gr",
     "dev", "app", "io", "network", "ooo", "me", "cx", "services"
 ];
+
 var titleIndex = 0;
 var titles = "";
 
@@ -29,7 +30,7 @@ function getLink(Link) {
     return directory[Link];
 }
 
-function updateLinkList(){
+function updateLinkList() {
     var ul = document.getElementById("availableLinks");
     ul.innerHTML = "";
     for (var key in directory) {
@@ -82,25 +83,25 @@ function hideOptions() {
 }
 
 function searchEcosia() {
-    var searchTerm = document.getElementById("searchInput").value;
-    localStorage.setItem('points', parseInt(localStorage.getItem('points'))+1);
+    const searchTerm = document.getElementById("searchInput").value;
+    localStorage.setItem('points', parseInt(localStorage.getItem('points')) + 1);
     getPoints();
-    if (searchTerm === ""){
-        window.location.href="https://www.ecosia.org/chat";
+    if (searchTerm === "") {
+        window.location.href = "https://www.ecosia.org/chat";
     } else {
         window.location.href = "https://www.ecosia.org/search?q=" + encodeURIComponent(searchTerm);
     }
 }
 
 function searchGoogle() {
-    var searchTerm = document.getElementById("searchInput").value;
-    localStorage.setItem('points', parseInt(localStorage.getItem('points'))+1);
+    const searchTerm = document.getElementById("searchInput").value;
+    localStorage.setItem('points', parseInt(localStorage.getItem('points')) + 1);
     getPoints();
     window.location.href = "https://google.com/search?q=" + encodeURIComponent(searchTerm);
 }
 
 function search(query) {
-    var searchTerm = query || document.getElementById("searchInput").value;
+    const searchTerm = query || document.getElementById("searchInput").value;
     var engine = localStorage.getItem("engine") || "https://www.ecosia.org/search?q=%s";
 
     console.log(searchTerm);
@@ -112,8 +113,8 @@ function search(query) {
     queryEnding = queryEnding[queryEnding.length - 1];
     console.log(queryEnding);
 
-    var searchquOption = localStorage.getItem("searchqu") || "https";
-    var searchexOption = localStorage.getItem("searchex") || "ddgbangs";
+    const searchquOption = localStorage.getItem("searchqu") || "https";
+    const searchexOption = localStorage.getItem("searchex") || "ddgbangs";
 
     if (searchTerm === "") {
         console.log("Empty search string");
@@ -155,11 +156,11 @@ function handleExclamationQuery(query, option) {
     }
 }
 
-function goPlaces(place){
-    window.location.href=place;
+function goPlaces(place) {
+    window.location.href = place;
 }
 
-function changeSearch(){
+function changeSearch() {
     var engine = document.getElementById("engineInput").value;
     console.log("Switching to " + engine);
     localStorage.setItem('engine', engine);
@@ -167,17 +168,17 @@ function changeSearch(){
     return false;
 }
 
-function titleCycle(){
-    ntitle = document.getElementById("ntitle");
+function titleCycle() {
+    const ntitle = document.getElementById("ntitle");
     let currentTitle = titles[titleIndex];
     currentTitle = currentTitle.replace(/\[\s*|\s*\]/g, '');
     ntitle.innerHTML = currentTitle;
     titleIndex = (titleIndex + 1) % titles.length;
 }
 
-function updateTitle(){
-    title = localStorage.getItem("title") || "New Tab Go Brrr";
-    if (title.startsWith("[") && title.endsWith("]")){
+function updateTitle() {
+    const title = localStorage.getItem("title") || "New Tab Go Brrr";
+    if (title.startsWith("[") && title.endsWith("]")) {
         titles = title.split(", ");
         titleCycle();
         setInterval(titleCycle, 10000);
@@ -186,36 +187,36 @@ function updateTitle(){
     }
 }
 
-function setNewTitle(){
-    newtitle = document.getElementById("newTitleInput").value;
+function setNewTitle() {
+    const newtitle = document.getElementById("newTitleInput").value;
     console.log("Switching title " + newtitle);
     localStorage.setItem("title", newtitle);
     document.getElementById('failthing2').innerHTML = "Updated to " + newtitle;
-    window.location.href="index.html";
+    window.location.href = "index.html";
 }
 
 function changeTheme(theme) {
-    themething = "../css/themes/" + theme + ".css";
+    const themething = "../css/themes/" + theme + ".css";
     document.getElementById("them").href = themething;
     localStorage.setItem("theme", themething);
 }
 
 function updateTheme() {
-    themething = localStorage.getItem("theme");
+    const themething = localStorage.getItem("theme");
     if (themething === null) {
         themething = "../css/themes/surface.css";
     }
     document.getElementById("them").href = themething;
 }
 
-function changeToCustomTheme(){
+function changeToCustomTheme() {
     const cssURL = document.getElementById("cssURL").value;
     localStorage.setItem("theme", cssURL);
     updateTheme();
     return false;
 }
 
-function updateInlineCSS(){
+function updateInlineCSS() {
     try {
         const inlineCSS = localStorage.getItem("inlineCSS");
         document.getElementById("inlineCustomCSS").innerHTML = inlineCSS;
@@ -225,14 +226,14 @@ function updateInlineCSS(){
     }
 }
 
-function useCustomInlineCSS(){
+function useCustomInlineCSS() {
     const inlineCSS = document.getElementById("inlineCSSeditor").textContent;
     localStorage.setItem("inlineCSS", inlineCSS);
     updateInlineCSS();
 }
 
 function getPoints() {
-    let pints = localStorage.getItem('points');
+    const pints = localStorage.getItem('points');
     if (pints === undefined || pints === null || pints === "") {
         localStorage.setItem('points', 0);
         document.getElementById('points™').innerHTML = 0;
@@ -242,43 +243,96 @@ function getPoints() {
 }
 
 function saveSearchQuOption() {
-    var searchqu = document.getElementById("searchqu").value;
+    const searchqu = document.getElementById("searchqu").value;
     localStorage.setItem("searchqu", searchqu);
 }
 
 function saveSearchExOption() {
-    var searchex = document.getElementById("searchex").value;
+    const searchex = document.getElementById("searchex").value;
     localStorage.setItem("searchex", searchex);
 }
 
 function loadSearchOptions() {
-    var searchqu = localStorage.getItem("searchqu");
+    const searchqu = localStorage.getItem("searchqu");
     if (searchqu) {
         document.getElementById("searchqu").value = searchqu;
     }
 
-    var searchex = localStorage.getItem("searchex");
+    const searchex = localStorage.getItem("searchex");
     if (searchex) {
         document.getElementById("searchex").value = searchex;
     }
 }
 
-function lazyAss(){
+function lazyAss() {
     // set all my settings
-    localStorage.setItem('directory', '{"link1":"https://copilot.microsoft.com","link2":"https://classroom.google.com/u/1/","link3":"https://docs.google.com","link4":"https://github.com","link5":"https://ecosia.org/chat","link6":"https://grid.me.uk","link7":"https://app.electricitymaps.com/map","link8":"https://quizlet.com/latest","link9":"https://dashboard.blooket.com"}');
+    localStorage.setItem('directory', '{"link1":"https://copilot.microsoft.com","link2":"https://classroom.google.com/u/1/h","link3":"https://docs.google.com","link4":"https://github.com","link5":"https://ecosia.org/chat","link6":"https://grid.me.uk","link7":"https://app.electricitymaps.com/map","link8":"https://quizlet.com/latest","link9":"https://dashboard.blooket.com"}');
     localStorage.setItem('inlineCSS', 'body {background-image: url("../assets/background.png");}');
     localStorage.setItem('theme', '../css/themes/deep.css');
     localStorage.setItem('title', "[quark, <span style='color: crimson'>ANTI QUARK!!!!</span>, how are you today?, <span style='color: white'>i wonder how long one of these can be</span>, <i style='color: pink'>Welcome to osu!</i>, <img src='https://assets.c48.uk/spinny_cat/spinny_cat_aroace.gif' style='background: transparent !important' width=85>, <a href='https://1centstock.com'>BHP IS A ONE CENT STOCK FRAUD!!</a>, <i>big banana cheescake</i>]");
     window.location.reload();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.getElementById("mesage").innerHTML = "It's just javascript, bro";
+
+const messages = [
+    "It's just JavaScript, bro",
+    "Bet you wish you could make this, huh?",
+    "What? Never seen a custom new tab before?",
+    "Oh, this? It's just web dev",
+    "Imagine not knowing how to code, couldn't be me!",
+    "Aww sweetie, you don't know what JS is?",
+    "hehe sudo rm -rf /*"
+];
+
+let currentIndex = 0;
+const messageElement = document.getElementById("mesage");
+
+function msgs() {
+    messageElement.innerHTML = messages[currentIndex];
+    currentIndex = (currentIndex + 1) % messages.length;
+}
+
+setInterval(msgs, 3000);
+
+function getDayOfWeek(day) {
+    const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    if (daysOfWeek[day] === undefined){
+        return 'Sunday' // dumb fix for breakage on Sunday
+    } else {
+        return daysOfWeek[day];
+    }
+}
+
+function getTime() {
+    const now = new Date();
+    const date = now.getDate().toString().padStart(2, '0');
+    const dayOfWeek = getDayOfWeek(now.getDay() - 1);
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const year = now.getFullYear().toString();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    return [`${dayOfWeek}, ${year}-${month}-${date} ${hours}:${minutes}:${seconds}`];
+}
+
+function updateTime() {
+    time = getTime();
+    const timeDisplay = document.getElementById('time');
+    timeDisplay.textContent = time[0];
+}
+
+setInterval(updateTime, 500);
+
+document.addEventListener('DOMContentLoaded', function () {
+    updateTheme();
     updateTitle();
     updateLinkList();
-    updateTheme();
     updateInlineCSS();
     getPoints();
     loadSearchOptions();
+    updateTime();
+    msgs();
 
     document.getElementById("searchqu").addEventListener("change", saveSearchQuOption);
     document.getElementById("searchex").addEventListener("change", saveSearchExOption);
