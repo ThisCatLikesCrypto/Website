@@ -280,6 +280,7 @@ async function handleKeyPress(event) {
     const connect = "KeyCKeyOKeyNKeyNKeyEKeyCKeyT";
     const killerqueen = "KeyKKeyIKeyLKeyLKeyEKeyRKeyQKeyUKeyEKeyEKeyN";
     const killerqueenwithspace = "KeyKKeyIKeyLKeyLKeyEKeyRSpaceKeyQKeyUKeyEKeyEKeyN";
+    const overcharge = "KeyOKeyVKeyEKeyRKeyCKeyHKeyAKeyRKeyGKeyE";
 
     if (keys.join("") === konamiCode) {
         await sleep(500);
@@ -319,6 +320,10 @@ async function handleKeyPress(event) {
         keysContainer.style.color = "lime";
         await sleep(500);
         killerQueen();
+    } else if (keys.join("").endsWith(overcharge)) {
+        keysContainer.style.color = "lime";
+        await sleep(500);
+        document.body.innerHTML = "<video id='overcharge' src='https://images-ext-1.discordapp.net/external/z52jIjvYpYuLVnUh1FacblC_ZvV4sKE2rwWWKH946Pw/https/r2.wilburwilliams.com/Battery%2520overcharging%2520to%2520ABSOLUTE%2520INFINITY%2520PERCENT%21%21%21.mp4' controls autoplay></video>";
     }
 }
 
