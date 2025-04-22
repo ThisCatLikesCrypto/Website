@@ -81,7 +81,15 @@ img {
 }
 
 table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders don't double up */
+    overflow-x: scroll;
     text-align: center;
+}
+
+th, td {
+    border: 1px solid white; /* Sets the border color to white */
+    padding: 8px; /* Adds padding for better readability */
 }
 
 .table-container {
