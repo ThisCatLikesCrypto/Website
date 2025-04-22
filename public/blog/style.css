@@ -80,6 +80,15 @@ img {
     max-width: 100%;
 }
 
+table {
+    text-align: center;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Allows horizontal scrolling */
+}
+
 #header {
     margin-top: 5%;
     margin-left: 20%;

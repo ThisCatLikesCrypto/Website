@@ -1,0 +1,36 @@
+---
+import Blog from '../../../layouts/Blog.astro';
+import Table from '../../../components/Table.astro';
+---
+
+<Blog title="mirrors">
+    <div id="main">
+        <h1 class="centretext">Mirrors</h1>
+        <p class="centretext">date</p>
+        <h2>Mirror table and links</h2>
+        <Table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Directory (sathonyia)</th>
+                    <th>Directory (melina)</th>
+                    <th>Sync source (sathonyia)</th>
+                    <th>Sync source (melina)</th>
+                    <th>Sync frequency</th>
+                    <td>Size</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="https://archlinux.org">Arch Linux</a></td>
+                    <td><a href="https://repo.c48.uk/arch/">/arch/</a></td>
+                    <td><a href="https://de.repo.c48.uk/arch/">/arch/</a></td>
+                    <td>mirror.group.one</td>
+                    <td>mirror.group.one</td>
+                    <td>Hourly</td>
+                    <td>xxx</td>
+                </tr>
+            </tbody>
+        </Table>
+    </div>
+</Blog>
