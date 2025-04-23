@@ -1,0 +1,156 @@
+---
+import Blog from '../../../layouts/Blog.astro';
+import Table from '../../../components/Table.astro';
+---
+
+<Blog title="Mirrors">
+    <div id="main">
+        <h1 class="centretext">Mirrors</h1>
+        <p class="centretext">2025-04-22 (updated 2025-04-23)</p>
+        <p class="centretext">page best viewed on a PC, will not be optimising this page for mobile</p>
+        <h2>Welcome!</h2>
+        <p>
+            Welcome to the homepage for my mirror service. This page contains some stats and information about my mirrors.<br>
+            Currently two servers make up the service, one to service the UK (Sathonyia) and one for Germany (Melina).<br>
+            Sathonyia is considered the "main" server, although they have the same specs and Melina seems to receive more traffic 
+            (excluding ubuntu releases, which I haven't mirrored on Melina so I can use bandwidth for other things, like assets.c48.uk).
+        </p>
+        <h3>tf is a mirror?</h3>
+        <p>
+            - A mirror is a copy of some files, usually for an open-source project, that is kept up-to-date with the original copy.<br>
+            - Mirrors are used to distribute the files to users, and are throughout the world, so with enough mirrors there should 
+            always be a local copy near you.<br>
+            - They also reduce the load on the original server, and are pretty much always volunteer operations, which spreads the cost 
+            too.<br>
+            - This service is privately funded by me (and costs about ~£14/month to keep running), but the vast majority of mirrors are 
+            hosted by hosting companies and universities. I'm just an exception because I felt like it and I thought it was a cool project 
+            idea (it was, btw, and I use the servers for a few other things as well now).<br>
+            - It's also nice because I get to contribute to projects that I use (for example, I actually use 
+            <a href="https://archlinux.org/mirrors/c48.uk">my own Arch mirror</a> pretty much daily).
+        </p>
+        <br>
+        <h2>Projects mirrored</h2>
+        <Table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Directory (sathonyia, melina)</th>
+                    <th>Sync source (sathonyia)</th>
+                    <th>Sync source (melina)</th>
+                    <th>Sync frequency</th>
+                    <th>Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="https://archlinux.org">Arch Linux</a></td>
+                    <td><a href="https://repo.c48.uk/arch/">/arch/</a>, <a href="https://de.repo.c48.uk/arch/">/arch/</a></td>
+                    <td>mirror.group.one::archlinux</td>
+                    <td>mirror.group.one::archlinux</td>
+                    <td>Hourly</td>
+                    <td>~115GB</td>
+                </tr>
+                <tr>
+                    <td><a href="https://endeavouros.com">EndeavourOS</a></td>
+                    <td><a href="https://repo.c48.uk/endeavouros/">/endeavouros/</a>, <a href="https://de.repo.c48.uk/endeavouros/">/endeavouros/</a></td>
+                    <td>mirror.alpix.eu::endeavouros</td>
+                    <td>mirror.alpix.eu::endeavouros</td>
+                    <td>Hourly</td>
+                    <td>~75GB</td>
+                </tr>
+                <tr>
+                    <td><a href="https://linuxmint.com">Linux Mint (ISOs)</a></td>
+                    <td><a href="https://repo.c48.uk/mint/isos/">/mint/isos/</a>, <a href="https://de.repo.c48.uk/mint/isos/">/mint/isos/</a></td>
+                    <td>pub.linuxmint.com::pub</td>
+                    <td>repo.c48.uk::mintiso</td>
+                    <td>Every 6 hours</td>
+                    <td>~125GB</td>
+                </tr>
+                <tr>
+                    <td><a href="https://linuxmint.com">Linux Mint (Packages)</a></td>
+                    <td><a href="https://repo.c48.uk/mint/pkgs/">/mint/pkgs/</a>, <a href="https://de.repo.c48.uk/mint/pkgs/">/mint/pkgs/</a></td>
+                    <td>rsync-packages.linuxmint.com::packages</td>
+                    <td>repo.c48.uk::mintpkg</td>
+                    <td>Every 4 hours</td>
+                    <td>~45GB</td>
+                </tr>
+                <tr>
+                    <td><a href="https://ubuntu.com">Ubuntu (Releases)</a></td>
+                    <td><a href="https://repo.c48.uk/ubuntu/releases/">/ubuntu/releases/</a></td>
+                    <td>rsync.releases.ubuntu.com::releases</td>
+                    <td>none</td>
+                    <td>Hourly</td>
+                    <td>~55GB</td>
+                </tr>
+            </tbody>
+        </Table>
+        <br>
+        <h2>Mirror stats</h2>
+        <Table>
+            <thead>
+                <tr>
+                    <th>Sathonyia</th>
+                    <th>Melina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="https://repo.c48.uk/vnstati.png"></td>
+                    <td><img src="https://de.repo.c48.uk/vnstati.png"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://repo.c48.uk/fivemins.png"></td>
+                    <td><img src="https://de.repo.c48.uk/fivemins.png"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://repo.c48.uk/hourly.png"></td>
+                    <td><img src="https://de.repo.c48.uk/hourly.png"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://repo.c48.uk/daily.png"></td>
+                    <td><img src="https://de.repo.c48.uk/daily.png"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://repo.c48.uk/monthly.png"></td>
+                    <td><img src="https://de.repo.c48.uk/monthly.png"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://repo.c48.uk/top.png"></td>
+                    <td><img src="https://de.repo.c48.uk/top.png"></td>
+                </tr>
+            </tbody>
+        </Table>
+        <br>
+        <h2>Servers</h2>
+        <p>
+            Both servers are <a href="https://contabo.com" target="_blank">Contabo</a> Storage VPS 1 instances. Their specs are as follows:
+            <ul>
+                <li>200mbps bandwidth (32TB per month "limit", before it slows to 100mbps. I've got close, but never passed it.)</li>
+                <li>2vCPU cores (which i've found to be <i>just about</i> fast enough)</li>
+                <li>3GB RAM</li>
+                <li>800GB (SATA) SSD (I've been fairly surprised at how much traffic I get with only a small amount of projects)</li>
+                <li>Ubuntu Server</li>
+            </ul>
+            You can't actually buy the exact specs that I'm using anymore, but there's fairly similar packages you can get.
+        </p>
+        <br>
+        <h2>FAQs</h2>
+        <p>
+            Q: Why are there two locations? Surely one would allow you to better service that region?<br>
+            A: Yeah so funny story I was actually just going to get a server in Germany from <a href="https://hetzner.com">Hetzner</a>
+            and use that to host my website, assets.c48.uk, etc, and deliberately get less storage to stop myself from inevitably
+            turning it into another mirror service. Then Hetzner wouldn't let me have an account because I was under 18, so instead 
+            I rented another Contabo server, and, well...
+        </p>
+        <p>
+            Q: Why are you using Contabo?<br>
+            A: Two reasons, I'll start with price. They're reliable <i>enough</i> and while some stuff breaks (like VNC goes down a lot 
+            for some reason for me), for the storage and bandwidth I'm getting, it's a <i>very</i> good deal. The other reason is that 
+            you don't have to be over 18 according to their ToS, so I can actually use it (lmao).
+        </p>
+        <p>
+            Any more questions? <a href="/accounts/">Send me a message</a> and I'll try to get back to you as fast as possible. 
+            <sub>techquickie reference? wait they put that channel on hold, didn't they :(</sub>
+        </p>
+    </div>
+</Blog>
