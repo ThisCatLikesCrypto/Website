@@ -175,15 +175,7 @@ import "../styles/index.css";
     <div class="section">
         <h2 class="centretext">Status</h2>
         <h3 class="centretext">
-            <code>
-                <span class="line">Website: <span id="sitestatus"></span></span>
-                <span class="line"
-                    >&nbsp;&nbsp;Downloads Site: <span id="dlstatus"
-                    ></span></span
-                >
-                <span class="line"
-                    >&nbsp;&nbsp;Mirror: <span id="mirrorstatus"></span></span
-                >
+            <code id="stausblock">
             </code>
         </h3>
     </div>
@@ -289,6 +281,7 @@ import "../styles/index.css";
         });
         return ukTimeFormatter.format(now);
     }
+
     // --- Event Listeners ---
     document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("musiccontrol").onclick = togglePlay;
@@ -297,33 +290,53 @@ import "../styles/index.css";
         document.getElementById("splash").innerHTML = choose(splashtext);
         document.getElementById("mytime").innerHTML = getUKTime();
     });
+
     setInterval(function () {
         document.getElementById("mytime").innerHTML = getUKTime();
     }, 1000);
-    const url = "https://ww-status.thiscatlikescrypto.workers.dev/all";
+
+    async function displayStatus(response) {
+        const statusElement = document.getElementById("stausblock");
+        const URLtoname = {
+            "https://wilburwilliams.uk": "site",
+            "https://dl.wilburwilliams.uk": "dl",
+            "https://repo.c48.uk": "mirror",
+            "https://de.repo.c48.uk": "german mirror",
+            "https://assets.c48.uk": "assets",
+            "https://eyescary.uk": "eyescary",
+            "https://iso.atl.dev": "ISO archives"
+        }
+        const data = await response.json();
+        for (const [key, value] of Object.entries(data)) {
+            statusElement.innerHTML += `<span class="line">${URLtoname[key]}: <span id="${URLtoname[key]}">${value}</span></span> `;
+            if (value >= 200 && value < 300) {
+                document.getElementById(URLtoname[key]).style.color = "limegreen";
+            } else if (value >= 300 && value < 400) {
+                document.getElementById(URLtoname[key]).style.color = "orange";
+            } else {
+                document.getElementById(URLtoname[key]).style.color = "red";
+            }
+        }
+    }
+
     async function fetchStatus() {
+        const url = "https://oxfbw5zjg2kikumhitruzci2gi0bmugx.lambda-url.eu-west-2.on.aws/";
         try {
             const response = await fetch(url);
-            const data = await response.json();
-            console.log(data);
-            const siteElement = document.getElementById("sitestatus");
-            const dlElement = document.getElementById("dlstatus");
-            const mirrorElement = document.getElementById("mirrorstatus");
-            siteElement.innerHTML = data["site"];
-            dlElement.innerHTML = data["dl"];
-            mirrorElement.innerHTML = data["repo"];
-            siteElement.style.color =
-                data["site"] === "200 OK" ? "limegreen" : "red";
-            dlElement.style.color =
-                data["dl"] === "200 OK" ? "limegreen" : "red";
-            mirrorElement.style.color =
-                data["repo"] === "200 OK" ? "limegreen" : "red";
+            displayStatus(response);
         } catch (error) {
-            console.error(
-                "There was a problem with the fetch operation:",
-                error,
-            );
+            console.warn("status lambda failed, it does this a lot so will be retried");
+            try {
+                const response = await fetch(url);
+                displayStatus(response);
+            } catch (error) {
+                console.error(
+                    "There was a problem with the fetch operation:",
+                    error,
+                );
+            }
         }
+
     }
     fetchStatus();
 </script>

@@ -131,10 +131,9 @@ button {
     text-align: center;
 }
 
-
 .line {
-    text-wrap: none;
     white-space: nowrap;
+    margin: 0 auto;
 }
 
 #keys-container {
