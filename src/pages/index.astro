@@ -325,7 +325,8 @@ import "../styles/index.css";
             const response = await fetch(url);
             displayStatus(response);
         } catch (error) {
-            console.warn("status lambda failed, it does this a lot so will be retried");
+            console.warn("status lambda failed, it does this a lot so will be retried after a 3 second delay");
+            await sleep(3000);
             try {
                 const response = await fetch(url);
                 displayStatus(response);
