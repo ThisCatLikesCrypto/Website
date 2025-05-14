@@ -229,7 +229,7 @@ async function technologyConnectionsOutro(keysContainer) {
       </div>
     </div>
     <div id="picturething">
-      <video src='https://r2.wilburwilliams.com/commits.webm' muted autoplay></video>
+      <video src='https://assets.c48.uk/videos/commits.webm' muted autoplay></video>
     </div>
   </div>
   `;
