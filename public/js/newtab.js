@@ -26,7 +26,7 @@ async function fetchDomainEndings() {
   text = text
     .split('\n')                                  // Split lines
     .filter(line => line && !line.startsWith('/')) // Remove comments/empty
-    .map(tld => '.' + tld.toLowerCase());          // Prepend dot & normalise
+    .map(tld => tld.toLowerCase());          // Prepend dot & normalise
   document.getElementById('stupiddomainendingstag').innerHTML = text;
 }
 
