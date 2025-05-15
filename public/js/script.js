@@ -223,7 +223,7 @@ async function technologyConnectionsOutro(keysContainer) {
          <li>Bill Gates</li>
          <li>Steve Jobs</li>
          <li>Mark Zuckerberg</li>
-         <li>Elon Musk</li>
+         <li>Elongated Muskrat</li>
          <li>Jeff Bezos</li>
        </ul>
       </div>
@@ -323,7 +323,8 @@ async function handleKeyPress(event) {
     } else if (keys.join("").endsWith(overcharge)) {
         keysContainer.style.color = "lime";
         await sleep(500);
-        document.body.innerHTML = "<video id='overcharge' src='https://images-ext-1.discordapp.net/external/z52jIjvYpYuLVnUh1FacblC_ZvV4sKE2rwWWKH946Pw/https/r2.wilburwilliams.com/Battery%2520overcharging%2520to%2520ABSOLUTE%2520INFINITY%2520PERCENT%21%21%21.mp4' controls autoplay></video>";
+        document.body.innerHTML = "<video id='overcharge' src='https://assets.c48.uk/videos/battery_overcharging.mp4' controls autoplay></video>";
+        // check if https://images-ext-1.discordapp.net/external/z52jIjvYpYuLVnUh1FacblC_ZvV4sKE2rwWWKH946Pw/https/r2.wilburwilliams.com/Battery%2520overcharging%2520to%2520ABSOLUTE%2520INFINITY%2520PERCENT%21%21%21.mp4 still works regularly
     }
 }
 

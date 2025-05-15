@@ -1,12 +1,3 @@
-const domainEndings = [
-    "com", "net", "org", "co", "uk", "de", "cn", "us", "ru", "info",
-    "xyz", "top", "site", "club", "online", "biz", "shop", "website", "store", "live",
-    "pro", "tech", "blog", "me", "ca", "fr", "au", "in", "eu", "it",
-    "nl", "es", "cz", "tr", "ch", "se", "no", "br", "pl", "jp",
-    "mx", "id", "kr", "vn", "za", "ar", "at", "be", "dk", "gr",
-    "dev", "app", "io", "network", "ooo", "me", "cx", "services"
-];
-
 var titleIndex = 0;
 var titles = "";
 
@@ -25,6 +16,23 @@ var directory = JSON.parse(localStorage.getItem("directory")) || {
     "link8": "https://quizlet.com/latest",
     "link9": "https://dashboard.blooket.com"
 };
+
+async function fetchDomainEndings() {
+  const response = await fetch('https://publicsuffix.org/list/public_suffix_list.dat');
+  if (!response.ok) {
+    throw new Error(`Failed to fetch TLD list: ${response.status}`);
+  }
+  let text = await response.text();
+  text = text
+    .split('\n')                                  // Split lines
+    .filter(line => line && !line.startsWith('/')) // Remove comments/empty
+    .map(tld => '.' + tld.toLowerCase());          // Prepend dot & normalise
+  document.getElementById('stupiddomainendingstag').innerHTML = text;
+}
+
+function getDomainEndings() {
+  return document.getElementById('stupiddomainendingstag').innerHTML.split(',');
+}
 
 function getLink(Link) {
     return directory[Link];
@@ -116,6 +124,8 @@ function search(query) {
     const searchquOption = localStorage.getItem("searchqu") || "https";
     const searchexOption = localStorage.getItem("searchex") || "ddgbangs";
 
+    const domainEndings = getDomainEndings();
+
     if (searchTerm === "") {
         console.log("Empty search string");
     } else if (searchTerm.startsWith("https://") || searchTerm.startsWith("http://")) {
@@ -202,7 +212,7 @@ function changeTheme(theme) {
 }
 
 function updateTheme() {
-    const themething = localStorage.getItem("theme");
+    let themething = localStorage.getItem("theme");
     if (themething === null) {
         themething = "../css/themes/surface.css";
     }
@@ -337,3 +347,5 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("searchqu").addEventListener("change", saveSearchQuOption);
     document.getElementById("searchex").addEventListener("change", saveSearchExOption);
 });
+
+document.addEventListener('DOMContentLoaded', fetchDomainEndings);
