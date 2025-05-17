@@ -261,6 +261,12 @@ async function killerQueen() {
     await songPlay('/assets/killerqueen.opus');
 }
 
+function disableCodes() {
+    // by making it error lol
+    const keysContainer = document.getElementById('keys-container');
+    keysContainer.outerHTML = "";
+}
+
 // Feel free to cheat if you want lmao
 async function handleKeyPress(event) {
     const keysContainer = document.getElementById('keys-container');
@@ -281,6 +287,7 @@ async function handleKeyPress(event) {
     const killerqueen = "KeyKKeyIKeyLKeyLKeyEKeyRKeyQKeyUKeyEKeyEKeyN";
     const killerqueenwithspace = "KeyKKeyIKeyLKeyLKeyEKeyRSpaceKeyQKeyUKeyEKeyEKeyN";
     const overcharge = "KeyOKeyVKeyEKeyRKeyCKeyHKeyAKeyRKeyGKeyE";
+    const trains = "KeyTKeyRKeyAKeyIKeyNKeyS";
 
     if (keys.join("") === konamiCode) {
         await sleep(500);
@@ -323,8 +330,14 @@ async function handleKeyPress(event) {
     } else if (keys.join("").endsWith(overcharge)) {
         keysContainer.style.color = "lime";
         await sleep(500);
-        document.body.innerHTML = "<video id='overcharge' src='https://assets.c48.uk/videos/battery_overcharging.mp4' controls autoplay></video>";
+        document.body.innerHTML += "<div class='video-overlay'><iframe class='vido' src='videoplayer.html?url=https://assets.c48.uk/videos/battery_overcharging.mp4' frameborder='0' allowfullscreen></iframe></div>";
         // check if https://images-ext-1.discordapp.net/external/z52jIjvYpYuLVnUh1FacblC_ZvV4sKE2rwWWKH946Pw/https/r2.wilburwilliams.com/Battery%2520overcharging%2520to%2520ABSOLUTE%2520INFINITY%2520PERCENT%21%21%21.mp4 still works regularly
+        disableCodes();
+    } else if (keys.join("").endsWith(trains)) {
+        keysContainer.style.color = "lime";
+        await sleep(500);
+        document.body.innerHTML += "<div class='video-overlay'><iframe class='vido' src='videoplayer.html?url=https://assets.c48.uk/videos/Underground_Sync.webm' frameborder='0' allowfullscreen></iframe></div>";
+        disableCodes();
     }
 }
 
