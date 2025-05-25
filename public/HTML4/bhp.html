@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BHP</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                background-image: urL("https://assets.c48.uk/bhp/1.jpeg");
+                background-repeat: repeat;
+                background-position: center;
+                background-size: 10%;
+            }
+            .bhp {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .controls {
+                position: sticky;
+                top: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>THIS IS ALL SATIRE OR WHATEVER THE FUCK PLEASE DONT TAKE THIS SERIOUSLY</h1>
+        </div>
+        <div class="controls">
+            <button id="vidobtn" onclick="playallvideos()">Play All Videos</button>
+            <button id="musicbtn" onclick="playmusic()">Play Stock Fraud Music</button>
+            <button onclick="sfsite()">Go to a random stock fraud site</button>
+            <button onclick="window.open('https://www.reddit.com/r/south32/comments/1hbmuph/what_is_this/')">get some sort of explanation idk</button>
+        </div>
+        <div class="bhp">
+            <video src="https://assets.c48.uk/bhp/South32%20CEO%20says.%20Fire%20australian%20prime%20Minister%20Anthony%20Albanese%20today.mp4" controls loop></video>
+            <video src="https://assets.c48.uk/bhp/south32.mp4" controls loop></video>
+            <video src="https://assets.c48.uk/bhp/South32_again.mp4" controls loop></video>
+            <img src="https://assets.c48.uk/bhp/1.jpeg" alt="1">
+            <img src="https://assets.c48.uk/bhp/11.jpeg" alt="11">
+            <img src="https://assets.c48.uk/bhp/17.jpeg" alt="17">
+            <img src="https://assets.c48.uk/bhp/18.jpeg" alt="18">
+            <img src="https://assets.c48.uk/bhp/20.jpeg" alt="20">
+            <img src="https://assets.c48.uk/bhp/21.jpeg" alt="21">
+            <img src="https://assets.c48.uk/bhp/27.jpeg" alt="27">
+            <img src="https://assets.c48.uk/bhp/2Bhp.jpg" alt="2Bhp">
+            <img src="https://assets.c48.uk/bhp/32.jpg" alt="32">
+            <img src="https://assets.c48.uk/bhp/32South.jpg" alt="32South">
+            <img src="https://assets.c48.uk/bhp/7.jpeg" alt="7">
+            <img src="https://assets.c48.uk/bhp/B+H-P.jpg" alt="B+H-P">
+            <img src="https://assets.c48.uk/bhp/B-H-P.jpg" alt="B-H-P">
+            <img src="https://assets.c48.uk/bhp/B.H.P.jpeg" alt="B.H.P">
+            <img src="https://assets.c48.uk/bhp/B.H.P.jpg" alt="B.H.P">
+            <img src="https://assets.c48.uk/bhp/BH.P.jpeg" alt="BH.P">
+            <img src="https://assets.c48.uk/bhp/BHP+CEO.jpg" alt="BHP+CEO">
+            <img src="https://assets.c48.uk/bhp/BHP..jpg" alt="BHP..">
+            <img src="https://assets.c48.uk/bhp/BHP.Billiton.jpeg" alt="BHP.Billiton">
+            <img src="https://assets.c48.uk/bhp/BHP.Mining.png" alt="BHP.Mining">
+            <img src="https://assets.c48.uk/bhp/BHP.Stock.Fraud.jpg" alt="BHP.Stock.Fraud">
+            <img src="https://assets.c48.uk/bhp/BHP.jpeg" alt="BHP">
+            <img src="https://assets.c48.uk/bhp/BHP.jpg" alt="BHP">
+            <img src="https://assets.c48.uk/bhp/BHP1.jpg" alt="BHP1">
+            <img src="https://assets.c48.uk/bhp/IMG_4314.jpeg" alt="IMG_4314">
+            <img src="https://assets.c48.uk/bhp/IMG_4318.jpeg" alt="IMG_4318">
+            <img src="https://assets.c48.uk/bhp/IMG_4319.jpeg" alt="IMG_4319">
+            <img src="https://assets.c48.uk/bhp/South+32.jpg" alt="South+32">
+            <img src="https://assets.c48.uk/bhp/South32.BHP.jpeg" alt="South32.BHP">
+            <img src="https://assets.c48.uk/bhp/South32.jpg" alt="South32">
+            <img src="https://assets.c48.uk/bhp/s32.png" alt="s32">
+            <img src="https://assets.c48.uk/bhp/sell-sell-sell-v0-wm1biprtfe9e1.webp" alt="sell-sell-sell">
+
+        </div>
+        <audio id="stocksong" style="display: none;" src="https://eyescary-development.github.io/CDN/musik/ESDP2/BHP_IS_A_ONE_CENT_STOCK_FRAUD.mp3" loop></audio>
+        <script>
+            function playallvideos() {
+                var videos = document.getElementsByTagName("video");
+                for (var i = 0; i < videos.length; i++) {
+                    videos[i].play();
+                }
+                const button = document.getElementById("vidobtn");
+                button.innerHTML = "Stop All Videos";
+                button.onclick = stopallvideos;
+            }
+            function stopallvideos() {
+                var videos = document.getElementsByTagName("video");
+                for (var i = 0; i < videos.length; i++) {
+                    videos[i].pause();
+                }
+                const button = document.getElementById("vidobtn");
+                button.innerHTML = "Play All Videos";
+                button.onclick = playallvideos;
+            }
+            function playmusic() {
+                const button = document.getElementById("musicbtn");
+                button.innerHTML = "Stop Music";
+                button.onclick = stopmusic;
+                document.getElementById("stocksong").play();
+            }
+            function stopmusic() {
+                const button = document.getElementById("musicbtn");
+                button.innerHTML = "Play Music";
+                button.onclick = playmusic;
+                document.getElementById("stocksong").pause();
+            }
+            function sfsite() {
+                const sites = ["https://1centstock.com", "https://londonpost.com", "https://south32.com"];
+                const rand = Math.floor(Math.random() * sites.length);
+                window.open(sites[rand]);
+            }
+        </script>
+    </body>
+</html>
