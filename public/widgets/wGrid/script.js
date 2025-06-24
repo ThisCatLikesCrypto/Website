@@ -57,11 +57,11 @@ async function main() {
     const urlParams = new URLSearchParams(window.location.search);
     const mode = urlParams.get('theme');
     if (mode==="light") {
-        document.getElementById('them').href = "wGrid/light.css";
+        document.getElementById('them').href = "./wGrid/light.css";
     } else if (mode==="dark") {
-        document.getElementById('them').href = "wGrid/style.css";
+        document.getElementById('them').href = "./wGrid/style.css";
     } else {
-        document.getElementById('them').href = "wGrid/dumb.css";
+        document.getElementById('them').href = "./wGrid/dumb.css";
         document.getElementById('header').innerHTML = "PLEASE SPECIFY A THEME (?theme=dark or ?theme=light)";
     }
     const co2Data = await getCO2API();
