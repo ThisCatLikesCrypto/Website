@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Wilbur's Domains">
+<Layout title="Wilbur's Domains" description="Domains owned by Wilbur Williams and stuff hosted on them"></Layout>
     <h1>Domains</h1>
     <h3>wilburwilliams.uk</h3>
     <p>
@@ -33,11 +33,21 @@ import Layout from '../layouts/Layout.astro';
             <li><a href="https://de.repo.c48.uk">de.repo.c48.uk</a> (hosts mirrors, in Germany this time)</li>
             <li><a href="https://panel.vivwebz.net">panel.vivwebz.net</a> (a file management for vivwebz [my friend's site])</li>
         </ul>
-        <p>and proxied through CDNs:</p>
+        <a href="https://oswald.srv.c48.uk">oswald.srv.c48.uk</a> (A secondary UK VPS server) hosts:
+        <ul>
+            <li><a href="https://uk.repo.c48.uk">uk.repo.c48.uk</a> (hosts an arch mirror along with rsync for T1 purposes)</li>
+        </ul>
+        <p>proxied through CDNs:</p>
         <ul>
             <li><a href="https://assets.c48.uk">assets.c48.uk</a> (shared assets for my stuff, through AWS CloudFront's free plan)</li>
             <li><a href="https://assets.vivwebz.net">assets.vivwebz.net</a> (assets for vivwebz, through Vivian's Cloudflare account)</li>
             <li>and this site, which is through Gcore</li>
+        </ul>
+        <p>other websites:</p>
+        <ul>
+            <li><a href="https://status.c48.uk">status.c48.uk</a> (status page for mirrors)</li>
+            <li><a href="https://pop.c48.uk">pop.c48.uk</a> (CDN point of presence locator)</li>
+            <li><a href="https://ipv6.c48.uk">ipv6.c48.uk</a> (IPv6 test and VERY basic and sometimes nonfunctional download speed test)</li>
         </ul>
     </p>
     <br>

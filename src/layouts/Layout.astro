@@ -1,9 +1,10 @@
 ---
 interface Props {
 	title: string;
+	description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 import "../styles/main.css";
 ---
@@ -14,10 +15,10 @@ import "../styles/main.css";
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="title" content={title}>
-		<meta name="description" content="Wilbur Williams' website. (oh hey alliteration)">
+		<meta name="description" content={description}>
 		<meta name="author" content="Wilbur Williams">
 		<meta name="og:title" content={title}>
-		<meta name="og:description" content="Wilbur Williams' website. (oh hey alliteration)">
+		<meta name="og:description" content={description}>
 		<meta name="fediverse:creator" content="@wilbur@wetdry.world">
 		<title>{title}</title>
 		<link rel="dns-prefetch" href="https://assets.c48.uk">
@@ -36,7 +37,6 @@ import "../styles/main.css";
 			<div class="sidenav" id="sidenav">
 				<a href="/">Main</a>
 				<a href="/projects/">Projects</a>
-				<a href="https://dl.wilburwilliams.uk">ISO dl</a>
 				<a href="/blog/">Blog</a>
 				<a href="/about/">About This</a>
 				<a href="/newtab/">Newtab</a>
