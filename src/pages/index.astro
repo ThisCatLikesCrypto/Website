@@ -33,11 +33,14 @@ import "../styles/index.css";
         <div>
             <h2>About</h2>
             <p>
-                Hello, I'm Wilbur. I'm a person™ that enjoys most things
-                computer-related, plus trains and electrical engineering. I
-                currently know Python, HTML, CSS, and JS, and eventually I want
-                to learn a compiled programming language (I have tried C, C++
-                and Rust so far).
+                Hello, I'm Wilbur<sub id="pronouns">(he/they)</sub>. I'm a person™ that enjoys most things
+                computer-related, plus trains and electrical engineering. You'll 
+                often find me working on <a href="/projects">projects</a> listed here, 
+                usually on <a href="/domains">domains</a> I've set up.
+            </p>
+            <p>
+                I'm a systems administrator at <a href="https://allthingslinux.org">All Things Linux</a>, 
+                and I lead the <a href="https://iso.atl.dev">ISO Archive</a> project.
             </p>
             <p>
                 Feel free to have a look around this site to explore from the
@@ -45,41 +48,38 @@ import "../styles/index.css";
                 <a href="newtab/">actually kinda cool</a>.
             </p>
             <p>
-                My hyperfixations (interests) include computer hardware (and
-                electronics in general), software engineering (duh), cryptotechnology, 
+                My hyperfixations (interests) include computing (especially 
+                <a href="https://allthingslinux.org">Linux</a>, 
+                <a href="https://iso.atl.dev">archiving</a>, 
+                <a href="/mirrors/">content delivery / mirroring</a>, networking, and BGP), 
+                electronics, software engineerings, cryptotechnology, 
                 and <span title="type 'trains'">trains.</span>
             </p>
             <p>
                 I enjoy programming, researching random stuff (I spend too much
-                time on Wikipedia), watching YT and playing games (I have over
-                3000 days in one Minecraft world).
+                time on Wikipedia), working on various <a href="/projects">projects</a>,
+                watching YT, and playing games (I have over 3000 days in one Minecraft world).
             </p>
-        </div>
-        <div>
-            <h2>Basic Info</h2>
-            <p>he/they</p>
-            <p>Autistic</p>
-            <p>aroace</p>
-            <p>
-                <a href="https://discord.com/users/719947906492268645">Discord </a> (thiscatlikescrypto)
-            </p>
-            <p>
-                <a rel="me" href="https://wetdry.world/@wilbur">Mastodon</a> (wetdry.world)
-            </p>
-            <p><a href="publickey.html">Public key here</a></p>
-            <p>
-                <a class="abutp" href="https://time.is/United_Kingdom"
-                    >My Time:</a
-                >
-                <span id="mytime"></span>
-            </p>
-            <p><a href="https://github.com/ThisCatLikesCrypto">My GitHub</a></p>
+            <span id="icons">
+                <span id="icons-left">
+                    <img src="https://assets.c48.uk/spinny_cat/spinny_cat_aroace.gif">
+                    <img src="https://assets.c48.uk/spinny_cat/spinny_cat_ace.gif">
+                    <img src="https://assets.c48.uk/spinny_cat/spinny_cat_aro.gif">
+                    <img title="autistic" src="/images/neurodiversity.png">
+                </span>
+                <span id="icons-right">
+                    <a href="https://github.com/ThisCatLikesCrypto"><img src="/images/github.png"></a>
+                    <a href="https://discord.com/users/719947906492268645"><img title="(thiscatlikescrypto)" src="/images/discord.png"></a>
+                    <a rel="me" href="https://wetdry.world/@wilbur"><img src="/images/mastodon.png"></a>
+                </span>
+            </span>
         </div>
         <div>
             <h2>Other</h2>
             <p>(pages that aren't on the sidebar or anywhere else)</p>
             <a href="3dsite/">3D site</a><br>
             <a href="test.html">test thing from ages ago</a>
+            <a href="publickey.html">public key</a>
         </div>
     </div>
     <br>
@@ -174,7 +174,7 @@ import "../styles/index.css";
     <div class="section">
         <h2 class="centretext">Status</h2>
         <h3 class="centretext">
-            <code id="stausblock">
+            <code id="statusblock">
             </code>
         </h3>
     </div>
@@ -206,7 +206,7 @@ import "../styles/index.css";
 
     let shuffledSongs = shuffleArray([...songList]);
     let currentTrack = 0;
-    const audio = document.getElementById("audioPlayer");
+    const audio = document.getElementById("audioPlayer") as HTMLAudioElement;
 
     function loadTrack(index) {
         if (index < 0 || index >= shuffledSongs.length) return;
@@ -295,7 +295,7 @@ import "../styles/index.css";
     }, 1000);
 
     async function displayStatus(response) {
-        const statusElement = document.getElementById("stausblock");
+        const statusElement = document.getElementById("statusblock");
         const URLtoname = {
             "https://wilburwilliams.uk": "site",
             "https://dl.wilburwilliams.uk": "dl",
@@ -307,10 +307,11 @@ import "../styles/index.css";
         }
         const data = await response.json();
         for (const [key, value] of Object.entries(data)) {
+            const statusCode = Number(value); // shut up, typescript
             statusElement.innerHTML += `<span class="line">${URLtoname[key]}: <span id="${URLtoname[key]}">${value}</span></span> `;
-            if (value >= 200 && value < 300) {
+            if (statusCode >= 200 && statusCode < 300) {
                 document.getElementById(URLtoname[key]).style.color = "limegreen";
-            } else if (value >= 300 && value < 400) {
+            } else if (statusCode >= 300 && statusCode < 400) {
                 document.getElementById(URLtoname[key]).style.color = "orange";
             } else {
                 document.getElementById(URLtoname[key]).style.color = "red";

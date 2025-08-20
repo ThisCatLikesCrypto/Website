@@ -31,3 +31,29 @@ code {
         font-size: 15px;
     }
 }
+
+#pronouns {
+    font-family: "Sometype Mono", monospace;
+    font-size: 0.75rem;
+    color: rgb(51, 255, 0);
+    text-align: center;
+    margin-top: 12px;
+}
+
+#icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#icons-right a {
+    display: inline-block;
+}
+
+#icons img {
+    max-height: 75px;
+    width: 75px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
