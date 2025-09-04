@@ -7,7 +7,7 @@ function sleep(ms) {
 async function songPlay(songURL) {
     console.log("You found an easter egg. Enjoy the sound");
     try {
-        muct = document.getElementById('musiccontrol')
+        const muct = document.getElementById('musiccontrol')
         muct.innerHTML = "Controls are disabled while easter audio is running";
         muct.onclick = function () { alert("stop trying") };
     } catch {
@@ -23,7 +23,7 @@ async function songPlay(songURL) {
     eaudion = true;
 
     try {
-        audio = document.getElementById('audioPlayer');
+        const audio = document.getElementById('audioPlayer');
     } catch {
         console.log("djsifsd2");
     }
@@ -36,7 +36,7 @@ async function songPlay(songURL) {
     easterAudio.addEventListener("ended", function () {
         eaudion = false;
         try {
-            muct = document.getElementById('musiccontrol');
+            const muct = document.getElementById('musiccontrol');
             muct.innerHTML = "Click to pause music";
             muct.onclick = pausemusic;
             audio.play();
