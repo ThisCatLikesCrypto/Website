@@ -57,3 +57,12 @@ code {
     margin-left: 2px;
     margin-right: 2px;
 }
+
+#statusTable {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;
+    font-family: "Sometype Mono", monospace;
+}

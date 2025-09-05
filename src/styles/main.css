@@ -1,8 +1,6 @@
-/* Fonts (in case they're not installed)*/
 @import url("https://assets.c48.uk/fonts/lexend.css");
 @import url("https://assets.c48.uk/fonts/montserrat.css");
 
-/* Stuff that needs to affect the whole page */
 body {
     background-image: url('../assets/background.png');
     background-position: center;
@@ -40,14 +38,23 @@ button {
     color: lightgrey;
 }
 
-/* Main content area (index.html) */
 .maindivdiv {
     display: flex;
-    justify-content: space-between; /* Horizontally center the inner divs */
+    justify-content: space-between;
     margin: 0 10em;
 }
 
-/* The sidebar menu */
+.equaldivdiv {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 10em;
+}
+
+.equaldivdiv > div {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
 .sidenav {
     height: 100vh;
     width: 10%;
@@ -60,7 +67,6 @@ button {
     padding-top: 20px;
 }
 
-/* The navigation menu links */
 .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
@@ -95,13 +101,16 @@ button {
 
 .centreplease {
     display: flex;
-    justify-content: space-between; /* Horizontally center the inner divs */
+    justify-content: space-between;
 }
 
 .section {
     margin-left: 5%;
     margin-right: 5%;
-    border: 1px solid #fff;
+    background: rgba(30, 30, 30, 0.5);
+    backdrop-filter: blur(0.5px); 
+    border-radius: 6px;
+    box-shadow: white 0px 0px 10px;
 }
 
 .section div {
@@ -223,7 +232,7 @@ button {
     .main {
         margin-left: 0;
     }
-    .maindivdiv {
+    .maindivdiv, .equaldivdiv{
         flex-direction: column; /* Change to a column layout */
         text-align: center;
     }
