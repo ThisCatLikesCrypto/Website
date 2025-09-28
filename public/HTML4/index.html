@@ -4,12 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML4 | Wilbur's Site</title>
+    <style>
+        @import url("https://assets.c48.uk/fonts/reddit-sans.css");
+        @import url("https://assets.c48.uk/fonts/lexend.css");
+
+        body {
+            margin: 0; /* remove body margin so header sits flush at the very top */
+            background-color: #222;
+            color: white;
+            font-family: 'Lexend', sans-serif;
+        }
+
+        a {
+            color: aqua;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            font-size: 1em;
+            background-color: darkorchid;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Lexend', sans-serif;
+            color: white;
+            padding: 0.5em 1em;
+            cursor: pointer;
+        }
+
+        /* new: full-screen black overlay for fade-to-black transition */
+        #fade-overlay {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 700ms ease-in-out;
+            z-index: 2000;
+        }
+        #fade-overlay.fade-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* respect user preference for reduced motion: skip animation */
+        @media (prefers-reduced-motion: reduce) {
+            #fade-overlay {
+                transition: none;
+            }
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px;
+            text-align: center;
+            font-family: "Reddit Sans", sans-serif;
+            background-color: darkorange;
+        }
+
+        header h1 {
+            font-size: 6em;
+            margin: 0;
+            display: block;
+            width: 100%;
+            white-space: nowrap; /* keep it on one line so letter-spacing stretches it */
+            overflow: hidden;
+            /* rainbow text using gradient + background-clip */
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 6s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header p {
+            margin: 0; /* remove default margin around <p> */
+            font-size: 3em;
+            font-style: italic;
+        }
+
+        main {
+            padding: 20px;
+            font-size: 1.5em;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>HTML4</h1>
-    <p><i>idk anymoer</i></p>
-    <p><a href="challeng.html">rickroll challenge</a></p>
-    <p><a href="songz.html">songz</a> (warning: autoplay)</p>
-    <p><a href="bhp.html">bhp</a></p>
+    <header>
+        <h1 id="stretch-title">HTML4</h1>
+        <p>idk anymoer</p>
+    </header>
+    <main>
+        <p><a href="challeng.html">rickroll challenge</a></p>
+        <p><a href="songz.html">songz</a> (warning: autoplay)</p>
+        <p><a href="bhp.html">bhp</a></p>
+        <button id="back-btn" type="button" aria-label="Back to Sanity">Back to Sanity</button>
+    </main>
+
+    <!-- overlay used to fade to black before navigation -->
+    <div id="fade-overlay" aria-hidden="true"></div>
+
+    <script>
+        (function() {
+            const STORAGE_KEY = 'fadeNavInitiated';
+            const btn = document.getElementById('back-btn');
+            const overlay = document.getElementById('fade-overlay');
+            if (!btn || !overlay) return;
+
+            let triggered = false;
+            let fallbackTimeout = null;
+
+            function navigateNow() {
+                // final navigation target
+                // clear storage before leaving — pageshow on return will check this
+                try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+                window.location.href = '/';
+            }
+
+            btn.addEventListener('click', function () {
+                if (triggered) return;
+                triggered = true;
+
+                // If user prefers reduced motion, skip the animation
+                const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (reduce) {
+                    navigateNow();
+                    return;
+                }
+
+                // show overlay (fade in)
+                overlay.classList.add('fade-visible');
+
+                // navigate after transition ends; fallback timeout in case transitionend doesn't fire
+                const onEnd = (e) => {
+                    if (e && e.target !== overlay) return;
+                    overlay.removeEventListener('transitionend', onEnd);
+                    clearTimeout(fallbackTimeout);
+                    navigateNow();
+                };
+                overlay.addEventListener('transitionend', onEnd);
+                fallbackTimeout = setTimeout(() => { if (triggered) navigateNow(); }, 1200);
+            });
+
+            // When the page is shown (including bfcache restores), if we previously initiated
+            // a fade+nav, clear that flag and show the page (remove overlay) so the user doesn't
+            // get sent away again when they press the browser Back button.
+            // (this is incredibly annoying :/)
+            window.addEventListener('pageshow', function (event) {
+                try {
+                    if (sessionStorage.getItem(STORAGE_KEY) === '1') {
+                        // clear stored flag so this only runs once
+                        sessionStorage.removeItem(STORAGE_KEY);
+                        // ensure overlay is hidden and any pending navigation is cancelled
+                        overlay.classList.remove('fade-visible');
+                        triggered = false;
+                        if (fallbackTimeout) {
+                            clearTimeout(fallbackTimeout);
+                            fallbackTimeout = null;
+                        }
+                    }
+                } catch (e) {
+                    // ignore storage errors
+                    overlay.classList.remove('fade-visible');
+                    triggered = false;
+                    if (fallbackTimeout) {
+                        clearTimeout(fallbackTimeout);
+                        fallbackTimeout = null;
+                    }
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
