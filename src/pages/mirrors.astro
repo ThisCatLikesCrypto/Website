@@ -125,7 +125,7 @@ const title = "Wilbur's Mirrors"
                     <td>rsync.releases.ubuntu.com::releases</td>
                     <td>Hourly</td>
                     <td>~55GB</td>
-                    <td>repo.c48.uk only</td>
+                    <td>repo.c48.uk and uk.repo.c48.uk<sup><a href="#load-balance">[3]</a></sup></td>
                 </tr>
             </tbody>
         </Table>
@@ -257,6 +257,10 @@ ubuntu-releases Ubuntu Releases
             <sup>[2]</sup>Arch Linux mirrors are split into two tiers, tier 1 and tier 2. My mirror is considered <b>tier 1</b>, and 
             is therefore allowed to sync from tier 0 (rsync.archlinux.org). Tier 2 mirrors sync off of tier 1s, if you want to mirror 
             off of me see <a href="#rsync">rsync</a>.
+        </p>
+        <p id="load-balance">
+            <sup>[3]</sup>Ubuntu releases are load balanced between repo.c48.uk and uk.repo.c48.uk, dependent on IP. uk.repo.c48.uk syncs from 
+            repo.c48.uk for this reason.
         </p>
     </body>
 </html>
