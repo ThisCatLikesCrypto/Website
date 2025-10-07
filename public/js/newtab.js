@@ -276,6 +276,7 @@ function loadSearchOptions() {
 
 function lazyAss() {
     // set all my settings
+    localStorage.setItem('engine', "https://duckduckgo.com/?q=%s")
     localStorage.setItem('directory', '{"link1":"https://copilot.microsoft.com","link2":"https://classroom.google.com/u/1/h","link3":"https://docs.google.com","link4":"https://github.com","link5":"https://ecosia.org/chat","link6":"https://grid.me.uk","link7":"https://app.electricitymaps.com/map","link8":"https://quizlet.com/latest","link9":"https://dashboard.blooket.com"}');
     localStorage.setItem('inlineCSS', 'body {background-image: url("../assets/background.png");}');
     localStorage.setItem('theme', '../css/themes/deep.css');
