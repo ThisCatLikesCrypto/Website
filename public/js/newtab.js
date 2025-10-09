@@ -17,18 +17,59 @@ var directory = JSON.parse(localStorage.getItem("directory")) || {
     "link9": "https://dashboard.blooket.com"
 };
 
-async function fetchDomainEndings() {
-  const response = await fetch('https://publicsuffix.org/list/public_suffix_list.dat');
-  if (!response.ok) {
-    throw new Error(`Failed to fetch TLD list: ${response.status}`);
-  }
-  let text = await response.text();
-  text = text
-    .split('\n')                                  // Split lines
-    .filter(line => line && !line.startsWith('/')) // Remove comments/empty
-    .map(tld => tld.toLowerCase());          // Prepend dot & normalise
-  document.getElementById('stupiddomainendingstag').innerHTML = text;
+const CACHE_KEY = "psl_cache_v1";
+const CACHE_TIME_KEY = "psl_cache_time_v1";
+const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+
+async function processAndSet(text) {
+    const list = text
+        .split('\n')
+        .filter(line => line && !line.startsWith('/'))
+        .map(tld => tld.toLowerCase());
+    document.getElementById('stupiddomainendingstag').innerHTML = list;
 }
+
+async function fetchDomainEndings() {
+    let cached = null;
+    try {
+        cached = localStorage.getItem(CACHE_KEY);
+        const cachedTime = parseInt(localStorage.getItem(CACHE_TIME_KEY), 10);
+        const now = Date.now();
+        if (cached && cachedTime && (now - cachedTime) < ONE_WEEK_MS) {
+            // Use cached copy
+            await processAndSet(cached);
+            return;
+        }
+    } catch (e) {
+        // localStorage may be unavailable — fall through to fetch
+        console.warn("PSL cache check failed:", e);
+    }
+
+    // Fetch fresh copy
+    try {
+        const response = await fetch('https://publicsuffix.org/list/public_suffix_list.dat');
+        if (!response.ok) {
+            throw new Error(`Failed to fetch TLD list: ${response.status}`);
+        }
+        const text = await response.text();
+        try {
+            localStorage.setItem(CACHE_KEY, text);
+            localStorage.setItem(CACHE_TIME_KEY, String(Date.now()));
+        } catch (e) {
+            // ignore storage errors
+            console.warn("Failed to write PSL cache:", e);
+        }
+        await processAndSet(text);
+    } catch (fetchErr) {
+        console.error("PSL fetch failed:", fetchErr);
+        // If fetch fails but we have a cached copy (even if expired), use it as fallback
+        if (cached) {
+            await processAndSet(cached);
+        } else {
+            throw fetchErr;
+        }
+    }
+};
 
 function getDomainEndings() {
   return document.getElementById('stupiddomainendingstag').innerHTML.split(',');
@@ -134,7 +175,7 @@ function search(query) {
         handleQuestionQuery(searchTerm, searchquOption);
     } else if (searchTerm.startsWith("!")) {
         handleExclamationQuery(searchTerm, searchexOption);
-    } else if (domainEndings.includes(queryEnding)) {
+    } else if (domainEndings.includes(queryEnding) && !searchTerm.includes(" ")) {
         window.location.href = "https://" + searchTerm;
     } else {
         window.location.href = engine.replace("%s", encodeURIComponent(searchTerm));
