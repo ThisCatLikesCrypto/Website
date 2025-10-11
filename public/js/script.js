@@ -28,9 +28,14 @@ async function songPlay(songURL) {
         console.log("djsifsd2");
     }
 
-    if (audio) {
-        audio.pause();
+    try {
+        if (audio) {
+            audio.pause();
+        }
+    } catch {
+        console.log("djsifsd3");
     }
+
 
     easterAudio.play();
     easterAudio.addEventListener("ended", function () {
