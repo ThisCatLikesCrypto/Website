@@ -293,6 +293,7 @@ async function handleKeyPress(event) {
     const killerqueenwithspace = "KeyKKeyIKeyLKeyLKeyEKeyRSpaceKeyQKeyUKeyEKeyEKeyN";
     const overcharge = "KeyOKeyVKeyEKeyRKeyCKeyHKeyAKeyRKeyGKeyE";
     const trains = "KeyTKeyRKeyAKeyIKeyNKeyS";
+    const obsidianSphereCode = "KeyOKeyBKeySKeyIKeyDKeyIKeyAKeyN";
 
     if (keys.join("") === konamiCode) {
         await sleep(500);
@@ -342,6 +343,11 @@ async function handleKeyPress(event) {
         keysContainer.style.color = "lime";
         await sleep(500);
         document.body.innerHTML += "<div class='video-overlay'><iframe class='vido' src='videoplayer.html?url=https://assets.c48.uk/videos/Underground_Sync.webm' frameborder='0' allowfullscreen></iframe></div>";
+        disableCodes();
+    } else if (keys.join("").endsWith(obsidianSphereCode)) {
+        keysContainer.style.color = "#0ff";
+        await sleep(500);
+        showObsidianSpherePrompt();
         disableCodes();
     }
 }
@@ -430,3 +436,61 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('%cOther than that do whatever you feel like here.', px20text);
     console.log("%cIf my source code is erm... not the greatest then feel free to tell me how to improve just don't be unkind about it.", px15text);
 });
+
+async function showObsidianSpherePrompt() {
+    // Fetch the obsidianspheres.txt file
+    let text = "";
+    try {
+        const resp = await fetch('/obsidianspheres.txt');
+        text = await resp.text();
+    } catch (e) {
+        text = "THE SPHERES ARE HIDING FROM YOU. (Could not load prompt)";
+    }
+
+    const overlay = document.createElement('div');
+    overlay.id = "obsidian-sphere-overlay";
+
+    const sphere = document.createElement('div');
+    sphere.innerHTML = `
+        <pre class="obsidian-sphere-symbol">
+   ⬤
+        </pre>
+        <h1 class="obsidian-sphere-title">
+            THE OBSIDIAN SPHERE MANIFESTO
+        </h1>
+        <hr class="obsidian-sphere-hr">
+        <div class="obsidian-sphere-content">
+            <code class="obsidian-sphere-code">
+${text.replace(/([A-Z]{2,}[\s.,!])/g, '<span style="color:#0ff; font-weight:bold; font-size:1.2em;">$1</span>')}
+            </code>
+        </div>
+        <button id="close-obsidian-sphere" class="obsidian-sphere-button">
+            close
+        </button>
+        <button id="copy-obsidian-text" class="obsidian-sphere-button">
+            copy
+        </button>
+        <br>
+        <br>
+    `;
+    overlay.appendChild(sphere);
+
+    document.body.appendChild(overlay);
+
+    document.getElementById('close-obsidian-sphere').onclick = () => {
+        overlay.remove();
+    };
+
+    const copyButton = document.getElementById('copy-obsidian-text');
+
+    copyButton.onclick = () => {
+        navigator.clipboard.writeText(text).then(() => {
+            copyButton.innerHTML = "copied!";
+            setTimeout(() => {
+                copyButton.innerHTML = "copy";
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    };
+}

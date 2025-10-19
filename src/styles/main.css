@@ -258,3 +258,94 @@ button {
        display: none;
     }
 }
+
+:root {
+    --obsidian: #0B0C0C;
+}
+
+#obsidian-sphere-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 50%, #222 0%, #000 100%);
+    color: #fff;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    font-family: 'Lexend', 'Montserrat', monospace, sans-serif;
+    text-shadow: 0 0 10px var(--obsidian), 0 0 20px #000;
+    animation: sphere-glow 2s infinite alternate;
+}
+
+#obsidian-sphere-overlay::-webkit-scrollbar { width: 0 !important; }
+
+.obsidian-sphere-content {
+    max-width: 900px;
+    width: 90vw;
+    margin: 2em auto;
+    background: rgba(0,0,0,0.85);
+    padding: 2em;
+    border-radius: 20px;
+    box-shadow: 0 0 40px var(--obsidian);
+    max-height: 70vh;
+    overflow-y: auto;
+    border: #fff 2px solid;
+}
+
+@keyframes sphere-glow {
+    from { box-shadow: 0 0 40px var(--obsidian), 0 0 80px #000; }
+    to   { box-shadow: 0 0 80px var(--obsidian), 0 0 160px #000; }
+}
+
+.obsidian-sphere-symbol {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--obsidian);
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 20px var(--obsidian), 0 0 40px #000;
+    margin: 0;
+}
+
+.obsidian-sphere-title {
+    font-size: 3em;
+    color: #fff;
+    background: linear-gradient(90deg,var(--obsidian),#fff,var(--obsidian));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin: 0;
+}
+
+.obsidian-sphere-hr {
+    width: 60%;
+    border: 2px solid var(--obsidian);
+    box-shadow: 0 0 10px var(--obsidian);
+}
+
+.obsidian-sphere-code {
+    white-space: pre-wrap;
+    font-size: 1.1em;
+    color: #fff;
+    font-family: monospace;
+}
+
+.obsidian-sphere-button {
+    margin-top: 2em;
+    font-size: 1.5em;
+    background: var(--obsidian);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.5em 2em;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--obsidian);
+    border: #fff 2px solid;
+    font-family: monospace;
+}
