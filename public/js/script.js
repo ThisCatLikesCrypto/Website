@@ -276,7 +276,7 @@ function disableCodes() {
 async function handleKeyPress(event) {
     const keysContainer = document.getElementById('keys-container');
     keys.push(event.code);
-    keys = keys.slice(-11);
+    keys = keys.slice(-15);
     console.log(keys);
 
     displayKeys();
@@ -294,6 +294,7 @@ async function handleKeyPress(event) {
     const overcharge = "KeyOKeyVKeyEKeyRKeyCKeyHKeyAKeyRKeyGKeyE";
     const trains = "KeyTKeyRKeyAKeyIKeyNKeyS";
     const obsidianSphereCode = "KeyOKeyBKeySKeyIKeyDKeyIKeyAKeyN";
+    const instructions = "KeyIKeyNKeySKeyTKeyRKeyUKeyCKeyTKeyIKeyOKeyNKeyS";
 
     if (keys.join("") === konamiCode) {
         await sleep(500);
@@ -348,7 +349,11 @@ async function handleKeyPress(event) {
         keysContainer.style.color = "#0ff";
         await sleep(500);
         showObsidianSpherePrompt();
-        disableCodes();
+    } else if (keys.join("").endsWith(instructions)) {
+        keysContainer.style.color = "aqua";
+        await sleep(500);
+        criticismAndReview();
+        await songPlay('/assets/instructions.mp3');
     }
 }
 
@@ -493,4 +498,143 @@ ${text.replace(/([A-Z]{2,}[\s.,!])/g, '<span style="color:#0ff; font-weight:bold
             console.error('Failed to copy text: ', err);
         });
     };
+}
+
+function criticismAndReview() {
+    document.body.innerHTML = `
+    <h1 id="criticism-and-review-so-this-falls-under-fair-dealing-copyright-be-like-">criticism and review so the lyrics fall
+        under fair dealing (copyright be like)</h1>
+    <h2 id="overall-assessment">Overall Assessment</h2>
+    <ul>
+        <li>Purpose: To standardize invigilation announcements and ensure candidates follow JCQ exam rules.</li>
+        <li>Tone: Authoritative and serious (appropriate), but occasionally bureaucratic and repetitive.</li>
+        <li>Structure: Mostly logical but could be smoother, with less cognitive load on nervous candidates.</li>
+        <li>Clarity: Generally clear, though several sentences are dense or slightly awkward for oral delivery.</li>
+    </ul>
+    <hr>
+    <h2 id="detailed-critique">Detailed Critique</h2>
+    <h3 id="1-tone-and-delivery">1. Tone and Delivery</h3>
+    <p><strong>Strengths:</strong></p>
+    <ul>
+        <li>The tone reinforces seriousness and fairness.</li>
+        <li>The step-by-step delivery provides clear points for invigilators to pause.</li>
+    </ul>
+    <p><strong>Weaknesses:</strong></p>
+    <ul>
+        <li>The announcement can feel intimidating and mechanical to already anxious students.</li>
+        <li>Phrases like &quot;Failure to do so may lead to disqualification&quot; are necessary but could be softened
+            with context or reassurance (for example, &quot;This is a JCQ regulation - please hand in any items now to
+            avoid problems later.&quot;).</li>
+        <li>The constant imperative commands (&quot;Check your pockets,&quot; &quot;Hand it to an invigilator now,&quot;
+            &quot;Do not write anything else&quot;) make the delivery sound punitive rather than procedural.</li>
+        <li>Due to the constant commands, you may not have time to actually thoroughly check everything and do as
+            you're told. Invigilators should probably make sure everyone is doing these, too.</li>
+    </ul>
+    <p><strong>Suggestion:</strong> Balance authority with calm reassurance, for example:
+        &quot;Please take a moment to check your pockets now and hand in any items you should not have.&quot;</p>
+    <hr>
+    <h3 id="2-structure-and-flow">2. Structure and Flow</h3>
+    <p><strong>Strengths:</strong></p>
+    <ul>
+        <li>Follows a logical order: materials, conduct, identity of paper, admin details, conduct reminders.</li>
+        <li>Includes specific instructions for laptops and equipment.</li>
+    </ul>
+    <p><strong>Weaknesses:</strong></p>
+    <ul>
+        <li>Some transitions are abrupt; for example, it jumps from &quot;unauthorised items&quot; to &quot;If books are
+            allowed...&quot; without an orienting sentence.</li>
+        <li>&quot;In a moment you'll be asked to fill in...&quot; appears too early - it interrupts the sequence of
+            pre-exam checks. This should either be at the start or just not included.</li>
+        <li>The fire alarm instruction is tacked on at the end, almost as an afterthought.</li>
+        <li>It's really bloody long and sitting through this like 25 times gets old fast :sob:</li>
+    </ul>
+    <p><strong>Suggestion:</strong> Group by theme for smoother pacing:</p>
+    <ol>
+        <li>Before exam starts: materials, checks, watches, calculators</li>
+        <li>Filling details: names, codes, etc.</li>
+        <li>During the exam: writing, communication, conduct</li>
+        <li>Emergency info: alarms, invigilator help</li>
+    </ol>
+    <hr>
+    <h3 id="3-clarity-and-readability">3. Clarity and Readability</h3>
+    <p><strong>Strengths:</strong></p>
+    <ul>
+        <li>Most sentences are short and simple.</li>
+        <li>Key prohibitions (&quot;must not&quot;) are clear and repeated consistently.</li>
+    </ul>
+    <p><strong>Weaknesses:</strong></p>
+    <ul>
+        <li>Some lists are cumbersome when spoken (&quot;Notes, Books, Papers, Airpods, Earphones or Earbuds,
+            iPods...&quot;).</li>
+        <li>Certain phrases are redundant (&quot;hand these into an invigilator now&quot; could just be &quot;hand them
+            in now&quot;).</li>
+        <li>The instruction &quot;Put up your up hand&quot; is a typo (should be &quot;Put up your hand&quot;).</li>
+    </ul>
+    <p><strong>Suggestion:</strong> Simplify and reformat lists for better oral delivery:
+        &quot;Please check your pockets now - that includes phones, notes, earphones, watches, and any other electronic
+        devices.&quot;</p>
+    <hr>
+    <h3 id="4-accessibility-and-inclusivity">4. Accessibility and Inclusivity</h3>
+    <ul>
+        <li>The pace of delivery might overwhelm candidates with additional needs.</li>
+        <li>Phrases like &quot;Laptop users must read the JCQ instructions on the yellow card&quot; assume colour
+            visibility; should add &quot;the card placed on your desk&quot; for clarity to colour-blind candidates.</li>
+        <li>&quot;Water bottles are to be clear plastic, unlabelled, with a sports cap only&quot; is good for fairness
+            but could include &quot;You may keep it on the floor beside your desk.&quot;</li>
+        <li>Shortening it and slowing it down a bit is probably in order.</li>
+    </ul>
+    <p><strong>Suggestion:</strong> Add small inclusivity touches:
+        &quot;If you are unsure about anything or need assistance, please raise your hand - we are here to help.&quot;
+    </p>
+    <hr>
+    <h3 id="5-professionalism-and-precision">5. Professionalism and Precision</h3>
+    <ul>
+        <li>The instruction &quot;Exam boards can, and do, mark you down&quot; is slightly informal and speculative.
+        </li>
+        <li>&quot;We do hold a small stock of equipment&quot; is friendly but breaks tone consistency - it is
+            conversational amid a regulatory announcement.</li>
+    </ul>
+    <p><strong>Suggestion:</strong> Reword for consistency:
+        &quot;If you require any equipment, please raise your hand and ask an invigilator.&quot;</p>
+    <hr>
+    <h2 id="overall-recommendations">Overall Recommendations</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Rating (1-5)</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Clarity</td>
+                <td>4</td>
+                <td>Mostly clear but overly dense in some places</td>
+            </tr>
+            <tr>
+                <td>Tone</td>
+                <td>3</td>
+                <td>Too rigid and intimidating for oral delivery</td>
+            </tr>
+            <tr>
+                <td>Structure</td>
+                <td>3</td>
+                <td>Logical, but could be reordered for smoother flow</td>
+            </tr>
+            <tr>
+                <td>Inclusivity</td>
+                <td>4</td>
+                <td>Functional but could be more supportive</td>
+            </tr>
+            <tr>
+                <td>Professional polish</td>
+                <td>4</td>
+                <td>Minor errors and phrasing issues</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    `
+    document.body.style.color = "white";
 }
