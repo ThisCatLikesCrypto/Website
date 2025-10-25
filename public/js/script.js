@@ -506,7 +506,7 @@ function criticismAndReview() {
         under fair dealing (copyright be like)</h1>
     <h2 id="overall-assessment">Overall Assessment</h2>
     <ul>
-        <li>Purpose: To standardize invigilation announcements and ensure candidates follow JCQ exam rules.</li>
+        <li>Purpose: To standardise invigilation announcements and ensure candidates follow JCQ exam rules.</li>
         <li>Tone: Authoritative and serious (appropriate), but occasionally bureaucratic and repetitive.</li>
         <li>Structure: Mostly logical but could be smoother, with less cognitive load on nervous candidates.</li>
         <li>Clarity: Generally clear, though several sentences are dense or slightly awkward for oral delivery.</li>
@@ -568,7 +568,6 @@ function criticismAndReview() {
             iPods...&quot;).</li>
         <li>Certain phrases are redundant (&quot;hand these into an invigilator now&quot; could just be &quot;hand them
             in now&quot;).</li>
-        <li>The instruction &quot;Put up your up hand&quot; is a typo (should be &quot;Put up your hand&quot;).</li>
     </ul>
     <p><strong>Suggestion:</strong> Simplify and reformat lists for better oral delivery:
         &quot;Please check your pockets now - that includes phones, notes, earphones, watches, and any other electronic
