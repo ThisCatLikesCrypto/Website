@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id="them" rel="stylesheet">
+    <style id="them"></style>
 </head>
 
 <body>
@@ -17,10 +17,9 @@
 
         async function get() {
             const url = 'https://api.grid.me.uk/api/current';
-
             const maxRetries = 3;
             const timeoutPerRequest = 5000;
-            const baseDelay = 500; 
+            const baseDelay = 500;
             const maxDelay = 10000;
 
             for (let attempt = 0; attempt <= maxRetries; attempt++) {
@@ -41,13 +40,11 @@
                     const isLastAttempt = attempt === maxRetries;
                     console.warn(`Fetch attempt ${attempt + 1} failed:`, error);
 
-                    // If aborted due to timeout or network/server error -> retry unless last attempt
                     if (isLastAttempt) {
                         console.error('All fetch retries failed:', error);
                         return;
                     }
 
-                    // exponential backoff with small jitter
                     const backoff = Math.min(maxDelay, baseDelay * Math.pow(2, attempt));
                     const jitter = Math.floor(Math.random() * (backoff * 0.3));
                     await sleep(backoff + jitter);
@@ -56,44 +53,128 @@
         }
 
         function getLowCarbonPercent(data) {
-            // Calculate total generation
             const totalGen = data['biomass'] + data['ccgt'] + data['coal'] + data['intelec'] + data['intew'] +
                 data['intfr'] + data['intgrnl'] + data['intifa2'] + data['intirl'] + data['intned'] + data['intnem'] +
                 data['intnsl'] + data['intvkl'] + data['npshyd'] + data['nuclear'] + data['ocgt'] + data['oil'] +
                 data['other'] + data['ps'] + data['wind'] + data['solar'] + data['wind_embedded'];
-            // Low carbon sources
             const lowCarbon = data['biomass'] + data['nuclear'] + data['npshyd'] + data['solar'] + data['wind'] +
                 data['wind_embedded'];
             return Math.round((lowCarbon / totalGen) * 100);
+        }
+
+        function categorizeCO2(idx) {
+            if (idx === null || idx === undefined) return { key: 'unknown', label: 'Unknown', emoji: '❓' };
+
+            const s = String(idx).trim().toLowerCase();
+            if (s.includes('very') && s.includes('low')) return { key: 'very-low', label: 'Very Low', emoji: '🟢' };
+            if (s.includes('low')) return { key: 'low', label: 'Low', emoji: '🟢' };
+            if (s.includes('medium') || s.includes('moderate')) return { key: 'medium', label: 'Medium', emoji: '🟡' };
+            if (s.includes('very') && s.includes('high')) return { key: 'very-high', label: 'Very High', emoji: '⚫️' };
+            if (s.includes('high')) return { key: 'high', label: 'High', emoji: '🔴' };
+
+            return { key: 'unknown', label: String(idx), emoji: '❓' };
         }
 
         function displayCO2Data(data) {
             const actual = data['co2'];
             const forecast = data['co2_forecast'];
             const index = data['co2_index'];
+            const value = (actual !== undefined && actual !== null) ? actual : forecast;
+
             if (actual !== undefined && actual !== null) {
                 document.getElementById('actual').innerHTML = actual;
             } else {
                 document.getElementById('actual').innerHTML = forecast;
             }
             document.getElementById('index').innerHTML = index;
+
+            const cat = categorizeCO2(index);
+            document.body.setAttribute('data-co2-category', cat.key);
+            const status = document.getElementById('status');
+            if (status) {
+                status.innerText = `${cat.emoji} ${cat.label}`;
+                status.setAttribute('aria-label', `CO2 level is ${cat.label}`);
+                status.title = `Index: ${index} — CO2: ${value} gCO₂/kWh — ${cat.label}`;
+            }
         }
 
         function displayGenData(data) {
             let lcperc = getLowCarbonPercent(data);
             document.getElementById('lcpercent').innerHTML = lcperc;
         }
+
+        const SHARED = `
+            /* shared styles: layout, status badge, attribution */
+            :root { --badge-padding: 6px 10px; --badge-radius: 14px; --muted: rgba(255,255,255,0.65); }
+
+            body { transition: background-color 300ms ease; display: flex; flex-direction: column; align-items: center; min-width: 220px; box-sizing: border-box; }
+
+            .status-badge { display:inline-block; font-weight:600; padding: var(--badge-padding); border-radius: var(--badge-radius); font-size: 0.9rem; margin-bottom: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.15); transition: transform 180ms ease, opacity 180ms ease; }
+
+            /* corner attribution */
+            .attribution {
+                position: fixed;
+                right: 8px;
+                bottom: 6px;
+                font-size: 11px;
+                opacity: 0.75;
+                background: rgba(0,0,0,0.06);
+                padding: 6px 8px;
+                border-radius: 8px;
+                text-decoration: none;
+                transition: opacity 150ms ease, transform 150ms ease;
+                backdrop-filter: blur(6px);
+            }
+            .attribution:hover { opacity: 1; transform: translateY(-2px); }
+            body[data-co2-category="very-low"] .status-badge { background: linear-gradient(90deg,#00c853,#66ffb0); color:#062e16; }
+            body[data-co2-category="low"]      .status-badge { background: linear-gradient(90deg,#2ecc71,#a8e6cf); color:#083012; }
+            body[data-co2-category="medium"]   .status-badge { background: linear-gradient(90deg,#ffd54f,#fff9c4); color:#4a3b00; }
+            body[data-co2-category="high"]     .status-badge { background: linear-gradient(90deg,#ff7043,#ffd5c2); color:#3b170f; }
+            body[data-co2-category="very-high"] .status-badge{ background: linear-gradient(90deg,#bf360c,#ff8a65); color:#2a0700; }
+            body[data-co2-category="unknown"] .status-badge { background: #ccc; color:#222; }
+
+        `;
+
+        const THEMES = {
+            light: `
+                body { background-color: #ffffff; color: #000; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Open Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; text-align: center; }
+                .attribution { background: rgba(255,255,255,0.85); color: #111; box-shadow: 0 3px 8px rgba(0,0,0,0.06); }
+            `,
+            dark: `
+                body { background-color: #0f0f10; color: aqua; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Open Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; text-align: center; }
+                p, a { background-color: rgba(255,255,255,0.02); color: aqua; }
+                .attribution { background: rgba(0,0,0,0.45); color: aqua; }
+            `,
+            dumb: `
+                h3 { animation: textRainbow linear 4s infinite; }
+                @keyframes textRainbow {
+                    0% {background-color: red;}
+                    16% {background-color: orange;}
+                    32% {background-color: yellow;}
+                    48% {background-color: green;}
+                    64% {background-color: blue;}
+                    80% {background-color: purple;}
+                    100% {background-color: red;}
+                }
+                .attribution { background: rgba(255,255,255,0.9); color: #111; }
+            `
+        };
+
         async function main() {
             const urlParams = new URLSearchParams(window.location.search);
             const mode = urlParams.get('theme');
+
+            console.log(mode); // why is this returning null even when theme param is set?
+
+            const styleEl = document.getElementById('them');
             if (mode === "light") {
-                document.getElementById('them').href = "./wGrid/light.css";
+                styleEl.textContent = SHARED + THEMES.light;
             } else if (mode === "dark") {
-                document.getElementById('them').href = "./wGrid/style.css";
+                styleEl.textContent = SHARED + THEMES.dark;
             } else {
-                document.getElementById('them').href = "./wGrid/dumb.css";
+                styleEl.textContent = SHARED + THEMES.dumb;
                 document.getElementById('header').innerHTML =
-                "PLEASE SPECIFY A THEME (?theme=dark or ?theme=light)";
+                    "PLEASE SPECIFY A THEME (?theme=dark or ?theme=light)";
             }
             const data = await get();
             if (data) {
@@ -104,10 +185,12 @@
         document.addEventListener('DOMContentLoaded', main);
     </script>
     <br>
+
+    <div id="status" class="status-badge" aria-hidden="true">--</div>
     <h3 id="header">UK Grid Carbon Intensity</h3>
     <h2><span id="actual"></span>gCO₂/kWh (<span id="index"></span>)</h2>
     <h2>Low Carbon: <span id="lcpercent"></span>%</h2>
-    <i><a href="https://wilburwilliams.uk" target="_blank">Widget By Wilbur Williams</a></i>
+    <a class="attribution" href="https://wilburwilliams.uk" target="_blank" rel="noopener noreferrer">Widget by Wilbur Williams</a>
 </body>
 
 </html>

@@ -409,7 +409,7 @@ function showSide() {
     snavb = document.getElementById("sidenavbtn");
     snav.style.display = "block";
     snavb.style.marginLeft = "36%";
-    snavb.innerHTML = "Hide Sidebar";
+    snavb.innerHTML = `<span class="fa-bars fa-solid"></span>`;
     snavb.onclick = hideSide;
 }
 
@@ -418,7 +418,7 @@ function hideSide() {
     snavb = document.getElementById("sidenavbtn");
     snav.style.display = "none";
     snavb.style.marginLeft = "0";
-    snavb.innerHTML = "Show Sidebar";
+    snavb.innerHTML = `<span class="fa-bars fa-solid"></span>`;
     snavb.onclick = showSide;
 }
 

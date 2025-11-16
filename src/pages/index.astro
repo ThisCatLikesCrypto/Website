@@ -8,19 +8,10 @@ import "../styles/index.css";
     <h1 class="centretext mainheader">Wilbur's Website</h1>
     <span class="splash" id="splash"></span>
     <br><br>
-    <br>
+    <p>&nbsp;</p>
     <p class="mobileonly">
         Small screen support still in beta, please report any issues to me
     </p>
-    <p class="centretext">
-        <a class="abutp" id="musiccontrol">*Click here to play music!*</a>
-        <br>
-        <button id="prevTrack">Previous</button>
-        <button id="nextTrack">Next</button>
-        <br>
-        <sub><a href="https://music.eyescary.uk">ESMusic</a></sub>
-    </p>
-    <audio id="audioPlayer" preload="auto"></audio>
     <div class="section maindivdiv">
         <div>
             <h2>Webrings</h2>
@@ -83,6 +74,17 @@ import "../styles/index.css";
             <a href="3dsite/">3D site</a><br>
             <a href="test.html">test thing from ages ago</a><br>
             <a href="publickey.html">public key</a>
+            <br>
+            <br>
+            <p class="centretext">
+                <a class="abutp" id="musiccontrol"><span class="fa-play fa-solid"></span></a>
+                <br>
+                <button id="prevTrack"><span class="fa-angles-left fa-solid"></span></button>
+                <button id="nextTrack"><span class="fa-angles-right fa-solid"></span></button>
+                <br>
+                <sub><a href="https://music.eyescary.uk">ESMusic</a></sub>
+                <audio id="audioPlayer" preload="none"></audio>
+            </p>
         </div>
     </div>
     <br>
@@ -112,6 +114,9 @@ import "../styles/index.css";
                 </a>
                 <a href="https://kalechips.net/responsive">
                     <img loading="eager" src="images/buttons/responsive.png" alt="responsive web design">
+                </a>
+                <a href="https://tetra.vivwebz.net">
+                    <img loading="eager" src="images/buttons/tetra.png" alt="tetra">
                 </a>
                 <a href="https://split.pet">
                     <img loading="eager" src="https://split.pet/88x31/split.png" alt="split.pet">
@@ -183,12 +188,12 @@ import "../styles/index.css";
             audio.pause();
             isPlaying = false;
             document.getElementById("musiccontrol").innerHTML =
-                "Click to resume music";
+                "<span class='fa-play fa-solid'></span>";
         } else {
             audio.play();
             isPlaying = true;
             document.getElementById("musiccontrol").innerHTML =
-                "Click to pause music";
+                "<span class='fa-pause fa-solid'></span>";
         }
     }
 
