@@ -166,7 +166,7 @@ function search(useIR = false) {
     } else if (searchTerm.startsWith("https://") || searchTerm.startsWith("http://")) {
         var url = searchTerm;
     } else if (searchTerm.startsWith("?")) {
-        handleQuestionQuery(searchTerm, searchquOption);
+        handleQuestionQuery(searchTerm, searchquOption, useIR);
     } else if (searchTerm.startsWith("!")) {
         handleExclamationQuery(searchTerm, searchexOption);
     } else if (domainEndings.includes(queryEnding) && !searchTerm.includes(" ")) {
@@ -183,14 +183,20 @@ function search(useIR = false) {
     return false; // Prevent default form submission
 }
 
-function handleQuestionQuery(query, option) {
+function handleQuestionQuery(query, option, useIR) {
     if (option === "https") {
-        window.location.href = query.replace("?", "https://");
+        var url = query.replace("?", "https://");
     } else if (option === "http") {
-        window.location.href = query.replace("?", "http://");
+        var url = query.replace("?", "http://");
     } else if (option === "search") {
         var engine = localStorage.getItem("engine") || "https://ecosia.org/search?q=%s";
-        window.location.href = engine.replace("%s", encodeURIComponent(query));
+        var url = engine.replace("%s", encodeURIComponent(query));
+    }
+
+    if (useIR){
+        sendtoIR(url);
+    } else {
+        window.location.href = url
     }
 }
 
