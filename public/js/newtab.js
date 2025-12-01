@@ -142,15 +142,9 @@ function searchEcosia() {
     }
 }
 
-function searchGoogle() {
-    const searchTerm = document.getElementById("searchInput").value;
-    localStorage.setItem('points', parseInt(localStorage.getItem('points')) + 1);
-    getPoints();
-    window.location.href = "https://google.com/search?q=" + encodeURIComponent(searchTerm);
-}
 
-function search(query) {
-    const searchTerm = query || document.getElementById("searchInput").value;
+function search(useIR = false) {
+    const searchTerm = document.getElementById("searchInput").value;
     var engine = localStorage.getItem("engine") || "https://www.ecosia.org/search?q=%s";
 
     console.log(searchTerm);
@@ -170,16 +164,22 @@ function search(query) {
     if (searchTerm === "") {
         console.log("Empty search string");
     } else if (searchTerm.startsWith("https://") || searchTerm.startsWith("http://")) {
-        window.location.href = searchTerm;
+        var url = searchTerm;
     } else if (searchTerm.startsWith("?")) {
         handleQuestionQuery(searchTerm, searchquOption);
     } else if (searchTerm.startsWith("!")) {
         handleExclamationQuery(searchTerm, searchexOption);
     } else if (domainEndings.includes(queryEnding) && !searchTerm.includes(" ")) {
-        window.location.href = "https://" + searchTerm;
+        var url = "https://" + searchTerm;
     } else {
-        window.location.href = engine.replace("%s", encodeURIComponent(searchTerm));
+        var url = engine.replace("%s", encodeURIComponent(searchTerm));
     }
+    if (url && useIR){
+        sendtoIR(url);
+    } else if (url){
+        window.location.href = url;
+    }
+    
     return false; // Prevent default form submission
 }
 
@@ -375,6 +375,25 @@ function updateTime() {
 }
 
 setInterval(updateTime, 500);
+
+function encodeURLforIR(url) {
+    return encodeURIComponent(
+        url
+            .toString()
+            .split('')
+            .map((char, ind) =>
+                ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
+            )
+            .join('')
+    );
+}
+
+function sendtoIR(url) {
+    const IRBaseURL = 'https://ir.c48.uk/ir/service/';
+    const encodedURL = encodeURLforIR(url);
+    const fullIRURL = `${IRBaseURL}${encodedURL}`;
+    window.location.href = fullIRURL;
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     updateTheme();
