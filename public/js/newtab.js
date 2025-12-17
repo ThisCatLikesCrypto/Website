@@ -72,7 +72,7 @@ async function fetchDomainEndings() {
 };
 
 function getDomainEndings() {
-  return document.getElementById('stupiddomainendingstag').innerHTML.split(',');
+    return document.getElementById('stupiddomainendingstag').innerHTML.split(',');
 }
 
 function getLink(Link) {
@@ -143,8 +143,8 @@ function searchEcosia() {
 }
 
 
-function search(useIR = false) {
-    const searchTerm = document.getElementById("searchInput").value;
+function search(useIR = false, overrideTerm = null) {
+    const searchTerm = overrideTerm !== null ? overrideTerm : document.getElementById("searchInput").value;
     var engine = localStorage.getItem("engine") || "https://www.ecosia.org/search?q=%s";
 
     console.log(searchTerm);
@@ -174,12 +174,12 @@ function search(useIR = false) {
     } else {
         var url = engine.replace("%s", encodeURIComponent(searchTerm));
     }
-    if (url && useIR){
+    if (url && useIR) {
         sendtoIR(url);
-    } else if (url){
+    } else if (url) {
         window.location.href = url;
     }
-    
+
     return false; // Prevent default form submission
 }
 
@@ -193,7 +193,7 @@ function handleQuestionQuery(query, option, useIR) {
         var url = engine.replace("%s", encodeURIComponent(query));
     }
 
-    if (useIR){
+    if (useIR) {
         sendtoIR(url);
     } else {
         window.location.href = url
@@ -212,6 +212,110 @@ function handleExclamationQuery(query, option) {
         window.location.href = engine.replace("%s", encodeURIComponent(query));
     }
 }
+
+/**
+ * @param {string} query
+ * @returns {Array} Array of suggestions
+ */
+async function getCompletions(query) {
+    try {
+        console.log("[suggestions] fetching results for query " + query);
+        const response = await fetch(
+            `https://cors.ir.wilburwilliams.com/?url=https://duckduckgo.com/ac/?q=${query}&type=list`
+        );
+        const data = await response.json();
+        console.log("[suggestions] response:", data);
+        let parsedSuggestions = Array.isArray(data) ? data : data.split(",");
+        console.log("[suggestions] array:", parsedSuggestions);
+
+        let array = [];
+
+        // http://stackoverflow.com/questions/8430336/ddg#8430501
+        for (var i in parsedSuggestions) {
+            var key = i;
+            var val = parsedSuggestions[i];
+            for (var j in val) {
+                var sub_key = j;
+                var sub_val = val[j];
+                console.log("[suggestions] parsed element:"), sub_val;
+                array.push(sub_val);
+            }
+        }
+
+        console.log("[suggestions] final array:", array);
+        return array;
+    } catch (e) {
+        console.error(e);
+        console.log(
+            "[suggestions] encountered an error, returning just query as suggestion"
+        );
+        return [query];
+    }
+}
+
+var address2 = document.getElementById("searchInput");
+const suggestions = document.getElementById("suggestions-container");
+
+function updateSuggestions() {
+    const query = address2.value;
+
+    if (query === "") {
+        suggestions.classList.remove("shown");
+        console.log("[suggestions] form empty");
+        suggestions.innerHTML = "";
+    } else {
+        getCompletions(query).then((data) => {
+            console.log(typeof data);
+            suggestions.innerHTML = "";
+            let amountOfSuggestions = 0;
+            if (data.length === 0) {
+                suggestions.classList.remove("shown");
+            } else {
+                data.forEach((element) => {
+                    if (amountOfSuggestions >= 10) {
+                        return;
+                    }
+                    suggestions.classList.add("shown");
+                    suggestions.innerHTML += `<a class="suggestion" data-term="${encodeURIComponent(element)}">
+                        ${element}
+                    </a>`;
+                    amountOfSuggestions += 1;
+                    console.log(amountOfSuggestions);
+                });
+            }
+        });
+    }
+}
+
+address2.addEventListener("input", async (event) => {
+    event.preventDefault();
+    updateSuggestions();
+});
+
+address2.addEventListener("focus", async (event) => {
+    event.preventDefault();
+    updateSuggestions();
+});
+
+address2.addEventListener("blur", async (event) => {
+    event.preventDefault();
+    setTimeout(() => {
+        suggestions.classList.remove("shown");
+    }, 100);
+});
+
+suggestions.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("suggestion")) return;
+    const term = decodeURIComponent(e.target.dataset.term);
+    search(false, term);
+});
+
+document.addEventListener("click", (event) => {
+    if (!suggestions.contains(event.target) && event.target !== address2) {
+        suggestions.classList.remove("shown");
+        suggestions.innerHTML = "";
+    }
+});
 
 function goPlaces(place) {
     window.location.href = place;
@@ -355,7 +459,7 @@ setInterval(msgs, 3000);
 
 function getDayOfWeek(day) {
     const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    if (daysOfWeek[day] === undefined){
+    if (daysOfWeek[day] === undefined) {
         return 'Sunday' // dumb fix for breakage on Sunday
     } else {
         return daysOfWeek[day];
