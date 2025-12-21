@@ -184,7 +184,8 @@ const title = "Wilbur's Mirrors"
                 <li>Ubuntu Server</li>
             </ul>
             When Oswald was created, this package was not available anymore, so I went with a Storage VPS 10. The differences are that 
-            there is only 300GB of storage, however RAM was bumped to 4GB.
+            there is only 300GB of storage, however RAM was bumped to 4GB.<br>
+            All servers support IPv6 as well as IPv4.
         </p>
         <br>
         <h2 id="rsync">rsync</h2>
@@ -228,6 +229,18 @@ ubuntu-releases Ubuntu Releases
             Additionally, please use <code>rsync -rltpH --delete-delay --delay-updates --safe-links</code> as minimum rsync options. This is what is 
             required by Arch and will prevent user issues with your mirrors. If you are testing yourself, you may want to add <code>-vn</code> and 
             <code>--progress</code> to perform a dry run and get greater insight into what would happen on sync.
+        </p>
+        <br>
+        <h2>Privacy Policy</h2>
+        <p>
+            The mirror servers do not log any personal data except for standard web server logs (IP address, user agent, date/time of access,
+            requested resource, referrer). These logs are stored in the default location on the servers (/var/log/nginx/) and are cleaned out
+            occassionally to save space. No data is shared with any third parties, and no cookies are used on the servers.<br>
+            An example log entry looks like this:
+            <pre>
+2a02:c7c:3bcd:93df:feed:dead:beef:cafe - - [21/Dec/2025:17:51:51 +0000] "GET /endeavouros/repo/endeavouros/x86_64/yay-12.5.7-1-x86_64.pkg.tar.zst.sig HTTP/2.0" 200 143 "-" "pacman/7.1.0 (Linux x86_64) libalpm/16.0.1" "-"
+            </pre>
+            These are only really used for my own curiosity and to see how much traffic the mirrors are getting and from where.
         </p>
         <h2>FAQs</h2>
         <p>
