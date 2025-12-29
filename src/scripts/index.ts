@@ -1,4 +1,4 @@
-export {}; // sybau TS
+export { }; // sybau TS
 
 // --- Music Player Code ---
 const songList = [
@@ -205,14 +205,14 @@ async function songPlay(songURL: string) {
     }
 
     if (easterAudio) {
-        try { easterAudio.pause(); } catch {}
+        try { easterAudio.pause(); } catch { }
     }
     easterAudio = new Audio(songURL);
     eaudion = true;
 
     try {
         if (audio) audio.pause();
-    } catch {}
+    } catch { }
 
     await easterAudio.play();
     easterAudio.addEventListener("ended", function () {
@@ -223,7 +223,7 @@ async function songPlay(songURL: string) {
             // re-enable regular toggle
             mc.onclick = togglePlay;
         }
-        try { audio.play(); } catch {}
+        try { audio.play(); } catch { }
     });
 }
 
@@ -752,3 +752,39 @@ function criticismAndReview() {
     `
     document.body.style.color = "white";
 }
+
+function catGoMeow() {
+    fetch('https://api.thecatapi.com/v1/images/search')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.length > 0) {
+                const imageUrl = data[0].url;
+                console.log('Cat image URL:', imageUrl);
+                window.location.href = imageUrl;
+            } else {
+                console.log('No images found');
+            }
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+}
+
+document.getElementById("catButton")!.addEventListener("click", catGoMeow);
+
+function copyBtnEmbed() {
+    const embedCode = '<a href="https://wilburwilliams.uk" target="_blank"><img src="https://wilburwilliams.uk/assets/button.gif" alt="wilburwilliams.uk (spinny cat icon)></a>'
+
+    navigator.clipboard.writeText(embedCode).then(function () {
+        alert("Copied Embed Code");
+    }, function (err) {
+        console.error("Could not copy text: ", err);
+    });
+}
+
+document.getElementById("buttona")!.addEventListener("click", copyBtnEmbed);
