@@ -82,9 +82,9 @@ const splashtext = [
     "built with VSCode",
     "<a href='https://www.youtube.com/watch?v=M93mt3NzkmM'>This song has no right being this good</a>",
     "<a href='https://www.youtube.com/watch?v=24sx3aFynQI'>1996 stock motors</a>",
-    "<img style='height: 32px; width: 32px;' src='https://assets.c48.uk/spinny_cat/spinny_cat_ace.gif' alt='spinny_cat_ace'>",
-    "<img style='height: 32px; width: 32px;' src='https://assets.c48.uk/spinny_cat/spinny_cat_aroace.gif' alt='spinny_cat_aroace'>",
-    "<img style='height: 32px; width: 32px;' src='https://assets.c48.uk/spinny_cat/spinny_cat_aro.gif' alt='spinny_cat_aro'>",
+    "<img style='height: 32px; width: 32px;' src='https://assets.c48.uk/spinny_cat/spinny_cat_ace.webp' alt='spinny_cat_ace'>",
+    "<img style='height: 32px; width: 32px;' src='https://assets.c48.uk/spinny_cat/spinny_cat_aroace.webp' alt='spinny_cat_aroace'>",
+    "<img style='height: 32px; width: 32px;' src='https://assets.c48.uk/spinny_cat/spinny_cat_aro.webp' alt='spinny_cat_aro'>",
     "<a href='https://www.youtube.com/watch?v=83CqPViJB0I'>UNIFY</a>",
     "Killer Queen"
 ];
@@ -788,3 +788,4 @@ function copyBtnEmbed() {
 }
 
 document.getElementById("buttona")!.addEventListener("click", copyBtnEmbed);
+document.getElementById("buttona2")!.addEventListener("click", copyBtnEmbed);
