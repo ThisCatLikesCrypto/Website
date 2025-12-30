@@ -5,19 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Wilbur's customisable New Tab page">
     <meta name="og:description" content="Wilbur's customisable New Tab page">
-    <link rel="preload" href="../assets/newtab/copilot.jpg" as="image">
-    <link rel="preload" href="../assets/newtab/ecosia.jpeg" as="image">
-    <link rel="preload" href="../assets/newtab/gclass.png" as="image">
-    <link rel="preload" href="../assets/newtab/ghlogo.png" as="image">
-    <link rel="preload" href="../assets/newtab/wisdev.png" as="image">
-    <link rel="preload" href="../assets/newtab/electricitymaps-icon.svg" as="image">
-    <link rel="preload" href="../assets/newtab/quizlet.jpeg" as="image">
-    <link rel="preload" href="../assets/newtab/blooket.png" as="image">
+    <link rel="dns-prefetch" href="https://assets.c48.uk">
+    <link rel="preconnect" href="https://assets.c48.uk">
+    <link rel="preconnect" href="https://assets.c48.uk" crossorigin>
     <title>New Tab</title>
-    <link id="them" href="../css/themes/pitchdark.css" rel="stylesheet">
-    <link href="../css/themes/universal.css" rel="stylesheet">
-    <link href="../css/newtab.css" rel="stylesheet">
-    <style id="inlineCustomCSS">
+    <link id="them" href="/css/themes/pitchdark.css" rel="stylesheet">
+    <link href="/css/themes/universal.css" rel="stylesheet">
+    <link href="/css/newtab.css" rel="stylesheet">
+    <style is:inline id="inlineCustomCSS">
         /* This is replaced with any custom css not imported with a URL*/
     </style>
 </head>
@@ -26,16 +21,16 @@
         <div class="dropdown">
             <button class="dropbtn wws-dropbtn">Menu</button>
             <div class="wws-dropdown-content dropdown-content">
-                <a href="#" onclick="showOptions()">Primary Options</a>
-                <a href="#" onclick="showLinkEditor()">Custom Link Editor</a>
-                <a href="#" onclick="showThemes()">Themes</a>
-                <a href="#" onclick="lazyAss()">Set My Settings</a>
+                <a id="menu-primary-options">Primary Options</a>
+                <a id="menu-link-editor">Custom Link Editor</a>
+                <a id="menu-themes">Themes</a>
+                <a id="menu-lazy">Set My Settings</a>
             </div>
         </div>
         <div class="dropdown2">
             <button class="dropbtn wws-dropbtn">Credits</button>
             <div class="dropdown-content wws-dropdown-content">
-                <a href="../">Wilbur Williams (made this)</a>
+                <a href="https://wilburwilliams.uk">Wilbur Williams (made this)</a>
                 <a href="https://devsuperiority.pages.dev/">Pittab (for dev superiority)</a>
             </div>
         </div>
@@ -47,35 +42,35 @@
         <h3 id="time">Loading...</h1>
         <p class="spacersmol"></p>
         <div class="centreplease">
-            <form id="searchForm" onsubmit="return search()">
+            <form id="searchForm">
                 <input type="text" id="searchInput" class="wws-inputBox inputBox" placeholder="Enter to search..." autofocus>
                 <div id="suggestions-container"></div>
             </form>
         </div>
         <div class="stuffbelowsearchbit">
-            <button id="searchEcosia" class="belowaction" onclick="return searchEcosia()">Search Ecosia (or go to chat)</button>
-            <button id="infaredButton" class="belowaction" onclick="return search(true)">Use Infrared for this query</button>
+            <button id="searchEcosia" class="belowaction">Search Ecosia (or go to chat)</button>
+            <button id="infaredButton" class="belowaction">Use Infrared for this query</button>
         </div>
         <p>(click images to go to the websites)</p>
         <div id="quicklinks">
-            <button id="quicklink1" onclick="goPlaces(getLink('link1'))">
-                <img src="../assets/newtab/copilot.jpg">
+            <button id="quicklink1">
+                <img src="https://assets.c48.uk/newtab/copilot.avif">
             </button>
-            <button id="quicklink2" onclick="goPlaces(getLink('link2'))">
-                <img src="../assets/newtab/gclass.png">
+            <button id="quicklink2">
+                <img src="https://assets.c48.uk/newtab/gclass.avif">
             </button>
-            <button id="quicklink3" onclick="goPlaces(getLink('link3'))">
-                <img src="../assets/newtab/gdoc.png">
+            <button id="quicklink3">
+                <img src="https://assets.c48.uk/newtab/gdoc.png">
             </button>
         </div>
         <br>
         <div id="smallquicklinks">
-            <button onclick="goPlaces(getLink('link4'))"><img id="link4" src="../assets/newtab/ghlogo.png"></button>
-            <button onclick="goPlaces(getLink('link5'))"><img id="link5" src="../assets/newtab/ecosia.jpeg"></button>
-            <button onclick="goPlaces(getLink('link6'))"><img id="link6" id="wisdevlogo" src="../assets/newtab/wisdev.png"></button>
-            <button onclick="goPlaces(getLink('link7'))"><img id="link7" class="wws-svglogo" src="../assets/newtab/electricitymaps-icon.svg"></button>
-            <button onclick="goPlaces(getLink('link8'))"><img id="link8" src="../assets/newtab/quizlet.jpeg"></button>
-            <button onclick="goPlaces(getLink('link9'))"><img id="link9" src="../assets/newtab/blooket.png"></button>
+            <button id="smallquicklink4"><img id="link4" src="https://assets.c48.uk/images/github.webp"></button>
+            <button id="smallquicklink5"><img id="link5" src="https://assets.c48.uk/newtab/ecosia.avif"></button>
+            <button id="smallquicklink6"><img id="link6" id="wisdevlogo" src="https://assets.c48.uk/newtab/wisdev.png"></button>
+            <button id="smallquicklink7"><img id="link7" class="wws-svglogo" src="https://assets.c48.uk/newtab/electricitymaps-icon.svg"></button>
+            <button id="smallquicklink8"><img id="link8" src="https://assets.c48.uk/newtab/quizlet.avif"></button>
+            <button id="smallquicklink9"><img id="link9" src="https://assets.c48.uk/newtab/blooket.avif"></button>
         </div>
         <p id="mesage"></p>
     </div> 
@@ -83,24 +78,24 @@
         <p class="spacersmol"></p>
         <h1>Theme Switcher</h1>
         <div class="centreplease">
-            <button onclick="hideThemes()">Hide Theme Switcher</button>
+            <button id="theme-hide">Hide Theme Switcher</button>
         </div>
         <div class="centreplease" id="themeslinks">
             <h2>
-                <a href="#" onclick="changeTheme('surface')">Surface Theme (left)</a> &ndash;
-                <a href="#" onclick="changeTheme('deep')">Deep Theme (centre)</a> &ndash;
-                <a href="#" onclick="changeTheme('pitchdark')">Dark Theme (right)</a>
+                <a id="theme-surface">Surface Theme (left)</a> &ndash;
+                <a id="theme-deep">Deep Theme (centre)</a> &ndash;
+                <a id="theme-pitchdark">Dark Theme (right)</a>
             </h2>
         </div>
         <div class="centreplease">
-            <img loading="lazy" class="themeimg" src="../assets/newtab/surfacetheme.webp">
-            <img loading="lazy" class="themeimg" src="../assets/newtab/deeptheme.webp">
-            <img loading="lazy" class="themeimg" src="../assets/newtab/darktheme.webp">
+            <img loading="lazy" class="themeimg" src="https://assets.c48.uk/newtab/surfacetheme.avif">
+            <img loading="lazy" class="themeimg" src="https://assets.c48.uk/newtab/deeptheme.avif">
+            <img loading="lazy" class="themeimg" src="https://assets.c48.uk/newtab/darktheme.avif">
         </div>
         <br><br>
         <h2>Custom CSS</h2>
         <div class="centreplease">
-            <form id="customCSSInput" onsubmit="return changeToCustomTheme()">
+            <form id="customCSSInput">
                 <input type="text" id="cssURL" class="wws-inputBox inputBox" placeholder="Enter a css url...">
             </form>
         </div>
@@ -113,7 +108,7 @@
             <p id="inlineCSSeditor" contenteditable="true">/* Put CSS here!*/</p>
         </div>
         <div class="centreplease">
-            <button onclick="useCustomInlineCSS()">Save</button>
+            <button id="saveInlineCSS">Save</button>
         </div>
     </div>
     <div id="primaryoptions">
@@ -121,12 +116,12 @@
         <h1>Primary Options</h1>
         <p id="failthing2"></p>
         <div class="centreplease">
-            <button onclick="hideOptions()">Hide Options</button>
+            <button id="options-hide">Hide Options</button>
         </div>
         <br>
         <h2>Change Search Engine</h2>
         <div class="centreplease">
-            <form class="inputWide" onsubmit="return changeSearch()">
+            <form id="engineForm" class="inputWide">
                 <input type="text" class="inputBox linkInput wws-inputBox" id="engineInput" placeholder="URL with %s in place of query">
                 <p>(like https://ecosia.org/search?q=%s)</p>
             </form>
@@ -134,7 +129,7 @@
         <br>
         <h2>Change Title</h2>
         <div class="centreplease">
-            <form class="inputWide" onsubmit="return setNewTitle()">
+            <form id="titleForm" class="inputWide">
                 <input type="text" class="inputBox linkInput wws-inputBox" id="newTitleInput" placeholder="New Title">
             </form>
         </div>
@@ -163,10 +158,10 @@
         <h1>Quicklink editor</h1>
         <p id="failthing"></p>
         <div class="centreplease">
-            <button onclick="hideLinkEditor()">Hide Link Editor</button>
+            <button id="linkeditor-hide">Hide Link Editor</button>
         </div>
         <div class="centreplease">
-            <form id="linkForm" onsubmit="return updateLink()">
+            <form id="linkForm">
                 <input type="text" class="inputBox linkInput wws-inputBox" id="linkName" placeholder="Link ID (e.g., link1)">
                 <br><br>
                 <input type="text" class="inputBox linkInput wws-inputBox" id="linkContent" placeholder="Link URL...">
@@ -175,7 +170,7 @@
             </form>
         </div>
         <div class="centreplease">
-            <button onclick="return updateLink()">Submit</button>
+            <button id="linkSubmit">Submit</button>
         </div>
         <h2>Available Links:</h2>
         <div class="centreplease">
@@ -187,6 +182,6 @@
         </div>
     </div>
     <span style="display: none;" id="stupiddomainendingstag"></span>
-    <script src="../js/newtab.js"></script>
+    <script src="../scripts/newtab.js"></script>
 </body>
 </html>
