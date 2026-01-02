@@ -31,9 +31,9 @@
             <h1>THIS IS ALL SATIRE OR WHATEVER THE FUCK PLEASE DONT TAKE THIS SERIOUSLY</h1>
         </div>
         <div class="controls">
-            <button id="vidobtn" onclick="playallvideos()">Play All Videos</button>
-            <button id="musicbtn" onclick="playmusic()">Play Stock Fraud Music</button>
-            <button onclick="sfsite()">Go to a random stock fraud site</button>
+            <button id="vidobtn">Play All Videos</button>
+            <button id="musicbtn">Play Stock Fraud Music</button>
+            <button id="fraudsite">Go to a random stock fraud site</button>
             <button onclick="window.open('https://www.reddit.com/r/south32/comments/1hbmuph/what_is_this/')">get some sort of explanation idk</button>
         </div>
         <div class="bhp">
@@ -98,19 +98,24 @@
                 const button = document.getElementById("musicbtn");
                 button.innerHTML = "Stop Music";
                 button.onclick = stopmusic;
-                document.getElementById("stocksong").play();
+                (document.getElementById("stocksong") as HTMLAudioElement).play();
             }
             function stopmusic() {
                 const button = document.getElementById("musicbtn");
                 button.innerHTML = "Play Music";
                 button.onclick = playmusic;
-                document.getElementById("stocksong").pause();
+                (document.getElementById("stocksong") as HTMLAudioElement).pause();
             }
             function sfsite() {
                 const sites = ["https://1centstock.com", "https://londonpost.com", "https://south32.com"];
                 const rand = Math.floor(Math.random() * sites.length);
                 window.open(sites[rand]);
             }
+            document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("vidobtn").onclick = playallvideos;
+                document.getElementById("musicbtn").onclick = playmusic;
+                document.getElementById("fraudsite").onclick = sfsite;
+            });
         </script>
     </body>
 </html>

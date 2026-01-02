@@ -1,17 +1,20 @@
+---
+import "../../styles/oldstyle.css";
+---
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Songz</title>
-    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <h1>Songz</h1>
     <p>enjoy the chaos</p>
-    <p>didn't work? click <button onclick="playAll()">here</button></p>
+    <p>didn't work? click <button id="playall">here</button></p>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const songlist =  [
-                "/assets/scatteredcells.opus",
+                "https://assets.c48.uk/audio/scatteredcells.opus",
                 "https://eyescary-development.github.io/CDN/musik/ESDP2/BHP_IS_A_ONE_CENT_STOCK_FRAUD.mp3",
                 "https://eyescary-development.github.io/CDN/musik/ESDP2/BHP_IS_A_ONE_CENT_STOCK_FRAUD_2.mp3",
                 "https://eyescary-development.github.io/CDN/musik/DRUMNBASS/DRUMNBASS1.mp3",
@@ -38,9 +41,10 @@
                 audio.style.width = "100%";
                 document.body.appendChild(audio);
             });
+            document.getElementById("playall").addEventListener("click", playAll);
         });
         function playAll() {
-                audioelements = document.getElementsByTagName("audio");
+                const audioelements = document.getElementsByTagName("audio");
                 for (let i = 0; i < audioelements.length; i++) {
                     audioelements[i].play();
                 }
