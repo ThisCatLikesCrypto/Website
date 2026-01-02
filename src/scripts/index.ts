@@ -2,7 +2,7 @@ export { }; // sybau TS
 
 // --- Music Player Code ---
 const songList = [
-    "/assets/scatteredcells.opus",
+    "https://assets.c48.uk/audio/scatteredcells.opus",
     "https://eyescary-development.github.io/CDN/musik/ESDP2/BHP_IS_A_ONE_CENT_STOCK_FRAUD.mp3",
     "https://eyescary-development.github.io/CDN/musik/DRUMNBASS/DRUMNBASS1.mp3",
 ];
@@ -194,7 +194,6 @@ fetchStatus();
 
 // global easter-audio state
 let easterAudio: HTMLAudioElement | null = null;
-var eaudion = false;
 
 async function songPlay(songURL: string) {
     console.log("You found an easter egg. Enjoy the sound");
@@ -208,7 +207,6 @@ async function songPlay(songURL: string) {
         try { easterAudio.pause(); } catch { }
     }
     easterAudio = new Audio(songURL);
-    eaudion = true;
 
     try {
         if (audio) audio.pause();
@@ -216,19 +214,12 @@ async function songPlay(songURL: string) {
 
     await easterAudio.play();
     easterAudio.addEventListener("ended", function () {
-        eaudion = false;
-        const mc = document.getElementById('musiccontrol') as HTMLElement | null;
-        if (mc) {
-            mc.innerHTML = "Click to pause music";
-            // re-enable regular toggle
-            mc.onclick = togglePlay;
-        }
-        try { audio.play(); } catch { }
+        window.location.reload();
     });
 }
 
 async function playAprilCells() {
-    await songPlay('/assets/aprilscattered.opus');
+    await songPlay('https://assets.c48.uk/audio/aprilscattered.opus');
 }
 
 function smoothScroll() {
@@ -251,7 +242,7 @@ let fadeTimeout: number | undefined;
 async function technologyConnectionsOutro(keysContainer: HTMLElement) {
     keysContainer.innerHTML = "Connecting to Technology...";
     await sleep(1000);
-    await songPlay('/assets/floaters.ogx');
+    await songPlay('https://assets.c48.uk/audio/floaters.ogx');
     console.log('hmmm');
     keysContainer.style.opacity = "1";
     keysContainer.innerHTML = '♫ connectedly smooth jazz ♫';
@@ -442,7 +433,7 @@ async function technologyConnectionsOutro(keysContainer: HTMLElement) {
 }
 
 async function killerQueen() {
-    await songPlay('/assets/killerqueen.opus');
+    await songPlay('https://assets.c48.uk/audio/killerqueen.opus');
 }
 
 function disableCodes() {
@@ -476,6 +467,8 @@ async function handleKeyPress(event: KeyboardEvent) {
     const obsidianSphereCode = "KeyOKeyBKeySKeyIKeyDKeyIKeyAKeyN";
     const obsidianSphereAlternate = "KeySKeyPKeyHKeyEKeyRKeyE";
     const instructions = "KeyIKeyNKeySKeyTKeyRKeyUKeyCKeyTKeyIKeyOKeyNKeyS";
+    const share = "KeySKeyHKeyAKeyRKeyE";
+    const free = "KeyFKeyRKeyEKeyE";
 
     if (keys.join("") === konamiCode) {
         await sleep(500);
@@ -534,7 +527,11 @@ async function handleKeyPress(event: KeyboardEvent) {
         keysContainer.style.color = "aqua";
         await sleep(500);
         criticismAndReview();
-        await songPlay('/assets/instructions.mp3');
+        await songPlay('https://assets.c48.uk/audio/instructions.opus');
+    } else if (keys.join("").endsWith(share) || keys.join("").endsWith(free)) {
+        keysContainer.style.color = "lime";
+        await sleep(500);
+        await songPlay('https://assets.c48.uk/audio/free-software-song.ogg');
     }
 }
 
