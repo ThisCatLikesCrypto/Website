@@ -557,7 +557,7 @@ async function showObsidianSpherePrompt() {
     // Fetch the obsidianspheres.txt file
     let text = "";
     try {
-        const resp = await fetch('/obsidianspheres.txt');
+        const resp = await fetch('https://assets.c48.uk/obsidianspheres.txt');
         text = await resp.text();
     } catch (e) {
         text = "THE SPHERES ARE HIDING FROM YOU. (Could not load prompt)";

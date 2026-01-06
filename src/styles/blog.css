@@ -88,13 +88,13 @@ table {
 }
 
 th, td {
-    border: 1px solid white; /* Sets the border color to white */
-    padding: 8px; /* Adds padding for better readability */
+    border: 1px solid white;
+    padding: 8px;
 }
 
 .table-container {
     width: 100%;
-    overflow-x: auto; /* Allows horizontal scrolling */
+    overflow-x: auto;
 }
 
 #header {
@@ -116,8 +116,8 @@ th, td {
 
 .inlineplease {
     display: flex;
-    align-items: center; /* Aligns items vertically */
-    justify-content: center; /* Aligns items horizontally */
+    align-items: center;
+    justify-content: center;
 }
 
 #main {

@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+import '../styles/blog.css';
 ---
 
 <!DOCTYPE html>
@@ -17,9 +19,9 @@ const { title } = Astro.props;
         <meta name="og:title" content=`${title} | Wilbur's Blog`>
         <meta name="og:description" content=`Wilbur Williams' blog. Page: ${title}`>
         <meta name="fediverse:creator" content="@wilbur@wetdry.world">
-        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link rel="preconnect" href="https://assets.c48.uk">
+        <link rel="preconnect" href="https://assets.c48.uk" crossorigin>
         <title>{title} | Wilbur's Blog</title>
-        <link href="/blog/style.css" rel="stylesheet">
     </head>
     <body>
         <div id="header">
