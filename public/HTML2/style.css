@@ -2,8 +2,6 @@ html, body {
   animation: funnyRainbow linear 12s infinite;
   animation-direction: normal;
   color: white;
-  height: 100%;
-  width: 100vw;
 }
 
 a, p, h1 {
@@ -13,13 +11,13 @@ a, p, h1 {
 }
 
 @keyframes funnyRainbow {
-  0% {background-image:url("../assets/funi/Bojo.jpeg");} 
-  16% {background-image:url("../assets/funi/Bojo2.jpeg");}
-  32% {background-image:url("../assets/funi/funnyJoe.jpeg");}
-  50% {background-image:url("../assets/funi/Bojo3.jpeg");} 
-  66% {background-image:url("../assets/funi/KimJongUn.jpeg");}
-  84% {background-image:url("../assets/funi/fart.jpeg");}
-  100% {background-image:url("../assets/funi/Bojo.jpeg");} 
+  0% {background-image:url("https://assets.c48.uk/images/funi/Bojo.avif");} 
+  16% {background-image:url("https://assets.c48.uk/images/funi/Bojo2.avif");}
+  32% {background-image:url("https://assets.c48.uk/images/funi/funnyJoe.avif");}
+  50% {background-image:url("https://assets.c48.uk/images/funi/Bojo3.avif");} 
+  66% {background-image:url("https://assets.c48.uk/images/funi/KimJongUn.avif");}
+  84% {background-image:url("https://assets.c48.uk/images/funi/fart.avif");}
+  100% {background-image:url("https://assets.c48.uk/images/funi/Bojo.avif");} 
   
 }
 
