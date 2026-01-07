@@ -1,3 +1,5 @@
+@import url("https://assets.c48.uk/fonts/sometype-mono.css");
+
 body { 
     margin: 0;
     background-color: #000;
@@ -8,7 +10,7 @@ canvas {
 }
 
 .content {
-    font-family: 'Reddit Mono', monospace;
+    font-family: 'Sometype Mono', monospace;
     width: 80vw;
     height: 80%;
     background-color: black;

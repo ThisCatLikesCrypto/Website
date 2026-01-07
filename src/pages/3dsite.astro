@@ -1,13 +1,13 @@
+---
+import "../styles/3dsite.css";
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sporx Maths</title>
-    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin="anonymous">
-    <link rel="preload" href="caramelldansen.mp3" as="audio">
-    <link href="https://fonts.bunny.net/css?family=reddit-mono:400" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <button class="enter-button" id="enterButton">Enter (WASD to move, arrow keys to look)</button>
@@ -21,17 +21,16 @@
             <h1>How was this done?</h1>
             <h2>This was done by using the three.js library.</h2>
             <h3>I got ChatGPT to code a lot of this and then made quite a few tweaks to get it how i wanted.</h3>
-            <p>This was inspired by <a href="https://bomberfish.ca/?higherdimension">Bomberfish</a> (he did a much better job than me)</p>
+            <p>This was inspired by <a href="https://web.archive.org/web/20250612211304/https://bomberfish.ca/?higherdimension">Bomberfish</a> (he did a much better job than me; archive link so expect slow loading)</p>
             <h3>IAQs (Infrequently Asked Questions):</h3>
-            <p>- <b>Why link no worky?</b> Firefox Devs.</p>
             <p>- <b>Why?</b> Yes.</p>
             <p>- <b>Music?</b> Caramelldansen</p><i style="font-size: 10px;">(I think it's enough of a meme song that copyright wont murder me)</i>
             <br>
-            <button onclick="dipSettin()">Settings</button>
+            <button id="dipSettin">Settings</button>
         </div>
         <div id="settings" style="display: none;">
-            <button id="musicBtn" onclick="pauseMusic()">Pause Music</button>
-            <button onclick="dopSettin()">Close</button>
+            <button id="musicBtn">Pause Music</button>
+            <button id="dopSettin">Close</button>
         </div>
     </div>
     <div id="content0" class="content" style="display:none;">
@@ -49,9 +48,8 @@
             <h1>How the fuck did you even...</h1>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS3DRenderer.js"></script>
-    <script src="script.js"></script>
+    <script>
+        import "../scripts/3dsite.ts";
+    </script>
 </body>
 </html>

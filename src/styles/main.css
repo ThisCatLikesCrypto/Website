@@ -8,12 +8,12 @@ body {
     background-size: cover;
     height: 100vh;
     font-family: 'Lexend', Calibri, sans-serif;
-    cursor: url('../images/g305cursor.png'), default;
+    cursor: url('https://assets.c48.uk/images/g305cursor.png'), default;
 }
 
 a {
     color: lightblue;
-    cursor: url('../images/g305cursorgreen.png'), pointer;
+    cursor: url('https://assets.c48.uk/images/g305cursorgreen.png'), pointer;
 }
 
 button {

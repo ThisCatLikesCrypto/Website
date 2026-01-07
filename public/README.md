@@ -1,1 +1,0 @@
-This is the source code for my website. There are two branches: 'main' and 'active-dev'. 'main' is available at https://wilburwilliams.uk and 'active-dev' is at https://dev.wilburwilliams.uk.

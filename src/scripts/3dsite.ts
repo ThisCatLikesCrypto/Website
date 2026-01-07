@@ -1,44 +1,30 @@
-let scene, camera, renderer, cssRenderer;
+import * as THREE from "three";
+import { CSS3DRenderer, CSS3DObject } from "three/examples/jsm/renderers/CSS3DRenderer.js";
+
+let scene: THREE.Scene;
+let camera: THREE.PerspectiveCamera;
+let renderer: THREE.WebGLRenderer;
+let cssRenderer: CSS3DRenderer;
+
 let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
-let rotateUp = false, rotateDown = false, rotateLeft = false, rotateRight = false;
-let velocity = new THREE.Vector3();
-var audio = new Audio('caramelldansen.mp3');
-let floor;
+let rotateLeft = false, rotateRight = false;
+
+let velocity: THREE.Vector3 = new THREE.Vector3();
+const audio = new Audio('https://assets.c48.uk/audio/caramelldansen.opus');
+let floor: THREE.Mesh<THREE.PlaneGeometry, THREE.MeshBasicMaterial>;
+
 const movementSpeed = 1;
 const rotationSpeed = 0.02;
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
-const wallDistance = 0.4*vw; // Distance of walls from the center
+const wallDistance = 0.4 * vw;
 
 audio.load();
 
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function addObject(namesd, p1, p2, p3, r1, r2, r3) {
+function addObject(namesd: string, p1: number, p2: number, p3: number, r1: number, r2: number, r3: number): void {
     const thing = document.getElementById(namesd);
+    if (!thing) return;
     thing.style.display = 'block';
-    const thingObject = new THREE.CSS3DObject(thing);
+    const thingObject = new CSS3DObject(thing);
     thingObject.position.set(p1, p2, p3);
     thingObject.rotation.set(r1, r2, r3);
     scene.add(thingObject);
@@ -59,7 +45,7 @@ function init() {
     document.body.appendChild(renderer.domElement);
 
     // CSS3D Renderer
-    cssRenderer = new THREE.CSS3DRenderer();
+    cssRenderer = new CSS3DRenderer();
     cssRenderer.setSize(window.innerWidth, window.innerHeight);
     cssRenderer.domElement.style.position = 'absolute';
     cssRenderer.domElement.style.top = '0';
@@ -87,13 +73,13 @@ function init() {
     animate();
     setInterval(animfloor, 20);
 
-    msuic = getCookie("audio");
+    const msuic = localStorage.getItem("audio");
     if (msuic === "play" || msuic === null || msuic === undefined){
         music();
     }
 }
 
-function onWindowResize() {
+function onWindowResize(): void {
     alert("if the resize was a zoom (ctrl+ and ctrl-) that can mess this up. Press OK to reload.");
     document.location.replace("index.html");
     /* camera.aspect = window.innerWidth / window.innerHeight;
@@ -102,7 +88,7 @@ function onWindowResize() {
     cssRenderer.setSize(window.innerWidth, window.innerHeight); */
 }
 
-function onKeyDown(event) {
+function onKeyDown(event: KeyboardEvent): void {
     switch (event.code) {
         case 'KeyW':
             moveForward = true;
@@ -127,7 +113,7 @@ function onKeyDown(event) {
     }
 }
 
-function onKeyUp(event) {
+function onKeyUp(event: KeyboardEvent): void {
     switch (event.code) {
         case 'KeyW':
             moveForward = false;
@@ -152,15 +138,15 @@ function onKeyUp(event) {
     }
 }
 
-async function animfloor() {
-    // Change floor color
+function animfloor(): void {
+    if (!floor) return;
     const time = Date.now() * 0.0001; // Slower transition
     const hue = 210; // Fixed hue for blue
     const lightness = (Math.sin(time * Math.PI * 2) + 1) / 2; // Oscillates between 0 and 1
     floor.material.color.setHSL(hue / 360, 1, lightness * 0.5 + 0.25); // Lightness between 0.25 and 0.75
 }
 
-function checkCollisions(position) {
+function checkCollisions(position: THREE.Vector3): void {
     const halfBoxSize = wallDistance - 50; // Adjust this value as needed
     if (position.x < -halfBoxSize) position.x = -halfBoxSize;
     if (position.x > halfBoxSize) position.x = halfBoxSize;
@@ -168,8 +154,7 @@ function checkCollisions(position) {
     if (position.z > halfBoxSize) position.z = halfBoxSize;
 }
 
-
-function animate() {
+function animate(): void {
     requestAnimationFrame(animate);
 
     const direction = new THREE.Vector3();
@@ -178,7 +163,7 @@ function animate() {
     const moveDirection = new THREE.Vector3();
 
     if (moveForward) moveDirection.add(direction);
-    if (moveBackward) moveDirection.add(direction.negate());
+    if (moveBackward) moveDirection.add(direction.clone().negate());
     if (moveLeft) moveDirection.add(new THREE.Vector3().crossVectors(camera.up, direction).normalize());
     if (moveRight) moveDirection.add(new THREE.Vector3().crossVectors(direction, camera.up).normalize());
 
@@ -198,41 +183,59 @@ function animate() {
     cssRenderer.render(scene, camera);
 }
 
-document.getElementById('enterButton').addEventListener('click', function() {
-    this.style.display = 'none';
+const enterBtn = document.getElementById('enterButton');
+enterBtn?.addEventListener('click', function() {
+    (this as HTMLElement).style.display = 'none';
     init();
 });
 
-async function music() {
-    mbtn = document.getElementById("musicBtn");
+function handleAudioEnded(): void {
+    audio.currentTime = 0;
+    void audio.play();
+}
+
+function music(): void {
+    const mbtn = document.getElementById("musicBtn");
+    if (!mbtn) return;
     mbtn.innerHTML = "Pause Music";
     mbtn.onclick = pauseMusic;
-    audio.play();
-    audio.addEventListener("ended", function(){
-        audio.currentTime = 0;
-        audio.play();
-    });
-    setCookie("audio", "play", 365);
+    void audio.play();
+    audio.addEventListener("ended", handleAudioEnded);
+    localStorage.setItem("audio", "play");
 }
 
-async function pauseMusic() {
-    mbtn = document.getElementById("musicBtn");
+function pauseMusic(): void {
+    const mbtn = document.getElementById("musicBtn");
+    if (!mbtn) return;
     mbtn.innerHTML = "Play Music";
     mbtn.onclick = music;
-    audio.removeEventListener("ended", audio);
+    audio.removeEventListener("ended", handleAudioEnded);
     audio.pause();
-    setCookie("audio", "paused", 365);
+    localStorage.setItem("audio", "paused");
 }
 
-function dipSettin() {
-    document.getElementById('settings').style.display = "block";
-    document.getElementById('explain').style.display = "none";
+function dipSettin(): void {
+    const settings = document.getElementById('settings');
+    const explain = document.getElementById('explain');
+    if (settings) settings.style.display = "block";
+    if (explain) explain.style.display = "none";
 }
 
-function dopSettin() {
-    document.getElementById('settings').style.display = "none";
-    document.getElementById('explain').style.display = "block";
+function dopSettin(): void {
+    const settings = document.getElementById('settings');
+    const explain = document.getElementById('explain');
+    if (settings) settings.style.display = "none";
+    if (explain) explain.style.display = "block";
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const dip = document.getElementById("dipSettin");
+    const dop = document.getElementById("dopSettin");
+    const musicBtn = document.getElementById("musicBtn");
+    if (dip) dip.onclick = dipSettin;
+    if (dop) dop.onclick = dopSettin;
+    if (musicBtn) musicBtn.onclick = pauseMusic;
+});
 
 // Handle window resize
 window.addEventListener('resize', onWindowResize, false);
