@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style id="them"></style>
+    <style is:inline id="them"></style>
 </head>
 
 <body>
@@ -100,7 +100,7 @@
 
         function displayGenData(data) {
             let lcperc = getLowCarbonPercent(data);
-            document.getElementById('lcpercent').innerHTML = lcperc;
+            document.getElementById('lcpercent').innerHTML = lcperc.toString();
         }
 
         const SHARED = `
@@ -165,8 +165,6 @@
         async function main() {
             const urlParams = new URLSearchParams(window.location.search);
             const mode = urlParams.get('theme');
-
-            console.log(mode); // why is this returning null even when theme param is set?
 
             const styleEl = document.getElementById('them');
             if (mode === "light") {

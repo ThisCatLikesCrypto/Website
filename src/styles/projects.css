@@ -1,7 +1,6 @@
 @import url("https://assets.c48.uk/fonts/montserrat.css");
 @import url('https://cdn.jsdelivr.net/gh/EyeScary-Development/CDN/fonts/croscore/css/carlito.css');
 
-/* Stuff that needs to affect the whole page */
 body {
     background-image: url('/assets/background.png');
     background-position: center;

@@ -1,3 +1,10 @@
+---
+import "../../styles/wTextitor.css";
+
+import "quill/dist/quill.snow.css";
+
+import "katex/dist/katex.min.css";
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,38 +12,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wTextitor</title>
     <link rel="icon" type="image/x-icon" href="/assets/icon.png">
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
     <link id="them" href="/css/themes/pitchdark.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.min.js"></script>
-    <script src="script.js"></script>
+    <script src="../../scripts/wTextitor.js"></script>
     <div id="menubar">
       <div class="dropdown2 ddall">
         <a href="#">File</a>
         <div class="dropdown-content" style="display: none;">
-          <a href="#" onclick="saveLocal()">Manually Save</a>
-          <a href="#" onclick="dlSave()">Download</a>
-          <a href="#" onclick="upSave()">Upload</a>
-          <a href="#" onclick="quilltoHTML()">HTML Convert</a>
+          <a href="#" id="file-save">Manually Save</a>
+          <a href="#" id="file-download">Download</a>
+          <a href="#" id="file-upload">Upload</a>
+          <a href="#" id="file-html-convert">HTML Convert</a>
         </div>
       </div>
       <div class="dropdown ddall">
         <a href="#">Theme</a>
         <div class="dropdown-content" style="display: none;">
-          <a href="#" onclick="changeTheme('surface')">Surface Theme</a>
-          <a href="#" onclick="changeTheme('deep')">Deep Theme</a>
-          <a href="#" onclick="changeTheme('pitchdark')">Dark Theme</a>
+          <a href="#" class="theme-option" data-theme="surface">Surface Theme</a>
+          <a href="#" class="theme-option" data-theme="deep">Deep Theme</a>
+          <a href="#" class="theme-option" data-theme="pitchdark">Dark Theme</a>
         </div>
       </div>
       <div class="ddall">
         <a href="#">Focus</a>
         <div class="dropdown-content" style="display: none;">
-          <a href="#" id="foc" onclick="focusMode()">Focus Mode</a>
-          <a href="#" id="unfoc" onclick="unfocus()">Remove Focus Mode</a>
+          <a href="#" id="foc">Focus Mode</a>
+          <a href="#" id="unfoc">Remove Focus Mode</a>
         </div>
       </div>
       <h2 id="doctitle"><span id="name" contenteditable="true" style="color: lightcoral;">Untitled Document</span></h2>
@@ -48,9 +50,9 @@
     <br><br><br><br><br>
     <div id="info">
       <br>
-      <h1 id="mainheader" onclick="alert('Stands for Wilbur Text Editor')">wTextitor v0.2.4a</h1>
+      <h1 id="mainheader">wTextitor v0.2.4a-typescriptified</h1>
       <h1 id="infoh1">What is this?</h1>
-      <p id="infop1">This is a simple webapp that, using the <a href="https://quilljs.com" onmousewheel="alert('2.0.3, if you were wondering')">Quill Library</a> (and <a href="https://katex.org/">KaTeX</a>), allows you to write text, and saves to local storage every ten seconds (trigger a manual save by pressing 'Save' in the toolbar.).</p>
+      <p id="infop1">This is a simple webapp that, using the <a href="https://quilljs.com">Quill Library</a> (and <a href="https://katex.org/">KaTeX</a>), allows you to write text, and saves to local storage every ten seconds (trigger a manual save by pressing 'Save' in the toolbar.).</p>
       <p id="infop2">In beta; not much is included on top of standard quill yet.</p>
       <p id="infop3">Please submit bugs or outright broken things to ThisCatLikesCrypto/Website (github).</p>
       <a style="font-size: 12px;" href="test.html">demo of the converter (added only a very basic stylesheet)</a>
