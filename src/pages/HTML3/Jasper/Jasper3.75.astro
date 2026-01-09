@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .left {
+            float: left;
+        }
+
+        #Cloklie {
+            border-radius: 10px;
+            box-shadow: 2px 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <title>Cloklie Clicker</title>
+    <h1>Cloklie Clicker</h1>
+    <div class="left">
+        <h3>Upgrades</h3>
+        <button onclick="CloklieUpUp()">Cloklie +1</button>
+        <p id="CloklieUpUpCost">20</p>
+        <p id="CloklieUpUpUpgradeCount">0</p>
+
+        <button onclick="CloklieUpUp_Up()">Clokle +1 +1</button>
+        <p id="CloklieUpUp_UpCost">200</p>
+        <p id="CloklieUpUp_UpUpgradeCount">0</p>
+    </div>
+    <div class="center">
+        <h2 id="CloklieCount">0</h2>
+        <button onclick="CloklieUp()" id="Cloklie">Cloklie</button>
+    </div>
+    <script is:inline>
+        var Cloklie = 0
+        var CloklieAdd = 1
+        var CloklieAddAdd = 1
+        var CloklieUpUpUpgradeCount2 = 0
+        var CloklieCost = 20
+        var Cloklie_UpCost = 200
+        var CloklieUpUp_UpUpgradeCount = 0
+
+        function CloklieUp() {
+            Cloklie = Cloklie + CloklieAdd
+            document.getElementById("CloklieCount").innerHTML = Cloklie
+        }
+
+        function CloklieUpUp() {
+            if (Cloklie >= CloklieCost) {
+                Cloklie = Cloklie - CloklieCost;
+                CloklieAdd = CloklieAdd + CloklieAddAdd;
+                CloklieUpUpUpgradeCount2 = CloklieUpUpUpgradeCount2 + 1;
+                document.getElementById("CloklieUpUpUpgradeCount").innerHTML = CloklieUpUpUpgradeCount2;
+                CloklieCost = CloklieCost + (CloklieCost * 1.5);
+                document.getElementById("CloklieUpUpCost").innerHTML = CloklieCost;
+                document.getElementById("Cloklie").innerHTML = Cloklie;
+            } else {}
+        }
+
+        function CloklieUpUp_Up() {
+            if (Cloklie >= Cloklie_UpCost) {
+                Cloklie = Cloklie - Cloklie_UpCost;
+                CloklieAddAdd = CloklieAddAdd + 1;
+                CloklieUpUp_UpUpgradeCount = CloklieUpUp_UpUpgradeCount + 1;
+                document.getElementById("CloklieUpUp_UpUpgradeCount").innerHTML = CloklieUpUp_UpUpgradeCount;
+                Cloklie_UpCost = Cloklie_UpCost + (Cloklie_UpCost * 1.5);
+                document.getElementById("CloklieUpUp_UpCost").innerHTML = Cloklie_UpCost;
+                document.getElementById("Cloklie").innerHTML = Cloklie;
+            }
+        }
+    </script>
+</body>
+</html>

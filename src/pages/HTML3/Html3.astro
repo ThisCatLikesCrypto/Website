@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>What is AI?</h2>
+    <h3>Description</h3>
+    <p id="p1">AI (Artificial intelligence) is intelligence that is not natural or human. It has both advantages and
+        disadvantages and in this helpful web page I will go through some of them</p>
+    <h3 id="pros">Pros</h3>
+    <ul>
+        <li>It can help with architecture - designing</li>
+        <li>It can organise schedules and timetables </li>
+        <li>It can streamline coding </li>
+    </ul>
+    <h3>Cons</h3>
+    <div id="content">
+        <ul>
+            <li>It might take peoples jobs</li>
+            <li>It takes infomation from the whole internet so it can be influenced</li>
+            <li>It could follow its instructions too well</li>
+        </ul>
+    </div>
+    <button id="cons" onclick="Cons()">Cons Of AI</button>
+    <p id="output"></p>
+    <script is:inline>
+        function Cons() {
+            const content = document.getElementById("content").innerHTML;
+            document.getElementById("output").innerHTML = content;
+        }
+    </script>
+</body>
+
+</html>

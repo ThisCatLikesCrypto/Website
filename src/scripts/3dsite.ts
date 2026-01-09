@@ -1,17 +1,17 @@
-import * as THREE from "three";
+import { Scene, PerspectiveCamera, WebGLRenderer, Color, Vector3,PlaneGeometry, MeshBasicMaterial, Mesh, DoubleSide, } from "three";
 import { CSS3DRenderer, CSS3DObject } from "three/examples/jsm/renderers/CSS3DRenderer.js";
 
-let scene: THREE.Scene;
-let camera: THREE.PerspectiveCamera;
-let renderer: THREE.WebGLRenderer;
+let scene: Scene;
+let camera: PerspectiveCamera;
+let renderer: WebGLRenderer;
 let cssRenderer: CSS3DRenderer;
 
 let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
 let rotateLeft = false, rotateRight = false;
 
-let velocity: THREE.Vector3 = new THREE.Vector3();
+let velocity: Vector3 = new Vector3();
 const audio = new Audio('https://assets.c48.uk/audio/caramelldansen.opus');
-let floor: THREE.Mesh<THREE.PlaneGeometry, THREE.MeshBasicMaterial>;
+let floor: Mesh<PlaneGeometry, MeshBasicMaterial>;
 
 const movementSpeed = 1;
 const rotationSpeed = 0.02;
@@ -31,42 +31,35 @@ function addObject(namesd: string, p1: number, p2: number, p3: number, r1: numbe
 }
 
 function init() {
-    // Scene
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x201263);
+    scene = new Scene();
+    scene.background = new Color(0x201263);
 
-    // Camera
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
 
-    // WebGL Renderer
-    renderer = new THREE.WebGLRenderer();
+    renderer = new WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    // CSS3D Renderer
     cssRenderer = new CSS3DRenderer();
     cssRenderer.setSize(window.innerWidth, window.innerHeight);
     cssRenderer.domElement.style.position = 'absolute';
     cssRenderer.domElement.style.top = '0';
     document.body.appendChild(cssRenderer.domElement);
 
-    // Add floor
-    const floorGeometry = new THREE.PlaneGeometry(8000, 8000);
-    const floorMaterial = new THREE.MeshBasicMaterial({ color: 0x808080, side: THREE.DoubleSide });
-    floor = new THREE.Mesh(floorGeometry, floorMaterial);
+    const floorGeometry = new PlaneGeometry(8000, 8000);
+    const floorMaterial = new MeshBasicMaterial({ color: 0x808080, side: DoubleSide });
+    floor = new Mesh(floorGeometry, floorMaterial);
     floor.rotation.x = Math.PI / 2;
     floor.position.y = -1;
     scene.add(floor);
 
-    // Adjust the rotation and position values to create a 3/4 box shape
-    addObject('content2', 0, 0, -wallDistance, 0, 0, 0);         // Front wall
-    addObject('content3', -wallDistance, 0, 0, 0, Math.PI / 2, 0);  // Left wall
-    addObject('content1', wallDistance, 0, 0, 0, -Math.PI / 2, 0);  // Right wall
-    addObject('content0', 0, 0, wallDistance, 0, Math.PI, 0);   // Back wall
-    addObject('content4', 0, 0, -wallDistance-2000, 0, 0, 0);         // Warn wall
+    addObject('content2', 0, 0, -wallDistance, 0, 0, 0);
+    addObject('content3', -wallDistance, 0, 0, 0, Math.PI / 2, 0);
+    addObject('content1', wallDistance, 0, 0, 0, -Math.PI / 2, 0);
+    addObject('content0', 0, 0, wallDistance, 0, Math.PI, 0);
+    addObject('content4', 0, 0, -wallDistance-2000, 0, 0, 0);
 
-    // Event listeners for key press
     document.addEventListener('keydown', onKeyDown, false);
     document.addEventListener('keyup', onKeyUp, false);
 
@@ -80,12 +73,8 @@ function init() {
 }
 
 function onWindowResize(): void {
-    alert("if the resize was a zoom (ctrl+ and ctrl-) that can mess this up. Press OK to reload.");
+    alert("if the resize was a zoom (ctrl+ and ctrl-) that can mess this up. Press OK to reload. Press cancel to also reload.");
     document.location.replace("index.html");
-    /* camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    cssRenderer.setSize(window.innerWidth, window.innerHeight); */
 }
 
 function onKeyDown(event: KeyboardEvent): void {
@@ -146,7 +135,7 @@ function animfloor(): void {
     floor.material.color.setHSL(hue / 360, 1, lightness * 0.5 + 0.25); // Lightness between 0.25 and 0.75
 }
 
-function checkCollisions(position: THREE.Vector3): void {
+function checkCollisions(position: Vector3): void {
     const halfBoxSize = wallDistance - 50; // Adjust this value as needed
     if (position.x < -halfBoxSize) position.x = -halfBoxSize;
     if (position.x > halfBoxSize) position.x = halfBoxSize;
@@ -157,24 +146,22 @@ function checkCollisions(position: THREE.Vector3): void {
 function animate(): void {
     requestAnimationFrame(animate);
 
-    const direction = new THREE.Vector3();
+    const direction = new Vector3();
     camera.getWorldDirection(direction);
 
-    const moveDirection = new THREE.Vector3();
+    const moveDirection = new Vector3();
 
     if (moveForward) moveDirection.add(direction);
     if (moveBackward) moveDirection.add(direction.clone().negate());
-    if (moveLeft) moveDirection.add(new THREE.Vector3().crossVectors(camera.up, direction).normalize());
-    if (moveRight) moveDirection.add(new THREE.Vector3().crossVectors(direction, camera.up).normalize());
+    if (moveLeft) moveDirection.add(new Vector3().crossVectors(camera.up, direction).normalize());
+    if (moveRight) moveDirection.add(new Vector3().crossVectors(direction, camera.up).normalize());
 
     moveDirection.normalize();
     velocity.add(moveDirection.multiplyScalar(movementSpeed));
 
-    // Rotate camera
     if (rotateLeft) camera.rotation.y -= rotationSpeed;
     if (rotateRight) camera.rotation.y += rotationSpeed;
 
-    // Apply velocity and damping
     camera.position.add(velocity);
     checkCollisions(camera.position);
     velocity.multiplyScalar(0.9);
@@ -237,5 +224,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (musicBtn) musicBtn.onclick = pauseMusic;
 });
 
-// Handle window resize
 window.addEventListener('resize', onWindowResize, false);
