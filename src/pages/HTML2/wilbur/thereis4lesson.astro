@@ -1,0 +1,26 @@
+---
+import "../../../styles/HTML2/l4style.css";
+---
+
+<!DOCTYPE html>
+
+<head>
+</head>
+
+<body>
+  <script is:inline>
+    function sayHello() {
+      yourname = document.getElementById("name").value;
+      alert(yourname +
+        ", you should be scared, we now have our name in the database and we will use it to track us down. ;)");
+      setTimeout(function() {
+        window.location.replace('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+      }, 1000);
+    }
+  </script>
+  <label for="Name">please enter your name in the box:</label>
+  <input type="text" name="name" id="name">
+  <br>
+  <button class="button" onclick="sayHello()">Submit</button>
+
+</body>

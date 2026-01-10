@@ -1,0 +1,82 @@
+---
+import "../../../styles/HTML2/theCHIOCE.css";
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+</head>
+
+<body>
+  <script is:inline>
+    function openTab(evt, tabName) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+  <h1>A web page with tabs!</h1>
+
+  <!-- Tab links -->
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'Tab1')">Tab 1</button>
+    <button class="tablinks" onclick="openTab(event, 'Tab2')">Tab 2</button>
+    <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button>
+    <button class="tablinks" onclick="openTab(event, 'Tab4')">Tab 4</button>
+    <button class="tablinks" onclick="openTab(event, 'Tab5')">Tab 5</button>
+  </div>
+
+  <!-- Tab content -->
+  <div id="Tab1" class="tabcontent">
+    <h3>Tab 1</h3>
+    <p>This is the content of tab 1</p>
+    <p>jasper woz ere</p>
+    <!-- You can add more content here-->
+
+  </div>
+
+  <div id="Tab2" class="tabcontent">
+    <h3>Tab 2</h3>
+    <p>This is the content of tab 2</p>
+    <p>jasper woz ere</p>
+    <!-- You can add more content here-->
+
+  </div>
+
+  <div id="Tab3" class="tabcontent">
+    <h3>Tab 3</h3>
+    <p>This is the content of tab 3</p>
+
+  </div>
+
+  <div id="Tab4" class="tabcontent">
+    <h3>Tab 4</h3>
+    <p>This is the content of tab 4</p>
+
+  </div>
+
+  <div id="Tab5" class="tabcontent">
+    <h3>HHEHEHEHHEHE</h3>
+    <p>This is either the first or last one you clicked</p>
+
+  </div>
+
+</body>
+
+</html>

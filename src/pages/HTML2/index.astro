@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    html,
+    body {
+      animation: funnyRainbow linear 12s infinite;
+      animation-direction: normal;
+      color: white;
+    }
+
+    a,
+    p,
+    h1 {
+      color: darkslategrey;
+      animation: textRainbow linear 4s infinite;
+      padding: 4px;
+    }
+
+    @keyframes funnyRainbow {
+      0% {
+        background-image: url("https://assets.c48.uk/images/funi/Bojo.avif");
+      }
+
+      16% {
+        background-image: url("https://assets.c48.uk/images/funi/Bojo2.avif");
+      }
+
+      32% {
+        background-image: url("https://assets.c48.uk/images/funi/funnyJoe.avif");
+      }
+
+      50% {
+        background-image: url("https://assets.c48.uk/images/funi/Bojo3.avif");
+      }
+
+      66% {
+        background-image: url("https://assets.c48.uk/images/funi/KimJongUn.avif");
+      }
+
+      84% {
+        background-image: url("https://assets.c48.uk/images/funi/fart.avif");
+      }
+
+      100% {
+        background-image: url("https://assets.c48.uk/images/funi/Bojo.avif");
+      }
+
+    }
+
+    @keyframes textRainbow {
+      0% {
+        background-color: red;
+      }
+
+      16% {
+        background-color: orange;
+      }
+
+      32% {
+        background-color: yellow;
+      }
+
+      48% {
+        background-image: green;
+      }
+
+      64% {
+        background-color: blue;
+      }
+
+      80% {
+        background-color: purple;
+      }
+
+      100% {
+        background-color: red;
+      }
+    }
+
+    @media (prefers-reduced-motion) {
+
+      html,
+      body {
+        animation: none;
+      }
+
+      a,
+      p,
+      h1 {
+        color: darkslategrey;
+        animation: none;
+        padding: 4px;
+      }
+    }
+  </style>
+  <title>Our website</title>
+  <link rel="preconnect" href="https://assets.c48.uk">
+</head>
+
+<body id="pg1body">
+  <script>
+    console.log("hi")
+  </script>
+  <h1>HTML2</h1>
+  <p>Welcome to HTML2. HTML2 is the home for stuff that doesn't really fit into any useful category, and just exists</p>
+  <a href="/HTML2/jasper/">Jasper</a>
+  <a href="/HTML2/wilbur/">Wilbur</a>
+  <a href="/HTML2/kieran/">Kieran</a>
+  <a href="/HTML2/Whatdis/">Confu</a>
+  <div id="loadimages" style="display: none;">
+    <!-- forces into cache to stop flashing -->
+    <img loading="eager" src="https://assets.c48.uk/images/funi/Bojo.avif">
+    <img loading="eager" src="https://assets.c48.uk/images/funi/Bojo2.avif">
+    <img loading="eager" src="https://assets.c48.uk/images/funi/funnyJoe.avif">
+    <img loading="eager" src="https://assets.c48.uk/images/funi/Bojo3.avif">
+    <img loading="eager" src="https://assets.c48.uk/images/funi/KimJongUn.avif">
+    <img loading="eager" src="https://assets.c48.uk/images/funi/fart.avif">
+  </div>
+</body>
+
+</html>

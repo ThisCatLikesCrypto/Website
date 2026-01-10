@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+  <style>
+    body {
+      background-color: bisque;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+
+    label {
+      font-size: 12pt;
+      font-weight: bold;
+    }
+
+
+    .button {
+      background-color: white;
+      color: blue;
+      padding: 5px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 12pt;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    function sayHello() {
+      yourname = document.getElementById("name").value;
+      alert("god you're stupid, " + yourname + "!")
+    }
+  </script>
+
+  <label for="name">Please enter your name in the box</label>
+  <input type="text" name="name" id="name">
+  <br>
+  <button class="button" onclick="sayHello()">submit</button>
+
+</body>
