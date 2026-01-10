@@ -522,7 +522,7 @@ async function handleKeyPress(event: KeyboardEvent) {
     } else if (keys.join("").endsWith(obsidianSphereCode) || keys.join("").endsWith(obsidianSphereAlternate)) {
         keysContainer.style.color = "#0ff";
         await sleep(500);
-        showObsidianSpherePrompt();
+        window.location.href = "https://obsidianspher.es/";
     } else if (keys.join("").endsWith(instructions)) {
         keysContainer.style.color = "aqua";
         await sleep(500);
@@ -552,65 +552,6 @@ function displayKeys() {
 
 let keys: string[] = [];
 window.addEventListener("keyup", handleKeyPress);
-
-async function showObsidianSpherePrompt() {
-    // Fetch the obsidianspheres.txt file
-    let text = "";
-    try {
-        const resp = await fetch('https://assets.c48.uk/obsidianspheres.txt');
-        text = await resp.text();
-    } catch (e) {
-        text = "THE SPHERES ARE HIDING FROM YOU. (Could not load prompt)";
-    }
-
-    const overlay = document.createElement('div');
-    overlay.id = "obsidian-sphere-overlay";
-
-    const sphere = document.createElement('div');
-    sphere.innerHTML = `
-        <pre class="obsidian-sphere-symbol">
-   ⬤
-        </pre>
-        <h1 class="obsidian-sphere-title">
-            THE OBSIDIAN SPHERE MANIFESTO
-        </h1>
-        <hr class="obsidian-sphere-hr">
-        <div class="obsidian-sphere-content">
-            <code class="obsidian-sphere-code">
-${text.replace(/([A-Z]{2,}[\s.,!])/g, '<span style="color:#0ff; font-weight:bold; font-size:1.2em;">$1</span>')}
-            </code>
-        </div>
-        <button id="close-obsidian-sphere" class="obsidian-sphere-button">
-            close
-        </button>
-        <button id="copy-obsidian-text" class="obsidian-sphere-button">
-            copy
-        </button>
-        <br>
-        <br>
-    `;
-    overlay.appendChild(sphere);
-
-    document.body.appendChild(overlay);
-
-    (document.getElementById('close-obsidian-sphere') as HTMLElement | null)!.onclick = () => {
-        overlay.remove();
-    };
-
-    const copyButton = document.getElementById('copy-obsidian-text') as HTMLButtonElement | null;
-    if (copyButton) {
-        copyButton.onclick = () => {
-            navigator.clipboard.writeText(text).then(() => {
-                copyButton.innerHTML = "copied!";
-                setTimeout(() => {
-                    copyButton.innerHTML = "copy";
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
-        };
-    }
-}
 
 function criticismAndReview() {
     document.body.innerHTML = `
