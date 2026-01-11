@@ -1,4 +1,6 @@
-let gendata = {};
+import Plotly from 'plotly.js-dist-min';
+
+var gendata = {};
 
 async function getCO2API() {
     try {
@@ -60,7 +62,7 @@ function displayGenData(data) {
         generationMap[entry['fuel']] = entry['perc'];
     });
 
-    lcpercent = getLowCarbonPercent(generationMap);
+    const lcpercent = getLowCarbonPercent(generationMap);
 
     // Update HTML elements with the generation data
     document.getElementById('lcpercent').innerHTML = `${lcpercent}%`;
@@ -135,15 +137,10 @@ async function main() {
     if (co2Data) {
         displayCO2Data(co2Data['data'][0]['intensity']);
     }
-    generationData = await get();
-    displayGenData(generationData);
-}
-
-// Yes you need JS to click links. In fairness, if you visit this without JS the hell are you trying to do?
-function goPlaces(place){
-    window.location.href=place;
+    gendata = await get();
+    displayGenData(gendata);
 }
 
 document.addEventListener('DOMContentLoaded', main);
 
-window.addEventListener('resize', function(){displayGenData(generationData);});
+window.addEventListener('resize', function(){displayGenData(gendata);});

@@ -1,3 +1,7 @@
+---
+import "../styles/wGrid.css";
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wGrid</title>
     <link rel="icon" type="image/x-icon" href="/assets/icon.png">
-    <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/themes/universal.css">
 </head>
 <body>
-    <script src="script.js"></script>
-    <script src="plotly.js"></script>
-    <div id="nav"><button onclick="goPlaces('/')">Home</button>
+    <script src="../scripts/wGrid.ts"></script>
+    <div id="nav"><button onclick="window.location.href='/'">Home</button>
     </div>
     <br>
     <div id="everything">
@@ -46,19 +47,19 @@
             <div class="oversection widget">
                 <h3>Renewable</h3>
                 <p id="wind">Loading...</p>
-                <p id="solar"></p>
-                <p id="biomass"></p>
-                <p id="hydro"></p>
+                <p id="solar">Loading...</p>
+                <p id="biomass">Loading...</p>
+                <p id="hydro">Loading...</p>
             </div>
             <div class="oversection widget">
                 <h3>Fossil Fuels</h3>
                 <p id="gas">Loading...</p>
-                <p id="coal"></p>
+                <p id="coal">Loading...</p>
             </div>
             <div class="oversection widget">
                 <h3>Low Carbon</h3>
                 <p id="nuclear">Loading...</p>
-                <p id="imports"></p>
+                <p id="imports">Loading...</p>
             </div>
         </div>
     </div>

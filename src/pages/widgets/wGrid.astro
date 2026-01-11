@@ -62,13 +62,13 @@
             return Math.round((lowCarbon / totalGen) * 100);
         }
 
-        function categorizeCO2(idx) {
+        function categoriseCO2(idx) {
             if (idx === null || idx === undefined) return { key: 'unknown', label: 'Unknown', emoji: '❓' };
 
             const s = String(idx).trim().toLowerCase();
             if (s.includes('very') && s.includes('low')) return { key: 'very-low', label: 'Very Low', emoji: '🟢' };
             if (s.includes('low')) return { key: 'low', label: 'Low', emoji: '🟢' };
-            if (s.includes('medium') || s.includes('moderate')) return { key: 'medium', label: 'Medium', emoji: '🟡' };
+            if (s.includes('medium') || s.includes('moderate')) return { key: 'moderate', label: 'Moderate', emoji: '🟡' };
             if (s.includes('very') && s.includes('high')) return { key: 'very-high', label: 'Very High', emoji: '⚫️' };
             if (s.includes('high')) return { key: 'high', label: 'High', emoji: '🔴' };
 
@@ -88,7 +88,7 @@
             }
             document.getElementById('index').innerHTML = index;
 
-            const cat = categorizeCO2(index);
+            const cat = categoriseCO2(index);
             document.body.setAttribute('data-co2-category', cat.key);
             const status = document.getElementById('status');
             if (status) {
@@ -128,7 +128,7 @@
             .attribution:hover { opacity: 1; transform: translateY(-2px); }
             body[data-co2-category="very-low"] .status-badge { background: linear-gradient(90deg,#00c853,#66ffb0); color:#062e16; }
             body[data-co2-category="low"]      .status-badge { background: linear-gradient(90deg,#2ecc71,#a8e6cf); color:#083012; }
-            body[data-co2-category="medium"]   .status-badge { background: linear-gradient(90deg,#ffd54f,#fff9c4); color:#4a3b00; }
+            body[data-co2-category="moderate"]   .status-badge { background: linear-gradient(90deg,#ffd54f,#fff9c4); color:#4a3b00; }
             body[data-co2-category="high"]     .status-badge { background: linear-gradient(90deg,#ff7043,#ffd5c2); color:#3b170f; }
             body[data-co2-category="very-high"] .status-badge{ background: linear-gradient(90deg,#bf360c,#ff8a65); color:#2a0700; }
             body[data-co2-category="unknown"] .status-badge { background: #ccc; color:#222; }

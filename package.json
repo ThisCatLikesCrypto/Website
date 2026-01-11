@@ -12,6 +12,7 @@
   "dependencies": {
     "astro": "^5.16.7",
     "katex": "^0.16.21",
+    "plotly.js-dist-min": "^3.3.1",
     "quill": "^2.0.3",
     "three": "^0.128.0"
   }
