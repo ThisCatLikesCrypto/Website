@@ -121,76 +121,6 @@ setInterval(function () {
     if (mytimeEl) mytimeEl.innerHTML = getUKTime();
 }, 1000);
 
-async function displayStatus(response: Response) {
-    const statusTableBody = document.querySelector<HTMLTableSectionElement>("#statusTable tbody");
-    if (!statusTableBody) return;
-    const URLtoname: Record<string, string> = {
-        "https://wilburwilliams.uk": "site",
-        "https://repo.c48.uk": "mirror",
-        "https://de.repo.c48.uk": "german mirror",
-        "https://uk.repo.c48.uk": "uk mirror",
-        "https://assets.c48.uk": "assets",
-    };
-    const data = await response.json();
-    const entries = Object.entries(data);
-    for (let i = 0; i < entries.length; i += 2) {
-        const row = document.createElement("tr");
-        for (let j = 0; j < 2; j++) {
-            const idx = i + j;
-            if (idx < entries.length) {
-                const [key, value] = entries[idx];
-                const statusCode = Number(value);
-                const nameCell = document.createElement("td");
-                nameCell.textContent = URLtoname[key];
-                const statusCell = document.createElement("td");
-                statusCell.id = URLtoname[key];
-                statusCell.textContent = String(value);
-                if (statusCode >= 200 && statusCode < 300) {
-                    statusCell.style.color = "limegreen";
-                } else if (statusCode >= 300 && statusCode < 400) {
-                    statusCell.style.color = "orange";
-                } else {
-                    statusCell.style.color = "red";
-                }
-                row.appendChild(nameCell);
-                row.appendChild(statusCell);
-            } else {
-                // Fill empty cells if not enough entries for the last row
-                row.appendChild(document.createElement("td"));
-                row.appendChild(document.createElement("td"));
-            }
-        }
-        statusTableBody.appendChild(row);
-    }
-}
-
-async function fetchStatus() {
-    const url = "https://oxfbw5zjg2kikumhitruzci2gi0bmugx.lambda-url.eu-west-2.on.aws/";
-    try {
-        const response = await fetch(url);
-        displayStatus(response);
-    } catch (error) {
-        console.warn("status lambda failed, it does this a lot so will be retried after a 3 second delay");
-        await sleep(3000);
-        try {
-            const response = await fetch(url);
-            displayStatus(response);
-        } catch (error) {
-            console.warn("status lambda failed, it does this a lot so will be retried after a 3 second delay (2)");
-            await sleep(3000);
-            try {
-                const response = await fetch(url);
-                displayStatus(response);
-            } catch (error) {
-                console.error(
-                    "There was a problem with the fetch operation:",
-                    error,
-                );
-            }
-        }
-    }
-}
-fetchStatus();
 
 // global easter-audio state
 let easterAudio: HTMLAudioElement | null = null;
@@ -690,30 +620,6 @@ function criticismAndReview() {
     `
     document.body.style.color = "white";
 }
-
-function catGoMeow() {
-    fetch('https://api.thecatapi.com/v1/images/search')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.length > 0) {
-                const imageUrl = data[0].url;
-                console.log('Cat image URL:', imageUrl);
-                window.location.href = imageUrl;
-            } else {
-                console.log('No images found');
-            }
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
-        });
-}
-
-document.getElementById("catButton")!.addEventListener("click", catGoMeow);
 
 function copyBtnEmbed() {
     const embedCode = '<a href="https://wilburwilliams.uk" target="_blank"><img src="https://assets.c48.uk/buttons/wilbur.avif" alt="wilburwilliams.uk (spinny cat icon)></a>'
