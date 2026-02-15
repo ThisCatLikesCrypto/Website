@@ -151,7 +151,7 @@ async function playAprilCells() {
 }
 
 function smoothScroll() {
-    const scrollbar = document.getElementById("scrollibit") as HTMLElement | null;
+    const scrollbar = document.getElementById("scrollibit") as HTMLElement;
     if (!scrollbar) return;
     const scrollSpeed = 1;
 
@@ -339,7 +339,8 @@ async function technologyConnectionsOutro(keysContainer: HTMLElement) {
     document.body.appendChild(stfuconsole);
     smoothScroll();
     await sleep(48000);
-    document.getElementById('main').innerHTML = '';
+    const mainElement = document.getElementById('main') as HTMLElement;
+    mainElement.innerHTML = '';
     keysContainer.style.opacity = "1";
     keysContainer.innerHTML = 'Hope you enjoyed this thing lol';
     await sleep(3000);
@@ -631,3 +632,20 @@ function copyBtnEmbed() {
 
 document.getElementById("buttona")!.addEventListener("click", copyBtnEmbed);
 document.getElementById("buttona2")!.addEventListener("click", copyBtnEmbed);
+
+/* Accurotate technology */
+const button = document.getElementById("accuRotateBtn") as HTMLElement;
+const credits = document.getElementById("credits");
+
+button.addEventListener("click", () => {
+    const body = document.body;
+    body.style.cursor = "url('https://assets.c48.uk/images/middlefinger.svg'), auto";
+    body.classList.remove("move");
+    body.classList.add("rotate3d");
+
+    songPlay("https://assets.c48.uk/audio/extremebinarydrumandbass.opus");
+
+    if (credits) {
+        credits.classList.remove("invisible");
+    }
+});
