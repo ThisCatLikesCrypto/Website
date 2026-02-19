@@ -13,8 +13,9 @@ import "../styles/newtab.css";
     <link rel="preconnect" href="https://assets.c48.uk">
     <link rel="preconnect" href="https://assets.c48.uk" crossorigin>
     <title>New Tab</title>
-    <link id="them" href="/css/themes/pitchdark.css" rel="stylesheet">
-    <link href="/css/themes/universal.css" rel="stylesheet">
+    <style is:inline id="theme-style">
+        /* This is replaced with the current theme's CSS */ 
+    </style>
     <style is:inline id="inlineCustomCSS">
         /* This is replaced with any custom css not imported with a URL*/
     </style>
@@ -42,7 +43,7 @@ import "../styles/newtab.css";
         </div>
         <p class="spacersmol"></p>
         <h1 id="ntitle">New Tab</h1>
-        <h3 id="time">Loading...</h1>
+        <h3 id="time">Loading...</h3>
         <p class="spacersmol"></p>
         <div class="centreplease">
             <form id="searchForm">

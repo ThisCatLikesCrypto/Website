@@ -18,6 +18,10 @@ input[type="file"] {
     display: none;
 }
 
+p {
+    font-family: 'Calibri', Carlito, sans-serif;
+}
+
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
@@ -281,6 +285,35 @@ input[type="file"] {
     text-decoration: none;
     font-size: 18px;
     cursor: pointer;
+}
+
+button {
+    width: 100%;
+    max-width: 200px;
+    margin: 10px auto; 
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    padding: none;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.centreplease {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Really shoulda found some way to do this dynamically*/

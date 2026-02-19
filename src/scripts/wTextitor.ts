@@ -6,22 +6,6 @@ import katex from "katex";
 let quill!: Quill; // initialised after DOMContentLoaded
 let lengthalerted: number = 0;
 
-//Sleep
-function sleep(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-//Copy to clipboard
-function clipCopy(stuff: string): void {
-    try {
-        navigator.clipboard?.writeText(stuff).catch((err) => {
-            console.log("Copy of text failed " + err);
-        });
-    } catch (error) {
-        console.log("Copy of text failed " + error);
-    }
-}
-
 //Make HTML out of quill
 function quilltoHTML(debug: boolean = false): void {
     try {
@@ -213,14 +197,6 @@ function quillGetHTML(inputDelta?: any): string {
     return convhtml;
 }
 
-//Set quill to an empty string. Just disables all quill functions. Not sure why you need this.
-function killQuill(): void {
-    if (quill) {
-        quill.disable();
-        console.log("quill disabled. saving and loading will not apply while disabled");
-    }
-}
-
 //Custom handler functions for the video link input (turns it into embedded links)
 function getVideoUrl(url: string): string {
     let match =
@@ -260,15 +236,6 @@ function videoHandler(): void {
     }
 }
 
-function updateTheme(): void {
-    let themething = getCookie("theme");
-    if (themething === "") {
-        themething = "/css/themes/surface.css"
-    }
-    const el = document.getElementById("them") as HTMLLinkElement | null;
-    if (el) el.href = themething;
-}
-
 function setCookie(cname: string, cvalue: string, exdays: number): void {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -291,12 +258,23 @@ function getCookie(cname: string): string {
     }
     return "";
 }
-
 function changeTheme(theme: string): void {
-    const themething = "/css/themes/" + theme + ".css"
-    const el = document.getElementById("them") as HTMLLinkElement | null;
-    if (el) el.href = themething;
-    setCookie("theme", themething, 180);
+    const themes: { [key: string]: string } = {
+        pitchdark: `@import url("https://assets.c48.uk/fonts/montserrat.css");body{background-color:#121212;color:rgb(13,147,250);font-family:system-ui,-apple-system,BlinkMacSystemFont,'Open Sans','Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;background-size:cover;background-position:center;background-repeat:no-repeat}button{background-color:orange;color:navy}button:hover{background-color:orangered}input::placeholder{color:orange;opacity:1}h1,h2,h3{font-family:'Montserrat',sans-serif!important}.wws-dropdown-content{background-color:darkslategrey;box-shadow:0 8px 16px 0 rgba(0,0,0,0.2)}.wws-dropdown-content a{color:rgb(13,147,250);text-decoration:none;font-family:'Montserrat',sans-serif}.wws-dropdown-content a:hover{background-color:#1d2a52}.wws-dropdown-content p{color:navy;text-decoration:none}.wws-dropbtn{color:limegreen;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;background-color:transparent}.wws-dropbtn:hover{background-color:orange}.wws-inputBox{background-color:rgb(60,59,59);color:rgb(13,147,250);font-family:'Montserrat',sans-serif}img{background-color:grey}.wws-svglogo{background-color:rgb(13,147,250)!important}a{color:lime}`,
+        deep: `@import url("https://assets.c48.uk/fonts/montserrat.css");body{font-family:'Montserrat',sans-serif;background:linear-gradient(135deg,#0f1d3a,#122037,#151d34,#181b31,#1b192e,#1e172b,#211529,#241326,#070d1a);color:#87ff80;background-size:cover;background-position:center;background-repeat:no-repeat}button{background-color:rgb(83,83,83);color:aquamarine}button:hover{background-color:aquamarine;color:rgb(83,83,83)}input::placeholder{color:orange;opacity:1}h1{font-family:'Montserrat',sans-serif}.wws-dropdown-content{background-color:#1d2a52;box-shadow:0 8px 16px 0 rgba(0,0,0,0.2)}.wws-dropdown-content a{color:aqua;text-decoration:none}.wws-dropdown-content a:hover{background-color:cyan;color:#1d2a52}.wws-dropdown-content p{color:black;text-decoration:none}.wws-dropbtn{color:orange;background-color:transparent;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif}.wws-dropbtn:hover{background-color:navy}.wws-inputBox{background-color:darkblue;color:#37f32e;font-family:'Montserrat',sans-serif}img{background-color:darkcyan}.wws-svglogo{background-color:aqua!important}`,
+        surface: `@import url("https://assets.c48.uk/fonts/montserrat.css");body{font-family:'Montserrat',sans-serif;background:linear-gradient(135deg,#1b2c56,#1d2a52,#1f2850,#21264d,#23254a,#252347,#272145,#292042,#2b1e3f,#2d1d3c,#2f1b39,#311937,#331734,#351631,#37152f,#39132c,#3b1129,#3d1026,#3f0e24,#410c21,#430a1e,#070d1a);color:#37f32e;background-size:cover;background-position:center;background-repeat:no-repeat}button{background-color:orange;color:navy}button:hover{background-color:darkmagenta;color:aqua}input::placeholder{color:orange;opacity:1}h1{font-family:'Montserrat',sans-serif}.wws-dropdown-content{background-color:darkslategrey;box-shadow:0 8px 16px 0 rgba(0,0,0,0.2)}.wws-dropdown-content a{color:aqua;text-decoration:none}.wws-dropdown-content a:hover{background-color:#1d2a52}.wws-dropdown-content p{color:black;text-decoration:none}.wws-dropbtn{color:orange;background-color:transparent;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif}.wws-dropbtn:hover{background-color:navy}.wws-inputBox{background-color:darkcyan;color:#37f32e;font-family:'Montserrat',sans-serif}img{background-color:darkcyan}.wws-svglogo{background-color:aqua!important}`
+    };
+
+    const css = themes[theme];
+
+    let styleEl = document.getElementById("theme-style") as HTMLStyleElement | null;
+    if (!styleEl) {
+        styleEl = document.createElement("style");
+        styleEl.id = "theme-style";
+        document.head.appendChild(styleEl);
+    }
+    styleEl.textContent = css;
+    setCookie("theme", theme, 180);
 }
 
 //Essentially the main function, cuz quill needs the page to be loaded first (ik it's not a function)
@@ -394,6 +372,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (theme) changeTheme(theme);
         });
     });
+
+    if (getCookie("theme")) {
+        changeTheme(getCookie("theme"));
+    } else {
+        changeTheme("pitchdark");
+    }
 
     byId('foc')?.addEventListener('click', (e) => { e.preventDefault(); focusMode(); });
     byId('unfoc')?.addEventListener('click', (e) => { e.preventDefault(); unfocus(); });
