@@ -531,19 +531,14 @@ document.addEventListener('DOMContentLoaded', function () {
     updateTime();
     msgs();
 
-    // Existing option change listeners
     document.getElementById("searchqu").addEventListener("change", saveSearchQuOption);
     document.getElementById("searchex").addEventListener("change", saveSearchExOption);
 
-    // New: wire up former inline handlers
-
-    // Top menu
     document.getElementById("menu-primary-options").addEventListener("click", showOptions);
     document.getElementById("menu-link-editor").addEventListener("click", showLinkEditor);
     document.getElementById("menu-themes").addEventListener("click", showThemes);
     document.getElementById("menu-lazy").addEventListener("click", lazyAss);
 
-    // Search form + actions
     document.getElementById("searchForm").addEventListener("submit", (e) => {
         e.preventDefault();
         search(false, null);
@@ -557,51 +552,41 @@ document.addEventListener('DOMContentLoaded', function () {
         search(true);
     });
 
-    // Quicklinks (large)
     document.getElementById("quicklink1").addEventListener("click", () => goPlaces(getLink('link1')));
     document.getElementById("quicklink2").addEventListener("click", () => goPlaces(getLink('link2')));
     document.getElementById("quicklink3").addEventListener("click", () => goPlaces(getLink('link3')));
 
-    // Quicklinks (small)
     for (let i = 4; i <= 9; i++) {
         const btn = document.getElementById(`smallquicklink${i}`);
         if (btn) btn.addEventListener("click", () => goPlaces(getLink(`link${i}`)));
     }
 
-    // Themes section
     document.getElementById("theme-hide").addEventListener("click", hideThemes);
     document.getElementById("theme-surface").addEventListener("click", () => changeTheme('surface'));
     document.getElementById("theme-deep").addEventListener("click", () => changeTheme('deep'));
     document.getElementById("theme-pitchdark").addEventListener("click", () => changeTheme('pitchdark'));
 
-    // Custom CSS URL form
     document.getElementById("customCSSInput").addEventListener("submit", (e) => {
         e.preventDefault();
         changeToCustomTheme();
     });
 
-    // Inline CSS editor save
     document.getElementById("saveInlineCSS").addEventListener("click", (e) => {
         e.preventDefault();
         useCustomInlineCSS();
     });
 
-    // Primary options
     document.getElementById("options-hide").addEventListener("click", hideOptions);
 
-    // Change search engine
     document.getElementById("engineForm").addEventListener("submit", (e) => {
         e.preventDefault();
         changeSearch();
     });
 
-    // Change title
     document.getElementById("titleForm").addEventListener("submit", (e) => {
         e.preventDefault();
         setNewTitle();
     });
-
-    // Link editor
     document.getElementById("linkeditor-hide").addEventListener("click", hideLinkEditor);
     document.getElementById("linkForm").addEventListener("submit", (e) => {
         e.preventDefault();

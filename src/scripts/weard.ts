@@ -12,7 +12,7 @@ var priceoprocur = 10;
 var priceofarm = 100;
 var priceofactory = 1000;
 
-function saveCookie(name, saveString) {
+function saveCookie(name: string, saveString: string) {
     // Set the cookie with a 10-year expiration
     const expirationDate = new Date();
     expirationDate.setFullYear(expirationDate.getFullYear() + 10);
@@ -21,7 +21,7 @@ function saveCookie(name, saveString) {
     document.cookie = stringToCookie;
 }
 
-function readCookie(cookieName) {
+function readCookie(cookieName: string): string {
     const cookies = document.cookie.split(';');
     console.log(cookies)
     for (const cookie of cookies) {
@@ -30,15 +30,15 @@ function readCookie(cookieName) {
             return decodeURIComponent(value);
         }
     }
-    return null; // Cookie not found
+    return ""; // no cookie :c
 }
-const writeToTextFile = (text, fileName) => {
-    let textFile = null;
-    const makeTextFile = (text) => {
+const writeToTextFile = (text: string, fileName: string) => {
+    let textFile: string = "";
+    const makeTextFile = (text: string) => {
         const data = new Blob([text], {
             type: 'text/plain',
         });
-        if (textFile !== null) {
+        if (textFile !== "") {
             window.URL.revokeObjectURL(textFile);
         }
         textFile = window.URL.createObjectURL(data);
@@ -57,7 +57,7 @@ function encodeV001() {
     return saveString;
 }
 // Decodes Saves
-function decodeV001(saveString) {
+function decodeV001(saveString: string) {
     console.log("Decoding with " + saveString);
     if (saveString.split("-")[0] === "cokclv001") {
         saveString = saveString.substring("cokclv001-".length);
@@ -68,31 +68,31 @@ function decodeV001(saveString) {
     cookiesGainedByClicking = parseInt(saveString.split("AB")[1].split("BA")[0]);
     cursorAmount = parseInt(saveString.split("BA")[1].split("BB")[0]);
     procursorAmount = parseInt(saveString.split("BB")[1].split("BC")[0]);
-    farmAmount = parseInt(saveString.split("BC")[1]);
+    farmAmount = parseInt(saveString.split("BC")[1].split("CA")[0]);
     factoryAmount = parseInt(saveString.split("CA")[1]);
     console.log(
-        `cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}, farmAmount ${farmAmount}.`
+        `cokcl: ${cokcl}, cookiesGainedByClicking: ${cookiesGainedByClicking}, cursorAmount: ${cursorAmount}, procursorAmount: ${procursorAmount}, farmAmount ${farmAmount}, factoryAmount ${factoryAmount}.`
     );
 }
-// Saves the Game (To a Browser Cookie)
+
 function save() {
     try {
         var saveString = encodeV001();
         saveCookie("cokclSave", saveString);
         console.log("Game Saved with " + saveString)
-    } catch (error) {
+    } catch (error: any) {
         console.log(
             "Game failed to save. Please raise an issue on https://github.com/ThisCatLikesCrypto/Website.")
-        console.log("Error: " + error.message + ", saveString: " + saveString);
+        console.log("Error: " + error.message);
     }
 }
-// Loads the Game (From a Browser Cookie)
+
 function saveload() {
     try {
-        let saveFile = readCookie('cokclSave')
+        let saveFile: string = readCookie('cokclSave');
         decodeV001(saveFile);
         console.log("Game Loaded with " + saveFile);
-    } catch (error) {
+    } catch (error: any) {
         console.log(
             "Game failed to load. If this is the first load, ignore this. Otherwise please raise an issue on https://github.com/ThisCatLikesCrypto/Website."
         );
@@ -102,40 +102,40 @@ function saveload() {
 
 function quickRun() {
     if (farmAmount > 0) {
-        priceofarm = 100 * farmAmount
-        document.getElementById("farmby").innerHTML = priceofarm.toString();
+        priceofarm = 100 * farmAmount;
+        (document.getElementById("farmby") as HTMLElement).innerHTML = priceofarm.toString();
     }
     if (cursorAmount > 0) {
-        priceocur = 5 * cursorAmount
-        document.getElementById("curby").innerHTML = priceocur.toString();
+        priceocur = 5 * cursorAmount;
+        (document.getElementById("curby") as HTMLElement).innerHTML = priceocur.toString();
     }
     if (procursorAmount > 0) {
-        priceoprocur = 10 * procursorAmount
-        document.getElementById("procurby").innerHTML = priceoprocur.toString();
+        priceoprocur = 10 * procursorAmount;
+        (document.getElementById("procurby") as HTMLElement).innerHTML = priceoprocur.toString();
     }
     if (factoryAmount > 0) {
-        priceofactory = 1000 * factoryAmount
-        document.getElementById("factoryby").innerHTML = priceofactory.toString();
+        priceofactory = 1000 * factoryAmount;
+        (document.getElementById("factoryby") as HTMLElement).innerHTML = priceofactory.toString();
     }
 }
 
 function updateCount() {
     let stats = "Du hast: " + cokcl + " cokie(s), " + cursorAmount + " cursor(s), " + procursorAmount +
         " pro cursor(s), " + farmAmount + " farm(s), " + factoryAmount + " factory(s).";
-    document.getElementById("cps").innerHTML = "You're generating " + (cursorAmount + (procursorAmount * 2) + (
+    (document.getElementById("cps") as HTMLElement).innerHTML = "You're generating " + (cursorAmount + (procursorAmount * 2) + (
         farmAmount * 10) + (factoryAmount * 100)) + " cokies automatically per second.";
-    document.getElementById("counter").innerHTML = stats;
+    (document.getElementById("counter") as HTMLElement).innerHTML = stats;
     document.title = Math.round(cokcl) + " cokies - Cokie Cliker";
 }
 
 function runner() {
-    // Update Counter
+
     cokcl += 1 * cursorAmount;
     cokcl += 2 * procursorAmount;
     cokcl += 10 * farmAmount;
     cokcl += 100 * factoryAmount;
     updateCount();
-    // Update Message
+
     if (cokcl > 100000) {
         msg = "International expansion, you have taken over all cokie production in the world."
     } else if (cokcl > 10000) {
@@ -150,10 +150,10 @@ function runner() {
     } else {
         msg = "Your business just begun, have fun!";
     }
-    document.getElementById("messages").innerHTML = msg;
-    // Save
+    (document.getElementById("messages") as HTMLElement).innerHTML = msg;
+
     save();
-    // Update Prices of Items
+
     quickRun();
 }
 
@@ -193,12 +193,12 @@ function buyfactory() {
     }
     quickRun();
 }
-// Downloads Save
+
 function downloadSave() {
     let saveString = encodeV001();
     writeToTextFile(saveString, "Cokie Cliker Save");
 }
-// Uploads Save
+
 function uploadSave() {
     var input = document.createElement('input');
     input.type = 'file';
@@ -210,7 +210,7 @@ function uploadSave() {
         var file = target.files[0];
         var reader = new FileReader();
         reader.readAsText(file, 'UTF-8');
-        reader.onload = (readerEvent) => {
+        reader.onload = (readerEvent: any) => {
             var content = readerEvent.target.result;
             decodeV001(content);
             runner();
@@ -222,7 +222,6 @@ saveload();
 setInterval(runner, 1000)
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Attach event listeners to buttons
     document.getElementById('cookieBtn')?.addEventListener('click', cookieClicked);
     document.getElementById('downSave')?.addEventListener('click', downloadSave);
     document.getElementById('upSave')?.addEventListener('click', uploadSave);

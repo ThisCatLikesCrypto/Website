@@ -1,6 +1,5 @@
 export { }; // sybau TS
 
-// --- Music Player Code ---
 const songList = [
     "https://assets.c48.uk/audio/scatteredcells.opus",
     "https://eyescary-development.github.io/CDN/musik/ESDP2/BHP_IS_A_ONE_CENT_STOCK_FRAUD.mp3",
@@ -103,7 +102,6 @@ function getUKTime() {
 }
 
 
-// --- Event Listeners ---
 document.addEventListener("DOMContentLoaded", function () {
     (document.getElementById("musiccontrol") as HTMLElement | null)?.addEventListener("click", togglePlay);
     (document.getElementById("prevTrack") as HTMLElement | null)?.addEventListener("click", prevTrack);
@@ -366,7 +364,6 @@ async function killerQueen() {
 }
 
 function disableCodes() {
-    // by making it error lol
     const keysContainer = document.getElementById('keys-container');
     if (keysContainer) keysContainer.outerHTML = "";
 }
