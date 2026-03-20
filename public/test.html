@@ -204,11 +204,17 @@
     <div class="footer">
         <p>footer has feet, no? &copy; Generic Ass Industries 2024</p>
     </div>
-    <!--These analytics are so basic they're public lmao-->
-    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""
-            referrerpolicy="no-referrer-when-downgrade" /></noscript>
-    <!--! 2025-01-04: breh i really added them to this?? -->
+    <script>
+        fetch('https://a.c48.uk/in', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                path: window.location.href
+            })
+        })
+    </script>
 </body>
 
 </html>

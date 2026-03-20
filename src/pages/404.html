@@ -101,7 +101,16 @@
     <p><span class="prompt">>_</span> Error: Page not found.</p>
   </div>
   <p><a href="/">Return to Home</a></p>
-  <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-	<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+  <script>
+      fetch('https://a.c48.uk/in', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              path: window.location.href
+          })
+      })
+  </script>
 </body>
 </html>

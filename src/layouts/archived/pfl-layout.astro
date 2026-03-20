@@ -96,6 +96,17 @@ import "../../styles/pfl-webador.css";
             </div>
         </footer>
     </div>
+    <script>
+        fetch('https://a.c48.uk/in', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                path: window.location.href
+            })
+        })
+    </script>
 </body>
 
 </html>
