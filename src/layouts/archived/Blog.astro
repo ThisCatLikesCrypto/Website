@@ -42,16 +42,6 @@ import '../../styles/blog.css';
         </div>
         <hr>
         <slot />
-        <script>
-            fetch('https://a.c48.uk/in', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					path: window.location.href
-				})
-			})
-        </script>
+        <script is:inline src="https://a.c48.uk/bacon.js"></script>
     </body>
 </html>

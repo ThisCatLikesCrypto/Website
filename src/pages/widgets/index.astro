@@ -31,15 +31,5 @@ import "../../styles/projects.css";
     </p>
     <p>If you don't, well...</p>
     <iframe src="/widgets/wGrid/" style="background-color: white;" height="300"></iframe>
-    <script>
-        fetch('https://a.c48.uk/in', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                path: window.location.href
-            })
-        })
-    </script>
+    <script is:inline src="https://a.c48.uk/bacon.js"></script>
 </body>

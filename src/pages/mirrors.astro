@@ -275,16 +275,6 @@ ubuntu-releases Ubuntu Releases
             <sup>[3]</sup>Ubuntu releases are load balanced between repo.c48.uk and uk.repo.c48.uk, dependent on IP. uk.repo.c48.uk syncs at the same time as 
             repo.c48.uk for this reason.
         </p>
-        <script>
-            fetch('https://a.c48.uk/in', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    path: window.location.href
-                })
-            })
-        </script>
+        <script is:inline src="https://a.c48.uk/bacon.js"></script>
     </body>
 </html>
