@@ -90,16 +90,6 @@ function choose<T>(choices: T[]): T {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function getUKTime() {
-    const now = new Date();
-    const ukTimeFormatter = new Intl.DateTimeFormat("en-GB", {
-        timeZone: "Europe/London",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-    });
-    return ukTimeFormatter.format(now);
-}
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -108,14 +98,8 @@ document.addEventListener("DOMContentLoaded", function () {
     (document.getElementById("nextTrack") as HTMLElement | null)?.addEventListener("click", nextTrack);
     const splashEl = document.getElementById("splash");
     if (splashEl) splashEl.innerHTML = choose(splashtext);
-    const mytimeEl = document.getElementById("mytime");
-    if (mytimeEl) mytimeEl.innerHTML = getUKTime();
 });
 
-setInterval(function () {
-    const mytimeEl = document.getElementById("mytime");
-    if (mytimeEl) mytimeEl.innerHTML = getUKTime();
-}, 1000);
 
 
 // global easter-audio state
