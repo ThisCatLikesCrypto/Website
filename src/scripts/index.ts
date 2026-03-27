@@ -602,7 +602,7 @@ function criticismAndReview() {
 }
 
 function copyBtnEmbed() {
-    const embedCode = '<a href="https://wilburwilliams.uk" target="_blank"><img src="https://assets.c48.uk/buttons/wilbur.avif" alt="wilburwilliams.uk (spinny cat icon)></a>'
+    const embedCode = '<a href="https://c48.uk" target="_blank"><img src="https://assets.c48.uk/buttons/wilbur.avif" alt="c48.uk (spinny cat icon)></a>'
 
     navigator.clipboard.writeText(embedCode).then(function () {
         alert("Copied Embed Code");
