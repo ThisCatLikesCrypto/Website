@@ -16,6 +16,5 @@ function hideSide() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('%cHello Internet Citizen. Welcome to the JavaScript console of wilburwilliams.uk.', 'font-weight: bold; font-size: 30px; color: aqua; text-shadow: 2px 2px 0 rgb(217,31,38)');
     (document.getElementById("sidenavbtn") as HTMLElement).onclick = showSide;
 });
